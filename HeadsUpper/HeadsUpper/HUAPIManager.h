@@ -10,9 +10,8 @@
 
 @interface HUAPIManager : NSObject
 
-+ (void)getTitles:(NSDictionary *)titles
-      andSubjects:(NSArray *)subjects
-       completion:(void(^)(NSArray *data))completion;
++ (void)getTitlesAndSubjects:(void(^)(NSArray *data))completion;
+
 
 @property (nonatomic) NSArray *subjects;
 

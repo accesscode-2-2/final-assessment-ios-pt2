@@ -16,11 +16,9 @@ UITableViewDataSource,
 UITableViewDelegate
 >
 
-@property (nonatomic) NSArray *topicsArray;
 @property (nonatomic) UITableView *tableView;
 
-@property (nonatomic) NSDictionary *titles;
-@property (nonatomic) NSArray *subjects;
+@property (nonatomic) NSArray<NSDictionary *> *subjects;
 
 @end
 
@@ -34,9 +32,8 @@ UITableViewDelegate
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    self.topicsArray = [[NSArray alloc] init];
+    self.subjects = [[NSArray alloc] init];
     [self fetchTitleAndSubjects];
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -53,12 +50,16 @@ UITableViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.topicsArray.count;
+    return self.subjects.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HUCellIdentifier" forIndexPath:indexPath];
+    
+    NSDictionary *titlesAndSubjectsDict = self.subjects[indexPath.row];
+    NSString *title = titlesAndSubjectsDict[@"title"];
+    cell.textLabel.text = title;
     
     return cell;
 }
@@ -75,15 +76,12 @@ UITableViewDelegate
 - (void)fetchTitleAndSubjects
 {
     __weak typeof(self) weakSelf = self;
-    [HUAPIManager getTitles:self.titles
-                andSubjects:self.subjects
-                 completion:^(NSArray *data) {
-                     weakSelf.topicsArray = data;
-                     [weakSelf.tableView reloadData];
-                 }
+    
+    [HUAPIManager getTitlesAndSubjects:^(NSArray *data) {
+        self.subjects = data;
+        [weakSelf.tableView reloadData];
+    }
      ];
 }
-
-
 
 @end

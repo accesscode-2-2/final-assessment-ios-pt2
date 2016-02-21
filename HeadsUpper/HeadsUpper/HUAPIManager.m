@@ -14,9 +14,8 @@
 
 // https://heads-up-api.herokuapp.com/
 
-+ (void)getTitles:(NSDictionary *)titles
-      andSubjects:(NSArray *)subjects
-       completion:(void(^)(NSArray *data))completion
++ (void)getTitlesAndSubjects:(void(^)(NSArray *data))completion
+
 {
     NSString *urlString = @"https://heads-up-api.herokuapp.com/";
     
@@ -27,31 +26,53 @@
         progress:nil
          success:^(NSURLSessionTask *task, id responseObject) {
              // NEED TO LOOP THROUGH THE ARRAY...
+             // LOOP THROUGH RESPONSE OBJECT AND GET THE TITLE AND SUBJECTS
+             completion(responseObject);
+//             for (NSDictionary *dict in responseObject) {
+//                 NSLog(@"%@", dict);
+//             }
              
-             
-             //             NSLog(@"%@", responseObject);
-            
-             //             for (titleString in responseObject) {
-             //                 NSLog(@"The title is: %@", titleString);
-             //             }
-             NSDictionary *superStars = [responseObject objectAtIndex:0];
-             NSString *title = [superStars objectForKey:@"title"];
-             NSLog(@"PLEASE: %@", title);
-            
-
-//             NSLog(@"title is: %@", superStars);
-             
-             //             for (subjectsArswagray in responseObject) {
-             //                 NSLog(@"The subjects are: %@", subjectsArray);
-             //             }
+             // HOLY SHIT IS THIS INEFFICIENT
+             // FUUUUUUUCK
+//             NSDictionary *superStarsDict = [responseObject objectAtIndex:0];
+//             NSString *superStarTitle = [superStarsDict objectForKey:@"title"];
+//             
+//             NSLog(@"Title: %@", superStarTitle);
+//             NSLog(@"%@", superStarsDict);
+//             
+//             NSDictionary *ninetiesDict = [responseObject objectAtIndex:1];
+//             NSString *ninetiesTitle = [ninetiesDict objectForKey:@"title"];
+//             
+//             NSLog(@"Title: %@", ninetiesTitle);
+//             NSLog(@"%@", ninetiesDict);
+//             
+//             NSDictionary *heyMrDJDict = [responseObject objectAtIndex:2];
+//             NSString *DJTitle = [heyMrDJDict objectForKey:@"title"];
+//             
+//             NSLog(@"Title: %@", DJTitle);
+//             NSLog(@"%@", heyMrDJDict);
+//             
+//             NSDictionary *iconsDict = [responseObject objectAtIndex:3];
+//             NSString *iconsString = [iconsDict objectForKey:@"title"];
+//             
+//             NSLog(@"Title: %@", iconsString);
+//             NSLog(@"%@", iconsDict);
+//             
+//             NSDictionary *animalsDict = [responseObject objectAtIndex:4];
+//             NSString *animalsString = [animalsDict objectForKey:@"title"];
+//             
+//             NSLog(@"Title: %@", animalsString);
+//             NSLog(@"%@", animalsDict);
+//             
+//             NSDictionary *moviesDict = [responseObject objectAtIndex:5];
+//             NSString *moviesString = [moviesDict objectForKey:@"title"];
+//             
+//             NSLog(@"Title: %@", moviesString);
+//             NSLog(@"%@", moviesDict);
              
          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
              NSLog(@"Error: %@", error);
          }];
 }
-
-//NSDictionary *response = [responseObject objectForKey:@"response"];
-//NSArray *venues = [response objectForKey:@"venues"];
-
 
 @end

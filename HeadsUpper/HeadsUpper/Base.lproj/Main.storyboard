@@ -57,8 +57,42 @@
                     <view key="view" contentMode="scaleToFill" id="v5X-a4-Wh5">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D4g-Mm-zRj">
+                                <rect key="frame" x="20" y="531" width="560" height="55"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="40"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BnJ-vL-zbB">
+                                <rect key="frame" x="20" y="269" width="560" height="62"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="45"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="D4g-Mm-zRj" firstAttribute="leading" secondItem="v5X-a4-Wh5" secondAttribute="leading" constant="20" id="5h8-hG-CR1"/>
+                            <constraint firstItem="BnJ-vL-zbB" firstAttribute="centerY" secondItem="v5X-a4-Wh5" secondAttribute="centerY" id="PDK-HB-jas"/>
+                            <constraint firstItem="XGS-rw-Gii" firstAttribute="top" secondItem="D4g-Mm-zRj" secondAttribute="bottom" constant="14" id="QfZ-wg-m4b"/>
+                            <constraint firstAttribute="trailing" secondItem="BnJ-vL-zbB" secondAttribute="trailing" constant="20" id="dci-TK-3yg"/>
+                            <constraint firstItem="BnJ-vL-zbB" firstAttribute="leading" secondItem="v5X-a4-Wh5" secondAttribute="leading" constant="20" id="egw-yN-nqm"/>
+                            <constraint firstAttribute="trailing" secondItem="D4g-Mm-zRj" secondAttribute="trailing" constant="20" id="lAd-9N-BfU"/>
+                            <constraint firstItem="BnJ-vL-zbB" firstAttribute="centerX" secondItem="v5X-a4-Wh5" secondAttribute="centerX" id="lmp-TL-EQn"/>
+                            <constraint firstItem="BnJ-vL-zbB" firstAttribute="centerY" secondItem="v5X-a4-Wh5" secondAttribute="centerY" id="oey-Jz-POm"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="lmp-TL-EQn"/>
+                                <exclude reference="oey-Jz-POm"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="clueLabel" destination="BnJ-vL-zbB" id="ZVw-uB-m3y"/>
+                        <outlet property="timerLabel" destination="D4g-Mm-zRj" id="L1T-IX-kWB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tk9-uG-Squ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
