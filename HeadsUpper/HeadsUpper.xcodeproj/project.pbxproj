@@ -9,10 +9,19 @@
 /* Begin PBXBuildFile section */
 		8D89695C1C755D0200D32E8A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D89695B1C755D0200D32E8A /* main.m */; };
 		8D89695F1C755D0200D32E8A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D89695E1C755D0200D32E8A /* AppDelegate.m */; };
-		8D8969621C755D0200D32E8A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8969611C755D0200D32E8A /* ViewController.m */; };
 		8D8969651C755D0200D32E8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D8969631C755D0200D32E8A /* Main.storyboard */; };
 		8D8969671C755D0200D32E8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D8969661C755D0200D32E8A /* Assets.xcassets */; };
 		8D89696A1C755D0200D32E8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D8969681C755D0200D32E8A /* LaunchScreen.storyboard */; };
+		C7A853FE1C7A50D500518AF8 /* UIColor+FadeColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A853FD1C7A50D500518AF8 /* UIColor+FadeColor.m */; };
+		C7A854001C7A642200518AF8 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7A853FF1C7A642200518AF8 /* CoreMotion.framework */; };
+		C7DD0BA71C7A14F500361D17 /* HUTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7DD0BA51C7A14F500361D17 /* HUTableViewCell.m */; };
+		C7DD0BA81C7A14F500361D17 /* HUTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7DD0BA61C7A14F500361D17 /* HUTableViewCell.xib */; };
+		C7DD0BAB1C7A16FA00361D17 /* HUData.m in Sources */ = {isa = PBXBuildFile; fileRef = C7DD0BAA1C7A16FA00361D17 /* HUData.m */; };
+		C7DD0BB01C7A22D900361D17 /* HUTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7DD0BAF1C7A22D900361D17 /* HUTableViewController.m */; };
+		C7DD0BB31C7A23FE00361D17 /* HUCategoryGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = C7DD0BB21C7A23FE00361D17 /* HUCategoryGenerator.m */; };
+		C7DD0BB61C7A2CE100361D17 /* HUGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7DD0BB51C7A2CE100361D17 /* HUGameViewController.m */; };
+		C7DD0BB91C7A2E7600361D17 /* HUInstructionsView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7DD0BB81C7A2E7600361D17 /* HUInstructionsView.m */; };
+		C7DD0BBB1C7A2E8300361D17 /* HUInstructionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7DD0BBA1C7A2E8300361D17 /* HUInstructionsView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +29,29 @@
 		8D89695B1C755D0200D32E8A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8D89695D1C755D0200D32E8A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8D89695E1C755D0200D32E8A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		8D8969601C755D0200D32E8A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		8D8969611C755D0200D32E8A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		8D8969641C755D0200D32E8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8D8969661C755D0200D32E8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D8969691C755D0200D32E8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8D89696B1C755D0200D32E8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C7A853FC1C7A50D500518AF8 /* UIColor+FadeColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+FadeColor.h"; path = "../UIColor+FadeColor.h"; sourceTree = "<group>"; };
+		C7A853FD1C7A50D500518AF8 /* UIColor+FadeColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+FadeColor.m"; path = "../UIColor+FadeColor.m"; sourceTree = "<group>"; };
+		C7A853FF1C7A642200518AF8 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		C7DD0BA41C7A14F500361D17 /* HUTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HUTableViewCell.h; path = ../HUTableViewCell.h; sourceTree = "<group>"; };
+		C7DD0BA51C7A14F500361D17 /* HUTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HUTableViewCell.m; path = ../HUTableViewCell.m; sourceTree = "<group>"; };
+		C7DD0BA61C7A14F500361D17 /* HUTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HUTableViewCell.xib; path = ../HUTableViewCell.xib; sourceTree = "<group>"; };
+		C7DD0BA91C7A16FA00361D17 /* HUData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUData.h; sourceTree = "<group>"; };
+		C7DD0BAA1C7A16FA00361D17 /* HUData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUData.m; sourceTree = "<group>"; };
+		C7DD0BAC1C7A1ADD00361D17 /* HUCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HUCategory.h; sourceTree = "<group>"; };
+		C7DD0BAD1C7A1C6100361D17 /* HeadsUp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HeadsUp-Prefix.pch"; sourceTree = "<group>"; };
+		C7DD0BAE1C7A22D900361D17 /* HUTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUTableViewController.h; sourceTree = "<group>"; };
+		C7DD0BAF1C7A22D900361D17 /* HUTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUTableViewController.m; sourceTree = "<group>"; };
+		C7DD0BB11C7A23FE00361D17 /* HUCategoryGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUCategoryGenerator.h; sourceTree = "<group>"; };
+		C7DD0BB21C7A23FE00361D17 /* HUCategoryGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUCategoryGenerator.m; sourceTree = "<group>"; };
+		C7DD0BB41C7A2CE100361D17 /* HUGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUGameViewController.h; sourceTree = "<group>"; };
+		C7DD0BB51C7A2CE100361D17 /* HUGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUGameViewController.m; sourceTree = "<group>"; };
+		C7DD0BB71C7A2E7600361D17 /* HUInstructionsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUInstructionsView.h; sourceTree = "<group>"; };
+		C7DD0BB81C7A2E7600361D17 /* HUInstructionsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUInstructionsView.m; sourceTree = "<group>"; };
+		C7DD0BBA1C7A2E8300361D17 /* HUInstructionsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HUInstructionsView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7A854001C7A642200518AF8 /* CoreMotion.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +69,7 @@
 		8D89694E1C755D0200D32E8A = {
 			isa = PBXGroup;
 			children = (
+				C7A853FF1C7A642200518AF8 /* CoreMotion.framework */,
 				8D8969591C755D0200D32E8A /* HeadsUpper */,
 				8D8969581C755D0200D32E8A /* Products */,
 			);
@@ -58,11 +86,21 @@
 		8D8969591C755D0200D32E8A /* HeadsUpper */ = {
 			isa = PBXGroup;
 			children = (
+				8D8969631C755D0200D32E8A /* Main.storyboard */,
+				C7DD0BB71C7A2E7600361D17 /* HUInstructionsView.h */,
+				C7DD0BB81C7A2E7600361D17 /* HUInstructionsView.m */,
+				C7DD0BBA1C7A2E8300361D17 /* HUInstructionsView.xib */,
 				8D89695D1C755D0200D32E8A /* AppDelegate.h */,
 				8D89695E1C755D0200D32E8A /* AppDelegate.m */,
-				8D8969601C755D0200D32E8A /* ViewController.h */,
-				8D8969611C755D0200D32E8A /* ViewController.m */,
-				8D8969631C755D0200D32E8A /* Main.storyboard */,
+				C7DD0BA61C7A14F500361D17 /* HUTableViewCell.xib */,
+				C7DD0BAE1C7A22D900361D17 /* HUTableViewController.h */,
+				C7DD0BAF1C7A22D900361D17 /* HUTableViewController.m */,
+				C7DD0BB41C7A2CE100361D17 /* HUGameViewController.h */,
+				C7DD0BB51C7A2CE100361D17 /* HUGameViewController.m */,
+				C7DD0BA41C7A14F500361D17 /* HUTableViewCell.h */,
+				C7DD0BA51C7A14F500361D17 /* HUTableViewCell.m */,
+				C7DD0BA91C7A16FA00361D17 /* HUData.h */,
+				C7DD0BAA1C7A16FA00361D17 /* HUData.m */,
 				8D8969661C755D0200D32E8A /* Assets.xcassets */,
 				8D8969681C755D0200D32E8A /* LaunchScreen.storyboard */,
 				8D89696B1C755D0200D32E8A /* Info.plist */,
@@ -75,6 +113,12 @@
 			isa = PBXGroup;
 			children = (
 				8D89695B1C755D0200D32E8A /* main.m */,
+				C7A853FC1C7A50D500518AF8 /* UIColor+FadeColor.h */,
+				C7A853FD1C7A50D500518AF8 /* UIColor+FadeColor.m */,
+				C7DD0BAC1C7A1ADD00361D17 /* HUCategory.h */,
+				C7DD0BB11C7A23FE00361D17 /* HUCategoryGenerator.h */,
+				C7DD0BB21C7A23FE00361D17 /* HUCategoryGenerator.m */,
+				C7DD0BAD1C7A1C6100361D17 /* HeadsUp-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -136,6 +180,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7DD0BA81C7A14F500361D17 /* HUTableViewCell.xib in Resources */,
+				C7DD0BBB1C7A2E8300361D17 /* HUInstructionsView.xib in Resources */,
 				8D89696A1C755D0200D32E8A /* LaunchScreen.storyboard in Resources */,
 				8D8969671C755D0200D32E8A /* Assets.xcassets in Resources */,
 				8D8969651C755D0200D32E8A /* Main.storyboard in Resources */,
@@ -149,8 +195,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D8969621C755D0200D32E8A /* ViewController.m in Sources */,
+				C7DD0BA71C7A14F500361D17 /* HUTableViewCell.m in Sources */,
 				8D89695F1C755D0200D32E8A /* AppDelegate.m in Sources */,
+				C7DD0BAB1C7A16FA00361D17 /* HUData.m in Sources */,
+				C7DD0BB61C7A2CE100361D17 /* HUGameViewController.m in Sources */,
+				C7DD0BB91C7A2E7600361D17 /* HUInstructionsView.m in Sources */,
+				C7A853FE1C7A50D500518AF8 /* UIColor+FadeColor.m in Sources */,
+				C7DD0BB01C7A22D900361D17 /* HUTableViewController.m in Sources */,
+				C7DD0BB31C7A23FE00361D17 /* HUCategoryGenerator.m in Sources */,
 				8D89695C1C755D0200D32E8A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -203,6 +255,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = "HeadsUpper/HeadsUp-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -244,6 +297,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "HeadsUpper/HeadsUp-Prefix.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -300,6 +354,7 @@
 				8D8969701C755D0200D32E8A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
