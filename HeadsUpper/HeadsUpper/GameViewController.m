@@ -11,8 +11,15 @@
 
 @interface GameViewController ()
 
+@property (nonatomic) GameView *gameView;
+
 @property (nonatomic) NSInteger totalCorrect;
 @property (nonatomic) NSInteger totalAnswers;
+
+@property (nonatomic) NSTimer *introTimer;
+@property (nonatomic) NSTimer *gameTimer;
+
+@property (nonatomic) NSInteger timeInSeconds;
 
 @end
 
@@ -134,6 +141,47 @@
          
             
         }];
+}
+
+
+#pragma mark - Timer
+
+-(void)startIntroTimer
+{
+    NSTimer *timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(fireIntroTimer:) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    self.introTimer = timer;
+    self.timeInSeconds = 3;
+    
+}
+
+-(void)fireIntroTimer: (NSTimer *) timer
+{
+    self.timeInSeconds -= 1;
+    
+    if (timer == self.introTimer && self.timeInSeconds == 0) {
+        
+        NSString *answer = [self peekAndPopAnswer];
+        
+    }
+    
+    NSLog(@"Timer Fired, time in seconds: %ld", (long)self.timeInSeconds);
+}
+
+-(void)resetTimer: (NSTimer *)timer
+{
+    if (timer == self.introTimer){
+        
+        [self.introTimer invalidate];
+        
+        self.timeInSeconds = 0;
+    
+    }else if (timer == self.gameTimer) {
+        
+        [self.gameTimer invalidate];
+        
+        self.timeInSeconds = 0;
+    }
 }
 
 
