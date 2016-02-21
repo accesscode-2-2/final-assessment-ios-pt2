@@ -17,6 +17,7 @@ UICollectionViewDataSource,
 UICollectionViewDelegateFlowLayout
 >
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (nonatomic) NSMutableArray *topics;
 
 @end
 
@@ -38,13 +39,19 @@ UICollectionViewDelegateFlowLayout
     [self.collectionView reloadData];
 }
 
+- (void) fetchTopicsData
+{
+    
+    
+}
+
 
 #pragma mark - UICollectionView datasource
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     
-    return 5;
+    return self.topics.count;
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -57,7 +64,6 @@ UICollectionViewDelegateFlowLayout
 {
     TopicCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TopicCollectionViewCell" forIndexPath:indexPath];
     
-    //cell.backgroundColor = [UIColor lightGrayColor];
     cell.titleLabel.text = @"Title";
     
     return cell;
@@ -100,7 +106,7 @@ UICollectionViewDelegateFlowLayout
 - (UIEdgeInsets)collectionView:
 (UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-    return UIEdgeInsetsMake(50, 20, 50, 20);
+    return UIEdgeInsetsMake(150, 20, 50, 20);
 }
 
 @end

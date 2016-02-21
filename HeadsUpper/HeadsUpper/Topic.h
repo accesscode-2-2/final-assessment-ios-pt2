@@ -13,4 +13,6 @@
 @property (nonatomic) NSString *title;
 @property (nonatomic) NSMutableArray *answers;
 
+-(instancetype)initWithJSON: (NSDictionary *)json;
+
 @end

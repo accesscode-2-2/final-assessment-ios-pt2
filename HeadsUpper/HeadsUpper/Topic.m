@@ -10,4 +10,18 @@
 
 @implementation Topic
 
+-(instancetype)initWithJSON: (NSDictionary *)json{
+    
+    if (self = [super init]){
+        
+        self.title = json[@"title"];
+        self.answers = json[@"subjects"];
+        
+        return self;
+        
+    }
+    return nil;
+    
+}
+
 @end
