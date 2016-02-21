@@ -7,21 +7,42 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D9DB1531C7A139C00BCB139 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9DB1521C7A139C00BCB139 /* QuartzCore.framework */; };
+		5D9DB1551C7A151900BCB139 /* TT Pines Bold Italic DEMO.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5D9DB1541C7A151900BCB139 /* TT Pines Bold Italic DEMO.otf */; };
+		5D9DB1611C7A21AD00BCB139 /* GameCategoriesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9DB1601C7A21AD00BCB139 /* GameCategoriesTableViewController.m */; };
+		5D9DB1641C7A21FE00BCB139 /* GameCategoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9DB1631C7A21FE00BCB139 /* GameCategoryTableViewCell.m */; };
+		5D9DB1671C7A2F7000BCB139 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9DB1661C7A2F7000BCB139 /* GameViewController.m */; };
+		5D9DB16A1C7A4B9500BCB139 /* AudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9DB1691C7A4B9500BCB139 /* AudioPlayer.m */; };
+		5D9DB16C1C7A4BA400BCB139 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9DB16B1C7A4BA400BCB139 /* AVFoundation.framework */; };
+		5D9DB16F1C7A4E3600BCB139 /* correct.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5D9DB16D1C7A4E3600BCB139 /* correct.wav */; };
+		5D9DB1701C7A4E3600BCB139 /* incorrect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5D9DB16E1C7A4E3600BCB139 /* incorrect.mp3 */; };
+		5D9DB1741C7A60CF00BCB139 /* glamour.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5D9DB1731C7A60CF00BCB139 /* glamour.mp3 */; };
 		8D89695C1C755D0200D32E8A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D89695B1C755D0200D32E8A /* main.m */; };
 		8D89695F1C755D0200D32E8A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D89695E1C755D0200D32E8A /* AppDelegate.m */; };
-		8D8969621C755D0200D32E8A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8969611C755D0200D32E8A /* ViewController.m */; };
 		8D8969651C755D0200D32E8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D8969631C755D0200D32E8A /* Main.storyboard */; };
 		8D8969671C755D0200D32E8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D8969661C755D0200D32E8A /* Assets.xcassets */; };
 		8D89696A1C755D0200D32E8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D8969681C755D0200D32E8A /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D9DB1521C7A139C00BCB139 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		5D9DB1541C7A151900BCB139 /* TT Pines Bold Italic DEMO.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TT Pines Bold Italic DEMO.otf"; sourceTree = "<group>"; };
+		5D9DB15F1C7A21AD00BCB139 /* GameCategoriesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCategoriesTableViewController.h; sourceTree = "<group>"; };
+		5D9DB1601C7A21AD00BCB139 /* GameCategoriesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCategoriesTableViewController.m; sourceTree = "<group>"; };
+		5D9DB1621C7A21FE00BCB139 /* GameCategoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCategoryTableViewCell.h; sourceTree = "<group>"; };
+		5D9DB1631C7A21FE00BCB139 /* GameCategoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCategoryTableViewCell.m; sourceTree = "<group>"; };
+		5D9DB1651C7A2F7000BCB139 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		5D9DB1661C7A2F7000BCB139 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		5D9DB1681C7A4B9500BCB139 /* AudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayer.h; sourceTree = "<group>"; };
+		5D9DB1691C7A4B9500BCB139 /* AudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayer.m; sourceTree = "<group>"; };
+		5D9DB16B1C7A4BA400BCB139 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		5D9DB16D1C7A4E3600BCB139 /* correct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = correct.wav; sourceTree = "<group>"; };
+		5D9DB16E1C7A4E3600BCB139 /* incorrect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = incorrect.mp3; sourceTree = "<group>"; };
+		5D9DB1731C7A60CF00BCB139 /* glamour.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = glamour.mp3; sourceTree = "<group>"; };
 		8D8969571C755D0200D32E8A /* HeadsUpper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeadsUpper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D89695B1C755D0200D32E8A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8D89695D1C755D0200D32E8A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8D89695E1C755D0200D32E8A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		8D8969601C755D0200D32E8A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		8D8969611C755D0200D32E8A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		8D8969641C755D0200D32E8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8D8969661C755D0200D32E8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D8969691C755D0200D32E8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -33,6 +54,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D9DB16C1C7A4BA400BCB139 /* AVFoundation.framework in Frameworks */,
+				5D9DB1531C7A139C00BCB139 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +65,8 @@
 		8D89694E1C755D0200D32E8A = {
 			isa = PBXGroup;
 			children = (
+				5D9DB16B1C7A4BA400BCB139 /* AVFoundation.framework */,
+				5D9DB1521C7A139C00BCB139 /* QuartzCore.framework */,
 				8D8969591C755D0200D32E8A /* HeadsUpper */,
 				8D8969581C755D0200D32E8A /* Products */,
 			);
@@ -60,8 +85,14 @@
 			children = (
 				8D89695D1C755D0200D32E8A /* AppDelegate.h */,
 				8D89695E1C755D0200D32E8A /* AppDelegate.m */,
-				8D8969601C755D0200D32E8A /* ViewController.h */,
-				8D8969611C755D0200D32E8A /* ViewController.m */,
+				5D9DB1621C7A21FE00BCB139 /* GameCategoryTableViewCell.h */,
+				5D9DB1631C7A21FE00BCB139 /* GameCategoryTableViewCell.m */,
+				5D9DB15F1C7A21AD00BCB139 /* GameCategoriesTableViewController.h */,
+				5D9DB1601C7A21AD00BCB139 /* GameCategoriesTableViewController.m */,
+				5D9DB1651C7A2F7000BCB139 /* GameViewController.h */,
+				5D9DB1661C7A2F7000BCB139 /* GameViewController.m */,
+				5D9DB1681C7A4B9500BCB139 /* AudioPlayer.h */,
+				5D9DB1691C7A4B9500BCB139 /* AudioPlayer.m */,
 				8D8969631C755D0200D32E8A /* Main.storyboard */,
 				8D8969661C755D0200D32E8A /* Assets.xcassets */,
 				8D8969681C755D0200D32E8A /* LaunchScreen.storyboard */,
@@ -74,7 +105,11 @@
 		8D89695A1C755D0200D32E8A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5D9DB1541C7A151900BCB139 /* TT Pines Bold Italic DEMO.otf */,
 				8D89695B1C755D0200D32E8A /* main.m */,
+				5D9DB16D1C7A4E3600BCB139 /* correct.wav */,
+				5D9DB16E1C7A4E3600BCB139 /* incorrect.mp3 */,
+				5D9DB1731C7A60CF00BCB139 /* glamour.mp3 */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -138,7 +173,11 @@
 			files = (
 				8D89696A1C755D0200D32E8A /* LaunchScreen.storyboard in Resources */,
 				8D8969671C755D0200D32E8A /* Assets.xcassets in Resources */,
+				5D9DB1551C7A151900BCB139 /* TT Pines Bold Italic DEMO.otf in Resources */,
+				5D9DB16F1C7A4E3600BCB139 /* correct.wav in Resources */,
+				5D9DB1701C7A4E3600BCB139 /* incorrect.mp3 in Resources */,
 				8D8969651C755D0200D32E8A /* Main.storyboard in Resources */,
+				5D9DB1741C7A60CF00BCB139 /* glamour.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,7 +188,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D8969621C755D0200D32E8A /* ViewController.m in Sources */,
+				5D9DB1671C7A2F7000BCB139 /* GameViewController.m in Sources */,
+				5D9DB16A1C7A4B9500BCB139 /* AudioPlayer.m in Sources */,
+				5D9DB1611C7A21AD00BCB139 /* GameCategoriesTableViewController.m in Sources */,
+				5D9DB1641C7A21FE00BCB139 /* GameCategoryTableViewCell.m in Sources */,
 				8D89695F1C755D0200D32E8A /* AppDelegate.m in Sources */,
 				8D89695C1C755D0200D32E8A /* main.m in Sources */,
 			);
@@ -300,6 +342,7 @@
 				8D8969701C755D0200D32E8A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
