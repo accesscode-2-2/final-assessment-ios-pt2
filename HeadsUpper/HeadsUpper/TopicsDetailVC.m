@@ -156,7 +156,6 @@
     
     alertViewController.titleFont = [UIFont fontWithName:@"AvenirNext-Bold" size:19.0f];
     alertViewController.messageFont = [UIFont fontWithName:@"AvenirNext-Medium" size:16.0f];
-    alertViewController.buttonTitleFont = [UIFont fontWithName:@"AvenirNext-Regular" size:alertViewController.buttonTitleFont.pointSize];
     alertViewController.cancelButtonTitleFont = [UIFont fontWithName:@"AvenirNext-Medium" size:alertViewController.cancelButtonTitleFont.pointSize];
     
     alertViewController.swipeDismissalGestureEnabled = YES;
