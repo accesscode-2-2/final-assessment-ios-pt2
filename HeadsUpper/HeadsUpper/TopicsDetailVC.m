@@ -7,8 +7,11 @@
 //
 
 #import "TopicsDetailVC.h"
+#import "TopicsTVC.h"
 
 @interface TopicsDetailVC ()
+
+@property (nonatomic) NSArray *topicClueList;
 
 @end
 
@@ -17,7 +20,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.topicsClueLbl.text = self.topicName;
+    self.clues.topicClues = self.topicClueList;
+    
+    uint32_t rnd = arc4random_uniform([self.clues.topicClues count]);
+    
+    NSString *randomObject = [self.clues.topicClues objectAtIndex:rnd];
+    
+    self.topicsClueLbl.text = randomObject;
     
 }
 

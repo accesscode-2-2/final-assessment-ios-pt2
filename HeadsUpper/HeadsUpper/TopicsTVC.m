@@ -97,11 +97,20 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     
+//    
+//    if ([segue.identifier isEqualToString:@"showTopicDetail"]) {
+//       NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+//        TopicsDetailVC *destViewController = segue.destinationViewController;
+//        destViewController.topicName = @"nice";    }
+//    
     
-    if ([segue.identifier isEqualToString:@"showTopicDetail"]) {
-       NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        TopicsDetailVC *destViewController = segue.destinationViewController;
-        destViewController.topicName = @"nice";    }
+    TopicsDetailVC *topicsClue = segue.destinationViewController;
+    
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    
+    Topics *newCategory = [self.topics objectAtIndex:indexPath.row];
+    
+    topicsClue.clues = newCategory;
     
    
     

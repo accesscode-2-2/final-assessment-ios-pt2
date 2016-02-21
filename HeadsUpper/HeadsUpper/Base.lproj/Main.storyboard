@@ -31,7 +31,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="gh5-Ef-wVc" kind="show" identifier="showTopicDetail" id="OET-Ci-rt4"/>
+                                    <segue destination="gh5-Ef-wVc" kind="show" identifier="" id="OET-Ci-rt4"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -81,7 +81,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xkc-St-ccs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="638" y="301"/>
+            <point key="canvasLocation" x="698" y="301"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ios-Lu-EXx">

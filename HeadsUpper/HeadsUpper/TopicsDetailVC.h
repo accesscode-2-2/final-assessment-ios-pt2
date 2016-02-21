@@ -14,6 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *topicsClueLbl;
 @property (weak, nonatomic) NSString *topicName;
+@property (nonatomic) Topics *clues;
 
 
 
