@@ -10,6 +10,7 @@
 #import "HUInstructionsView.h"
 #import "HUData.h"
 #import "UIColor+FadeColor.h"
+#import "NSArray+Shuffle.h"
 #import <CoreMotion/CoreMotion.h>
 
 @interface HUGameViewController ()<HUInstructionsProtocol>
@@ -142,17 +143,7 @@
 }
 
 - (void)shuffle {
-
-    NSMutableArray *shuffled = [NSMutableArray arrayWithArray:self.questionsArray];
-
-    for (int i = 0; i < shuffled.count; i++) {
-        int j = arc4random_uniform((int)shuffled.count);
-        NSString *temp = shuffled[j];
-        [shuffled replaceObjectAtIndex:j withObject:shuffled[i]];
-        [shuffled replaceObjectAtIndex:i withObject:temp];
-    }
-
-    self.questionsArray = (NSArray *)shuffled;
+    self.questionsArray = [NSArray shuffle:self.questionsArray];
 }
 
 #pragma mark - Instruction View Setup/Delegate
@@ -218,9 +209,11 @@
 #pragma mark - Alert
 - (void)launchAlert {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Stats!" message:[NSString stringWithFormat:@"You scored %ld out of %ld",self.correctQuestion.allKeys.count, self.questionsArray.count] preferredStyle:UIAlertControllerStyleAlert];
+
     UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OMG YES!" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self dismissViewControllerAnimated:YES completion:nil];
     }];
+    
     [alert addAction:ok];
     [self presentViewController:alert animated:YES completion:nil];
 }

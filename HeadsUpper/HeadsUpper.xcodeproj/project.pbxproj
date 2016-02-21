@@ -14,6 +14,7 @@
 		8D89696A1C755D0200D32E8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D8969681C755D0200D32E8A /* LaunchScreen.storyboard */; };
 		C7A853FE1C7A50D500518AF8 /* UIColor+FadeColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A853FD1C7A50D500518AF8 /* UIColor+FadeColor.m */; };
 		C7A854001C7A642200518AF8 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7A853FF1C7A642200518AF8 /* CoreMotion.framework */; };
+		C7A854091C7A74C400518AF8 /* NSArray+Shuffle.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A854081C7A74C400518AF8 /* NSArray+Shuffle.m */; };
 		C7DD0BA71C7A14F500361D17 /* HUTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7DD0BA51C7A14F500361D17 /* HUTableViewCell.m */; };
 		C7DD0BA81C7A14F500361D17 /* HUTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7DD0BA61C7A14F500361D17 /* HUTableViewCell.xib */; };
 		C7DD0BAB1C7A16FA00361D17 /* HUData.m in Sources */ = {isa = PBXBuildFile; fileRef = C7DD0BAA1C7A16FA00361D17 /* HUData.m */; };
@@ -36,6 +37,8 @@
 		C7A853FC1C7A50D500518AF8 /* UIColor+FadeColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+FadeColor.h"; path = "../UIColor+FadeColor.h"; sourceTree = "<group>"; };
 		C7A853FD1C7A50D500518AF8 /* UIColor+FadeColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+FadeColor.m"; path = "../UIColor+FadeColor.m"; sourceTree = "<group>"; };
 		C7A853FF1C7A642200518AF8 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		C7A854071C7A74C400518AF8 /* NSArray+Shuffle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Shuffle.h"; sourceTree = "<group>"; };
+		C7A854081C7A74C400518AF8 /* NSArray+Shuffle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Shuffle.m"; sourceTree = "<group>"; };
 		C7DD0BA41C7A14F500361D17 /* HUTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HUTableViewCell.h; path = ../HUTableViewCell.h; sourceTree = "<group>"; };
 		C7DD0BA51C7A14F500361D17 /* HUTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HUTableViewCell.m; path = ../HUTableViewCell.m; sourceTree = "<group>"; };
 		C7DD0BA61C7A14F500361D17 /* HUTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HUTableViewCell.xib; path = ../HUTableViewCell.xib; sourceTree = "<group>"; };
@@ -86,21 +89,15 @@
 		8D8969591C755D0200D32E8A /* HeadsUpper */ = {
 			isa = PBXGroup;
 			children = (
+				C7A854051C7A73BD00518AF8 /* Enums */,
+				C7A854041C7A73A500518AF8 /* Categories */,
+				C7A854021C7A733500518AF8 /* Controllers */,
+				C7A854011C7A732200518AF8 /* Model */,
+				C7A854031C7A735C00518AF8 /* xibs */,
 				8D8969631C755D0200D32E8A /* Main.storyboard */,
-				C7DD0BB71C7A2E7600361D17 /* HUInstructionsView.h */,
-				C7DD0BB81C7A2E7600361D17 /* HUInstructionsView.m */,
-				C7DD0BBA1C7A2E8300361D17 /* HUInstructionsView.xib */,
 				8D89695D1C755D0200D32E8A /* AppDelegate.h */,
 				8D89695E1C755D0200D32E8A /* AppDelegate.m */,
-				C7DD0BA61C7A14F500361D17 /* HUTableViewCell.xib */,
-				C7DD0BAE1C7A22D900361D17 /* HUTableViewController.h */,
-				C7DD0BAF1C7A22D900361D17 /* HUTableViewController.m */,
-				C7DD0BB41C7A2CE100361D17 /* HUGameViewController.h */,
-				C7DD0BB51C7A2CE100361D17 /* HUGameViewController.m */,
-				C7DD0BA41C7A14F500361D17 /* HUTableViewCell.h */,
-				C7DD0BA51C7A14F500361D17 /* HUTableViewCell.m */,
-				C7DD0BA91C7A16FA00361D17 /* HUData.h */,
-				C7DD0BAA1C7A16FA00361D17 /* HUData.m */,
+				C7DD0BAD1C7A1C6100361D17 /* HeadsUp-Prefix.pch */,
 				8D8969661C755D0200D32E8A /* Assets.xcassets */,
 				8D8969681C755D0200D32E8A /* LaunchScreen.storyboard */,
 				8D89696B1C755D0200D32E8A /* Info.plist */,
@@ -113,14 +110,62 @@
 			isa = PBXGroup;
 			children = (
 				8D89695B1C755D0200D32E8A /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C7A854011C7A732200518AF8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C7DD0BA91C7A16FA00361D17 /* HUData.h */,
+				C7DD0BAA1C7A16FA00361D17 /* HUData.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		C7A854021C7A733500518AF8 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C7DD0BAE1C7A22D900361D17 /* HUTableViewController.h */,
+				C7DD0BAF1C7A22D900361D17 /* HUTableViewController.m */,
+				C7DD0BB41C7A2CE100361D17 /* HUGameViewController.h */,
+				C7DD0BB51C7A2CE100361D17 /* HUGameViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		C7A854031C7A735C00518AF8 /* xibs */ = {
+			isa = PBXGroup;
+			children = (
+				C7DD0BB71C7A2E7600361D17 /* HUInstructionsView.h */,
+				C7DD0BB81C7A2E7600361D17 /* HUInstructionsView.m */,
+				C7DD0BBA1C7A2E8300361D17 /* HUInstructionsView.xib */,
+				C7DD0BA61C7A14F500361D17 /* HUTableViewCell.xib */,
+				C7DD0BA41C7A14F500361D17 /* HUTableViewCell.h */,
+				C7DD0BA51C7A14F500361D17 /* HUTableViewCell.m */,
+			);
+			name = xibs;
+			sourceTree = "<group>";
+		};
+		C7A854041C7A73A500518AF8 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
 				C7A853FC1C7A50D500518AF8 /* UIColor+FadeColor.h */,
 				C7A853FD1C7A50D500518AF8 /* UIColor+FadeColor.m */,
+				C7A854071C7A74C400518AF8 /* NSArray+Shuffle.h */,
+				C7A854081C7A74C400518AF8 /* NSArray+Shuffle.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		C7A854051C7A73BD00518AF8 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
 				C7DD0BAC1C7A1ADD00361D17 /* HUCategory.h */,
 				C7DD0BB11C7A23FE00361D17 /* HUCategoryGenerator.h */,
 				C7DD0BB21C7A23FE00361D17 /* HUCategoryGenerator.m */,
-				C7DD0BAD1C7A1C6100361D17 /* HeadsUp-Prefix.pch */,
 			);
-			name = "Supporting Files";
+			name = Enums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,6 +242,7 @@
 			files = (
 				C7DD0BA71C7A14F500361D17 /* HUTableViewCell.m in Sources */,
 				8D89695F1C755D0200D32E8A /* AppDelegate.m in Sources */,
+				C7A854091C7A74C400518AF8 /* NSArray+Shuffle.m in Sources */,
 				C7DD0BAB1C7A16FA00361D17 /* HUData.m in Sources */,
 				C7DD0BB61C7A2CE100361D17 /* HUGameViewController.m in Sources */,
 				C7DD0BB91C7A2E7600361D17 /* HUInstructionsView.m in Sources */,
