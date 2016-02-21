@@ -60,9 +60,7 @@
     
 }
 
-
 #pragma mark - The Data
-
 
 -(void) setupTopicsData {
     
@@ -91,7 +89,6 @@
 
 }
 
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -116,8 +113,7 @@
 
 #pragma mark - Navigation
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     [self.backgroundMusic stop];
     [self playNewGameSound];
     
@@ -128,7 +124,6 @@
     Topics *newCategory = [self.topics objectAtIndex:indexPath.row];
     
     topicsClue.clues = newCategory;
-    
 }
 
 @end

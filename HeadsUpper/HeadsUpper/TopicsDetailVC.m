@@ -34,9 +34,7 @@
     [super viewDidLoad];
     [self setupGestureRecognizers];
     [self generateClue];
-    
     [self setupTimer];
-    
 }
 
 -(void) playWinSound {
@@ -46,7 +44,6 @@
                                                                   error:nil];
     self.backgroundMusic.numberOfLoops = 0;
     [self.backgroundMusic play];
-    
 }
 
 -(void) playlossSound {
@@ -56,7 +53,6 @@
                                                                   error:nil];
     self.backgroundMusic.numberOfLoops = 0;
     [self.backgroundMusic play];
-    
 }
 
 -(void) playGameOver{
@@ -66,7 +62,6 @@
                                                                   error:nil];
     self.backgroundMusic.numberOfLoops = 0;
     [self.backgroundMusic play];
-    
 }
 
 
@@ -99,7 +94,6 @@
     
     [self.view addGestureRecognizer:leftSwipe];
     [self.view addGestureRecognizer:rightSwipe];
-    
 }
 
 -(void) bGColourTimer {
@@ -136,14 +130,12 @@
 
 -(void)gameOverAlert {
     
-  self.cluesCorrect =  self.totalClues - self.cluesWrong;
-    
+    self.cluesCorrect =  self.totalClues - self.cluesWrong;
+
     NSString *totalClues = [NSString stringWithFormat:@"%li", (long)self.totalClues];
     NSString *cluesCorrect = [NSString stringWithFormat:@"%li", (long)self.cluesCorrect];
     NSString *playerResult = [NSString stringWithFormat:@"%@/%@", cluesCorrect, totalClues];
-    
-    
-    
+
     NYAlertViewController *alertViewController = [[NYAlertViewController alloc] initWithNibName:nil bundle:nil];
     
     // Set a title and message
@@ -162,7 +154,6 @@
     alertViewController.backgroundTapDismissalGestureEnabled = YES;
     
     alertViewController.alertViewBackgroundColor = [UIColor whiteColor];
-    
     alertViewController.titleColor = [UIColor colorWithRed:197.0/255.0 green:111.0/255.0 blue:251.0/255.0 alpha:1];
     alertViewController.messageColor = [UIColor blackColor];
     alertViewController.cancelButtonColor = [UIColor colorWithRed:197.0/255.0 green:111.0/255.0 blue:251.0/255.0 alpha:1];
@@ -176,9 +167,6 @@
     
     // Present the alert view controller
     [self presentViewController:alertViewController animated:YES completion:nil];
-
-
-    
 }
 
 -(void)timerFired:(NSTimer *)timer {
@@ -186,7 +174,6 @@
         [timer invalidate];
         [self gameOverAlert];
         [self playGameOver];
-        
     }
     
     //determine time left on timer
@@ -194,14 +181,11 @@
     self.timerLbl.text = convertedToString;
     
     self.timerCount--;
-
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
 
 @end
