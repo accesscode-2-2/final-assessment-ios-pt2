@@ -17,6 +17,7 @@
 		BF2E42AC1C7A0F880026DBB1 /* HUGameScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2E42AB1C7A0F880026DBB1 /* HUGameScreenViewController.m */; };
 		BF2E42B21C7A105B0026DBB1 /* HUTopicsList.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2E42B11C7A105B0026DBB1 /* HUTopicsList.m */; };
 		BF2E42BA1C7A19670026DBB1 /* HUAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2E42B91C7A19670026DBB1 /* HUAPIManager.m */; };
+		BF2E42BD1C7A66E80026DBB1 /* IntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2E42BC1C7A66E80026DBB1 /* IntroViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,8 @@
 		BF2E42B11C7A105B0026DBB1 /* HUTopicsList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUTopicsList.m; sourceTree = "<group>"; };
 		BF2E42B81C7A19670026DBB1 /* HUAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUAPIManager.h; sourceTree = "<group>"; };
 		BF2E42B91C7A19670026DBB1 /* HUAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUAPIManager.m; sourceTree = "<group>"; };
+		BF2E42BB1C7A66E80026DBB1 /* IntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroViewController.h; sourceTree = "<group>"; };
+		BF2E42BC1C7A66E80026DBB1 /* IntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroViewController.m; sourceTree = "<group>"; };
 		C053A18C9D01D6853566F919 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E05921BCE5C8252E579E154B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD6D9A48077AAC926D2F4D9A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -83,12 +86,12 @@
 		8D8969591C755D0200D32E8A /* HeadsUpper */ = {
 			isa = PBXGroup;
 			children = (
+				8D8969631C755D0200D32E8A /* Main.storyboard */,
 				8D89695D1C755D0200D32E8A /* AppDelegate.h */,
 				8D89695E1C755D0200D32E8A /* AppDelegate.m */,
 				BF2E42AF1C7A100C0026DBB1 /* Model */,
 				BF2E42AE1C7A10060026DBB1 /* View */,
 				BF2E42AD1C7A0FF90026DBB1 /* Controller */,
-				8D8969631C755D0200D32E8A /* Main.storyboard */,
 				8D8969661C755D0200D32E8A /* Assets.xcassets */,
 				8D8969681C755D0200D32E8A /* LaunchScreen.storyboard */,
 				8D89696B1C755D0200D32E8A /* Info.plist */,
@@ -108,6 +111,8 @@
 		BF2E42AD1C7A0FF90026DBB1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				BF2E42BB1C7A66E80026DBB1 /* IntroViewController.h */,
+				BF2E42BC1C7A66E80026DBB1 /* IntroViewController.m */,
 				BF2E42A41C7A0EDE0026DBB1 /* HUTopicsTableViewController.h */,
 				BF2E42A51C7A0EDE0026DBB1 /* HUTopicsTableViewController.m */,
 				BF2E42AA1C7A0F880026DBB1 /* HUGameScreenViewController.h */,
@@ -253,6 +258,7 @@
 				BF2E42AC1C7A0F880026DBB1 /* HUGameScreenViewController.m in Sources */,
 				BF2E42A61C7A0EDE0026DBB1 /* HUTopicsTableViewController.m in Sources */,
 				8D89695C1C755D0200D32E8A /* main.m in Sources */,
+				BF2E42BD1C7A66E80026DBB1 /* IntroViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

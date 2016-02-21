@@ -28,11 +28,11 @@ UITableViewDelegate
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    self.subjects = [[NSArray alloc] init];
+    self.subjects = [[NSMutableArray alloc] init];
     [self fetchTitleAndSubjects];
 }
 

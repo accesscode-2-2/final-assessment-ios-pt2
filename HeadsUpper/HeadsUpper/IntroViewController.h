@@ -1,5 +1,5 @@
 //
-//  HUTopicsTableViewController.h
+//  IntroViewController.h
 //  HeadsUpper
 //
 //  Created by Charles Kang on 2/21/16.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HUTopicsTableViewController : UITableViewController
-
-@property (nonatomic) NSString *topicName;
+@interface IntroViewController : UIViewController
 
 @end

@@ -10,6 +10,9 @@
 #import "HUTopicsTableViewController.h"
 
 @interface HUGameScreenViewController ()
+<
+UIAlertViewDelegate
+>
 
 @property (nonatomic) NSInteger timerCount;
 @property (nonatomic) NSInteger gameClueCount;
@@ -61,16 +64,13 @@
     NSTimer *timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
     
-    self.timerCount = 6;
+    self.timerCount = 10;
     [timer fire];
 }
 
 - (void)timerFired:(NSTimer *)timer
 {
-    // create a reference count
     if (self.timerCount == 0) {
-        self.gameVC.userInteractionEnabled = NO;
-        
         [timer invalidate];
         [self showGameOverAlert];
     }
@@ -80,13 +80,13 @@
     self.timerCount--;
 }
 
-#pragma mark Swipe Implementation
+#pragma mark - Swipe Implementation
 
 - (void)setupGestureRecognizer
 {
     UISwipeGestureRecognizer *wrongAnswerSwipe = [[UISwipeGestureRecognizer alloc]
                                                   initWithTarget: self
-                                                  action: @selector(handleSwipe :)];
+                                                  action: @selector(handleSwipe:)];
     
     wrongAnswerSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
     
@@ -147,11 +147,10 @@
     if (motion == UIEventSubtypeMotionShake) {
         self.pointsCount++;
         [self turnViewGreenIfRight:[UIColor greenColor]];
-        
     }
 }
 
-#pragma mark - Alerts
+#pragma mark - Alerts Implementation
 
 - (void)showGameOverAlert
 {
@@ -162,13 +161,43 @@
     }
     
     UIAlertView *alertView = [[UIAlertView alloc]
-                              initWithTitle:@"HeadsUpper"
+                              initWithTitle:@"HeadsUpper™"
                               message:pointsMessage
-                              delegate:nil
-                              cancelButtonTitle:@"OK"
-                              otherButtonTitles:nil];
+                              delegate:self
+                              cancelButtonTitle:@"Play Again"
+                              otherButtonTitles:@"Close", nil];
     [alertView show];
     
 }
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0)
+    {
+        self.clueLabel.text = self.selectedGameSubject[@"subjects"][self.gameClueCount];
+        [self gameStart];
+        [self setupGestureRecognizer];
+
+    }
+    if (buttonIndex == 1)
+    {
+        
+    }
+}
+
+// couldn't get shuffle to work :(
+
+//+ (instancetype)shuffledArr:(NSArray *)firstArr
+//{
+//    NSMutableArray *shuffledArr = [NSMutableArray arrayWithArray:firstArr];
+//    
+//    for (int i = 0; i < shuffledArr.count; i++) {
+//        int j = arc4random_uniform((int)shuffledArr.count);
+//        id tempIndex = shuffledArr[j];
+//        [shuffledArr replaceObjectAtIndex:j withObject:shuffledArr[i]];
+//        [shuffledArr replaceObjectAtIndex:i withObject:tempIndex];
+//    }
+//    return (NSArray *)shuffledArr;
+//}
 
 @end

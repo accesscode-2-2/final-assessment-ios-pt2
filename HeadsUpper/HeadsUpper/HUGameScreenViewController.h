@@ -12,4 +12,6 @@
 
 @property (nonatomic) NSDictionary *selectedGameSubject;
 
++ (instancetype)shuffledArr:(NSArray *)firstArr;
+
 @end
