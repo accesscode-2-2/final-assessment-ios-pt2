@@ -47,6 +47,16 @@
     
 }
 
+-(void) playNewGameSound {
+    NSURL *musicFile = [[NSBundle mainBundle] URLForResource:@"10 New Game Sound"
+                                               withExtension:@"wav"];
+    self.backgroundMusic = [[AVAudioPlayer alloc] initWithContentsOfURL:musicFile
+                                                                  error:nil];
+    self.backgroundMusic.numberOfLoops = 0;
+    [self.backgroundMusic play];
+    
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     
@@ -87,12 +97,10 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
     return self.topics.count;
 }
 
@@ -103,9 +111,7 @@
     Topics *topics = [self.topics objectAtIndex: indexPath.row];
     cell.topicLbl.text = topics.topicName;
     
-   
     cell.topicsImg.image = [UIImage imageNamed:[topics.topicName lowercaseString]];
-    
     
     return cell;
 }
@@ -114,14 +120,8 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    
-//    
-//    if ([segue.identifier isEqualToString:@"showTopicDetail"]) {
-//       NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-//        TopicsDetailVC *destViewController = segue.destinationViewController;
-//        destViewController.topicName = @"nice";    }
-//
     [self.backgroundMusic stop];
+    [self playNewGameSound];
     
     TopicsDetailVC *topicsClue = segue.destinationViewController;
     

@@ -43,7 +43,7 @@
                                                withExtension:@"wav"];
     self.backgroundMusic = [[AVAudioPlayer alloc] initWithContentsOfURL:musicFile
                                                                   error:nil];
-    self.backgroundMusic.numberOfLoops = 1;
+    self.backgroundMusic.numberOfLoops = 0;
     [self.backgroundMusic play];
     
 }
@@ -53,7 +53,17 @@
                                                withExtension:@"wav"];
     self.backgroundMusic = [[AVAudioPlayer alloc] initWithContentsOfURL:musicFile
                                                                   error:nil];
-    self.backgroundMusic.numberOfLoops = 1;
+    self.backgroundMusic.numberOfLoops = 0;
+    [self.backgroundMusic play];
+    
+}
+
+-(void) playGameOver{
+    NSURL *musicFile = [[NSBundle mainBundle] URLForResource:@"you lose"
+                                               withExtension:@"wav"];
+    self.backgroundMusic = [[AVAudioPlayer alloc] initWithContentsOfURL:musicFile
+                                                                  error:nil];
+    self.backgroundMusic.numberOfLoops = 0;
     [self.backgroundMusic play];
     
 }
@@ -157,6 +167,7 @@
     if (self.timerCount == 0) {
         [timer invalidate];
         [self gameOverAlert];
+        [self playGameOver];
         
     }
     
