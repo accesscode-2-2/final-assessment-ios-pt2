@@ -10,12 +10,15 @@
 #import "TopicsDetailVC.h"
 #import "Topics.h"
 #import "TopicSelectionTableViewCell.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface TopicsTVC ()
 
 
 
 @property (nonatomic) NSArray * topics;
+
+@property(nonatomic, strong) AVAudioPlayer *backgroundMusic;
 
 @end
 
@@ -25,6 +28,14 @@
     [super viewDidLoad];
     
     [self setupTopicsData];
+    
+    [super viewDidLoad];
+    NSURL *musicFile = [[NSBundle mainBundle] URLForResource:@"jackpot loop"
+                                               withExtension:@"wav"];
+    self.backgroundMusic = [[AVAudioPlayer alloc] initWithContentsOfURL:musicFile
+                                                                  error:nil];
+    self.backgroundMusic.numberOfLoops = -1;
+    [self.backgroundMusic play];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -107,7 +118,8 @@
 //       NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
 //        TopicsDetailVC *destViewController = segue.destinationViewController;
 //        destViewController.topicName = @"nice";    }
-//    
+//
+    [self.backgroundMusic stop];
     
     TopicsDetailVC *topicsClue = segue.destinationViewController;
     
