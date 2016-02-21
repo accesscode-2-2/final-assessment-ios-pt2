@@ -52,17 +52,28 @@
                               @"Christella",
                               @"Charles",
                               @"Mike",
-                              @"Max"];
+                              @"Max",
+                              @"Zouf",
+                              @"Jamaal",
+                              @"Shena",
+                              @"Derek",
+                              @"Mesfin"];
     
     
     [self.gameTopics setObject:accessCode forKey:@"Access Code"];
     
     NSArray *cereal = @[@"Lucky Charms",
-                            @"Frosted Flakes",
-                            @"Cheerios",
-                            @"Special K",
-                            @"Pebbles",
-                            @"Life"];
+                        @"Frosted Flakes",
+                        @"Cheerios",
+                        @"Special K",
+                        @"Pebbles",
+                        @"Life",
+                        @"Apple Jacks",
+                        @"Cinammon Toast Crunch",
+                        @"Cap n' Crunch",
+                        @"Chex",
+                        @"Cookie Crisp",
+                        @"Honey Graham"];
     
     [self.gameTopics setObject:cereal forKey:@"Cereal"];
 

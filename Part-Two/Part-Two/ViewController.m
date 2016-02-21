@@ -60,9 +60,9 @@
     
     NSInteger countDown = self.totalGameTime - seconds;
     
-    NSLog(@"%02lu", countDown);
+    NSLog(@"%02lu", (long)countDown);
     
-    self.timerLabel.text = [NSString stringWithFormat:@" %02lu ", countDown];
+    self.timerLabel.text = [NSString stringWithFormat:@" %02lu ", (long)countDown];
     
     if (seconds >= self.totalGameTime || self.score == self.topicCards.count || self.index == self.topicCards.count - 1) {
         
@@ -70,10 +70,12 @@
         
         self.initialDate = nil;
         
+        NSString *totalScore = [NSString stringWithFormat:@"%u / %u correct!", self.score, self.topicCards.count];
+        
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Guessing Game"
-                                                                                 message:@"Game Over!"
+                                                                                 message:totalScore
                                                                           preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Done"
                                                            style:UIAlertActionStyleDefault
                                                          handler:^(UIAlertAction *action)
                                    {
@@ -180,7 +182,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.totalGameTime = 20;
+    self.totalGameTime = 10;
     
     self.index = 0;
     
