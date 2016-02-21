@@ -112,6 +112,8 @@
     
     topicsClue.clues = newCategory;
     
+    NSLog(@"%@", topicsClue.clues);
+    
    
     
 }

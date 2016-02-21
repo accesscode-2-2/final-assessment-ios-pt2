@@ -20,11 +20,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.clues.topicClues = self.topicClueList;
+   self.topicClueList = self.clues.topicClues;
     
     uint32_t rnd = arc4random_uniform([self.clues.topicClues count]);
     
     NSString *randomObject = [self.clues.topicClues objectAtIndex:rnd];
+    
+    NSLog(@"%@", self.clues.topicClues);
     
     self.topicsClueLbl.text = randomObject;
     
