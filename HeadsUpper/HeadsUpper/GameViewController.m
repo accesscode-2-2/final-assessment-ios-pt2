@@ -40,8 +40,7 @@
     [self.gameView.mainMenuButton addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
     
     self.introTimerFinished = NO;
-    
-    [self setUpGestureRecognizers];
+    self.timeInSeconds = 5;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -53,8 +52,7 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    self.timeInSeconds = 5;
-    self.gameView.introCountdownLabel.text = [[NSNumber numberWithInteger:self.timeInSeconds] stringValue];
+    
     self.gameView.introCountdownLabel.alpha = 1.0;
     [self startTimer];
 }
@@ -67,11 +65,13 @@
 - (void)setViewProperties
 {
     
-    self.gameView.answerLabel.alpha = 0;
-    self.gameView.correctPassLabel.alpha = 0;
-    self.gameView.scoreLabel.alpha = 0;
+    self.gameView.answerLabel.alpha = 0.0;
+    self.gameView.correctPassLabel.alpha = 0.0;
+    self.gameView.scoreLabel.alpha = 0.0;
     self.gameView.countdownLabel.hidden = YES;
     
+    self.gameView.introCountdownLabel.alpha = 0.0;
+    self.gameView.introCountdownLabel.text = [[NSNumber numberWithInteger:self.timeInSeconds] stringValue];
 }
 
 -(void)setUpGestureRecognizers
@@ -83,11 +83,20 @@
     upSwipe.direction = UISwipeGestureRecognizerDirectionUp;
     downSwipe.direction = UISwipeGestureRecognizerDirectionDown;
     
+    
     [self.view addGestureRecognizer:upSwipe];
     [self.view addGestureRecognizer:downSwipe];
     
+}
+
+- (void)removeGestureRecognizers
+{
+    for (UISwipeGestureRecognizer *gesture in self.view.gestureRecognizers) {
+        [self.view removeGestureRecognizer:gesture];
+    }
     
 }
+
 
 -(void)handleSwipe: (UISwipeGestureRecognizer *)gesture
 {
@@ -99,7 +108,7 @@
             
             self.gameView.answerLabel.text = newAnswer;
             
-            [self fadeInFadeOutCorrectPassLabel:@"CORRECT!"];
+            [self fadeLabel:self.gameView.correctPassLabel WithMessage:@"CORRECT!"];
             
             self.totalAnswers ++;
             self.totalCorrect ++;
@@ -110,7 +119,7 @@
             
             self.gameView.answerLabel.text = newAnswer;
             
-            [self fadeInFadeOutCorrectPassLabel:@"PASS"];
+            [self fadeLabel:self.gameView.correctPassLabel WithMessage:@"PASS"];
             
             self.totalAnswers ++;
             
@@ -132,46 +141,49 @@
     return answer;
 }
 
--(void)fadeInFadeOutCorrectPassLabel:(NSString *) message
+-(void)fadeLabel:(UILabel *)label WithMessage:(NSString *) message
 {
-
-    self.gameView.correctPassLabel.text = message;
     
-    self.gameView.answerLabel.alpha = 0.0;
-    self.gameView.correctPassLabel.alpha = 1.0;
-    
-    [UIView animateWithDuration:1.50f animations:^{
+    if (label == self.gameView.correctPassLabel) {
         
-        self.gameView.correctPassLabel.alpha = 0.0;
+        label.text = message;
         
-    } completion:^(BOOL finished) {
+        self.gameView.answerLabel.alpha = 0.0;
+        label.alpha = 1.0;
         
-       self.gameView.answerLabel.alpha = 1.0;
-         
+        [UIView animateWithDuration:1.50f animations:^{
+            
+            label.alpha = 0.0;
+            
+        } completion:^(BOOL finished) {
+            
+            self.gameView.answerLabel.alpha = 1.0;
+            
             
         }];
+
+    } else {
+        
+        
+        label.text = message;
+        
+        self.gameView.answerLabel.alpha = 0.0;
+        label.alpha = 1.0;
+        
+        [UIView animateWithDuration:1.50f animations:^{
+            
+            label.alpha = 0.0;
+            
+        } completion:^(BOOL finished) {
+            
+            self.gameView.scoreLabel.text = [NSString stringWithFormat: @"%ld out of %ld correct!", (long)self.totalCorrect, (long)self.totalAnswers];
+            self.gameView.scoreLabel.alpha = 1.0;
+            
+        }];
+
+        
+    }
 }
-
--(void)fadeInFadeOutTimesUpLabel:(NSString *) message
-{
-    
-    self.gameView.introCountdownLabel.text = message;
-    
-    self.gameView.answerLabel.alpha = 0.0;
-    self.gameView.introCountdownLabel.alpha = 1.0;
-    
-    [UIView animateWithDuration:1.50f animations:^{
-
-        self.gameView.introCountdownLabel.alpha = 0.0;
-        
-    } completion:^(BOOL finished) {
-        
-        self.gameView.scoreLabel.text = [NSString stringWithFormat: @"%ld out of %ld correct!", (long)self.totalCorrect, (long)self.totalAnswers];
-        self.gameView.scoreLabel.alpha = 1.0;
-        
-    }];
-}
-
 
 
 #pragma mark - Timers
@@ -200,12 +212,14 @@
         
         if (!self.introTimerFinished) {
             
+            [self setUpGestureRecognizers];
             [self startTimer];
             self.introTimerFinished = YES;
         
         }else {
             
-            [self fadeInFadeOutTimesUpLabel:@"Time!"];
+            [self fadeLabel:self.gameView.introCountdownLabel WithMessage:@"Time!"];
+            [self removeGestureRecognizers];
         }
         
     }
