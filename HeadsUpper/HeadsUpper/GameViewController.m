@@ -8,8 +8,10 @@
 
 #import "GameViewController.h"
 #import "ZoomInOutAnimation.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface GameViewController ()
+@property (weak, nonatomic) IBOutlet UIView *cameraView;
 @property (nonatomic) NSInteger timerCount;
 @property (nonatomic) NSInteger getReadyTimerCount;
 @property (weak, nonatomic) IBOutlet UIView *getReadyView;
@@ -17,6 +19,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *guessItLabel;
 @property (nonatomic) NSInteger pointsTotal;
 @property (nonatomic) NSMutableArray *generatedNumbers;
+@property (nonatomic) NSTimer *readyTimer;
+@property (nonatomic) NSTimer *startGameTimer;
+
 @end
 
 @implementation GameViewController
@@ -28,6 +33,7 @@
     self.navigationItem.title = self.selectedCategory [@"title"];
     [self setupGestureRecognizer];
     [self getReadyTimer];
+    [self startLiveVideo];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -45,16 +51,43 @@
     [super didReceiveMemoryWarning];
 }
 
+-(void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    [_readyTimer invalidate];
+    [_startGameTimer invalidate];
+}
+
+-(void)startLiveVideo{
+    if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera]) {
+        AVCaptureSession *session = [[AVCaptureSession alloc] init];
+        session.sessionPreset = AVCaptureSessionPresetHigh;
+        
+        AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+        
+        NSError *error = nil;
+        AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:device error:&error];
+        [session addInput:input];
+        
+        AVCaptureVideoPreviewLayer *newCaptureVideoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:session];
+        newCaptureVideoPreviewLayer.frame = self.cameraView.bounds;
+        
+        [self.cameraView.layer addSublayer:newCaptureVideoPreviewLayer];
+        
+        [session startRunning];
+        
+    }
+}
+
 #pragma mark - Get Ready
 
 -(void)getReadyTimer{
     
     [ZoomInOutAnimation pulseView:self.getReadyView from:1.0 to:2.5 withDuration:0.5 repeats:CGFLOAT_MAX];
 
-    NSTimer *timer =  [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(getReadyTimerFired:) userInfo:nil repeats:YES];
+    _readyTimer =  [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(getReadyTimerFired:) userInfo:nil repeats:YES];
     self.getReadyTimerCount = 5;
-    [timer fire];
-    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    [_readyTimer fire];
+    [[NSRunLoop currentRunLoop] addTimer:_readyTimer forMode:NSRunLoopCommonModes];
 }
 
 -(void)getReadyTimerFired:(NSTimer *)timer{
@@ -85,12 +118,12 @@
 
 -(void)setupTimer{
     
-    NSTimer *timer =  [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
+    _startGameTimer =  [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
     
     self.timerCount = 9;
-    [timer fire];
+    [_startGameTimer fire];
     
-    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    [[NSRunLoop currentRunLoop] addTimer:_startGameTimer forMode:NSRunLoopCommonModes];
 }
 
 -(void)timerFired:(NSTimer *)timer{
