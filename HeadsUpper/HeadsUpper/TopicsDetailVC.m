@@ -22,20 +22,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupGestureRecognizers];
-    
+    [self generateClue];
     
     
 
 
     
-   self.topicClueList = self.clues.topicClues;
+   
+    
+}
+
+-(void) generateClue {
+    self.topicClueList = self.clues.topicClues;
     
     uint32_t rnd = arc4random_uniform([self.clues.topicClues count]);
     
     NSString *randomObject = [self.clues.topicClues objectAtIndex:rnd];
     
     self.topicsClueLbl.text = randomObject;
-    
 }
 
 -(void) setupGestureRecognizers {
@@ -52,7 +56,6 @@
 }
 
 -(void) changeBackground {
-    
     [UIView animateWithDuration:.2 animations:^{
         self.view.backgroundColor = [UIColor whiteColor];
     } completion:NULL];
@@ -63,10 +66,12 @@
         case UISwipeGestureRecognizerDirectionLeft:
             self.view.backgroundColor = [UIColor greenColor];
             self.changeBgColourTimer = [NSTimer scheduledTimerWithTimeInterval:.1 target:self selector:@selector(changeBackground) userInfo:nil repeats:YES];
+            [self generateClue];
             break;
         case UISwipeGestureRecognizerDirectionRight:
             self.view.backgroundColor = [UIColor redColor];
             self.changeBgColourTimer = [NSTimer scheduledTimerWithTimeInterval:.5 target:self selector:@selector(changeBackground) userInfo:nil repeats:YES];
+             [self generateClue];
 
             break;
         default:
