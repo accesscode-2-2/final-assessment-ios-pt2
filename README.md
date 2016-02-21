@@ -14,4 +14,4 @@ This app consists of no fewer that 2 screens. The first screen will display a li
 When the timer is up, the app should let the user know how many answers they got right (eg. 3/8). 
 The user should be able to play as many games as they'd like without having to quit the app. 
 
-![gif](https://github.com/accesscode-2-2/final-assessment-ios-pt2/blob/master/final.gif)
+![gif](https://github.com/accesscode-2-2/final-assessment-ios-pt2/blob/master/video.gif)
