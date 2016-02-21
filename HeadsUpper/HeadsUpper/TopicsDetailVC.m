@@ -13,6 +13,8 @@
 
 @property (nonatomic) NSArray *topicClueList;
 
+@property (nonatomic) NSTimer *changeBgColourTimer;
+
 @end
 
 @implementation TopicsDetailVC
@@ -20,6 +22,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupGestureRecognizers];
+    
+    
+    
+
+
     
    self.topicClueList = self.clues.topicClues;
     
@@ -44,18 +51,26 @@
     
 }
 
+-(void) changeBackground {
+    self.view.backgroundColor = [UIColor whiteColor];
+}
+
 -(void)handleSwipe:(UISwipeGestureRecognizer *)gesture {
     switch (gesture.direction ) {
         case UISwipeGestureRecognizerDirectionLeft:
-            self.view.backgroundColor = [UIColor darkGrayColor];
+            self.view.backgroundColor = [UIColor greenColor];
+            self.changeBgColourTimer = [NSTimer scheduledTimerWithTimeInterval:.5 target:self selector:@selector(changeBackground) userInfo:nil repeats:YES];
             break;
         case UISwipeGestureRecognizerDirectionRight:
-            self.view.backgroundColor = [UIColor orangeColor];
+            self.view.backgroundColor = [UIColor redColor];
+            self.changeBgColourTimer = [NSTimer scheduledTimerWithTimeInterval:.5 target:self selector:@selector(changeBackground) userInfo:nil repeats:YES];
+
             break;
         default:
             return;
     }
 }
+
 
 
 
