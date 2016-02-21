@@ -19,7 +19,8 @@
 @property (nonatomic) NSTimer *introTimer;
 @property (nonatomic) NSTimer *gameTimer;
 
-@property (nonatomic) NSInteger timeInSeconds;
+@property (nonatomic) NSInteger introTimeInSeconds;
+@property (nonatomic) NSInteger gameTimeInSeconds;
 
 @end
 
@@ -35,7 +36,13 @@
     [super viewDidLoad];
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
     
-    [((GameView *)self.view).mainMenuButton addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
+    self.gameView = (GameView *)self.view;
+    
+    [self.gameView.mainMenuButton addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.gameTimeInSeconds = 30;
+    self.introTimeInSeconds = 5;
+    self.gameView.answerLabel.text = [[NSNumber numberWithInteger:self.introTimeInSeconds] stringValue];
     
     [self setUpGestureRecognizers];
 }
@@ -47,6 +54,12 @@
     [self setViewProperties];
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    
+    [self startIntroTimer];
+}
+
 - (void)dismiss
 {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -54,11 +67,9 @@
 
 - (void)setViewProperties
 {
-    GameView *view = (GameView *)self.view;
-    
-    view.answerLabel.alpha = 0;
-    view.correctPassLabel.alpha = 0;
-    view.countdownLabel.hidden = YES;
+    //self.gameView.answerLabel.alpha = 0;
+    self.gameView.correctPassLabel.alpha = 0;
+    self.gameView.countdownLabel.hidden = YES;
     
 }
 
@@ -79,15 +90,13 @@
 
 -(void)handleSwipe: (UISwipeGestureRecognizer *)gesture
 {
- 
-    GameView *view = (GameView *)self.view;
     NSString *newAnswer = [self peekAndPopAnswer];
     
     switch (gesture.direction) {
             
         case UISwipeGestureRecognizerDirectionUp:
             
-            view.answerLabel.text = newAnswer;
+            self.gameView.answerLabel.text = newAnswer;
             
             [self fadeInFadeOutCorrectPassLabel:@"CORRECT!"];
             
@@ -98,7 +107,7 @@
             
         case UISwipeGestureRecognizerDirectionDown:
             
-            view.answerLabel.text = newAnswer;
+            self.gameView.answerLabel.text = newAnswer;
             
             [self fadeInFadeOutCorrectPassLabel:@"PASS"];
             
@@ -122,66 +131,95 @@
     return answer;
 }
 
--(void)fadeInFadeOutCorrectPassLabel:(NSString *) message{
+-(void)fadeInFadeOutCorrectPassLabel:(NSString *) message
+{
+
+    self.gameView.correctPassLabel.text = message;
     
-    GameView *view = (GameView *)self.view;
-    
-    view.correctPassLabel.text = message;
-    
-    [view.answerLabel setAlpha:0.0f];
-    [view.correctPassLabel setAlpha:1.0f];
+    [self.gameView.answerLabel setAlpha:0.0f];
+    [self.gameView.correctPassLabel setAlpha:1.0f];
     
     [UIView animateWithDuration:1.50f animations:^{
         
-        [view.correctPassLabel setAlpha:0.0f];
+        [self.gameView.correctPassLabel setAlpha:0.0f];
         
     } completion:^(BOOL finished) {
         
-       [view.answerLabel setAlpha:1.0f];
+       [self.gameView.answerLabel setAlpha:1.0f];
          
             
         }];
 }
 
 
-#pragma mark - Timer
+#pragma mark - Timers
 
 -(void)startIntroTimer
 {
     NSTimer *timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(fireIntroTimer:) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
     self.introTimer = timer;
-    self.timeInSeconds = 3;
     
 }
 
--(void)fireIntroTimer: (NSTimer *) timer
+-(void)startGameTimer
 {
-    self.timeInSeconds -= 1;
+    NSTimer *timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(fireIntroTimer:) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    self.gameTimer = timer;
     
-    if (timer == self.introTimer && self.timeInSeconds == 0) {
+}
+
+- (void)fireIntroTimer: (NSTimer *) timer
+{
+    self.introTimeInSeconds -= 1;
+    
+    if (self.introTimeInSeconds < 0) {
         
-        NSString *answer = [self peekAndPopAnswer];
+        self.gameView.answerLabel.text = self.topic.answers.firstObject;
         
+        [self resetIntroTimer:timer];
+        
+        [self startGameTimer];
     }
     
-    NSLog(@"Timer Fired, time in seconds: %ld", (long)self.timeInSeconds);
+    NSLog(@"Intro Timer Fired, time in seconds: %ld", (long)self.introTimeInSeconds);
 }
 
--(void)resetTimer: (NSTimer *)timer
+- (void) fireGameTimer: (NSTimer *) timer
 {
-    if (timer == self.introTimer){
+    self.gameTimeInSeconds -= 1;
+    
+    if (self.gameTimeInSeconds == 0) {
+        
+        self.gameView.answerLabel.text = @"Time's up!";
+        
+        [self resetGameTimer:timer];
+    }
+    NSLog(@"Game Timer Fired, time in seconds: %ld", (long)self.gameTimeInSeconds);
+}
+
+- (void)resetIntroTimer: (NSTimer *)timer
+{
+    if (self.introTimer){
         
         [self.introTimer invalidate];
         
-        self.timeInSeconds = 0;
+        self.introTimeInSeconds = 5;
+        
+    }
+}
+
+- (void)resetGameTimer: (NSTimer *)timer
+{
     
-    }else if (timer == self.gameTimer) {
+    if (self.gameTimer) {
         
         [self.gameTimer invalidate];
         
-        self.timeInSeconds = 0;
+        self.gameTimeInSeconds = 30;
     }
+
 }
 
 
