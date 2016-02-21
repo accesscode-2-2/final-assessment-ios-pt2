@@ -52,14 +52,17 @@
 }
 
 -(void) changeBackground {
-    self.view.backgroundColor = [UIColor whiteColor];
+    
+    [UIView animateWithDuration:.2 animations:^{
+        self.view.backgroundColor = [UIColor whiteColor];
+    } completion:NULL];
 }
 
 -(void)handleSwipe:(UISwipeGestureRecognizer *)gesture {
     switch (gesture.direction ) {
         case UISwipeGestureRecognizerDirectionLeft:
             self.view.backgroundColor = [UIColor greenColor];
-            self.changeBgColourTimer = [NSTimer scheduledTimerWithTimeInterval:.5 target:self selector:@selector(changeBackground) userInfo:nil repeats:YES];
+            self.changeBgColourTimer = [NSTimer scheduledTimerWithTimeInterval:.1 target:self selector:@selector(changeBackground) userInfo:nil repeats:YES];
             break;
         case UISwipeGestureRecognizerDirectionRight:
             self.view.backgroundColor = [UIColor redColor];
