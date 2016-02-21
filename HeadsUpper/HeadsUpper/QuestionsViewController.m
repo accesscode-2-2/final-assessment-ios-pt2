@@ -159,7 +159,7 @@
 - (void)resultsPopup {
 
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Game Over"
-                                                                   message:[NSString stringWithFormat:@"%d/%d", self.numberCorrect, self.questions.count]
+                                                                   message:[NSString stringWithFormat:@"%ld/%lu", (long)self.numberCorrect, (unsigned long)self.questions.count]
                                                             preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
