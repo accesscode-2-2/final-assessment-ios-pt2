@@ -79,4 +79,26 @@ UICollectionViewDelegateFlowLayout
     
 }
 
+#pragma mark – UICollectionViewDelegateFlowLayout
+
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+//    NSString *searchTerm = self.searches[indexPath.section];
+//    FlickrPhoto *photo = self.searchResults[searchTerm][indexPath.row];
+//
+//    CGSize retval = photo.thumbnail.size.width > 0 ? photo.thumbnail.size : CGSizeMake(100, 100);
+//    retval.height += 35; retval.width += 35;
+    
+    CGSize cellSize = CGSizeMake(100, 100);
+    
+    return cellSize;
+}
+
+- (UIEdgeInsets)collectionView:
+(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+    return UIEdgeInsetsMake(50, 20, 50, 20);
+}
+
 @end
