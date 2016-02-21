@@ -20,22 +20,63 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    OptionsManager *planetCategory = [[OptionsManager alloc] init];
+    OptionsManager *superstars = [[OptionsManager alloc] init];
     
-    planetCategory.categoryName = @"Superstars";
-    planetCategory.categoryOptions = @[@"Jackson", @"Leighton Meester", @"Willow Smith", @"Matt Lauer", @"Josh Duhamel", @"Sharon Osbourne", @"Spencer Pratt", @"Demi Moore", @"Whitney Houston", @"Nicole Kidman", @"Miley Cyrus", @"Victoria Beckham", @"LeAnn Rimes", @"Dakota Fanning", @"Dr. Seuss", @"Ryan Phillippe", @"Steve Carell", @"Chris Rock", @"Collin Ferell", @"Drake", @"Rachel McAdams", @"Maya Rudolph"];
+    superstars.categoryName = @"Superstars";
+    superstars.categoryOptions = @[@"Jackson",
+                                       @"Leighton Meester",
+                                       @"Willow Smith",
+                                       @"Matt Lauer",
+                                       @"Josh Duhamel",
+                                       @"Sharon Osbourne",
+                                       @"Spencer Pratt",
+                                       @"Demi Moore",
+                                       @"Whitney Houston",
+                                       @"Nicole Kidman",
+                                       @"Miley Cyrus",
+                                       @"Victoria Beckham",
+                                       @"LeAnn Rimes",
+                                       @"Dakota Fanning",
+                                       @"Dr. Seuss",
+                                       @"Ryan Phillippe",
+                                       @"Steve Carell",
+                                       @"Chris Rock",
+                                       @"Collin Ferell",
+                                       @"Drake",
+                                       @"Rachel McAdams",
+                                       @"Maya Rudolph"];
     
     
-    OptionsManager *treatCategory = [[OptionsManager alloc] init];
+    OptionsManager *trainspotting = [[OptionsManager alloc] init];
     
-    treatCategory.categoryName = @"That's so 90s";
-    treatCategory.categoryOptions = @[@"El Niño", @"Viagra", @"Animaniacs", @"League of their Own", @"Happy Gilmore", @"Nick Carter", @"My Heart Will Go On", @"I Know What You Did Last Summer", @"Can You Feel The Love Tonight", @"The Macarana", @"Light-up Sneakers", @"Boy Meets World", @"Baby Got Back", @"Smells Like Teen Spirit", @"Super Soakers", @"7th Heaven", @"Garth Brooks", @"Floppy Discs", @"Kramer", @"Blink 182", @"Surge"];
+    trainspotting.categoryName = @"That's so 90s";
+    trainspotting.categoryOptions = @[@"El Niño",
+                                      @"Viagra",
+                                      @"Animaniacs",
+                                      @"League of their Own",
+                                      @"Happy Gilmore",
+                                      @"Nick Carter",
+                                      @"My Heart Will Go On",
+                                      @"I Know What You Did Last Summer",
+                                      @"Can You Feel The Love Tonight",
+                                      @"The Macarana",
+                                      @"Light-up Sneakers",
+                                      @"Boy Meets World",
+                                      @"Baby Got Back",
+                                      @"Smells Like Teen Spirit",
+                                      @"Super Soakers",
+                                      @"7th Heaven",
+                                      @"Garth Brooks",
+                                      @"Floppy Discs",
+                                      @"Kramer",
+                                      @"Blink 182",
+                                      @"Surge"];
     
     
-    OptionsManager *carsCategory = [[OptionsManager alloc] init];
+    OptionsManager *jams = [[OptionsManager alloc] init];
     
-    carsCategory.categoryName = @"Hey Mr. DJ";
-    carsCategory.categoryOptions = @[@"\"Girl On Fire\" Alicia Keys",
+    jams.categoryName = @"Hey Mr. DJ";
+    jams.categoryOptions = @[@"\"Girl On Fire\" Alicia Keys",
                                      @"\"U Can't Touch This\" MC Hammer",
                                      @"\"Hello\" Lionel Richie",
                                      @"\"Dark Horse\" Katy Perry",
@@ -56,15 +97,11 @@
                                      @"\"We Belong Together\" Mariah Carey",
                                      @"\"(I Can't Get No) Satisfaction\""];
     
-    //Array of CQCategory Objects
-    self.categoryObjects = @[planetCategory, treatCategory, carsCategory];
+    //Array of OptionsManager Objects
+    self.categoryObjects = @[superstars, trainspotting, jams];
     [self.tableView reloadData];
 
-    
-
 }
-
-
 
 #pragma mark - Table view data source
 
@@ -83,7 +120,6 @@
     OptionsManager *categoryObject = self.categoryObjects[indexPath.row];
     cell.textLabel.text = categoryObject.categoryName;
     
-    
     return cell;
 }
 
@@ -100,6 +136,8 @@
     detailVC.category = categoryObject;
 
 }
+
+
 
 
 @end

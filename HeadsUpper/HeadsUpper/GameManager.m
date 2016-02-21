@@ -7,23 +7,45 @@
 //
 
 #import "GameManager.h"
+#import "MotionGesture.h"
 
 
-@interface GameManager ()
+@interface GameManager ()<MotionGestureDelegate>
 
 @property (nonatomic, assign) NSInteger timerCount;
 @property (nonatomic) NSTimer *timer;
 @property (nonatomic) NSInteger score;
+
+@property(nonatomic) MotionGesture *motionGesture;
 
 @end
 
 
 @implementation GameManager
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        [self generalSetup];
+        self.score = 0;
+        
+    }
+    return self;
+}
+
+-(void)generalSetup {
+    self.motionGesture = [[MotionGesture alloc] init];
+    self.motionGesture.motionGestureDelegate = self;
+}
+
 -(void) startGame {
 //our alloc init
     [self setupTimer];
     
+}
+
+-(void)timerDone {
+    [self.timer invalidate];
 }
 
 -(void)setupTimer {
@@ -41,7 +63,7 @@
     [self.gameManagerDelegate updateCountdown:self.timerCount];
     if (self.timerCount == 0 ) {
         [self.timer invalidate];
-        
+   
     }
 }
 
@@ -56,8 +78,22 @@
 }
 
 -(void) wrongAnswer {
-    self.score--;
+    if (self.score != 0) {
+        self.score--;
+    }
     
 }
+
+-(void)tiltUp {
+    [self correctAnswer];
+}
+
+-(void)tiltDown {
+    [self wrongAnswer];
+}
+
+//-(void) gameEnded {
+//self.t
+//}
 
 @end

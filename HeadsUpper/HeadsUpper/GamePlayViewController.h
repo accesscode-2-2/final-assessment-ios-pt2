@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "OptionsManager.h"
 #import "GameManager.h"
+#import "OptionsTableViewController.h"
 
 
 

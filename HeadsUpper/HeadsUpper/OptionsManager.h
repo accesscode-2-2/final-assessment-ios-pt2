@@ -7,16 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-//
-//@protocol OptionsDelegate <NSObject>
-//
-//-(void)updateOption:(NSString *) option;
-//
-//@end
-
 
 @interface OptionsManager : NSObject
-//@property (nonatomic, weak) id<OptionsDelegate> optionsManagerDelegate;
 
 @property (nonatomic) NSString *categoryName;
 @property (nonatomic) NSArray *categoryOptions;

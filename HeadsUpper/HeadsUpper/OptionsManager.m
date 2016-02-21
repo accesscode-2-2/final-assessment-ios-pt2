@@ -14,16 +14,4 @@
 
 @implementation OptionsManager
 
--(void)saveSelection {
-    [[NSUserDefaults standardUserDefaults] setObject:self.selection forKey:self.categoryName];
-    
-    
-}
-
--(void)loadDefautls {
-    NSString *selection = [[NSUserDefaults standardUserDefaults] objectForKey:self.categoryName];
-    if (selection != nil) {
-        self.selection = selection;
-    }
-}
 @end
