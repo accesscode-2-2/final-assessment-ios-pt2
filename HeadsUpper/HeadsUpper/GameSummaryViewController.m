@@ -24,8 +24,6 @@
     [super viewDidLoad];
     [self autoRotatePortrait];
     
-    self.navigationController.navigationBarHidden = YES;
-    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
@@ -36,6 +34,10 @@
     
     NSLog(@"Correct Set Passed:%@",self.correctSet);
     NSLog(@"Wrong Set Passed:%@",self.wrongSet);
+}
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+     self.navigationController.navigationBarHidden = YES;
 }
 
 - (void)autoRotatePortrait {
@@ -53,9 +55,12 @@
     NSInteger correctNumber = self.correctArray.count;
     NSInteger allNumbers = self.correctArray.count + self.wrongArray.count;
     
+    if (allNumbers == 0){
+        self.gamePercentage = 0.0;
+    } else {
     float percentage = (100 * correctNumber)/allNumbers;
-    
     self.gamePercentage = percentage;
+    }
     
     if (self.gamePercentage >= 50.0){
         self.gameSummaryView.backgroundColor = [UIColor greenColor];
@@ -63,7 +68,7 @@
         self.gameSummaryView.backgroundColor = [UIColor redColor];
     }
     
-    NSString *endGameMessage = [NSString stringWithFormat:@"%ld of %ld questions answered correctly. That is %.1f percent, buddy!",correctNumber,(long)allNumbers,percentage];
+    NSString *endGameMessage = [NSString stringWithFormat:@"%ld of %ld questions answered correctly. That is %.1f percent, buddy!",correctNumber,(long)allNumbers,self.gamePercentage];
  
     self.gameSummaryLabel.text = endGameMessage;
 }

@@ -18,6 +18,7 @@
 		9A8586821C7A54A600DA7BC0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8586811C7A54A600DA7BC0 /* AVFoundation.framework */; };
 		9A8586861C7A59EA00DA7BC0 /* RightAnswer.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 9A8586851C7A59EA00DA7BC0 /* RightAnswer.m4a */; };
 		9A8586881C7A5A0600DA7BC0 /* DamnDaniel.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 9A8586871C7A5A0600DA7BC0 /* DamnDaniel.m4a */; };
+		9A85868A1C7A62BA00DA7BC0 /* Boop.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 9A8586891C7A62BA00DA7BC0 /* Boop.m4a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		9A8586811C7A54A600DA7BC0 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		9A8586851C7A59EA00DA7BC0 /* RightAnswer.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = RightAnswer.m4a; sourceTree = "<group>"; };
 		9A8586871C7A5A0600DA7BC0 /* DamnDaniel.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = DamnDaniel.m4a; sourceTree = "<group>"; };
+		9A8586891C7A62BA00DA7BC0 /* Boop.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Boop.m4a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				8D8969631C755D0200D32E8A /* Main.storyboard */,
 				9A8586851C7A59EA00DA7BC0 /* RightAnswer.m4a */,
 				9A8586871C7A5A0600DA7BC0 /* DamnDaniel.m4a */,
+				9A8586891C7A62BA00DA7BC0 /* Boop.m4a */,
 				8D8969661C755D0200D32E8A /* Assets.xcassets */,
 				8D8969681C755D0200D32E8A /* LaunchScreen.storyboard */,
 				8D89696B1C755D0200D32E8A /* Info.plist */,
@@ -160,6 +163,7 @@
 			files = (
 				8D89696A1C755D0200D32E8A /* LaunchScreen.storyboard in Resources */,
 				8D8969671C755D0200D32E8A /* Assets.xcassets in Resources */,
+				9A85868A1C7A62BA00DA7BC0 /* Boop.m4a in Resources */,
 				9A8586861C7A59EA00DA7BC0 /* RightAnswer.m4a in Resources */,
 				9A8586881C7A5A0600DA7BC0 /* DamnDaniel.m4a in Resources */,
 				8D8969651C755D0200D32E8A /* Main.storyboard in Resources */,

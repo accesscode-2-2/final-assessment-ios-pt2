@@ -12,6 +12,7 @@
 @interface GameplayViewController ()
 @property (nonatomic,strong) AVAudioPlayer *audioPlayerOne;
 @property (nonatomic,strong) AVAudioPlayer *audioPlayerTwo;
+@property (nonatomic,strong) AVAudioPlayer *audioPlayerThree;
            
 @property (strong, nonatomic) IBOutlet UILabel *timerLabel;
 @property (strong, nonatomic) IBOutlet UILabel *clueLabel;
@@ -79,6 +80,7 @@
     
     if (self.timeLeft < 6){
         self.timerLabel.textColor = [UIColor redColor];
+        [self.audioPlayerThree play];
     }
     
     if (self.timeLeft == 0){
@@ -188,6 +190,10 @@
     self.audioPlayerTwo = [[AVAudioPlayer alloc]initWithContentsOfURL:soundUrlTwo error:&error];
     [self.audioPlayerTwo prepareToPlay];
     
+    NSString *pathThree  = [[NSBundle mainBundle] pathForResource:@"Boop" ofType:@"m4a"];
+    NSURL *soundUrlThree = [NSURL fileURLWithPath:pathThree];
+    self.audioPlayerThree = [[AVAudioPlayer alloc]initWithContentsOfURL:soundUrlThree error:&error];
+    [self.audioPlayerThree prepareToPlay];
 
 }
 

@@ -107,6 +107,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="clueLabel" destination="ctC-LK-9CR" id="ES4-Ty-SJm"/>
                         <outlet property="testButton" destination="ZUw-Sp-uir" id="y6A-xK-n4G"/>
@@ -213,6 +214,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="gameSummaryLabel" destination="ypy-Zj-Lz0" id="FRT-V1-r2L"/>
                         <outlet property="gameSummaryView" destination="ACm-J0-BNG" id="B6A-5A-I7B"/>
