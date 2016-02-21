@@ -17,6 +17,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 @property (weak, nonatomic) IBOutlet UILabel *cluesLabel;
 
+@property (nonatomic, assign) NSInteger correctGuess;
+@property (nonatomic, assign) NSInteger cluesCount;
+@property (nonatomic, assign) NSInteger skippedClues;
+@property (nonatomic, assign) NSString *playerScore;
+
 - (void)shuffled;
 
 @end
@@ -28,25 +33,32 @@
     [super viewDidLoad];
     
     [self setupTimer];
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:YES];
+    
     [self setUpGestureRecognizers];
-    
+
     [self shuffled];
-    
-    NSLog(@"%@", self.cluesLabel.text);
-    
-    
+
+}
+
+- (NSString *)playerScore
+{
+
+    self.cluesCount = self.correctGuess + self.skippedClues;
+
+    return [NSString stringWithFormat: @"%ld/%ld", (long)self.correctGuess, (long)self.cluesCount ];
+;
+
 }
 
 - (void)shuffled
 {
     
-    //    NSUInteger count = [_data.clues count];
-    //
-    //    if (count < 1) return;
-    //    for (NSUInteger i = 0; i < count - 1; ++i) {
-    //        NSInteger remainingCount = count - i;
-    //        NSInteger exchangeIndex = i + arc4random_uniform((u_int32_t )remainingCount);
-    //        [_data.clues exchangeObjectAtIndex:i withObjectAtIndex: exchangeIndex];
     uint32_t shuffleClues = arc4random_uniform([_data.clues count]);
     
     NSString *randomClue = [_data.clues objectAtIndex:shuffleClues];
@@ -75,8 +87,16 @@
     if (self.timerCount == 0) {
         [timer invalidate];
         
-        //
-        //        self.timerCount = 10;
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Game Over"
+                                                        message:self.playerScore
+                                                       delegate:self
+                                              cancelButtonTitle:@"Done"
+                                              otherButtonTitles:nil];
+        [alert show];
+        
+        [timer invalidate];
+
+        
     }
     
     // Determine time left on timer
@@ -84,6 +104,17 @@
     self.timerLabel.text = convertedToString;
     
     self.timerCount--;
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    // the user clicked Done
+    if (buttonIndex == 0) {
+        
+        [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        
+        [self.navigationController popToRootViewControllerAnimated:YES];
+        
+    }
 }
 
 - (void)setUpGestureRecognizers
@@ -94,14 +125,9 @@
     UISwipeGestureRecognizer *rightSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
     rightSwipe.direction = UISwipeGestureRecognizerDirectionRight;
     
-//    UISwipeGestureRecognizer *downSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
-//    downSwipe.direction = UISwipeGestureRecognizerDirectionDown;
-    
-    
     
     [self.view addGestureRecognizer:leftSwipe];
     [self.view addGestureRecognizer:rightSwipe];
-//    [self.view addGestureRecognizer:downSwipe];
     
 }
 
@@ -110,16 +136,15 @@
     switch (gesture.direction) {
         case UISwipeGestureRecognizerDirectionLeft:
             self.view.backgroundColor = [UIColor greenColor];
+            self.correctGuess++;
             [self shuffled];
             break;
         case UISwipeGestureRecognizerDirectionRight:
             self.view.backgroundColor = [UIColor redColor];
+            self.skippedClues++;
             [self shuffled];
             break;
-//        case UISwipeGestureRecognizerDirectionDown:
-//            self.view.backgroundColor = [UIColor yellowColor];
-//            
-            break;
+
         default:
             return;
             
