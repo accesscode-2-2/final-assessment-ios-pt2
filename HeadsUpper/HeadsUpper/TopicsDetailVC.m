@@ -89,9 +89,33 @@
     }
 }
 
+-(void)gameOverAlert {
+    UIAlertController * alert = [UIAlertController
+                                  alertControllerWithTitle:@"My Title"
+                                  message:@"Enter User Credentials"
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    
+    
+    UIAlertAction* ok = [UIAlertAction
+                         actionWithTitle:@"OK"
+                         style:UIAlertActionStyleDefault
+                         handler:^(UIAlertAction * action)
+                         {
+                             [alert dismissViewControllerAnimated:YES completion:nil];
+                             
+                         }];
+    
+    [alert addAction:ok];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+
+    
+}
+
 -(void)timerFired:(NSTimer *)timer {
     if (self.timerCount == 0) {
         [timer invalidate];
+        [self gameOverAlert];
         
     }
     
