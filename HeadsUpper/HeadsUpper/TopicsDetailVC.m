@@ -14,6 +14,7 @@
 @property (nonatomic) NSArray *topicClueList;
 
 @property (nonatomic) NSTimer *changeBgColourTimer;
+@property(nonatomic, assign) NSInteger timerCount;
 
 @end
 
@@ -23,12 +24,6 @@
     [super viewDidLoad];
     [self setupGestureRecognizers];
     [self generateClue];
-    
-    
-
-
-    
-   
     
 }
 
@@ -55,6 +50,10 @@
     
 }
 
+-(void) bGColourTimer {
+    self.changeBgColourTimer = [NSTimer scheduledTimerWithTimeInterval:.1 target:self selector:@selector(changeBackground) userInfo:nil repeats:YES];
+}
+
 -(void) changeBackground {
     [UIView animateWithDuration:.2 animations:^{
         self.view.backgroundColor = [UIColor whiteColor];
@@ -65,23 +64,18 @@
     switch (gesture.direction ) {
         case UISwipeGestureRecognizerDirectionLeft:
             self.view.backgroundColor = [UIColor greenColor];
-            self.changeBgColourTimer = [NSTimer scheduledTimerWithTimeInterval:.1 target:self selector:@selector(changeBackground) userInfo:nil repeats:YES];
+            [self bGColourTimer];
             [self generateClue];
             break;
         case UISwipeGestureRecognizerDirectionRight:
             self.view.backgroundColor = [UIColor redColor];
-            self.changeBgColourTimer = [NSTimer scheduledTimerWithTimeInterval:.5 target:self selector:@selector(changeBackground) userInfo:nil repeats:YES];
-             [self generateClue];
-
+            [self bGColourTimer];
+            [self generateClue];
             break;
         default:
             return;
     }
 }
-
-
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
