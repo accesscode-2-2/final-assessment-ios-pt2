@@ -15,6 +15,7 @@
 		F7735DE21C7A0E4C00B6D2DA /* Topics.m in Sources */ = {isa = PBXBuildFile; fileRef = F7735DE11C7A0E4C00B6D2DA /* Topics.m */; };
 		F7735DE81C7A125E00B6D2DA /* TopicsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F7735DE71C7A125E00B6D2DA /* TopicsTVC.m */; };
 		F7735DEB1C7A164A00B6D2DA /* TopicsDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F7735DEA1C7A164A00B6D2DA /* TopicsDetailVC.m */; };
+		F7735DEE1C7A42E500B6D2DA /* TopicSelectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F7735DED1C7A42E500B6D2DA /* TopicSelectionTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,8 @@
 		F7735DE71C7A125E00B6D2DA /* TopicsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicsTVC.m; sourceTree = "<group>"; };
 		F7735DE91C7A164A00B6D2DA /* TopicsDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicsDetailVC.h; sourceTree = "<group>"; };
 		F7735DEA1C7A164A00B6D2DA /* TopicsDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicsDetailVC.m; sourceTree = "<group>"; };
+		F7735DEC1C7A42E500B6D2DA /* TopicSelectionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicSelectionTableViewCell.h; sourceTree = "<group>"; };
+		F7735DED1C7A42E500B6D2DA /* TopicSelectionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicSelectionTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +75,8 @@
 				F7735DE71C7A125E00B6D2DA /* TopicsTVC.m */,
 				F7735DE91C7A164A00B6D2DA /* TopicsDetailVC.h */,
 				F7735DEA1C7A164A00B6D2DA /* TopicsDetailVC.m */,
+				F7735DEC1C7A42E500B6D2DA /* TopicSelectionTableViewCell.h */,
+				F7735DED1C7A42E500B6D2DA /* TopicSelectionTableViewCell.m */,
 				8D8969631C755D0200D32E8A /* Main.storyboard */,
 				8D8969661C755D0200D32E8A /* Assets.xcassets */,
 				8D8969681C755D0200D32E8A /* LaunchScreen.storyboard */,
@@ -159,6 +164,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7735DEE1C7A42E500B6D2DA /* TopicSelectionTableViewCell.m in Sources */,
 				F7735DE81C7A125E00B6D2DA /* TopicsTVC.m in Sources */,
 				F7735DE21C7A0E4C00B6D2DA /* Topics.m in Sources */,
 				F7735DEB1C7A164A00B6D2DA /* TopicsDetailVC.m in Sources */,

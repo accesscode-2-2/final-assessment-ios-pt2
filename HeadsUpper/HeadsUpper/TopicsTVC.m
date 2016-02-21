@@ -9,6 +9,7 @@
 #import "TopicsTVC.h"
 #import "TopicsDetailVC.h"
 #import "Topics.h"
+#import "TopicSelectionTableViewCell.h"
 
 @interface TopicsTVC ()
 
@@ -84,10 +85,14 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TopicsCell" forIndexPath:indexPath];
+    TopicSelectionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TopicsCell" forIndexPath:indexPath];
     
     Topics *topics = [self.topics objectAtIndex: indexPath.row];
-    cell.textLabel.text = topics.topicName;
+    cell.topicLbl.text = topics.topicName;
+    
+   
+    cell.topicsImg.image = [UIImage imageNamed:[topics.topicName lowercaseString]];
+    
     
     return cell;
 }
