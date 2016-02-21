@@ -11,6 +11,9 @@
 
 @interface HUGameViewController ()
 
+@property (nonatomic) UISwipeGestureRecognizer *leftGesture;
+@property (nonatomic) UISwipeGestureRecognizer *rightGesture;
+
 @property (weak, nonatomic) IBOutlet UILabel *clueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 
@@ -60,18 +63,17 @@
 
 - (void)timerFired:(NSTimer *)timer {
     self.timerCount++;
-    self.timerLabel.text = [NSString stringWithFormat:@"0:%d",30-self.timerCount];
     
-    if (self.timerCount == 30) {
-        [timer invalidate];
+    if (self.timerCount > 20) {
+        self.timerLabel.text = [NSString stringWithFormat:@"0:0%d",30-self.timerCount];
+    }else{
+        self.timerLabel.text = [NSString stringWithFormat:@"0:%d",30-self.timerCount];
     }
-}
-
-#pragma mark - Label Helper Method
-
--(void)setupNextClue {
-    self.currentIndex+=1;
-    self.clueLabel.text = self.category.clues[self.currentIndex];
+    
+    if (self.timerCount >= 30) {
+        [timer invalidate];
+        [self showAlert];
+    }
 }
 
 #pragma mark - Swipes
@@ -84,44 +86,95 @@
     
     [self.view addGestureRecognizer:swipeLeft];
     
+    self.leftGesture = swipeLeft;
+    
     UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeRight:)];
     
     swipeRight.direction = UISwipeGestureRecognizerDirectionRight;
     
     [self.view addGestureRecognizer:swipeRight];
     
+    self.rightGesture = swipeRight;
+    
 }
 
 - (void)handleSwipeLeft:(UISwipeGestureRecognizer *)gesture {
+    
     if (self.currentIndex < self.category.clues.count-1) {
         [self setupNextClue];
         self.view.backgroundColor = [UIColor orangeColor];
+        [self tempTimer];
     }
     else {
         [self showAlert];
+        self.timerCount = 29;
     }
 }
 
 - (void)handleSwipeRight:(UISwipeGestureRecognizer *)gesture {
+    
     if (self.currentIndex < self.category.clues.count-1) {
         self.view.backgroundColor = [UIColor greenColor];
+        [self tempTimer];
         [self setupNextClue];
         self.gameScore+=1;
     }
     else {
+        self.gameScore+=1;
         [self showAlert];
+        self.timerCount = 29;
     }
 }
+
+-(void)removeGesture {
+    [self.view removeGestureRecognizer:self.leftGesture];
+    [self.view removeGestureRecognizer:self.rightGesture];
+}
+
+#pragma Temp Timer
+
+-(void)tempTimer {
+    
+   NSTimer *timer =  [NSTimer scheduledTimerWithTimeInterval:0.5
+                                     target:self
+                                   selector:@selector(handleTempTimer:)
+                                   userInfo:nil
+                                    repeats:NO];
+    
+   // NSTimer *timer = [NSTimer timerWithTimeInterval:0.25 target:self selector:@selector(tempTimerFired:) userInfo:nil repeats:NO];
+    
+    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    [timer fire];
+}
+
+-(void)handleTempTimer:(NSTimer *)timer {
+//    if (self.view.backgroundColor != [UIColor whiteColor]){
+//        self.view.backgroundColor = [UIColor whiteColor];
+//    }
+}
+
+#pragma mark - Label Helper Method
+
+-(void)setupNextClue {
+    self.currentIndex+=1;
+    self.clueLabel.text = self.category.clues[self.currentIndex];
+}
+
 
 #pragma mark - Alert
 
 -(void)showAlert {
     NSString *score = [HUGameCategory getreportForScore:self.gameScore andCategory:self.category];
     
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Game Over" message:[NSString stringWithFormat:@"You got: %@",score] preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Game Over" message:[NSString stringWithFormat:@"You got: %@. Play another category!",score] preferredStyle:UIAlertControllerStyleAlert];
     
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+       
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
     [alert addAction:okAction];
+    
+    [self removeGesture];
     
     [self presentViewController:alert animated:YES completion:nil];
 }
