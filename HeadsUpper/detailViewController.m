@@ -11,6 +11,7 @@
 @interface detailViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 @property (nonatomic, assign) NSInteger timerCounter;
+@property (nonatomic, assign) NSInteger rightSwipeCounter;
 
 
 @end
@@ -22,6 +23,7 @@
     // Do any additional setup after loading the view.
     
     [self setupTimer];
+    [self setupGestureRecognizers];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -65,5 +67,35 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)setupGestureRecognizers{
+    
+    UISwipeGestureRecognizer *leftSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
+    leftSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
+    
+    UISwipeGestureRecognizer *righttSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
+    righttSwipe.direction = UISwipeGestureRecognizerDirectionRight;
+    
+    [self.view addGestureRecognizer:leftSwipe];
+    [self.view addGestureRecognizer:righttSwipe];
+    
+}
+
+- (void)handleSwipe: (UISwipeGestureRecognizer *)gesture
+{
+    switch (gesture.direction) {
+        case UISwipeGestureRecognizerDirectionLeft:
+            self.view.backgroundColor = [UIColor redColor];
+            
+            
+            break;
+        case UISwipeGestureRecognizerDirectionRight:
+            self.view.backgroundColor = [UIColor greenColor];
+            break;
+            
+        default:
+            return;
+    }
+}
 
 @end
