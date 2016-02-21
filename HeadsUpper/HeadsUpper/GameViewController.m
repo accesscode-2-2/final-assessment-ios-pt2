@@ -38,6 +38,8 @@
     self.gameView = (GameView *)self.view;
     
     [self.gameView.mainMenuButton addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
+    [self.gameView.chooseNewTopicButton addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
+    [self.gameView.playAgainButton addTarget:self action:@selector(playAgain) forControlEvents:UIControlEventTouchUpInside];
     
     self.introTimerFinished = NO;
     self.timeInSeconds = 5;
@@ -63,13 +65,26 @@
     [self.timer invalidate];
 }
 
+- (void)playAgain
+{
+    self.introTimerFinished = NO;
+    self.timeInSeconds = 5;
+    [self setViewProperties];
+    self.gameView.introCountdownLabel.alpha = 1.0;
+    [self startTimer];
+}
+
 - (void)setViewProperties
 {
+    self.gameView.mainMenuButton.hidden = NO;
     
     self.gameView.answerLabel.alpha = 0.0;
     self.gameView.correctPassLabel.alpha = 0.0;
     self.gameView.scoreLabel.alpha = 0.0;
     self.gameView.countdownLabel.hidden = YES;
+    
+    self.gameView.playAgainButton.hidden = YES;
+    self.gameView.chooseNewTopicButton.hidden = YES;
     
     self.gameView.introCountdownLabel.alpha = 0.0;
     self.gameView.introCountdownLabel.text = [[NSNumber numberWithInteger:self.timeInSeconds] stringValue];
@@ -180,6 +195,10 @@
             self.gameView.scoreLabel.text = [NSString stringWithFormat: @"%ld out of %ld correct!", (long)self.totalCorrect, (long)self.totalAnswers];
             self.gameView.scoreLabel.alpha = 1.0;
             
+            self.gameView.mainMenuButton.hidden = YES;
+            self.gameView.playAgainButton.hidden = NO;
+            self.gameView.chooseNewTopicButton.hidden = NO;
+            
         }];
 
         
@@ -203,7 +222,7 @@
     self.timeInSeconds -= 1;
     self.gameView.introCountdownLabel.text = [[NSNumber numberWithInteger:self.timeInSeconds] stringValue];
     
-    if (self.timeInSeconds < 0) {
+    if (self.timeInSeconds <= 0) {
         
         self.gameView.introCountdownLabel.alpha = 0.0;
         self.gameView.answerLabel.alpha = 1.0;

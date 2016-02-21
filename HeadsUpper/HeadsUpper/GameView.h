@@ -16,4 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *introCountdownLabel;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 
+@property (weak, nonatomic) IBOutlet UIButton *playAgainButton;
+@property (weak, nonatomic) IBOutlet UIButton *chooseNewTopicButton;
+
 @end
