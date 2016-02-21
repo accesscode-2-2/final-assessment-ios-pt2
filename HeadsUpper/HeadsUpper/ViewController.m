@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import <ChameleonFramework/Chameleon.h>
 #import <SIAlertView/SIAlertView.h>
+#import <AFNetworking/AFNetworking.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface ViewController ()
 @property (nonatomic) NSInteger timerCount;
@@ -21,6 +23,9 @@
 
 @property (nonatomic) NSInteger whichAnswerAreWeAt;
 @property (nonatomic) NSInteger totalGuesses;
+@property (nonatomic) AFHTTPSessionManager *manager;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
+@property (nonatomic) SDWebImageManager *SDmanager;
 
 @end
 
@@ -28,13 +33,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.SDmanager = [SDWebImageManager sharedManager];
     self.whichAnswerAreWeAt = 0;
     self.rightCount = 0;
     self.totalGuesses = 1;
-    self.guess.text = self.answers[self.whichAnswerAreWeAt];
+//    self.guess.text = self.answers[self.whichAnswerAreWeAt];
     self.readyLabel.text = @"3";
+    
     [self setupReadyTimer];
     self.readyView.backgroundColor = [UIColor colorWithGradientStyle:UIGradientStyleTopToBottom withFrame: self.view.frame andColors:@[[UIColor flatWhiteColorDark], [UIColor flatWhiteColor]]];
+    
+    self.manager = [[AFHTTPSessionManager alloc] init];
+    self.manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [self showNextGuess];
+    
     
 }
 
@@ -64,20 +76,47 @@
     switch (gesture.direction) {
         case  UISwipeGestureRecognizerDirectionRight:
             [self animateViewWith:[UIColor flatWatermelonColorDark]];
-
             self.totalGuesses++;
-            self.guess.text = self.answers[self.whichAnswerAreWeAt];
-            
+            [self showNextGuess];
             break;
         case UISwipeGestureRecognizerDirectionLeft:
             [self animateViewWith:[UIColor flatMintColorDark]];
             self.rightCount++;
             self.totalGuesses++;
-            self.guess.text = self.answers[self.whichAnswerAreWeAt];
+            [self showNextGuess];
             break;
         default:
             break;
     }
+}
+
+-(void) showNextGuess{
+    NSString *currGuess = self.answers[self.whichAnswerAreWeAt];
+    self.guess.text = currGuess;
+    NSString * url = [[NSString stringWithFormat:@"http://api.duckduckgo.com/?q=%@&format=json", currGuess] stringByAddingPercentEscapesUsingEncoding:
+                      NSASCIIStringEncoding];
+    
+    [self. manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSError *error;
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:&error];
+        
+        NSURL * imageUrl = [NSURL URLWithString:[json objectForKey:@"Image"]];
+        [self.SDmanager downloadImageWithURL:imageUrl
+                                   options:0
+                                  progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+                                      // progression tracking code
+                                  }
+                                 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+                                     if (image) {
+                                         self.backgroundImage.image = image;
+                                     }
+                                     
+                                 }];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@", error);
+    }];
+    
 }
 
 -(void) animateViewWith:(UIColor* )color{

@@ -86,7 +86,7 @@
                                      imageview.contentMode = UIViewContentModeScaleAspectFill;
                                      cell.backgroundView =  imageview;
                                  }
-                                 NSLog(@"%@", error);
+                                 
                              }];
 
 
