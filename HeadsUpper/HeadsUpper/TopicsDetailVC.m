@@ -142,23 +142,6 @@
     NSString *cluesCorrect = [NSString stringWithFormat:@"%li", (long)self.cluesCorrect];
     NSString *playerResult = [NSString stringWithFormat:@"%@/%@", cluesCorrect, totalClues];
     
-//    UIAlertController * alert = [UIAlertController
-//                                  alertControllerWithTitle:@"Game Over"
-//                                  message:playerResult
-//                                  preferredStyle:UIAlertControllerStyleAlert];
-//
-//    UIAlertAction* ok = [UIAlertAction
-//                         actionWithTitle:@"Done"
-//                         style:UIAlertActionStyleDefault
-//                         handler:^(UIAlertAction * action)
-//                         {
-//                             [alert dismissViewControllerAnimated:YES completion:nil];
-//                             
-//                         }];
-//    
-//    [alert addAction:ok];
-//    
-//    [self presentViewController:alert animated:YES completion:nil];
     
     
     NYAlertViewController *alertViewController = [[NYAlertViewController alloc] initWithNibName:nil bundle:nil];
@@ -178,6 +161,12 @@
     
     alertViewController.swipeDismissalGestureEnabled = YES;
     alertViewController.backgroundTapDismissalGestureEnabled = YES;
+    
+    alertViewController.alertViewBackgroundColor = [UIColor whiteColor];
+    
+    alertViewController.titleColor = [UIColor colorWithRed:197.0/255.0 green:111.0/255.0 blue:251.0/255.0 alpha:1];
+    alertViewController.messageColor = [UIColor blackColor];
+    alertViewController.cancelButtonColor = [UIColor colorWithRed:197.0/255.0 green:111.0/255.0 blue:251.0/255.0 alpha:1];
     
     // Add alert actions
     [alertViewController addAction:[NYAlertAction actionWithTitle:NSLocalizedString(@"Done", nil)
