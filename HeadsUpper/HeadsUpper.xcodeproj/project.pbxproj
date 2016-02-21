@@ -51,6 +51,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18201EE31C7A546E0027F5F2 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				18B3CAE81C7A2C690057381E /* HUGameCategory+GameScore.h */,
+				18B3CAE91C7A2C690057381E /* HUGameCategory+GameScore.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		18201EE41C7A54980027F5F2 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1887DC541C7A11670037888D /* HUCategoriesTableViewController.h */,
+				1887DC551C7A11670037888D /* HUCategoriesTableViewController.m */,
+				1887DC571C7A11900037888D /* HUGameViewController.h */,
+				1887DC581C7A11900037888D /* HUGameViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		18201EE51C7A54A80027F5F2 /* SetupHelperClass */ = {
+			isa = PBXGroup;
+			children = (
+				1887DC601C7A17320037888D /* CategoryAndClueSetup.h */,
+				1887DC611C7A17320037888D /* CategoryAndClueSetup.m */,
+			);
+			name = SetupHelperClass;
+			sourceTree = "<group>";
+		};
+		18201EE61C7A54B90027F5F2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1887DC5D1C7A11F00037888D /* HUGameCategory.h */,
+				1887DC5E1C7A11F00037888D /* HUGameCategory.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		8D89694E1C755D0200D32E8A = {
 			isa = PBXGroup;
 			children = (
@@ -72,16 +110,10 @@
 			children = (
 				8D89695D1C755D0200D32E8A /* AppDelegate.h */,
 				8D89695E1C755D0200D32E8A /* AppDelegate.m */,
-				18B3CAE81C7A2C690057381E /* HUGameCategory+GameScore.h */,
-				18B3CAE91C7A2C690057381E /* HUGameCategory+GameScore.m */,
-				1887DC5D1C7A11F00037888D /* HUGameCategory.h */,
-				1887DC5E1C7A11F00037888D /* HUGameCategory.m */,
-				1887DC601C7A17320037888D /* CategoryAndClueSetup.h */,
-				1887DC611C7A17320037888D /* CategoryAndClueSetup.m */,
-				1887DC541C7A11670037888D /* HUCategoriesTableViewController.h */,
-				1887DC551C7A11670037888D /* HUCategoriesTableViewController.m */,
-				1887DC571C7A11900037888D /* HUGameViewController.h */,
-				1887DC581C7A11900037888D /* HUGameViewController.m */,
+				18201EE31C7A546E0027F5F2 /* Categories */,
+				18201EE61C7A54B90027F5F2 /* Model */,
+				18201EE51C7A54A80027F5F2 /* SetupHelperClass */,
+				18201EE41C7A54980027F5F2 /* ViewControllers */,
 				8D8969631C755D0200D32E8A /* Main.storyboard */,
 				8D8969661C755D0200D32E8A /* Assets.xcassets */,
 				8D8969681C755D0200D32E8A /* LaunchScreen.storyboard */,

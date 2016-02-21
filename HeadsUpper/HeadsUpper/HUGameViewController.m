@@ -11,15 +11,14 @@
 
 @interface HUGameViewController ()
 
-@property (nonatomic) UISwipeGestureRecognizer *leftGesture;
-@property (nonatomic) UISwipeGestureRecognizer *rightGesture;
-
 @property (weak, nonatomic) IBOutlet UILabel *clueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 
 @property (nonatomic) NSInteger gameScore;
 @property (nonatomic) NSInteger currentIndex;
 @property (nonatomic, assign) NSInteger timerCount;
+@property (nonatomic) UISwipeGestureRecognizer *leftGesture;
+@property (nonatomic) UISwipeGestureRecognizer *rightGesture;
 
 @end
 
@@ -101,9 +100,13 @@
 - (void)handleSwipeLeft:(UISwipeGestureRecognizer *)gesture {
     
     if (self.currentIndex < self.category.clues.count-1) {
+        
+        [UIView animateWithDuration:0.5 delay:0.09 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            self.view.backgroundColor = [UIColor orangeColor];
+        } completion:^(BOOL finished) {
+            self.view.backgroundColor = [UIColor whiteColor];
+        }];
         [self setupNextClue];
-        self.view.backgroundColor = [UIColor orangeColor];
-        [self tempTimer];
     }
     else {
         [self showAlert];
@@ -114,8 +117,12 @@
 - (void)handleSwipeRight:(UISwipeGestureRecognizer *)gesture {
     
     if (self.currentIndex < self.category.clues.count-1) {
-        self.view.backgroundColor = [UIColor greenColor];
-        [self tempTimer];
+        
+        [UIView animateWithDuration:0.5 delay:0.09 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            self.view.backgroundColor = [UIColor greenColor];
+        } completion:^(BOOL finished) {
+            self.view.backgroundColor = [UIColor whiteColor];
+        }];
         [self setupNextClue];
         self.gameScore+=1;
     }
@@ -131,35 +138,12 @@
     [self.view removeGestureRecognizer:self.rightGesture];
 }
 
-#pragma Temp Timer
-
--(void)tempTimer {
-    
-   NSTimer *timer =  [NSTimer scheduledTimerWithTimeInterval:0.5
-                                     target:self
-                                   selector:@selector(handleTempTimer:)
-                                   userInfo:nil
-                                    repeats:NO];
-    
-   // NSTimer *timer = [NSTimer timerWithTimeInterval:0.25 target:self selector:@selector(tempTimerFired:) userInfo:nil repeats:NO];
-    
-    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
-    [timer fire];
-}
-
--(void)handleTempTimer:(NSTimer *)timer {
-//    if (self.view.backgroundColor != [UIColor whiteColor]){
-//        self.view.backgroundColor = [UIColor whiteColor];
-//    }
-}
-
 #pragma mark - Label Helper Method
 
 -(void)setupNextClue {
     self.currentIndex+=1;
     self.clueLabel.text = self.category.clues[self.currentIndex];
 }
-
 
 #pragma mark - Alert
 
@@ -168,10 +152,7 @@
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Game Over" message:[NSString stringWithFormat:@"You got: %@. Play another category!",score] preferredStyle:UIAlertControllerStyleAlert];
     
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-       
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
     [alert addAction:okAction];
     
     [self removeGesture];
