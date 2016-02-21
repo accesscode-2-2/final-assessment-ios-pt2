@@ -102,18 +102,18 @@
         [alert show];
     }
     
-//    else if (self.arrayCount == self.answersArray.count && [SubjectsObjectModel sharedManager].scoreCount != self.answersArray.count)
-//        
-//    {
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Game Over"
-//                                                        message: @"Start Over"                                                      delegate:self
-//                                              cancelButtonTitle:@"Start Over"
-//                                              otherButtonTitles:nil];
-//        [alert show];
-//
-//    }
+    else if (self.arrayCount == self.answersArray.count && [SubjectsObjectModel sharedManager].scoreCount != self.answersArray.count)
+        
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Game Over"
+                                                        message: @"Start Over"                                                      delegate:self
+                                              cancelButtonTitle:@"Start Over"
+                                              otherButtonTitles:nil];
+        [alert show];
+
+    }
     
-    //
+    
     NSString *stringCount = [NSString stringWithFormat:@"%ld", self.timerCount];
     self.countDown.text = stringCount;
     
