@@ -13,6 +13,9 @@
 
 @property (nonatomic, assign) NSInteger timerCount;
 
+@property (nonatomic, assign) NSInteger totalSwipes;
+@property (nonatomic, assign) NSInteger rightSwipes;
+
 @end
 
 @implementation HUTopicDetailViewController
@@ -21,6 +24,9 @@
     [super viewDidLoad];
     
     self.navigationItem.title = self.topicTitle;
+    
+    self.totalSwipes = 0;
+    self.rightSwipes = 0;
 
     [self setupTimer];
     [self randomAnswer];
@@ -36,9 +42,9 @@
 
 - (void)timerFired:(NSTimer *)timer {
     if (self.timerCount == 0) {
-        self.countdownTimerLabel.text = nil;
+//        self.countdownTimerLabel.text = nil;
         [timer invalidate];
-        [self gameOver]; //Title: @"Done"
+        [self gameOver];
         //        self.timerCount = 10;
     }
     
@@ -50,10 +56,11 @@
 }
 
 - (void)gameOver {
+    NSString *message = [NSString stringWithFormat:@"%ld/%ld", (long)self.rightSwipes, (long)self.totalSwipes];
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Game Over!"
-                                                                             message:@"# right/total # of questions swiped"
+                                                                             message:message
                                                                       preferredStyle:UIAlertControllerStyleAlert];
-    //We add buttons to the alert controller by creating UIAlertActions:
+    
     UIAlertAction *actionDone = [UIAlertAction actionWithTitle:@"Done"
                                                        style:UIAlertActionStyleDefault
                                                      handler:nil]; //You can use a block here to handle a press on this button
@@ -76,10 +83,13 @@
         case UISwipeGestureRecognizerDirectionLeft:
             [self backgroundGlowAnimationFromColor:[UIColor orangeColor] toColor:[UIColor whiteColor] clearAnimationsFirst:YES];
             [self randomAnswer];
+            self.totalSwipes++;
             break;
         case UISwipeGestureRecognizerDirectionRight:
             [self backgroundGlowAnimationFromColor:[UIColor greenColor] toColor:[UIColor whiteColor] clearAnimationsFirst:YES];
             [self randomAnswer];
+            self.totalSwipes++;
+            self.rightSwipes++;
             break;
         default:
             return;
@@ -88,11 +98,14 @@
 
 - (void)randomAnswer {
     NSUInteger n = self.topicAnswers.count;
-    NSUInteger randIdx = arc4random_uniform((uint32_t)n);
-    self.topicAnswerTextLabel.text = self.topicAnswers[randIdx];
+
+    NSUInteger currRandIdx = arc4random_uniform((uint32_t)n);
+//    NSUInteger prevRandIdx = currRandIdx;
+    
+    self.topicAnswerTextLabel.text = self.topicAnswers[currRandIdx];
 
     NSLog(@"%lu", (unsigned long)n);
-    NSLog(@"%@", self.topicAnswers[randIdx]);
+    NSLog(@"%@", self.topicAnswers[currRandIdx]);
     NSLog(@"%@", self.topicAnswers);
 }
 
