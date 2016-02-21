@@ -92,6 +92,7 @@
 
 -(void) showNextGuess{
     NSString *currGuess = self.answers[self.whichAnswerAreWeAt];
+    self.backgroundImage.image = nil;
     self.guess.text = currGuess;
     NSString * url = [[NSString stringWithFormat:@"http://api.duckduckgo.com/?q=%@&format=json", currGuess] stringByAddingPercentEscapesUsingEncoding:
                       NSASCIIStringEncoding];
