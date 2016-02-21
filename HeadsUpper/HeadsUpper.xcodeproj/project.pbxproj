@@ -17,10 +17,7 @@
 		F7735DEB1C7A164A00B6D2DA /* TopicsDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F7735DEA1C7A164A00B6D2DA /* TopicsDetailVC.m */; };
 		F7735DEE1C7A42E500B6D2DA /* TopicSelectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F7735DED1C7A42E500B6D2DA /* TopicSelectionTableViewCell.m */; };
 		F7735DF01C7A50AE00B6D2DA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7735DEF1C7A50AE00B6D2DA /* AVFoundation.framework */; };
-		F7735DF21C7A513F00B6D2DA /* 07 menu exit button.wav in Resources */ = {isa = PBXBuildFile; fileRef = F7735DF11C7A513F00B6D2DA /* 07 menu exit button.wav */; };
-		F7735DF41C7A516A00B6D2DA /* stacker button stop.wav in Resources */ = {isa = PBXBuildFile; fileRef = F7735DF31C7A516A00B6D2DA /* stacker button stop.wav */; };
 		F7735DF61C7A518800B6D2DA /* 10_purchase.wav in Resources */ = {isa = PBXBuildFile; fileRef = F7735DF51C7A518800B6D2DA /* 10_purchase.wav */; };
-		F7735DF81C7A51AA00B6D2DA /* pause sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = F7735DF71C7A51AA00B6D2DA /* pause sound.wav */; };
 		F7735DFA1C7A51BF00B6D2DA /* cranker swipe.wav in Resources */ = {isa = PBXBuildFile; fileRef = F7735DF91C7A51BF00B6D2DA /* cranker swipe.wav */; };
 		F7735DFC1C7A51DB00B6D2DA /* 10 New Game Sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = F7735DFB1C7A51DB00B6D2DA /* 10 New Game Sound.wav */; };
 		F7735DFE1C7A51E500B6D2DA /* you lose.wav in Resources */ = {isa = PBXBuildFile; fileRef = F7735DFD1C7A51E500B6D2DA /* you lose.wav */; };
@@ -45,10 +42,7 @@
 		F7735DEC1C7A42E500B6D2DA /* TopicSelectionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicSelectionTableViewCell.h; sourceTree = "<group>"; };
 		F7735DED1C7A42E500B6D2DA /* TopicSelectionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicSelectionTableViewCell.m; sourceTree = "<group>"; };
 		F7735DEF1C7A50AE00B6D2DA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		F7735DF11C7A513F00B6D2DA /* 07 menu exit button.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "07 menu exit button.wav"; path = "../../../../../../Documents/Assets/FREE-GAME-ASSET-PACK/Audio/SFX/07 menu exit button.wav"; sourceTree = "<group>"; };
-		F7735DF31C7A516A00B6D2DA /* stacker button stop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "stacker button stop.wav"; path = "../../../../../../Documents/Assets/FREE-GAME-ASSET-PACK/Audio/SFX/stacker button stop.wav"; sourceTree = "<group>"; };
 		F7735DF51C7A518800B6D2DA /* 10_purchase.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = 10_purchase.wav; path = "../../../../../../Documents/Assets/FREE-GAME-ASSET-PACK/Audio/SFX/10_purchase.wav"; sourceTree = "<group>"; };
-		F7735DF71C7A51AA00B6D2DA /* pause sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "pause sound.wav"; path = "../../../../../../Documents/Assets/FREE-GAME-ASSET-PACK/Audio/SFX/pause sound.wav"; sourceTree = "<group>"; };
 		F7735DF91C7A51BF00B6D2DA /* cranker swipe.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "cranker swipe.wav"; path = "../../../../../../Documents/Assets/FREE-GAME-ASSET-PACK/Audio/SFX/cranker swipe.wav"; sourceTree = "<group>"; };
 		F7735DFB1C7A51DB00B6D2DA /* 10 New Game Sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "10 New Game Sound.wav"; path = "../../../../../../Documents/Assets/FREE-GAME-ASSET-PACK/Audio/SFX/10 New Game Sound.wav"; sourceTree = "<group>"; };
 		F7735DFD1C7A51E500B6D2DA /* you lose.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "you lose.wav"; path = "../../../../../../Documents/Assets/FREE-GAME-ASSET-PACK/Audio/SFX/you lose.wav"; sourceTree = "<group>"; };
@@ -87,13 +81,10 @@
 		8D8969591C755D0200D32E8A /* HeadsUpper */ = {
 			isa = PBXGroup;
 			children = (
-				F7735DF11C7A513F00B6D2DA /* 07 menu exit button.wav */,
-				F7735DF31C7A516A00B6D2DA /* stacker button stop.wav */,
 				F7735DFF1C7A51FA00B6D2DA /* jackpot loop.wav */,
 				F7735DF91C7A51BF00B6D2DA /* cranker swipe.wav */,
 				F7735DFB1C7A51DB00B6D2DA /* 10 New Game Sound.wav */,
 				F7735DFD1C7A51E500B6D2DA /* you lose.wav */,
-				F7735DF71C7A51AA00B6D2DA /* pause sound.wav */,
 				F7735DF51C7A518800B6D2DA /* 10_purchase.wav */,
 				8D89695D1C755D0200D32E8A /* AppDelegate.h */,
 				8D89695E1C755D0200D32E8A /* AppDelegate.m */,
@@ -182,12 +173,9 @@
 				F7735DFE1C7A51E500B6D2DA /* you lose.wav in Resources */,
 				F7735DF61C7A518800B6D2DA /* 10_purchase.wav in Resources */,
 				8D89696A1C755D0200D32E8A /* LaunchScreen.storyboard in Resources */,
-				F7735DF81C7A51AA00B6D2DA /* pause sound.wav in Resources */,
 				F7735E001C7A51FA00B6D2DA /* jackpot loop.wav in Resources */,
 				F7735DFC1C7A51DB00B6D2DA /* 10 New Game Sound.wav in Resources */,
 				F7735DFA1C7A51BF00B6D2DA /* cranker swipe.wav in Resources */,
-				F7735DF41C7A516A00B6D2DA /* stacker button stop.wav in Resources */,
-				F7735DF21C7A513F00B6D2DA /* 07 menu exit button.wav in Resources */,
 				8D8969671C755D0200D32E8A /* Assets.xcassets in Resources */,
 				8D8969651C755D0200D32E8A /* Main.storyboard in Resources */,
 			);
