@@ -101,8 +101,7 @@
     if ([segue.identifier isEqualToString:@"showTopicDetail"]) {
        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         TopicsDetailVC *destViewController = segue.destinationViewController;
-        destViewController.topicName = [self.topics objectAtIndex:indexPath.row];
-    }
+        destViewController.topicName = @"nice";    }
     
    
     
