@@ -41,7 +41,7 @@
 
 //             NSLog(@"title is: %@", superStars);
              
-             //             for (subjectsArray in responseObject) {
+             //             for (subjectsArswagray in responseObject) {
              //                 NSLog(@"The subjects are: %@", subjectsArray);
              //             }
              
