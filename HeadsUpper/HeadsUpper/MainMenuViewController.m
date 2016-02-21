@@ -86,6 +86,12 @@ UICollectionViewDelegateFlowLayout
     
     cell.titleLabel.text = topic.title;
     
+    CALayer* layer = cell.layer;
+    
+    [layer setCornerRadius:4.0f];
+    [layer setBorderColor:[UIColor colorWithWhite:0.8 alpha:1].CGColor];
+    [layer setBorderWidth:10.0f];
+    
     return cell;
 }
 
@@ -119,7 +125,7 @@ UICollectionViewDelegateFlowLayout
 //    CGSize retval = photo.thumbnail.size.width > 0 ? photo.thumbnail.size : CGSizeMake(100, 100);
 //    retval.height += 35; retval.width += 35;
     
-    CGSize cellSize = CGSizeMake(100, 100);
+    CGSize cellSize = CGSizeMake(175, 175);
     
     return cellSize;
 }
@@ -127,7 +133,7 @@ UICollectionViewDelegateFlowLayout
 - (UIEdgeInsets)collectionView:
 (UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-    return UIEdgeInsetsMake(150, 20, 50, 20);
+    return UIEdgeInsetsMake(50, 20, 50, 20);
 }
 
 @end

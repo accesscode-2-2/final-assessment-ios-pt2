@@ -60,6 +60,7 @@
 - (void)dismiss
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+    [self.timer invalidate];
 }
 
 - (void)setViewProperties

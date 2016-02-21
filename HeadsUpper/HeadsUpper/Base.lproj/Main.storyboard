@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="q3J-8s-BHN">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="100" width="600" height="500"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="d1a-wC-CIJ">
                                     <size key="itemSize" width="50" height="50"/>
@@ -38,12 +38,20 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's do this!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wD-tZ-Jpm">
+                                <rect key="frame" x="189" y="50" width="223" height="52"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="40"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="q3J-8s-BHN" firstAttribute="leading" secondItem="cYd-bX-xQ9" secondAttribute="leading" id="58T-t1-Niv"/>
                             <constraint firstAttribute="trailing" secondItem="q3J-8s-BHN" secondAttribute="trailing" id="9Bm-hE-SMk"/>
-                            <constraint firstItem="q3J-8s-BHN" firstAttribute="top" secondItem="cYd-bX-xQ9" secondAttribute="top" id="Vlo-0y-EXC"/>
+                            <constraint firstItem="4wD-tZ-Jpm" firstAttribute="centerX" secondItem="cYd-bX-xQ9" secondAttribute="centerX" id="E4M-J2-qkt"/>
+                            <constraint firstItem="4wD-tZ-Jpm" firstAttribute="top" secondItem="p3j-Ex-IF1" secondAttribute="bottom" constant="30" id="QfY-d8-USv"/>
+                            <constraint firstItem="q3J-8s-BHN" firstAttribute="top" secondItem="cYd-bX-xQ9" secondAttribute="top" constant="100" id="Vlo-0y-EXC"/>
                             <constraint firstItem="Dgt-Ji-hxF" firstAttribute="top" secondItem="q3J-8s-BHN" secondAttribute="bottom" id="tYX-hM-0MH"/>
                         </constraints>
                     </view>
