@@ -33,7 +33,7 @@
     self.timeLeftLabel.text = @"10";
     self.motionManager = [[CMMotionManager alloc]init];
 //    self.didResetStat = YES;
-    self.resetState = DidReset1;
+    self.resetState = Horizontal;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -60,9 +60,9 @@
 }
 
 - (void)setupMotionUpdate {
-    self.motionManager.deviceMotionUpdateInterval = 0.30;
+    self.motionManager.deviceMotionUpdateInterval = 0.5;
     [self.motionManager startDeviceMotionUpdates];
-    self.motionTimer = [NSTimer timerWithTimeInterval:0.30 target:self selector:@selector(deviceMoved) userInfo:nil repeats:YES];
+    self.motionTimer = [NSTimer timerWithTimeInterval:0.5 target:self selector:@selector(deviceMoved) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:self.motionTimer forMode:NSRunLoopCommonModes];
     [self.motionTimer fire];
 }
@@ -97,10 +97,10 @@
     double roll = self.motionManager.deviceMotion.attitude.roll;
     self.view.backgroundColor = [UIColor whiteColor];
     NSLog(@"roll = %0.2f",roll);
-    if (roll > 2.5) {
-        if (self.resetState == DidReset1) {
+    if (roll > 2.90) {
+        if (self.resetState == Verticle) {
 //            self.didResetStat = NO;
-            self.resetState = DidReset0;
+            self.resetState = Horizontal;
             self.view.backgroundColor = [UIColor greenColor];
             self.numberOfCorrectGuess += 1;
             [self updateLabel: roll];
@@ -108,10 +108,10 @@
             NSLog(@"guess term changed");
         }
         
-    } else if (roll < -0.001){
-        if (self.resetState == DidReset1) {
+    } else if (roll < 0.20){
+        if (self.resetState == Verticle) {
 //            self.didResetStat = NO;
-            self.resetState = DidReset0;
+            self.resetState = Horizontal;
             self.view.backgroundColor = [UIColor redColor];
             [self updateLabel:roll];
             self.atIndex ++;
@@ -127,12 +127,12 @@
         self.guessTerm.text = [self.guessTerms objectAtIndex:self.atIndex];
         NSLog(@"numberOfCorrectGuess = %ld",self.numberOfCorrectGuess);
         
-        if (roll < 2.0 && roll > 1.01) {
+        if (roll < 2.90 && roll > 0.20) {
 //            self.didResetStat = YES;
-            self.resetState = DidReset1;
+            self.resetState = Verticle;
         } else {
 //            self.didResetStat = NO;
-            self.resetState = DidReset0;
+            self.resetState = Horizontal;
         }
 //        NSLog(@"didResetStat %d",self.didResetStat);
     } else {

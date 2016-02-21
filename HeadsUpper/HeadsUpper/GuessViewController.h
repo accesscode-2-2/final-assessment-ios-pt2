@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 typedef enum {
-    DidReset1,
-    DidReset0
+    Verticle,
+    Horizontal
 } ResetStat;
 
 @interface GuessViewController : UIViewController
