@@ -10,6 +10,6 @@
 
 @interface QuestionsViewController : UIViewController
 
-@property (nonatomic) NSArray *questions;
+@property (nonatomic) NSMutableArray *questions;
 
 @end

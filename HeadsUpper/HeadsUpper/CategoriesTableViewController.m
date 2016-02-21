@@ -1,31 +1,31 @@
 //
-//  CategoriesCollectonViewController.m
+//  CategoriesTableViewController.m
 //  HeadsUpper
 //
 //  Created by Elber Carneiro on 2/21/16.
 //  Copyright © 2016 Michael Kavouras. All rights reserved.
 //
 
-#import "CategoriesCollectonViewController.h"
-#import "CategoryCollectionViewCell.h"
+#import "CategoriesTableViewController.h"
 #import "QuestionsViewController.h"
 
-@interface CategoriesCollectonViewController() <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface CategoriesTableViewController() <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic) NSDictionary *categories;
 @property (nonatomic) NSArray *categoryKeys;
 
 @end
 
-@implementation CategoriesCollectonViewController
+@implementation CategoriesTableViewController
 
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     
-    [self setupCategories];
+    [self.tableView setDelegate:self];
+    [self.tableView setDataSource:self];
     
-    [self setupCollectionView];
+    [self setupCategories];
 }
 
 #pragma mark - Custom methods
@@ -46,54 +46,41 @@
                             @[@"Colin Farrell", @"Mozart", @"Billy Joel", @"Judy Garland", @"Napoleon Bonaparte", @"Queen Elizabeth II", @"Fred Armisen", @"Henry Ford", @"Jon Lovitz", @"Julia Child", @"Catherine the Great", @"Magic Johnson", @"Uma Thurman", @"Orson Welles", @"Kathy Bates", @"George Orwell", @"Billy Crystal", @"Farrah Fawcett", @"Gary Busey", @"Chris Farley", @"Tom Selleck", @"Alexander the Great"],
                         
                         @"Animals Gone Wild" :
-                            @[@"Chipmunk", @"Dragon", @"Wasp", @"Snake", @"Jellyfish", @"Emu", @"Boar", @"Crocodile", @"Shrimp", @"Lemur", @"Caterpillar", @"Sea Urchain", @"Dolphin ", @"Camel", @"Viper", @"Fox", @"Tuna", @"Baboon", @"Chinchilla", @"Human", @"Crawfish", @"Cricket", @"Frog", @"Tiger", @"Guinea Pig", @"Gnat", @"Killer Whale", @"Coral", @"T-Rex", @"Oyster"]
+                            @[@"Chipmunk", @"Dragon", @"Wasp", @"Snake", @"Jellyfish", @"Emu", @"Boar", @"Crocodile", @"Shrimp", @"Lemur", @"Caterpillar", @"Sea Urchin", @"Dolphin ", @"Camel", @"Viper", @"Fox", @"Tuna", @"Baboon", @"Chinchilla", @"Human", @"Crawfish", @"Cricket", @"Frog", @"Tiger", @"Guinea Pig", @"Gnat", @"Killer Whale", @"Coral", @"T-Rex", @"Oyster"]
                         
                         };
     
     self.categoryKeys = [self.categories allKeys];
 }
 
-- (void)setupCollectionView {
+#pragma mark - UITableViewDataSource methods
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
-    [self.collectionView setDataSource:self];
-    [self.collectionView setDelegate:self];
-}
-
-#pragma mark - UICollectionViewDataSource methods
-
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.categories.count;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    return self.categoryKeys.count;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-    CategoryCollectionViewCell *myCell = [collectionView
-                                    dequeueReusableCellWithReuseIdentifier:@"categoryCell"
-                                    forIndexPath:indexPath];
-    
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+        
+    UITableViewCell *myCell = [tableView dequeueReusableCellWithIdentifier:@"categoryCell"];
+
     myCell.textLabel.text = self.categoryKeys[indexPath.row];
-    
+        
     return myCell;
-}
-
-#pragma mark - UICollectionViewDelegate methods
-
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-
-    [self performSegueWithIdentifier:@"questionsSegue" sender:indexPath];
 }
 
 #pragma mark - Navigation
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(NSIndexPath *)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UITableViewCell *)sender {
     
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
     QuestionsViewController *targetVC = [segue destinationViewController];
     
-    targetVC.questions = self.categories[self.categoryKeys[sender.row]];
+    targetVC.questions = [self.categories[self.categoryKeys[indexPath.row]] mutableCopy];
 }
 
 @end

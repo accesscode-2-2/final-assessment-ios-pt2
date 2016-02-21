@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B5C1B721C7A101800A57C51 /* CategoriesCollectonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5C1B711C7A101800A57C51 /* CategoriesCollectonViewController.m */; };
-		3B5C1B751C7A173E00A57C51 /* CategoryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5C1B741C7A173E00A57C51 /* CategoryCollectionViewCell.m */; };
+		3B56E6241C7A319700358B32 /* CategoriesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B56E6231C7A319700358B32 /* CategoriesTableViewController.m */; };
 		3B5C1B781C7A1DB800A57C51 /* QuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5C1B771C7A1DB800A57C51 /* QuestionsViewController.m */; };
 		8D89695C1C755D0200D32E8A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D89695B1C755D0200D32E8A /* main.m */; };
 		8D89695F1C755D0200D32E8A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D89695E1C755D0200D32E8A /* AppDelegate.m */; };
@@ -18,10 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3B5C1B701C7A101800A57C51 /* CategoriesCollectonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoriesCollectonViewController.h; sourceTree = "<group>"; };
-		3B5C1B711C7A101800A57C51 /* CategoriesCollectonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoriesCollectonViewController.m; sourceTree = "<group>"; };
-		3B5C1B731C7A173E00A57C51 /* CategoryCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryCollectionViewCell.h; sourceTree = "<group>"; };
-		3B5C1B741C7A173E00A57C51 /* CategoryCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryCollectionViewCell.m; sourceTree = "<group>"; };
+		3B56E6221C7A319700358B32 /* CategoriesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoriesTableViewController.h; sourceTree = "<group>"; };
+		3B56E6231C7A319700358B32 /* CategoriesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoriesTableViewController.m; sourceTree = "<group>"; };
 		3B5C1B761C7A1DB800A57C51 /* QuestionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionsViewController.h; sourceTree = "<group>"; };
 		3B5C1B771C7A1DB800A57C51 /* QuestionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionsViewController.m; sourceTree = "<group>"; };
 		8D8969571C755D0200D32E8A /* HeadsUpper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeadsUpper.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,10 +63,8 @@
 			children = (
 				8D89695D1C755D0200D32E8A /* AppDelegate.h */,
 				8D89695E1C755D0200D32E8A /* AppDelegate.m */,
-				3B5C1B701C7A101800A57C51 /* CategoriesCollectonViewController.h */,
-				3B5C1B711C7A101800A57C51 /* CategoriesCollectonViewController.m */,
-				3B5C1B731C7A173E00A57C51 /* CategoryCollectionViewCell.h */,
-				3B5C1B741C7A173E00A57C51 /* CategoryCollectionViewCell.m */,
+				3B56E6221C7A319700358B32 /* CategoriesTableViewController.h */,
+				3B56E6231C7A319700358B32 /* CategoriesTableViewController.m */,
 				3B5C1B761C7A1DB800A57C51 /* QuestionsViewController.h */,
 				3B5C1B771C7A1DB800A57C51 /* QuestionsViewController.m */,
 				8D8969631C755D0200D32E8A /* Main.storyboard */,
@@ -159,11 +154,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B5C1B751C7A173E00A57C51 /* CategoryCollectionViewCell.m in Sources */,
 				3B5C1B781C7A1DB800A57C51 /* QuestionsViewController.m in Sources */,
 				8D89695F1C755D0200D32E8A /* AppDelegate.m in Sources */,
-				3B5C1B721C7A101800A57C51 /* CategoriesCollectonViewController.m in Sources */,
 				8D89695C1C755D0200D32E8A /* main.m in Sources */,
+				3B56E6241C7A319700358B32 /* CategoriesTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

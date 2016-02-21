@@ -1,5 +1,5 @@
 //
-//  CategoryCollectionViewCell.h
+//  CategoriesTableViewController.h
 //  HeadsUpper
 //
 //  Created by Elber Carneiro on 2/21/16.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CategoryCollectionViewCell : UICollectionViewCell
-
-@property (weak, nonatomic) IBOutlet UILabel *textLabel;
+@interface CategoriesTableViewController : UITableViewController
 
 @end
