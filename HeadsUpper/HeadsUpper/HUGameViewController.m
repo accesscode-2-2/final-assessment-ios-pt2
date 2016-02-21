@@ -12,9 +12,11 @@
 @interface HUGameViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *clueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 
 @property (nonatomic) NSInteger gameScore;
 @property (nonatomic) NSInteger currentIndex;
+@property (nonatomic, assign) NSInteger timerCount;
 
 @end
 
@@ -26,14 +28,43 @@
     [super viewDidLoad];
     [self setup];
     [self setupSwipeGestures];
+    [self setupTimer];
+}
+
+-(void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    self.gameScore = 0;
+    self.currentIndex = 0;
+    self.timerCount = 0;
 }
 
 #pragma mark - setup
 
 - (void)setup {
+    self.navigationItem.title = @"Let's Play!";
     self.gameScore = 0;
     self.currentIndex = 0;
+    self.timerCount = 0;
     self.clueLabel.text =self.category.clues[self.currentIndex];
+}
+
+- (void)setupTimer {
+    NSTimer *timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
+    
+    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    [timer fire];
+}
+
+#pragma mark - Handle Timer 
+
+- (void)timerFired:(NSTimer *)timer {
+    self.timerCount++;
+    self.timerLabel.text = [NSString stringWithFormat:@"0:%d",30-self.timerCount];
+    
+    if (self.timerCount == 30) {
+        [timer invalidate];
+    }
 }
 
 #pragma mark - Label Helper Method
@@ -73,8 +104,8 @@
 
 - (void)handleSwipeRight:(UISwipeGestureRecognizer *)gesture {
     if (self.currentIndex < self.category.clues.count-1) {
-        [self setupNextClue];
         self.view.backgroundColor = [UIColor greenColor];
+        [self setupNextClue];
         self.gameScore+=1;
     }
     else {
