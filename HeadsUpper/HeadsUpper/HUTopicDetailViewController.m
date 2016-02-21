@@ -23,14 +23,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.title = self.topicTitle;
-    
-    self.totalSwipes = 0;
-    self.rightSwipes = 0;
-
+    [self setup];
     [self setupTimer];
     [self randomAnswer];
     [self setUpGestureRecognizers];
+}
+
+- (void)setup {
+//    NSMutableArray *answerHasAppeared = [[NSMutableArray alloc] initWithArray:self.topicAnswers copyItems:YES];
+    self.navigationItem.title = self.topicTitle;
+    
+    self.totalSwipes = 1;
+    self.rightSwipes = 0;
+    self.countdownTimerLabel.text = @"10";
 }
 
 - (void)setupTimer {
@@ -38,21 +43,32 @@
     [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
     
     self.timerCount = 9;
+//    self.countdownTimerLabel.textColor = [UIColor greenColor];
 }
 
 - (void)timerFired:(NSTimer *)timer {
-    if (self.timerCount == 0) {
-//        self.countdownTimerLabel.text = nil;
-        [timer invalidate];
-        [self gameOver];
-        //        self.timerCount = 10;
+    switch (self.timerCount) {
+
+        case 5:
+            self.countdownTimerLabel.textColor = [UIColor orangeColor];
+            break;
+        case 3:
+            self.countdownTimerLabel.textColor = [UIColor redColor];
+            break;
+        case 0:
+            [timer invalidate];
+            [self gameOver];
+            self.view.userInteractionEnabled = NO;
+            break;
+        default:
+            break;
     }
-    
     self.countdownTimerLabel.text = @"10";
     NSString *timeLeft = [NSString stringWithFormat: @"%ld", (long)self.timerCount];
     self.countdownTimerLabel.text = timeLeft;
     
     self.timerCount--;
+    
 }
 
 - (void)gameOver {
@@ -99,17 +115,21 @@
 - (void)randomAnswer {
     NSUInteger n = self.topicAnswers.count;
 
+    
     NSUInteger currRandIdx = arc4random_uniform((uint32_t)n);
-//    NSUInteger prevRandIdx = currRandIdx;
+    
+    
+    NSLog(@"%lu", (unsigned long)currRandIdx);
+//    NSLog(@"%lu", (unsigned long)prevRandIdx);
     
     self.topicAnswerTextLabel.text = self.topicAnswers[currRandIdx];
 
-    NSLog(@"%lu", (unsigned long)n);
-    NSLog(@"%@", self.topicAnswers[currRandIdx]);
-    NSLog(@"%@", self.topicAnswers);
+//    NSLog(@"%lu", (unsigned long)n);
+//    NSLog(@"%@", self.topicAnswers[currRandIdx]);
+//    NSLog(@"%@", self.topicAnswers);
 }
 
-
+#pragma mark - Background Glow | Pass - Orange:White / Correct - Green:White
 - (void)backgroundGlowAnimationFromColor:(UIColor *)startColor toColor:(UIColor *)destColor clearAnimationsFirst:(BOOL)reset {
     if (reset) {
         [self.view.layer removeAllAnimations];
