@@ -3,12 +3,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Root View Controller-->
         <scene sceneID="U23-ou-1BD">
             <objects>
-                <tableViewController title="Root View Controller" id="Ps9-xB-j0U" customClass="CategorySelectionTableViewController" sceneMemberID="viewController">
+                <tableViewController id="Ps9-xB-j0U" customClass="CategorySelectionTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="icZ-GC-T5h">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -40,7 +41,7 @@
                             <outlet property="delegate" destination="Ps9-xB-j0U" id="0aA-ow-Pmc"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="eNO-yb-3w9"/>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="eNO-yb-3w9"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yJC-o3-xl9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -58,16 +59,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORn-Nm-0Fo">
-                                <rect key="frame" x="266" y="290" width="69" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORn-Nm-0Fo">
+                                <rect key="frame" x="20" y="288" width="560" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5uE-zf-Eij">
                                 <rect key="frame" x="536" y="72" width="44" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -75,9 +76,16 @@
                         <constraints>
                             <constraint firstItem="5uE-zf-Eij" firstAttribute="top" secondItem="VTo-6w-bHS" secondAttribute="bottom" constant="8" id="5Iu-zU-F9R"/>
                             <constraint firstItem="ORn-Nm-0Fo" firstAttribute="centerY" secondItem="Lk0-TY-Shz" secondAttribute="centerY" id="9U6-Tr-33y"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ORn-Nm-0Fo" secondAttribute="trailing" id="D2T-I9-lro"/>
                             <constraint firstItem="ORn-Nm-0Fo" firstAttribute="centerX" secondItem="Lk0-TY-Shz" secondAttribute="centerX" id="Dlc-lO-5xS"/>
                             <constraint firstAttribute="trailing" secondItem="5uE-zf-Eij" secondAttribute="trailing" constant="20" id="MdR-oJ-RZV"/>
+                            <constraint firstItem="ORn-Nm-0Fo" firstAttribute="leading" secondItem="Lk0-TY-Shz" secondAttribute="leadingMargin" id="RwM-gH-vem"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Dlc-lO-5xS"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="questionLabel" destination="ORn-Nm-0Fo" id="h0S-B7-tsy"/>

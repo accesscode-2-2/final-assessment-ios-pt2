@@ -21,6 +21,8 @@
 @property (nonatomic) NSInteger totalCount;
 @property (nonatomic) NSInteger correctCount;
 
+@property (nonatomic) NSTimer *timer;
+
 
 @end
 
@@ -37,6 +39,12 @@
     [self setupTimer];
     [self setupGestureRecognizers];
     
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [self.timer invalidate];
 }
 
 
@@ -59,20 +67,20 @@
 
 - (void)setupTimer {
     
-    NSTimer *timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
+    self.timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(timerFired) userInfo:nil repeats:YES];
     
-    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
     
     self.timerCount = 10;
     
-    [timer fire];
+    [self.timer fire];
     
 }
 
-- (void)timerFired:(NSTimer *)timer {
+- (void)timerFired {
     
     if (self.timerCount == 0) {
-        [timer invalidate];
+        [self.timer invalidate];
         [self showAlert];
         
         for (UIGestureRecognizer *recognizer in self.view.gestureRecognizers) {
@@ -122,7 +130,7 @@
         case UISwipeGestureRecognizerDirectionLeft:
             self.view.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:1];
             [UIView beginAnimations:@"fade out" context:nil];
-            [UIView setAnimationDuration:0.8];
+            [UIView setAnimationDuration:0.5];
             self.view.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:1];
             [UIView commitAnimations];
             self.totalCount += 1;
@@ -132,7 +140,7 @@
         case UISwipeGestureRecognizerDirectionRight:
             self.view.backgroundColor = [[UIColor greenColor] colorWithAlphaComponent:1];
             [UIView beginAnimations:@"fade out" context:nil];
-            [UIView setAnimationDuration:0.8];
+            [UIView setAnimationDuration:0.5];
             self.view.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:1];
             [UIView commitAnimations];
             self.correctCount += 1;
