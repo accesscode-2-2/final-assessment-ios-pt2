@@ -30,6 +30,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="gh5-Ef-wVc" kind="show" identifier="showTopicDetail" id="OET-Ci-rt4"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -72,6 +75,9 @@
                             <constraint firstItem="GsG-LM-x5q" firstAttribute="centerY" secondItem="PPf-xC-h8f" secondAttribute="centerY" id="sX1-St-Y6n"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="topicsClueLbl" destination="GsG-LM-x5q" id="uvp-1h-jOL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xkc-St-ccs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

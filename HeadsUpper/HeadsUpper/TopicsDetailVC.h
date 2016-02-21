@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Topics.h"
+#import "TopicsTVC.h"
 
 @interface TopicsDetailVC : UIViewController
+
+@property (weak, nonatomic) IBOutlet UILabel *topicsClueLbl;
+@property (weak, nonatomic) NSString *topicName;
+
+
+
+
 
 @end

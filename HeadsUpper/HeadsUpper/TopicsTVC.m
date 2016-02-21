@@ -7,6 +7,7 @@
 //
 
 #import "TopicsTVC.h"
+#import "TopicsDetailVC.h"
 #import "Topics.h"
 
 @interface TopicsTVC ()
@@ -85,10 +86,26 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TopicsCell" forIndexPath:indexPath];
     
-    Topics  *topics = [self.topics objectAtIndex: indexPath.row];
+    Topics *topics = [self.topics objectAtIndex: indexPath.row];
     cell.textLabel.text = topics.topicName;
     
     return cell;
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+    
+    if ([segue.identifier isEqualToString:@"showTopicDetail"]) {
+       NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        TopicsDetailVC *destViewController = segue.destinationViewController;
+        destViewController.topicName = [self.topics objectAtIndex:indexPath.row];
+    }
+    
+   
+    
 }
 
 @end
