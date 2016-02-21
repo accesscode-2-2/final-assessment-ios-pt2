@@ -28,8 +28,7 @@
     [super viewDidLoad];
     [self setupTopicsData];
 
-    
-   }
+}
 
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -47,8 +46,6 @@
     [self.backgroundMusic play];
     
 }
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

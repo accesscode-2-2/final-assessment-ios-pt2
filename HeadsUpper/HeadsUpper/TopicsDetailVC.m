@@ -8,6 +8,8 @@
 
 #import "TopicsDetailVC.h"
 #import "TopicsTVC.h"
+#import <AVFoundation/AVFoundation.h>
+
 
 @interface TopicsDetailVC ()
 
@@ -21,6 +23,7 @@
 @property (nonatomic, assign) NSInteger cluesCorrect;
 @property (nonatomic, assign) NSInteger cluesWrong;
 
+@property(nonatomic, strong) AVAudioPlayer *backgroundMusic;
 
 @end
 
@@ -34,6 +37,27 @@
     [self setupTimer];
     
 }
+
+-(void) playWinSound {
+    NSURL *musicFile = [[NSBundle mainBundle] URLForResource:@"stacker button stop"
+                                               withExtension:@"wav"];
+    self.backgroundMusic = [[AVAudioPlayer alloc] initWithContentsOfURL:musicFile
+                                                                  error:nil];
+    self.backgroundMusic.numberOfLoops = 1;
+    [self.backgroundMusic play];
+    
+}
+
+-(void) playlossSound {
+    NSURL *musicFile = [[NSBundle mainBundle] URLForResource:@"cranker swipe"
+                                               withExtension:@"wav"];
+    self.backgroundMusic = [[AVAudioPlayer alloc] initWithContentsOfURL:musicFile
+                                                                  error:nil];
+    self.backgroundMusic.numberOfLoops = 1;
+    [self.backgroundMusic play];
+    
+}
+
 
 -(void)setupTimer {
     NSTimer *timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
@@ -83,6 +107,7 @@
             self.view.backgroundColor = [UIColor greenColor];
             [self bGColourTimer];
             [self generateClue];
+            [self playWinSound];
             self.totalClues++;
             
             break;
@@ -90,6 +115,7 @@
             self.view.backgroundColor = [UIColor redColor];
             [self bGColourTimer];
             [self generateClue];
+            [self playlossSound];
             self.totalClues++;
             self.cluesWrong++;
             break;
