@@ -7,13 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "HUClue.h"
 
 @interface HUGameCategory : NSObject
 
 @property (nonatomic) NSString *name;
-@property (nonatomic) NSMutableArray<HUClue *> *clues;
+@property (nonatomic) NSMutableArray<NSString *> *clues;
 
-- (instancetype)initWithName:(NSString *)categoryName andClues:(NSMutableArray<HUClue *> *)clues;
+- (instancetype)initWithName:(NSString *)categoryName andClues:(NSMutableArray<NSString *> *)clues;
 
 @end

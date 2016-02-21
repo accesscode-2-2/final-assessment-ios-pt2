@@ -8,10 +8,11 @@
 
 #import "HUCategoriesTableViewController.h"
 #import "CategoryAndClueSetup.h"
+#import "HUGameCategory.h"
 
 @interface HUCategoriesTableViewController ()
 
-@property (nonatomic) NSArray *categories;
+@property (nonatomic) NSMutableArray<HUGameCategory *> *categories;
 
 @end
 
@@ -19,6 +20,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    [self setup];
+}
+
+-(void)setup {
+    self.categories = [NSMutableArray new];
+    CategoryAndClueSetup *categoriesAndClues = [[CategoryAndClueSetup alloc] initCategories];
+    self.categories = categoriesAndClues.gameCategories;
 }
 
 #pragma mark - Table view data source
@@ -34,6 +44,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CategoryCellIdentifier" forIndexPath:indexPath];
+    
+    HUGameCategory *category = self.categories[indexPath.row];
+    
+    cell.textLabel.text = category.name;
     
     return cell;
 }

@@ -7,7 +7,6 @@
 //
 
 #import "CategoryAndClueSetup.h"
-#import "HUClue.h"
 
 @implementation CategoryAndClueSetup
 
@@ -23,7 +22,7 @@
     return nil;
 }
 
--(HUGameCategory *)createHUGameCategoryFor:(NSString *)category andClues:(NSMutableArray *)clues {
+-(HUGameCategory *)createHUGameCategoryFor:(NSString *)category andClues:(NSMutableArray<NSString *> *)clues {
     
     HUGameCategory *gameCategory = [[HUGameCategory alloc] initWithName:category andClues:clues];
     return gameCategory;

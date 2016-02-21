@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1887DC561C7A11670037888D /* HUCategoriesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1887DC551C7A11670037888D /* HUCategoriesTableViewController.m */; };
 		1887DC591C7A11900037888D /* HUGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1887DC581C7A11900037888D /* HUGameViewController.m */; };
-		1887DC5C1C7A11C20037888D /* HUClue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1887DC5B1C7A11C20037888D /* HUClue.m */; };
 		1887DC5F1C7A11F00037888D /* HUGameCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1887DC5E1C7A11F00037888D /* HUGameCategory.m */; };
 		1887DC621C7A17320037888D /* CategoryAndClueSetup.m in Sources */ = {isa = PBXBuildFile; fileRef = 1887DC611C7A17320037888D /* CategoryAndClueSetup.m */; };
 		8D89695C1C755D0200D32E8A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D89695B1C755D0200D32E8A /* main.m */; };
@@ -24,8 +23,6 @@
 		1887DC551C7A11670037888D /* HUCategoriesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUCategoriesTableViewController.m; sourceTree = "<group>"; };
 		1887DC571C7A11900037888D /* HUGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUGameViewController.h; sourceTree = "<group>"; };
 		1887DC581C7A11900037888D /* HUGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUGameViewController.m; sourceTree = "<group>"; };
-		1887DC5A1C7A11C20037888D /* HUClue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUClue.h; sourceTree = "<group>"; };
-		1887DC5B1C7A11C20037888D /* HUClue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUClue.m; sourceTree = "<group>"; };
 		1887DC5D1C7A11F00037888D /* HUGameCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUGameCategory.h; sourceTree = "<group>"; };
 		1887DC5E1C7A11F00037888D /* HUGameCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUGameCategory.m; sourceTree = "<group>"; };
 		1887DC601C7A17320037888D /* CategoryAndClueSetup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryAndClueSetup.h; sourceTree = "<group>"; };
@@ -74,8 +71,6 @@
 				8D89695E1C755D0200D32E8A /* AppDelegate.m */,
 				1887DC5D1C7A11F00037888D /* HUGameCategory.h */,
 				1887DC5E1C7A11F00037888D /* HUGameCategory.m */,
-				1887DC5A1C7A11C20037888D /* HUClue.h */,
-				1887DC5B1C7A11C20037888D /* HUClue.m */,
 				1887DC601C7A17320037888D /* CategoryAndClueSetup.h */,
 				1887DC611C7A17320037888D /* CategoryAndClueSetup.m */,
 				1887DC541C7A11670037888D /* HUCategoriesTableViewController.h */,
@@ -170,7 +165,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1887DC561C7A11670037888D /* HUCategoriesTableViewController.m in Sources */,
-				1887DC5C1C7A11C20037888D /* HUClue.m in Sources */,
 				8D89695F1C755D0200D32E8A /* AppDelegate.m in Sources */,
 				8D89695C1C755D0200D32E8A /* main.m in Sources */,
 				1887DC5F1C7A11F00037888D /* HUGameCategory.m in Sources */,

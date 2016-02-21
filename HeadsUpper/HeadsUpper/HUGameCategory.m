@@ -10,7 +10,7 @@
 
 @implementation HUGameCategory 
 
-- (instancetype)initWithName:(NSString *)categoryName andClues:(NSMutableArray<HUClue *> *)clues {
+- (instancetype)initWithName:(NSString *)categoryName andClues:(NSMutableArray<NSString *> *)clues{
     
     if (self = [super init]) {
         
