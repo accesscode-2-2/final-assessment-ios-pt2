@@ -7,6 +7,7 @@
 //
 
 #import "MainMenuViewController.h"
+#import "GameViewController.h"
 
 @interface MainMenuViewController ()
 <
@@ -64,7 +65,11 @@ UICollectionViewDelegateFlowLayout
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
+    GameViewController *gameVC = [storyboard instantiateViewControllerWithIdentifier:@"GameViewController"];
+    
+    [self presentViewController:gameVC animated:YES completion:nil];
     
 }
 
