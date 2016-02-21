@@ -74,7 +74,10 @@
     if (self.timerCount == 0) {
         [timer invalidate];
         [self showAlert];
-       
+        
+        for (UIGestureRecognizer *recognizer in self.view.gestureRecognizers) {
+            [self.view removeGestureRecognizer:recognizer];
+        }
     }
     
     // determine time left on timer
@@ -141,6 +144,8 @@
             return;
     }
 }
+
+
 
 
 /*

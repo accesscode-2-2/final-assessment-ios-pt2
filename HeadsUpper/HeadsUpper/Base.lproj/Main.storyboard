@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
-        <!--Category Selection Table View Controller-->
+        <!--Root View Controller-->
         <scene sceneID="U23-ou-1BD">
             <objects>
-                <tableViewController id="Ps9-xB-j0U" customClass="CategorySelectionTableViewController" sceneMemberID="viewController">
+                <tableViewController title="Root View Controller" id="Ps9-xB-j0U" customClass="CategorySelectionTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="icZ-GC-T5h">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
