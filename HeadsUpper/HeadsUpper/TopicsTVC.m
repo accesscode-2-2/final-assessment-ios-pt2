@@ -66,11 +66,6 @@
     
     self.topics = @[superStars, thatsSoNineties, heyMrDJ, icons, animalsGoneWild];
 
-    
-    
-    
-    
-    
 }
 
 
@@ -92,8 +87,6 @@
     
     Topics  *topics = [self.topics objectAtIndex: indexPath.row];
     cell.textLabel.text = topics.topicName;
-    
-    
     
     return cell;
 }

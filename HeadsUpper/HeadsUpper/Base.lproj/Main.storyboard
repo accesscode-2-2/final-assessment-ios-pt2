@@ -14,12 +14,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TopicsCell" id="6VC-6Y-U1O">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TopicsCell" textLabel="9xV-7m-qXa" style="IBUITableViewCellStyleDefault" id="6VC-6Y-U1O">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6VC-6Y-U1O" id="w4u-FO-UJv">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9xV-7m-qXa">
+                                            <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -34,23 +43,39 @@
             </objects>
             <point key="canvasLocation" x="-15" y="301"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="Aoy-ql-h7I">
+        <!--Topics DetailVC-->
+        <scene sceneID="mR2-Nf-kq6">
             <objects>
-                <viewController id="O95-rq-K81" sceneMemberID="viewController">
+                <viewController id="gh5-Ef-wVc" customClass="TopicsDetailVC" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="MCy-mz-K0n"/>
-                        <viewControllerLayoutGuide type="bottom" id="Wkx-hC-Ckt"/>
+                        <viewControllerLayoutGuide type="top" id="6q3-WA-Mtu"/>
+                        <viewControllerLayoutGuide type="bottom" id="bUy-z5-exM"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Tsw-mN-hNc">
+                    <view key="view" contentMode="scaleToFill" id="PPf-xC-h8f">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GsG-LM-x5q">
+                                <rect key="frame" x="234.5" y="290" width="131" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20.5" id="Z9w-z4-sXr"/>
+                                    <constraint firstAttribute="width" constant="131" id="chV-f1-ZQI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GsG-LM-x5q" firstAttribute="centerX" secondItem="PPf-xC-h8f" secondAttribute="centerX" id="Hsj-bc-vON"/>
+                            <constraint firstItem="GsG-LM-x5q" firstAttribute="centerY" secondItem="PPf-xC-h8f" secondAttribute="centerY" id="sX1-St-Y6n"/>
+                        </constraints>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LGQ-Jd-b5M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xkc-St-ccs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="624" y="301"/>
+            <point key="canvasLocation" x="638" y="301"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ios-Lu-EXx">
