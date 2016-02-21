@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TopicCollectionViewCell" id="quK-G0-guD" customClass="TopicCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J9q-k6-3JW">
+                        <rect key="frame" x="8" y="8" width="284" height="284"/>
+                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="J9q-k6-3JW" firstAttribute="leading" secondItem="quK-G0-guD" secondAttribute="leading" constant="8" id="QcE-jA-Qde"/>
+                <constraint firstAttribute="bottom" secondItem="J9q-k6-3JW" secondAttribute="bottom" constant="8" id="X0V-NS-8y6"/>
+                <constraint firstAttribute="trailing" secondItem="J9q-k6-3JW" secondAttribute="trailing" constant="8" id="bzI-NN-4uc"/>
+                <constraint firstItem="J9q-k6-3JW" firstAttribute="top" secondItem="quK-G0-guD" secondAttribute="top" constant="8" id="gjx-tg-jmM"/>
+            </constraints>
+            <size key="customSize" width="300" height="300"/>
+            <connections>
+                <outlet property="titleLabel" destination="J9q-k6-3JW" id="rMQ-2o-RBR"/>
+            </connections>
+            <point key="canvasLocation" x="288" y="318"/>
+        </collectionViewCell>
+    </objects>
+</document>

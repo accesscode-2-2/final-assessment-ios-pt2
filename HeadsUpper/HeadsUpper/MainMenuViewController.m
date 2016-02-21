@@ -8,6 +8,7 @@
 
 #import "MainMenuViewController.h"
 #import "GameViewController.h"
+#import "TopicCollectionViewCell.h"
 
 @interface MainMenuViewController ()
 <
@@ -27,7 +28,7 @@ UICollectionViewDelegateFlowLayout
     
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"GameViewCell"];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"TopicCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"TopicCollectionViewCell"];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -54,9 +55,10 @@ UICollectionViewDelegateFlowLayout
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GameViewCell" forIndexPath:indexPath];
+    TopicCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TopicCollectionViewCell" forIndexPath:indexPath];
     
-    cell.backgroundColor = [UIColor lightGrayColor];
+    //cell.backgroundColor = [UIColor lightGrayColor];
+    cell.titleLabel.text = @"Title";
     
     return cell;
 }

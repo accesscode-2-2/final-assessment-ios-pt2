@@ -11,6 +11,9 @@
 		6B18A1B41C7A128E0006C070 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B18A1B31C7A128E0006C070 /* GameViewController.m */; };
 		6B18A1B61C7A13590006C070 /* GameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B18A1B51C7A13590006C070 /* GameView.xib */; };
 		6B18A1B91C7A15DB0006C070 /* GameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B18A1B81C7A15DB0006C070 /* GameView.m */; };
+		6B18A1BC1C7A2AB20006C070 /* Topic.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B18A1BB1C7A2AB20006C070 /* Topic.m */; };
+		6B18A1BF1C7A2AD10006C070 /* TopicCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B18A1BE1C7A2AD10006C070 /* TopicCollectionViewCell.m */; };
+		6B18A1C11C7A2AEB0006C070 /* TopicCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B18A1C01C7A2AEB0006C070 /* TopicCollectionViewCell.xib */; };
 		8D89695C1C755D0200D32E8A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D89695B1C755D0200D32E8A /* main.m */; };
 		8D89695F1C755D0200D32E8A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D89695E1C755D0200D32E8A /* AppDelegate.m */; };
 		8D8969651C755D0200D32E8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D8969631C755D0200D32E8A /* Main.storyboard */; };
@@ -26,6 +29,11 @@
 		6B18A1B51C7A13590006C070 /* GameView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameView.xib; sourceTree = "<group>"; };
 		6B18A1B71C7A15DB0006C070 /* GameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameView.h; sourceTree = "<group>"; };
 		6B18A1B81C7A15DB0006C070 /* GameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameView.m; sourceTree = "<group>"; };
+		6B18A1BA1C7A2AB20006C070 /* Topic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Topic.h; sourceTree = "<group>"; };
+		6B18A1BB1C7A2AB20006C070 /* Topic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Topic.m; sourceTree = "<group>"; };
+		6B18A1BD1C7A2AD10006C070 /* TopicCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicCollectionViewCell.h; sourceTree = "<group>"; };
+		6B18A1BE1C7A2AD10006C070 /* TopicCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicCollectionViewCell.m; sourceTree = "<group>"; };
+		6B18A1C01C7A2AEB0006C070 /* TopicCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopicCollectionViewCell.xib; sourceTree = "<group>"; };
 		8D8969571C755D0200D32E8A /* HeadsUpper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeadsUpper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D89695B1C755D0200D32E8A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8D89695D1C755D0200D32E8A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -68,6 +76,11 @@
 			children = (
 				8D89695D1C755D0200D32E8A /* AppDelegate.h */,
 				8D89695E1C755D0200D32E8A /* AppDelegate.m */,
+				6B18A1BA1C7A2AB20006C070 /* Topic.h */,
+				6B18A1BB1C7A2AB20006C070 /* Topic.m */,
+				6B18A1BD1C7A2AD10006C070 /* TopicCollectionViewCell.h */,
+				6B18A1BE1C7A2AD10006C070 /* TopicCollectionViewCell.m */,
+				6B18A1C01C7A2AEB0006C070 /* TopicCollectionViewCell.xib */,
 				6B18A1B71C7A15DB0006C070 /* GameView.h */,
 				6B18A1B81C7A15DB0006C070 /* GameView.m */,
 				6B18A1B51C7A13590006C070 /* GameView.xib */,
@@ -150,6 +163,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B18A1C11C7A2AEB0006C070 /* TopicCollectionViewCell.xib in Resources */,
 				6B18A1B61C7A13590006C070 /* GameView.xib in Resources */,
 				8D89696A1C755D0200D32E8A /* LaunchScreen.storyboard in Resources */,
 				8D8969671C755D0200D32E8A /* Assets.xcassets in Resources */,
@@ -166,7 +180,9 @@
 			files = (
 				6B18A1B41C7A128E0006C070 /* GameViewController.m in Sources */,
 				6B18A1B91C7A15DB0006C070 /* GameView.m in Sources */,
+				6B18A1BF1C7A2AD10006C070 /* TopicCollectionViewCell.m in Sources */,
 				8D89695F1C755D0200D32E8A /* AppDelegate.m in Sources */,
+				6B18A1BC1C7A2AB20006C070 /* Topic.m in Sources */,
 				6B18A1B11C7A125D0006C070 /* MainMenuViewController.m in Sources */,
 				8D89695C1C755D0200D32E8A /* main.m in Sources */,
 			);
