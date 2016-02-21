@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "GameTopicDataModel.h"
 
 @interface AppDelegate ()
 

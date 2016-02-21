@@ -7,13 +7,12 @@
 //
 
 #import "GameTopicTableViewController.h"
-#import "GameDataManager.h"
+#import "GameTopicDataModel.h"
 #import "GamePlayViewController.h"
 
 @interface GameTopicTableViewController ()
 
-@property (nonatomic) NSArray *gameTopicsList;
-@property (nonatomic) NSDictionary *gameDataDictionary;
+@property (nonatomic) GameTopicDataModel *model;
 
 @end
 
@@ -22,9 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [GameDataManager getGameDataWithCompletionHander:^(NSDictionary *gameData) {
-        self.gameDataDictionary = [[NSDictionary alloc] initWithDictionary:gameData];
-        self.gameTopicsList = [[NSArray alloc] initWithArray: [gameData allKeys]];
+    self.model = [[GameTopicDataModel alloc] initWithLoadCompletionBlock:^{
         [self.tableView reloadData];
     }];
     
@@ -37,13 +34,14 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.gameTopicsList.count;
+    return self.model.data.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GameTopicCell" forIndexPath:indexPath];
     
-    cell.textLabel.text = self.gameTopicsList[indexPath.row];
+    NSString *title = [self.model.data[indexPath.row] objectForKey:@"title"];
+    cell.textLabel.text = title;
     
     return cell;
 }
@@ -56,8 +54,8 @@
     GamePlayViewController *gamePlayVC = [segue destinationViewController];
     
     NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
-    NSString *selectedTopic = self.gameTopicsList[selectedIndexPath.row];
-    gamePlayVC.gameSubjects = [[NSArray alloc] initWithArray: self.gameDataDictionary[selectedTopic]];
+    NSArray *subjects = [self.model.data[selectedIndexPath.row] valueForKey:@"subjects"];
+    gamePlayVC.gameSubjects = subjects;
 }
 
 @end
