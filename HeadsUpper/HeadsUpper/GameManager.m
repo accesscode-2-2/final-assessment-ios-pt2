@@ -53,7 +53,7 @@
     
     [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
     
-    self.timerCount = 10;
+    self.timerCount = 30;
     [self.timer fire];
 }
 

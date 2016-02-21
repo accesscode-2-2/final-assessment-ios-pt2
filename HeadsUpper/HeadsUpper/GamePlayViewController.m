@@ -67,7 +67,7 @@
     self.timerLabel.text = [@(countDown) stringValue];
     if ([self.timerLabel.text isEqualToString:@"0"]) {
         self.mainLabel.text = @"ANOTHER ONE 🔑";
-//        [self.player playSound];
+        [self playSound];
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self dismissViewControllerAnimated:NO completion:nil];
