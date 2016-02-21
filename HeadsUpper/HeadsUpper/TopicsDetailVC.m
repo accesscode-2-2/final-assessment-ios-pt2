@@ -102,7 +102,7 @@
 
 -(void) changeBackground {
     [UIView animateWithDuration:.2 animations:^{
-        self.view.backgroundColor = [UIColor whiteColor];
+        self.view.backgroundColor = [UIColor blackColor];
     } completion:NULL];
 }
 
