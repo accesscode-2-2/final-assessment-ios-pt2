@@ -74,11 +74,11 @@
 - (void)handleSwipe:(UISwipeGestureRecognizer *) gesture {
     switch (gesture.direction) {
         case UISwipeGestureRecognizerDirectionLeft:
-            self.view.backgroundColor = [UIColor darkGrayColor];
+            [self backgroundGlowAnimationFromColor:[UIColor orangeColor] toColor:[UIColor whiteColor] clearAnimationsFirst:YES];
             [self randomAnswer];
             break;
         case UISwipeGestureRecognizerDirectionRight:
-            self.view.backgroundColor = [UIColor orangeColor];
+            [self backgroundGlowAnimationFromColor:[UIColor greenColor] toColor:[UIColor whiteColor] clearAnimationsFirst:YES];
             [self randomAnswer];
             break;
         default:
@@ -96,6 +96,20 @@
     NSLog(@"%@", self.topicAnswers);
 }
 
+
+- (void)backgroundGlowAnimationFromColor:(UIColor *)startColor toColor:(UIColor *)destColor clearAnimationsFirst:(BOOL)reset {
+    if (reset) {
+        [self.view.layer removeAllAnimations];
+    }
+    
+    CABasicAnimation *anAnimation = [CABasicAnimation animationWithKeyPath:@"backgroundColor"];
+    anAnimation.duration = 1.00;
+    anAnimation.repeatCount = 0;
+    anAnimation.autoreverses = NO;
+    anAnimation.fromValue = (id) startColor.CGColor; // [NSNumber numberWithFloat:1.0];
+    anAnimation.toValue = (id) destColor.CGColor; //[NSNumber numberWithFloat:0.10];
+    [self.view.layer addAnimation:anAnimation forKey:@"backgroundColor"];
+}
 /*
 #pragma mark - Navigation
 
