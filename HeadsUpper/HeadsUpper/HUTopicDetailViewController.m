@@ -16,6 +16,8 @@
 @property (nonatomic, assign) NSInteger totalSwipes;
 @property (nonatomic, assign) NSInteger rightSwipes;
 
+@property (nonatomic, strong) NSMutableArray *answerHasAppeared;
+
 @end
 
 @implementation HUTopicDetailViewController
@@ -30,12 +32,13 @@
 }
 
 - (void)setup {
-//    NSMutableArray *answerHasAppeared = [[NSMutableArray alloc] initWithArray:self.topicAnswers copyItems:YES];
     self.navigationItem.title = self.topicTitle;
     
     self.totalSwipes = 1;
     self.rightSwipes = 0;
     self.countdownTimerLabel.text = @"10";
+    
+    self.answerHasAppeared = [[NSMutableArray alloc] initWithArray:self.topicAnswers copyItems:YES];
 }
 
 - (void)setupTimer {
@@ -43,12 +46,10 @@
     [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
     
     self.timerCount = 9;
-//    self.countdownTimerLabel.textColor = [UIColor greenColor];
 }
 
 - (void)timerFired:(NSTimer *)timer {
     switch (self.timerCount) {
-
         case 5:
             self.countdownTimerLabel.textColor = [UIColor orangeColor];
             break;
@@ -66,9 +67,8 @@
     self.countdownTimerLabel.text = @"10";
     NSString *timeLeft = [NSString stringWithFormat: @"%ld", (long)self.timerCount];
     self.countdownTimerLabel.text = timeLeft;
-    
+
     self.timerCount--;
-    
 }
 
 - (void)gameOver {
@@ -113,20 +113,15 @@
 }
 
 - (void)randomAnswer {
-    NSUInteger n = self.topicAnswers.count;
-
+    //    if (self.answerHasAppeared == nil) {
+    //        [self gameOver];
+    //    }
+    NSUInteger n = self.answerHasAppeared.count;
+    NSUInteger currRandIdx = arc4random_uniform((u_int32_t)n);
+    self.topicAnswerTextLabel.text = self.answerHasAppeared[currRandIdx];
+    [self.answerHasAppeared removeObject:self.answerHasAppeared[currRandIdx]];
     
-    NSUInteger currRandIdx = arc4random_uniform((uint32_t)n);
-    
-    
-    NSLog(@"%lu", (unsigned long)currRandIdx);
-//    NSLog(@"%lu", (unsigned long)prevRandIdx);
-    
-    self.topicAnswerTextLabel.text = self.topicAnswers[currRandIdx];
-
-//    NSLog(@"%lu", (unsigned long)n);
-//    NSLog(@"%@", self.topicAnswers[currRandIdx]);
-//    NSLog(@"%@", self.topicAnswers);
+    NSLog(@"%@", self.answerHasAppeared);
 }
 
 #pragma mark - Background Glow | Pass - Orange:White / Correct - Green:White
@@ -143,14 +138,5 @@
     anAnimation.toValue = (id) destColor.CGColor; //[NSNumber numberWithFloat:0.10];
     [self.view.layer addAnimation:anAnimation forKey:@"backgroundColor"];
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
