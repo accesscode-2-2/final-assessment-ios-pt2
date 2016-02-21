@@ -8,6 +8,7 @@
 
 #import "GameplayViewController.h"
 #import "GameSummaryViewController.h"
+#import "CustomTableViewCell.h"
 
 @interface GameplayViewController ()
 @property (nonatomic,strong) AVAudioPlayer *audioPlayerOne;
@@ -24,9 +25,6 @@
 @property (nonatomic) NSString * itemDisplayed;
 //
 @property (strong, nonatomic) IBOutlet UIButton *testButton;
-
-
-
 @end
 
 @implementation GameplayViewController

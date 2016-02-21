@@ -8,6 +8,7 @@
 
 #import "CategoriesTableViewController.h"
 #import "GameplayViewController.h"
+#import "CustomTableViewCell.h"
 
 @interface CategoriesTableViewController ()
 
@@ -17,6 +18,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.tableView registerClass:[CustomTableViewCell class] forCellReuseIdentifier:@"customCellIdentifier"];
+    
     
     [self initializeData];
     
@@ -38,15 +42,24 @@
     return self.categoryArray.count;
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"categoriesIdentifier" forIndexPath:indexPath];
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"categoriesIdentifier" forIndexPath:indexPath];
     
-    cell.textLabel.text = self.categoryArray[indexPath.row];
+    CustomTableViewCell *customCell = [self.tableView dequeueReusableCellWithIdentifier:@"customCellIdentifier"];
     
-    return cell;
+    customCell = [[[NSBundle mainBundle]loadNibNamed:@"CustomTableViewCell" owner:self options:nil]objectAtIndex:0];
+    
+    customCell.customLabel.text = self.categoryArray[indexPath.row];
+    
+    
+    return customCell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [self performSegueWithIdentifier:@"segueToGameplay" sender:self];
+    
+}
 
 #pragma mark - Navigation
 
@@ -55,15 +68,11 @@
     // Get the new view controller using [segue destinationViewController].
     
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    
     GameplayViewController *destinationViewController = [segue destinationViewController];
-    
     destinationViewController.categoryPlayed = self.categoryArray[indexPath.row];
     
-    //NSDictionary *thisDict = self.categoryArray[indexPath.row];
     
     NSString *key = self.categoryArray[indexPath.row];
-    
     destinationViewController.categoryArray = [self.categories valueForKey:key];
 
    // destinationViewController.categoryPlayed = self.categoryArray

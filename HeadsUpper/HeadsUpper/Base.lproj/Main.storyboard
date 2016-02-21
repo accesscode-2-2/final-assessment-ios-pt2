@@ -24,9 +24,6 @@
                                     <animations/>
                                 </tableViewCellContentView>
                                 <animations/>
-                                <connections>
-                                    <segue destination="EPd-a6-Vyl" kind="show" id="0kb-e1-Acy"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -35,10 +32,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="owz-23-FNP"/>
+                    <connections>
+                        <segue destination="EPd-a6-Vyl" kind="show" identifier="segueToGameplay" id="G5y-I2-z0M"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sAp-qo-F3N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="547" y="377"/>
+            <point key="canvasLocation" x="638" y="353"/>
         </scene>
         <!--Gameplay View Controller-->
         <scene sceneID="Hbd-XT-wZd">
