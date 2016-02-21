@@ -11,7 +11,7 @@
 @interface Topic : NSObject
 
 @property (nonatomic) NSString *title;
-@property (nonatomic) NSMutableArray *answers;
+@property (nonatomic) NSArray *answers;
 
 -(instancetype)initWithJSON: (NSDictionary *)json;
 

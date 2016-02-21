@@ -10,6 +10,7 @@
 #import "GameViewController.h"
 #import "TopicCollectionViewCell.h"
 #import "APIManager.h"
+#import "Topic.h"
 
 @interface MainMenuViewController ()
 <
@@ -18,7 +19,7 @@ UICollectionViewDataSource,
 UICollectionViewDelegateFlowLayout
 >
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (nonatomic) NSArray *topics;
+@property (nonatomic) NSMutableArray *topics;
 
 @end
 
@@ -39,14 +40,25 @@ UICollectionViewDelegateFlowLayout
 {
     [super viewWillAppear:animated];
     
-    [self.collectionView reloadData];
+    
 }
 
 - (void) fetchTopicsData
 {
-    [APIManager getTopicData:^(NSArray *data) {
+    [APIManager getTopicData:^(NSDictionary *data) {
         
-        self.topics = data;
+        self.topics = [[NSMutableArray alloc] init];
+        
+        for (NSDictionary *topicDict in data){
+
+            Topic *topic = [[Topic alloc] initWithJSON:topicDict];
+            
+            [self.topics addObject:topic];
+            
+        }
+        
+        [self.collectionView reloadData];
+        
     }];
     
 }
@@ -70,7 +82,9 @@ UICollectionViewDelegateFlowLayout
 {
     TopicCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TopicCollectionViewCell" forIndexPath:indexPath];
     
-    cell.titleLabel.text = @"Title";
+    Topic *topic = self.topics[indexPath.row];
+    
+    cell.titleLabel.text = topic.title;
     
     return cell;
 }

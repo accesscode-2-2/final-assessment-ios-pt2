@@ -12,19 +12,20 @@
 
 @implementation APIManager
 
-+ (void) getTopicData:(void(^)(NSArray *data))completion
++ (void) getTopicData:(void(^)(NSDictionary *data))completion
 {
     AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] init];
     
     [manager GET:@"https://heads-up-api.herokuapp.com/" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
        
-        NSLog(@"%@", responseObject);
+        //NSLog(@"%@", responseObject);
         
-        //initiialize Topic objects
-        //add to data array
+        NSDictionary *data = responseObject;
+        completion(data);
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
+        NSLog(@"%@", error);
     }];
     
 }

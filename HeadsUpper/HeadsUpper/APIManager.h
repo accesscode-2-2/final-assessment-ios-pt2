@@ -11,6 +11,6 @@
 
 @interface APIManager : NSObject
 
-+ (void) getTopicData:(void(^)(NSArray *data))completion;
++ (void) getTopicData:(void(^)(NSDictionary *data))completion;
 
 @end
