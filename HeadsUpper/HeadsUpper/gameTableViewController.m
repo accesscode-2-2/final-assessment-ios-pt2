@@ -68,6 +68,18 @@ UITableViewDelegate
     // Dispose of any resources that can be recreated.
 }
 
+//- (void)viewDidAppear:(BOOL)animated{
+//    if([timer isValid])
+//    {
+//        
+//        [timer invalidate];
+//        timer=nil;
+//        
+//        self.timer=[NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(CalcoloMediadiLaurea:) userInfo:nil repeats:YES];
+//        
+//    }
+//}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

@@ -13,7 +13,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 @property (nonatomic, assign) NSInteger timerCounter;
 @property (nonatomic, assign) NSInteger rightSwipeCounter;
+@property (nonatomic, assign) NSInteger leftSwipeCounter;
 @property (weak, nonatomic) IBOutlet UILabel *gameLabel;
+//@property (weak, nonatomic) NSTimer *timer;
 //@property (weak, nonatomic) NSArray *holdingArray;
 
 
@@ -33,7 +35,14 @@
     self.gameLabel.text = random;
     
 //    NSLog(@"%@", [self.holdingArray objectAtIndex:0]);
+    NSLog(@"%ld", (long)self.leftSwipeCounter);
 }
+
+//- (void)viewDidDisappear:(BOOL)animated
+//{
+//    [self.timer invalidate];
+//    self.timer = nil;
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -57,6 +66,19 @@
         
         // very important
         self.timerCounter = 0;
+        
+//        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"My Alert"
+//                                                                       message:@"This is an alert."
+//                                                                preferredStyle:UIAlertControllerStyleAlert];
+//        
+//        [alert ];
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Game Over"
+                                                        message:@"Your score is: "
+                                                       delegate:self
+                                              cancelButtonTitle:@"Done"
+                                              otherButtonTitles:nil];
+        [alert show];
         
     }
     
@@ -95,14 +117,23 @@
     switch (gesture.direction) {
         case UISwipeGestureRecognizerDirectionLeft:
         {
+            self.leftSwipeCounter = 0;
+            self.leftSwipeCounter++;
+            
+            //animate
             self.view.backgroundColor = [UIColor redColor];
-            //get value of random index from array
+            
             NSString *random =[self.holdingArray objectAtIndex: arc4random() % [self.holdingArray count]];
             self.gameLabel.text = random;
+            
         }
             break;
         case UISwipeGestureRecognizerDirectionRight:
         {
+            self.rightSwipeCounter = 0;
+            self.rightSwipeCounter++;
+            
+            //animate
             self.view.backgroundColor = [UIColor greenColor];
             //get value of random index from array
             NSString *random =[self.holdingArray objectAtIndex: arc4random() % [self.holdingArray count]];
