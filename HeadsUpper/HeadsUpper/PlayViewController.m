@@ -28,6 +28,7 @@
     [self setupTimer];
     [self setupGestureRecognizers];
     
+    self.view.backgroundColor = [UIColor blueColor];
 
 
 }

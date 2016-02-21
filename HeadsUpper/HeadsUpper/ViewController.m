@@ -28,6 +28,7 @@ UITableViewDelegate
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.title = @"Heads Up";
+    
 
 
     self.themes = @{
