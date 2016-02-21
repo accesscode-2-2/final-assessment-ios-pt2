@@ -33,9 +33,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.questionsArray = [[HUData sharedData] dataForCategory:self.category];
+
+    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    }
+    
     self.currentIndex = 0;
     self.correctQuestion = [NSMutableDictionary new];
-    self.timerLoopCount = 30;
+    self.timerLoopCount = 15;
     [self shuffle];
     [self trackAccelerometer];
 }
@@ -68,7 +73,12 @@
 
 - (void)nextQuestion {
     self.currentIndex++;
-    [self displayQuestionForIndex:self.currentIndex];
+    if (self.currentIndex < self.questionsArray.count) {
+        [self displayQuestionForIndex:self.currentIndex];
+    }else{
+        [self endGame];
+    }
+
 }
 
 - (void)skipQuestion{
@@ -95,11 +105,22 @@
     self.timerLoopCount--;
     self.timerLabel.text = [NSString stringWithFormat:@"%ld",self.timerLoopCount];
 
+    if (self.timerLoopCount <= 5){
+        self.timerLabel.textColor = [UIColor redColor];
+    }else{
+        self.timerLabel.textColor = [UIColor blackColor];
+    }
+    
     if (self.timerLoopCount == 0) {
-        [self formatTimer];
+        [self endGame];
     }
 }
 
+- (void)endGame {
+    [self formatTimer];
+    [self launchAlert];
+
+}
 #pragma mark - Fade Animation
 
 - (void)animateToColorFade:(ColorFade)fade {
@@ -192,5 +213,15 @@
             }
         }
     }
+}
+
+#pragma mark - Alert
+- (void)launchAlert {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Stats!" message:[NSString stringWithFormat:@"You scored %ld out of %ld",self.correctQuestion.allKeys.count, self.questionsArray.count] preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OMG YES!" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+    [alert addAction:ok];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 @end
