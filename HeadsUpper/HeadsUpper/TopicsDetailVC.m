@@ -14,7 +14,8 @@
 @property (nonatomic) NSArray *topicClueList;
 
 @property (nonatomic) NSTimer *changeBgColourTimer;
-@property(nonatomic, assign) NSInteger timerCount;
+@property (nonatomic, assign) NSInteger timerCount;
+@property (weak, nonatomic) IBOutlet UILabel *timerLbl;
 
 @end
 
@@ -25,6 +26,17 @@
     [self setupGestureRecognizers];
     [self generateClue];
     
+    [self setupTimer];
+    
+}
+
+-(void)setupTimer {
+    NSTimer *timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop]addTimer:timer forMode:NSRunLoopCommonModes];
+    
+    self.timerCount = 30;
+    
+    [timer fire];
 }
 
 -(void) generateClue {
@@ -75,6 +87,20 @@
         default:
             return;
     }
+}
+
+-(void)timerFired:(NSTimer *)timer {
+    if (self.timerCount == 0) {
+        [timer invalidate];
+        
+    }
+    
+    //determine time left on timer
+    NSString *convertedToString = [[NSNumber numberWithInteger:self.timerCount]stringValue];
+    self.timerLbl.text = convertedToString;
+    
+    self.timerCount--;
+
 }
 
 - (void)didReceiveMemoryWarning {

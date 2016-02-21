@@ -68,14 +68,23 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nJV-Hw-pXu">
+                                <rect key="frame" x="538" y="84" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="GsG-LM-x5q" firstAttribute="centerX" secondItem="PPf-xC-h8f" secondAttribute="centerX" id="Hsj-bc-vON"/>
+                            <constraint firstAttribute="trailing" secondItem="nJV-Hw-pXu" secondAttribute="trailing" constant="20" id="IcG-yQ-PAY"/>
+                            <constraint firstItem="nJV-Hw-pXu" firstAttribute="top" secondItem="6q3-WA-Mtu" secondAttribute="bottom" constant="20" id="hfG-Zv-Cna"/>
                             <constraint firstItem="GsG-LM-x5q" firstAttribute="centerY" secondItem="PPf-xC-h8f" secondAttribute="centerY" id="sX1-St-Y6n"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="timerLbl" destination="nJV-Hw-pXu" id="mEq-qd-jzF"/>
                         <outlet property="topicsClueLbl" destination="GsG-LM-x5q" id="uvp-1h-jOL"/>
                     </connections>
                 </viewController>
