@@ -14,8 +14,6 @@
 
 @interface TopicsTVC ()
 
-
-
 @property (nonatomic) NSArray * topics;
 
 @property(nonatomic, strong) AVAudioPlayer *backgroundMusic;
