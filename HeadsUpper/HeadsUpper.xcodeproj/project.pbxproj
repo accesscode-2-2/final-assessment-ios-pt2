@@ -10,6 +10,7 @@
 		224485131C7A0EB300323B23 /* HUTopics.m in Sources */ = {isa = PBXBuildFile; fileRef = 224485121C7A0EB300323B23 /* HUTopics.m */; };
 		224485161C7A0FA200323B23 /* HUTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 224485151C7A0FA200323B23 /* HUTableViewController.m */; };
 		224485191C7A174700323B23 /* HUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 224485181C7A174700323B23 /* HUViewController.m */; };
+		2244851C1C7A5DF500323B23 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2244851B1C7A5DF500323B23 /* APIManager.m */; };
 		650DA9EF9E8FE891C988F9C1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA459F7A67E9A54DDFE9C64C /* libPods.a */; };
 		8D89695C1C755D0200D32E8A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D89695B1C755D0200D32E8A /* main.m */; };
 		8D89695F1C755D0200D32E8A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D89695E1C755D0200D32E8A /* AppDelegate.m */; };
@@ -26,6 +27,8 @@
 		224485151C7A0FA200323B23 /* HUTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUTableViewController.m; sourceTree = "<group>"; };
 		224485171C7A174700323B23 /* HUViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HUViewController.h; path = ../HUViewController.h; sourceTree = "<group>"; };
 		224485181C7A174700323B23 /* HUViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HUViewController.m; path = ../HUViewController.m; sourceTree = "<group>"; };
+		2244851A1C7A5DF500323B23 /* APIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
+		2244851B1C7A5DF500323B23 /* APIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
 		671DF97C1EC127A81C85CDAD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		8D8969571C755D0200D32E8A /* HeadsUpper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeadsUpper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D89695B1C755D0200D32E8A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -92,6 +95,8 @@
 				8D89695E1C755D0200D32E8A /* AppDelegate.m */,
 				224485111C7A0EB300323B23 /* HUTopics.h */,
 				224485121C7A0EB300323B23 /* HUTopics.m */,
+				2244851A1C7A5DF500323B23 /* APIManager.h */,
+				2244851B1C7A5DF500323B23 /* APIManager.m */,
 				224485141C7A0FA200323B23 /* HUTableViewController.h */,
 				224485151C7A0FA200323B23 /* HUTableViewController.m */,
 				224485171C7A174700323B23 /* HUViewController.h */,
@@ -220,6 +225,7 @@
 			files = (
 				224485191C7A174700323B23 /* HUViewController.m in Sources */,
 				224485131C7A0EB300323B23 /* HUTopics.m in Sources */,
+				2244851C1C7A5DF500323B23 /* APIManager.m in Sources */,
 				8D89695F1C755D0200D32E8A /* AppDelegate.m in Sources */,
 				224485161C7A0FA200323B23 /* HUTableViewController.m in Sources */,
 				8D89695C1C755D0200D32E8A /* main.m in Sources */,

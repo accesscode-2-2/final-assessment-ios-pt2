@@ -10,7 +10,7 @@
 
 @interface HUTableViewController : UITableViewController
 
-@property NSDictionary *topics;
+@property NSMutableArray *topics;
 
 @property NSArray *superstars;
 

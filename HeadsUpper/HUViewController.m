@@ -62,7 +62,7 @@
 
 - (void) setupGame {
     
-    self.gameTime = 15;
+    self.gameTime = 30;
     
     self.answerCounter = 0;
     
@@ -83,7 +83,7 @@
     
     [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
     
-    self.timerLabel.text = @"15";
+    self.timerLabel.text = @"30";
     
     self.timeStarted = [NSDate date];
     
@@ -211,7 +211,11 @@
                                                             preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
-                                                          handler:^(UIAlertAction * action) {}];
+                                                          handler:^(UIAlertAction * action) {
+                                                          
+                                                              [self.navigationController popToRootViewControllerAnimated:YES];
+                                                              
+                                                          }];
     
     [alert addAction:defaultAction];
     [self presentViewController:alert animated:YES completion:nil];
