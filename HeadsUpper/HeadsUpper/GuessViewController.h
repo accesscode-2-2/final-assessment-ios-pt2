@@ -7,6 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+typedef enum {
+    DidReset1,
+    DidReset0
+} ResetStat;
 
 @interface GuessViewController : UIViewController
 

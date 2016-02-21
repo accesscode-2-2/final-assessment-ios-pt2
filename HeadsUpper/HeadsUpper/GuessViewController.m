@@ -17,7 +17,8 @@
 @property (nonatomic) NSInteger atIndex;
 @property (nonatomic) CMMotionManager *motionManager;
 @property (nonatomic) NSTimer *motionTimer;
-@property (nonatomic) BOOL didResetStat;
+//@property (nonatomic) BOOL didResetStat;
+@property (nonatomic) ResetStat resetState;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backBarButton;
 
 @end
@@ -31,7 +32,8 @@
     self.guessTerm.text = [self.guessTerms objectAtIndex:self.atIndex];
     self.timeLeftLabel.text = @"10";
     self.motionManager = [[CMMotionManager alloc]init];
-    self.didResetStat = YES;
+//    self.didResetStat = YES;
+    self.resetState = DidReset1;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -58,9 +60,9 @@
 }
 
 - (void)setupMotionUpdate {
-    self.motionManager.deviceMotionUpdateInterval = 0.7;
+    self.motionManager.deviceMotionUpdateInterval = 0.30;
     [self.motionManager startDeviceMotionUpdates];
-    self.motionTimer = [NSTimer timerWithTimeInterval:0.7 target:self selector:@selector(deviceMoved) userInfo:nil repeats:YES];
+    self.motionTimer = [NSTimer timerWithTimeInterval:0.30 target:self selector:@selector(deviceMoved) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:self.motionTimer forMode:NSRunLoopCommonModes];
     [self.motionTimer fire];
 }
@@ -70,7 +72,7 @@
     NSTimer *timer =  [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
     //create timer, add it to a run loop. Done!
     
-    self.timerCount = 10;
+    self.timerCount = 100;
     
     [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
     [timer fire];
@@ -96,8 +98,9 @@
     self.view.backgroundColor = [UIColor whiteColor];
     NSLog(@"roll = %0.2f",roll);
     if (roll > 2.5) {
-        if (self.didResetStat) {
-            self.didResetStat = NO;
+        if (self.resetState == DidReset1) {
+//            self.didResetStat = NO;
+            self.resetState = DidReset0;
             self.view.backgroundColor = [UIColor greenColor];
             self.numberOfCorrectGuess += 1;
             [self updateLabel: roll];
@@ -105,9 +108,10 @@
             NSLog(@"guess term changed");
         }
         
-    } else if (roll < -0.002){
-        if (self.didResetStat) {
-            self.didResetStat = NO;
+    } else if (roll < -0.001){
+        if (self.resetState == DidReset1) {
+//            self.didResetStat = NO;
+            self.resetState = DidReset0;
             self.view.backgroundColor = [UIColor redColor];
             [self updateLabel:roll];
             self.atIndex ++;
@@ -124,11 +128,13 @@
         NSLog(@"numberOfCorrectGuess = %ld",self.numberOfCorrectGuess);
         
         if (roll < 2.0 && roll > 1.01) {
-            self.didResetStat = YES;
+//            self.didResetStat = YES;
+            self.resetState = DidReset1;
         } else {
-            self.didResetStat = NO;
+//            self.didResetStat = NO;
+            self.resetState = DidReset0;
         }
-        NSLog(@"%d",self.didResetStat);
+//        NSLog(@"didResetStat %d",self.didResetStat);
     } else {
 //        self.atIndex = 0;
         NSLog(@"end of index");
