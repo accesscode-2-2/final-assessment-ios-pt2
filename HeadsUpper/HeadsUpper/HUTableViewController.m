@@ -23,7 +23,7 @@
         
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         viewController.answers = self.topics.allValues[indexPath.row];
-        
+        viewController.navigationItem.title = self.topics.allKeys[indexPath.row];
     }
 }
 

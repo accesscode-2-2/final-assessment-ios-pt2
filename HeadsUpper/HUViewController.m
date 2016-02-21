@@ -24,11 +24,15 @@
 
 @property (atomic) NSInteger timerCounter; //or
 
+@property (atomic) NSTimer *colorTimer;
+
 @property (strong, atomic) NSMutableArray *tempAnswers;
 
 @property (atomic) NSInteger answerCounter;
 
 @property (atomic) NSInteger totalCounter;
+
+@property (atomic) NSInteger colorCounter;
 
 @end
 
@@ -36,6 +40,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.navigationItem.hidesBackButton = YES;
+    
+    self.view.backgroundColor = [UIColor whiteColor];
     
     [self setupGame];
 
@@ -107,17 +115,16 @@
 #pragma mark -- game methods
 
 - (IBAction)correctTapGestureTapped:(id)sender {
-    NSLog(@"correct!");
     
     self.answerCounter++;
     
     [self nextAnswer:self.tempAnswers];
+    
+    [self backgroundColorFlash:[UIColor greenColor]];
 }
 
 
 - (IBAction)passSwipeGestureSwiped:(id)sender {
-    
-    NSLog(@"pass");
     
     //for passes to mean player loses a point, uncomment the code below
     
@@ -128,12 +135,14 @@
     //    }
     
     [self nextAnswer:self.tempAnswers];
+    
+    [self backgroundColorFlash:[UIColor redColor]];
 }
 
 
 - (NSString *) nextAnswer:(NSArray *)array {
     
-    if (self.tempAnswers.count != nil) {
+    if (self.tempAnswers.count) {
         //getting a random answer from the array
         
         self.totalCounter++;
@@ -153,6 +162,31 @@
     [self endGame];
     
     return @"";
+}
+
+-(void) backgroundColorFlash:(UIColor *)color {
+    
+    NSTimer *colorTimer = [NSTimer timerWithTimeInterval:0.07 target:self selector:@selector(changeColor:) userInfo:color repeats:YES];
+    
+    [[NSRunLoop currentRunLoop] addTimer:colorTimer forMode:NSRunLoopCommonModes];
+    
+}
+
+-(void) changeColor:(NSTimer *)timer {
+    
+    if ([self.view.backgroundColor isEqual:[timer userInfo]]) {
+        self.view.backgroundColor = [UIColor whiteColor];
+        self.colorCounter++;
+    } else {
+        self.view.backgroundColor = [timer userInfo];
+        self.colorCounter++;
+    }
+    
+    if (self.colorCounter >= 5) {
+        [timer invalidate];
+        self.view.backgroundColor = [UIColor whiteColor];
+        self.colorCounter = 0;
+    }
 }
 
 - (void) endGame {
