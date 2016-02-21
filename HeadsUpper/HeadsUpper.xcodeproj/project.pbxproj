@@ -7,21 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		507049481C7A238700552BDC /* MutableCollectionType+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507049471C7A238700552BDC /* MutableCollectionType+Extension.swift */; };
 		50A91D1E1C7A0DB70016002B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A91D1D1C7A0DB70016002B /* AppDelegate.swift */; };
-		50A91D201C7A0DB80016002B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A91D1F1C7A0DB70016002B /* ViewController.swift */; };
 		50A91D231C7A0DB80016002B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50A91D211C7A0DB80016002B /* Main.storyboard */; };
 		50A91D251C7A0DB80016002B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50A91D241C7A0DB80016002B /* Assets.xcassets */; };
 		50A91D281C7A0DB80016002B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50A91D261C7A0DB80016002B /* LaunchScreen.storyboard */; };
+		50A91D311C7A0E1D0016002B /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A91D301C7A0E1D0016002B /* GameData.swift */; };
+		50A91D351C7A114D0016002B /* TopicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A91D341C7A114D0016002B /* TopicTableViewController.swift */; };
+		50A91D371C7A16A60016002B /* AnswerVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A91D361C7A16A60016002B /* AnswerVIewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		507049471C7A238700552BDC /* MutableCollectionType+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "MutableCollectionType+Extension.swift"; path = "../MutableCollectionType+Extension.swift"; sourceTree = "<group>"; };
 		50A91D1A1C7A0DB70016002B /* HeadsUpper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeadsUpper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50A91D1D1C7A0DB70016002B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		50A91D1F1C7A0DB70016002B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		50A91D221C7A0DB80016002B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		50A91D241C7A0DB80016002B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50A91D271C7A0DB80016002B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		50A91D291C7A0DB80016002B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		50A91D301C7A0E1D0016002B /* GameData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
+		50A91D341C7A114D0016002B /* TopicTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicTableViewController.swift; sourceTree = "<group>"; };
+		50A91D361C7A16A60016002B /* AnswerVIewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerVIewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +41,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		507049491C7A563800552BDC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				50A91D341C7A114D0016002B /* TopicTableViewController.swift */,
+				50A91D361C7A16A60016002B /* AnswerVIewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		5070494A1C7A564200552BDC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				50A91D261C7A0DB80016002B /* LaunchScreen.storyboard */,
+				50A91D211C7A0DB80016002B /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		5070494B1C7A564F00552BDC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				507049471C7A238700552BDC /* MutableCollectionType+Extension.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		50A91D111C7A0DB70016002B = {
 			isa = PBXGroup;
 			children = (
@@ -54,14 +86,23 @@
 		50A91D1C1C7A0DB70016002B /* HeadsUpper */ = {
 			isa = PBXGroup;
 			children = (
+				50A91D2F1C7A0E140016002B /* Model */,
+				507049491C7A563800552BDC /* Controller */,
+				5070494A1C7A564200552BDC /* View */,
 				50A91D1D1C7A0DB70016002B /* AppDelegate.swift */,
-				50A91D1F1C7A0DB70016002B /* ViewController.swift */,
-				50A91D211C7A0DB80016002B /* Main.storyboard */,
 				50A91D241C7A0DB80016002B /* Assets.xcassets */,
-				50A91D261C7A0DB80016002B /* LaunchScreen.storyboard */,
 				50A91D291C7A0DB80016002B /* Info.plist */,
 			);
 			path = HeadsUpper;
+			sourceTree = "<group>";
+		};
+		50A91D2F1C7A0E140016002B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				50A91D301C7A0E1D0016002B /* GameData.swift */,
+				5070494B1C7A564F00552BDC /* Extensions */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,7 +176,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50A91D201C7A0DB80016002B /* ViewController.swift in Sources */,
+				507049481C7A238700552BDC /* MutableCollectionType+Extension.swift in Sources */,
+				50A91D371C7A16A60016002B /* AnswerVIewController.swift in Sources */,
+				50A91D311C7A0E1D0016002B /* GameData.swift in Sources */,
+				50A91D351C7A114D0016002B /* TopicTableViewController.swift in Sources */,
 				50A91D1E1C7A0DB70016002B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,6 +330,7 @@
 				50A91D2E1C7A0DB80016002B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
