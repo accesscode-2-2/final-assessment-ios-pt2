@@ -21,8 +21,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="211"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="87Y-9V-gxI">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="87Y-9V-gxI">
                                             <rect key="frame" x="10" y="10" width="175" height="175"/>
+                                            <color key="backgroundColor" red="0.99215686270000003" green="0.46850861179999997" blue="0.63798957540000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="175" id="Sra-LO-qLg"/>
                                                 <constraint firstAttribute="width" constant="175" id="Tdh-sj-E2E"/>
@@ -35,7 +36,7 @@
                                                 <constraint firstAttribute="height" constant="21" id="tKo-GO-mTL"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -47,7 +48,7 @@
                                         <constraint firstItem="mSS-LH-sy2" firstAttribute="leading" secondItem="87Y-9V-gxI" secondAttribute="trailing" constant="24" id="nyN-vT-x01"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="1" green="0.71639790431026951" blue="0.52281387284631142" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="0.78480200597145977" blue="0.74419881940480281" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="topicLbl" destination="mSS-LH-sy2" id="P5v-8i-wfi"/>
                                     <outlet property="topicsImg" destination="87Y-9V-gxI" id="OnC-7O-N0c"/>

@@ -11,7 +11,16 @@
 @implementation TopicSelectionTableViewCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    
+    CGFloat borderWidth = 10.0f;
+    
+    self.topicsImg.frame = CGRectInset(self.frame, -borderWidth, -borderWidth);
+    self.topicsImg.layer.borderColor = [UIColor colorWithRed:253.0/254.0 green:119.0/254.0 blue:163.0/254.0 alpha:1].CGColor;
+    self.topicsImg.layer.borderWidth = borderWidth;
+   
+    self.topicsImg.layer.cornerRadius = 20.0;
+    self.topicsImg.clipsToBounds = YES;
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
