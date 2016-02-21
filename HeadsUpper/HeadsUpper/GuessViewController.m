@@ -30,7 +30,7 @@
     self.numberOfCorrectGuess = 0;
     self.atIndex = 0;
     self.guessTerm.text = [self.guessTerms objectAtIndex:self.atIndex];
-    self.timeLeftLabel.text = @"10";
+    self.timeLeftLabel.text = @"15";
     self.motionManager = [[CMMotionManager alloc]init];
 //    self.didResetStat = YES;
     self.resetState = Horizontal;
@@ -38,7 +38,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self alertViewWithTitle:[NSString stringWithFormat:@"Category: %@",self.category] andMsg:@"You have 10 sec to guess"];
+    [self alertViewWithTitle:[NSString stringWithFormat:@"Category: %@",self.category] andMsg:@"You have 15 sec to guess"];
 }
 - (IBAction)backButtonTapped:(UIBarButtonItem *)sender {
         [self dismissViewControllerAnimated:YES completion:nil];
@@ -72,7 +72,7 @@
     NSTimer *timer =  [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
     //create timer, add it to a run loop. Done!
     
-    self.timerCount = 100;
+    self.timerCount = 15;
     
     [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
     [timer fire];
