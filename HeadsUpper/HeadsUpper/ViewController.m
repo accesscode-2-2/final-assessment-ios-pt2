@@ -54,10 +54,17 @@
 }
 
 - (void) handleSwipe: (UISwipeGestureRecognizer *) gesture {
+    if (self.whichAnswerAreWeAt==self.answers.count-1) {
+        self.whichAnswerAreWeAt = 0;
+    }
+    else{
+        self.whichAnswerAreWeAt++;
+    }
+    
     switch (gesture.direction) {
         case  UISwipeGestureRecognizerDirectionRight:
             [self animateViewWith:[UIColor flatWatermelonColorDark]];
-            self.whichAnswerAreWeAt++;
+
             self.totalGuesses++;
             self.guess.text = self.answers[self.whichAnswerAreWeAt];
             
@@ -66,7 +73,6 @@
             [self animateViewWith:[UIColor flatMintColorDark]];
             self.rightCount++;
             self.totalGuesses++;
-            self.whichAnswerAreWeAt++;
             self.guess.text = self.answers[self.whichAnswerAreWeAt];
             break;
         default:
@@ -117,7 +123,7 @@
 
 -(void) setupTimer
 {
-    self.timerCount = 10;
+    self.timerCount = 30;
     NSTimer *timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(handleGameTimer:) userInfo:nil repeats:YES];
     
     [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
@@ -144,15 +150,6 @@
                                   
                               }];
         
-//        alertView.willShowHandler = ^(SIAlertView *alertView) {
-//            NSLog(@"%@, willShowHandler", alertView);
-//        };
-//        alertView.didShowHandler = ^(SIAlertView *alertView) {
-//            NSLog(@"%@, didShowHandler", alertView);
-//        };
-//        alertView.willDismissHandler = ^(SIAlertView *alertView) {
-//            NSLog(@"%@, willDismissHandler", alertView);
-//        };
         alertView.didDismissHandler = ^(SIAlertView *alertView) {
             [self dismissViewControllerAnimated:YES completion:nil];
         };

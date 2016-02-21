@@ -9,11 +9,14 @@
 #import "topicsTableViewController.h"
 #import "ViewController.h"
 #import <ChameleonFramework/Chameleon.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
 
 @interface topicsTableViewController ()
 
 @property (nonatomic) NSDictionary * topics;
+@property (nonatomic) SDWebImageManager *manager;
+@property (nonatomic) NSURL * imageUrl;
 
 @end
 
@@ -21,6 +24,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.manager = [SDWebImageManager sharedManager];
+    
     
     self.title = @"Heads Up";
     [self.navigationController.navigationBar setTitleTextAttributes:
@@ -64,7 +69,30 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"topicCellIdentifier" forIndexPath:indexPath];
     cell.textLabel.text = self.topics.allKeys[indexPath.row];
-    cell.textLabel.textColor = [UIColor flatMintColorDark];
+    cell.textLabel.textColor = [UIColor flatWhiteColorDark];
+    cell.textLabel.shadowColor = [UIColor flatPlumColorDark];
+    cell.textLabel.shadowOffset = CGSizeMake(1, 1);
+    cell.backgroundColor = [UIColor clearColor];
+    self.imageUrl = [NSURL URLWithString:[NSString stringWithFormat:@"https://unsplash.it/400/600?image=%u", arc4random_uniform(1000)]];
+    
+    [self.manager downloadImageWithURL:self.imageUrl
+                               options:0
+                              progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+                                  // progression tracking code
+                              }
+                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+                                 if (image) {
+                                     UIImageView *imageview = [[UIImageView alloc] initWithImage:image];
+                                     imageview.contentMode = UIViewContentModeScaleAspectFill;
+                                     cell.backgroundView =  imageview;
+                                 }
+                                 NSLog(@"%@", error);
+                             }];
+
+
+    
+    
+
     return cell;
 }
 
