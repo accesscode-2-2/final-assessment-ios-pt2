@@ -10,4 +10,6 @@
 
 @interface HUGameScreenViewController : UIViewController
 
+@property (nonatomic) NSDictionary *selectedGameSubject;
+
 @end

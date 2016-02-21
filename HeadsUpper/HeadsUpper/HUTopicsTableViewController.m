@@ -17,8 +17,8 @@ UITableViewDelegate
 >
 
 @property (nonatomic) UITableView *tableView;
-
 @property (nonatomic) NSArray<NSDictionary *> *subjects;
+@property (nonatomic) HUGameScreenViewController *gameViewController;
 
 @end
 
@@ -41,7 +41,7 @@ UITableViewDelegate
     [super viewDidAppear:animated];
 }
 
-#pragma mark - Table view data source
+#pragma mark - Tableview Methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -64,11 +64,14 @@ UITableViewDelegate
     return cell;
 }
 
-#pragma mark - Navigation
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSDictionary *selectedGameSubject = self.subjects[indexPath.row];
     
+    self.gameViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"HUGameIdentifier"];
+    
+    self.gameViewController.selectedGameSubject = selectedGameSubject;
+    [self.navigationController pushViewController:self.gameViewController animated:YES];
 }
 
 #pragma mark - Charles' Methods
@@ -80,6 +83,7 @@ UITableViewDelegate
     [HUAPIManager getTitlesAndSubjects:^(NSArray *data) {
         self.subjects = data;
         [weakSelf.tableView reloadData];
+//        NSLog(@"%@", data);
     }
      ];
 }

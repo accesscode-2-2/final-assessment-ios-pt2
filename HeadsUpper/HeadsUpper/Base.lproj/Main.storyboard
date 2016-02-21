@@ -30,9 +30,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="EFC-4j-7cV" kind="show" id="wy5-yI-Su5"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -40,7 +37,7 @@
                             <outlet property="delegate" destination="Trm-3q-mva" id="vf6-eI-AhY"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Topics" id="pqF-bm-Hyn"/>
+                    <navigationItem key="navigationItem" title="Choose a Subject" id="pqF-bm-Hyn"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gIa-Rd-Drx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -49,7 +46,7 @@
         <!--Game Screen View Controller-->
         <scene sceneID="DhP-v4-VkH">
             <objects>
-                <viewController id="EFC-4j-7cV" customClass="HUGameScreenViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HUGameIdentifier" id="EFC-4j-7cV" customClass="HUGameScreenViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="R9K-Te-I0D"/>
                         <viewControllerLayoutGuide type="bottom" id="XGS-rw-Gii"/>
@@ -64,9 +61,9 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BnJ-vL-zbB">
-                                <rect key="frame" x="20" y="269" width="560" height="62"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="45"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BnJ-vL-zbB">
+                                <rect key="frame" x="20" y="286" width="560" height="28"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -79,15 +76,7 @@
                             <constraint firstAttribute="trailing" secondItem="BnJ-vL-zbB" secondAttribute="trailing" constant="20" id="dci-TK-3yg"/>
                             <constraint firstItem="BnJ-vL-zbB" firstAttribute="leading" secondItem="v5X-a4-Wh5" secondAttribute="leading" constant="20" id="egw-yN-nqm"/>
                             <constraint firstAttribute="trailing" secondItem="D4g-Mm-zRj" secondAttribute="trailing" constant="20" id="lAd-9N-BfU"/>
-                            <constraint firstItem="BnJ-vL-zbB" firstAttribute="centerX" secondItem="v5X-a4-Wh5" secondAttribute="centerX" id="lmp-TL-EQn"/>
-                            <constraint firstItem="BnJ-vL-zbB" firstAttribute="centerY" secondItem="v5X-a4-Wh5" secondAttribute="centerY" id="oey-Jz-POm"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="lmp-TL-EQn"/>
-                                <exclude reference="oey-Jz-POm"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="clueLabel" destination="BnJ-vL-zbB" id="ZVw-uB-m3y"/>

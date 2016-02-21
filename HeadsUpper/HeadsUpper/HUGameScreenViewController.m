@@ -12,44 +12,67 @@
 @interface HUGameScreenViewController ()
 
 @property (nonatomic) NSInteger timerCount;
-@property (weak, nonatomic) IBOutlet UILabel *clueLabel;
+@property (nonatomic) NSInteger gameClueCount;
+@property (nonatomic) NSInteger pointsCount;
+
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
+@property (weak, nonatomic) IBOutlet UILabel *clueLabel;
+@property (nonatomic) NSArray *subjects;
 
 @end
 
 @implementation HUGameScreenViewController
 
+#pragma mark - Lifecycle Methods
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self setupGestureRecognizer];
-    [self setUpTimer];
-//self.clueLabel.text = 
+    self.navigationItem.title = self.selectedGameSubject[@"title"];
 }
 
-#pragma mark Timer Implementation
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    self.clueLabel.text = self.selectedGameSubject[@"subjects"][self.gameClueCount];
+    [self gameStart];
+}
+
+#pragma mark - Game Implementation
+
+- (void)gameStart
+{
+    [self setUpTimer];
+    self.gameClueCount = 0;
+    self.pointsCount = 0;
+}
+
+#pragma mark - Timer Implementation
 
 - (void)setUpTimer
 {
     NSTimer *timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
     
-    self.timerCount = 15;
-    
+    self.timerCount = 3;
     [timer fire];
 }
 
 - (void)timerFired:(NSTimer *)timer
 {
     // create a reference count
-    if (self.timerCount < 0) {
-        // [timer invalidate];
-        self.timerCount = 15;
+    if (self.timerCount == 0) {
+        [timer invalidate];
+        [self showGameOverAlert];
     }
     
     NSString *intToString = [[NSNumber numberWithInteger:self.timerCount] stringValue];
     self.timerLabel.text = intToString;
-    
     self.timerCount--;
 }
 
@@ -57,78 +80,97 @@
 
 - (void)setupGestureRecognizer
 {
+    UISwipeGestureRecognizer *wrongAnswerSwipe = [[UISwipeGestureRecognizer alloc]
+                                                  initWithTarget: self
+                                                  action: @selector(handleSwipe :)];
     
-    UISwipeGestureRecognizer *leftSwipe = [[UISwipeGestureRecognizer alloc]
-                                           initWithTarget: self
-                                           action: @selector(handleSwipe :)];
-    leftSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
+    wrongAnswerSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
     
-    UISwipeGestureRecognizer *rightSwipe = [[UISwipeGestureRecognizer alloc]
-                                            initWithTarget: self
-                                            action: @selector(handleSwipe :)];
-    rightSwipe.direction = UISwipeGestureRecognizerDirectionRight;
-    
-    UISwipeGestureRecognizer *downSwipe = [[UISwipeGestureRecognizer alloc]
-                                           initWithTarget: self
-                                           action: @selector(handleSwipe :)];
-    downSwipe.direction = UISwipeGestureRecognizerDirectionDown;
-    
-    
-    [self.view addGestureRecognizer:leftSwipe];
-    [self.view addGestureRecognizer:rightSwipe];
-    [self.view addGestureRecognizer:downSwipe];
+    [self.view addGestureRecognizer:wrongAnswerSwipe];
 }
 
 - (void)handleSwipe:(UISwipeGestureRecognizer *)gesture
 {
-    
-    switch (gesture.direction) {
-            
-        case UISwipeGestureRecognizerDirectionLeft:
-            
-            self.view.backgroundColor = [UIColor redColor];
-            break;
-            
-        case UISwipeGestureRecognizerDirectionRight:
-            
-            self.view.backgroundColor = [UIColor greenColor];
-            break;
-            
-        case UISwipeGestureRecognizerDirectionDown:
-            
-            [self dismissViewControllerAnimated:YES completion:nil];
-            break;
-            
-        default:
-            
-            break;
+    if (self.timerCount != 0) {
+        self.gameClueCount++;
+        switch (gesture.direction) {
+            case UISwipeGestureRecognizerDirectionLeft:
+                
+                [self revertViewToWhiteAfterAnswer:[UIColor redColor]];
+                
+                self.clueLabel.text = self.selectedGameSubject[@"subjects"][self.gameClueCount];
+                break;
+            default:
+                break;
+        }
     }
+    
+    // app crashes if you go out of bounds, trying to fix that but it
+    // seems like an edge case so won't worry about it now
+    //    if (self.subjects.count == 32) {
+    //        return;
+    //    }
 }
 
-
-- (BOOL)canBecomeFirstResponder
+- (void)revertViewToWhiteAfterAnswer:(UIColor *)color
 {
-    return YES;
+    [UIView animateWithDuration:0 animations:^{
+        self.view.backgroundColor = [UIColor redColor];
+    }];
+    [UIView animateWithDuration:0.4 animations:^{
+        self.view.backgroundColor = [UIColor whiteColor];
+    }];
 }
+
+- (void)turnViewGreenIfRight:(UIColor *)color
+{
+    [UIView animateWithDuration:0 animations:^{
+        self.view.backgroundColor = [UIColor greenColor];
+    }];
+    [UIView animateWithDuration:0.4 animations:^{
+        self.view.backgroundColor = [UIColor whiteColor];
+    }];
+}
+
+#pragma mark - Motion Shake Implementation
 
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
 {
+    if (self.timerCount != 0) {
+        self.gameClueCount++;
+        self.clueLabel.text = self.selectedGameSubject[@"subjects"][self.gameClueCount];
+    }
     if (motion == UIEventSubtypeMotionShake) {
-        [self showAlert];
+        self.pointsCount++;
+        [self turnViewGreenIfRight:[UIColor greenColor]];
+
     }
 }
 
+#pragma mark - Alerts
 
--(void)showAlert
+- (void)showMotionAlert
 {
     UIAlertView *alertView = [[UIAlertView alloc]
                               initWithTitle:@"HeadsUpper"
-                              message:@"Correct!"
+                              message:@"You got it!"
                               delegate:nil
                               cancelButtonTitle:@"OK"
                               otherButtonTitles:nil];
     [alertView show];
 }
 
+- (void)showGameOverAlert
+{
+    NSString *pointsMessage = [NSString stringWithFormat:@"Game Over! You got %ld/%ld right", (long)self.pointsCount,(long)self.gameClueCount];
+    
+    UIAlertView *alertView = [[UIAlertView alloc]
+                              initWithTitle:@"HeadsUpper"
+                              message:pointsMessage
+                              delegate:nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil];
+    [alertView show];
+}
 
 @end
