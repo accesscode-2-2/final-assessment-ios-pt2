@@ -25,14 +25,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupTopicsData];
-
 }
-
 
 - (void)viewDidAppear:(BOOL)animated {
     [self.tableView reloadData];
     [self playMusic];
-    
 }
 
 -(void) playMusic {
@@ -52,7 +49,6 @@
                                                                   error:nil];
     self.backgroundMusic.numberOfLoops = 0;
     [self.backgroundMusic play];
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -86,7 +82,6 @@
     animalsGoneWild.topicClues = @[@"Chipmunk", @"Dragon", @"Wasp", @"Snake", @"Jellyfish", @"Emu", @"Boar", @"Crocodile", @"Shrimp", @"Lemur", @"Caterpillar", @"Sea Urchain", @"Dolphin ", @"Camel", @"Viper", @"Fox", @"Tuna", @"Baboon", @"Chinchilla", @"Human", @"Crawfish", @"Cricket", @"Frog", @"Tiger", @"Guinea Pig", @"Gnat", @"Killer Whale", @"Coral", @"T-Rex", @"Oyster"];
     
     self.topics = @[superStars, thatsSoNineties, heyMrDJ, icons, animalsGoneWild];
-
 }
 
 #pragma mark - Table view data source
@@ -98,7 +93,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.topics.count;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TopicSelectionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TopicsCell" forIndexPath:indexPath];
