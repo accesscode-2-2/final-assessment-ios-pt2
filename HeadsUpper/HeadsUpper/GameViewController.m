@@ -9,6 +9,7 @@
 #import "GameViewController.h"
 #import "ZoomInOutAnimation.h"
 #import <AVFoundation/AVFoundation.h>
+#import <CoreMotion/CoreMotion.h>
 
 @interface GameViewController ()
 @property (weak, nonatomic) IBOutlet UIView *cameraView;
@@ -22,6 +23,8 @@
 @property (nonatomic) NSMutableArray *generatedNumbers;
 @property (nonatomic) NSTimer *readyTimer;
 @property (nonatomic) NSTimer *startGameTimer;
+@property (nonatomic) BOOL inAnswerState;
+@property (nonatomic) CMMotionManager *motionManager;
 
 @end
 
@@ -33,6 +36,7 @@
     [super viewDidLoad];
     self.navigationItem.title = self.selectedCategory [@"title"];
     [self setupGestureRecognizer];
+    [self trackAccelerometer];
     [self getReadyTimer];
     [self startLiveVideo];
 }
@@ -40,12 +44,7 @@
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.timeLabel.hidden = YES;
-    
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self
-     selector:@selector(deviceOrientationDidChangeNotification:)
-     name:UIDeviceOrientationDidChangeNotification
-     object:nil];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -199,22 +198,22 @@
     self.guessItLabel.text = self.subjectsArray[[self generateRandomNumber]];
 }
 
-- (void)deviceOrientationDidChangeNotification:(NSNotification*)note
-{
-    if (self.timerCount != 0) {
-        UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
-        //Face Up
-        if (orientation == UIDeviceOrientationFaceDown)
-        {
-            [self correctAnswer];
-        }
-        // Face down
-        else if (orientation == UIDeviceOrientationFaceUp)
-        {
-            [self skipIt];
-        }
-    }
-}
+//- (void)deviceOrientationDidChangeNotification:(NSNotification*)note
+//{
+//    if (self.timerCount != 0) {
+//        UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+//        //Face Up
+//        if (orientation == UIDeviceOrientationFaceDown)
+//        {
+//            [self correctAnswer];
+//        }
+//        // Face down
+//        else if (orientation == UIDeviceOrientationFaceUp)
+//        {
+//            [self skipIt];
+//        }
+//    }
+//}
 
 #pragma mark - Animations
 
@@ -243,9 +242,9 @@
 }
 
 -(NSInteger) generateRandomNumber {
-    NSInteger randomNumber = (NSInteger) arc4random_uniform(self.subjectsArray.count-2); //because the last one shouldn't be counted
+    NSInteger randomNumber = (NSInteger) arc4random_uniform((int)self.subjectsArray.count-2); //because the last one shouldn't be counted
     if ([self.mutableArrayContainingNumbers containsObject: [NSNumber numberWithInteger:randomNumber]]) {
-        [self generateRandomNumber];
+        return [self generateRandomNumber];
     } else {
         [self.mutableArrayContainingNumbers addObject: [NSNumber numberWithInteger:randomNumber]];
     }
@@ -267,4 +266,36 @@
     return YES;
 }
 
+- (void)trackAccelerometer {
+    self.motionManager = [[CMMotionManager alloc]init];
+    self.motionManager.accelerometerUpdateInterval = 1.0f/60.0f;
+    
+    [self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue]
+                                             withHandler:^(CMAccelerometerData  *accelerometerData, NSError *error) {
+                                                 [self handleAccelerometer:accelerometerData.acceleration];
+                                                 if(error){
+                                                     NSLog(@"No Data for accel");
+                                                 }
+                                             }];
+}
+
+- (void)handleAccelerometer:(CMAcceleration)acceleration {
+    if (self.startGameTimer) {
+        if (!self.inAnswerState) {
+            if (acceleration.z > 0.85f) {
+                self.inAnswerState = YES;
+                [self correctAnswer];
+            }
+            else if(acceleration.z < -0.85f){
+                self.inAnswerState = YES;
+                [self skipIt];
+            }
+        }
+        else{
+            if (acceleration.z < .2f && acceleration.z > -.2f) {
+                self.inAnswerState = NO;
+            }
+        }
+    }
+}
 @end
