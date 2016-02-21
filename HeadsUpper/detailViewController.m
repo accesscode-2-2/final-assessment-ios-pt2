@@ -7,11 +7,14 @@
 //
 
 #import "detailViewController.h"
+#import "gameTableViewController.h"
 
 @interface detailViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 @property (nonatomic, assign) NSInteger timerCounter;
 @property (nonatomic, assign) NSInteger rightSwipeCounter;
+@property (weak, nonatomic) IBOutlet UILabel *gameLabel;
+//@property (weak, nonatomic) NSArray *holdingArray;
 
 
 @end
@@ -24,6 +27,13 @@
     
     [self setupTimer];
     [self setupGestureRecognizers];
+    
+    //sample
+//    NSString *this = [self.holdingArray objectAtIndex:0];
+//    self.gameLabel.text = this;
+    self.gameLabel.text = @"this";
+    
+    NSLog(@"%@", [self.holdingArray objectAtIndex:7]);
 }
 
 - (void)didReceiveMemoryWarning {

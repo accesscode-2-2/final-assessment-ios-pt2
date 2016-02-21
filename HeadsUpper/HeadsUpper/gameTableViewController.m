@@ -7,6 +7,7 @@
 //
 
 #import "gameTableViewController.h"
+#import "detailViewController.h"
 
 @interface gameTableViewController ()
 <
@@ -58,6 +59,8 @@ UITableViewDelegate
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -92,9 +95,19 @@ UITableViewDelegate
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     
-}
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    
+    NSString *value = cell.textLabel.text;
+    
+//    NSString *arrayItem = [self objectForIndexPath:indexPath];
+    
+    detailViewController *vc = segue.destinationViewController;
+    
+    vc.holdingArray = [self.items objectForKey:value];
 
+}
 
 /*
 // Override to support conditional editing of the table view.

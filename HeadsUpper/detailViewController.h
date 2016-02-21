@@ -10,4 +10,6 @@
 
 @interface detailViewController : UIViewController
 
+@property (weak, nonatomic) NSArray *holdingArray;
+
 @end

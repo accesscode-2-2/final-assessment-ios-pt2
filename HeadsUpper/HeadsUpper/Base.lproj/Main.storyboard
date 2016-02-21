@@ -71,6 +71,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="gameLabel" destination="kOq-ah-eu8" id="qoj-hu-R7n"/>
                         <outlet property="timerLabel" destination="uA5-KZ-TLT" id="UAB-4f-ehg"/>
                     </connections>
                 </viewController>
