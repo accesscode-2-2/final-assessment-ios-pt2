@@ -9,6 +9,7 @@
 #import "MainMenuViewController.h"
 #import "GameViewController.h"
 #import "TopicCollectionViewCell.h"
+#import "APIManager.h"
 
 @interface MainMenuViewController ()
 <
@@ -17,7 +18,7 @@ UICollectionViewDataSource,
 UICollectionViewDelegateFlowLayout
 >
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (nonatomic) NSMutableArray *topics;
+@property (nonatomic) NSArray *topics;
 
 @end
 
@@ -30,6 +31,8 @@ UICollectionViewDelegateFlowLayout
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     [self.collectionView registerNib:[UINib nibWithNibName:@"TopicCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"TopicCollectionViewCell"];
+    
+    [self fetchTopicsData];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -41,7 +44,10 @@ UICollectionViewDelegateFlowLayout
 
 - (void) fetchTopicsData
 {
-    
+    [APIManager getTopicData:^(NSArray *data) {
+        
+        self.topics = data;
+    }];
     
 }
 
