@@ -9,6 +9,7 @@
 #import "HUCategoriesTableViewController.h"
 #import "CategoryAndClueSetup.h"
 #import "HUGameCategory.h"
+#import "HUGameViewController.h"
 
 @interface HUCategoriesTableViewController ()
 
@@ -50,6 +51,14 @@
     cell.textLabel.text = category.name;
     
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    HUGameViewController *gameVC = [self.storyboard instantiateViewControllerWithIdentifier:@"GameViewControllerID"];
+    gameVC.category = self.categories[indexPath.row];
+    
+    [self.navigationController pushViewController:gameVC animated:YES];
 }
 
 @end

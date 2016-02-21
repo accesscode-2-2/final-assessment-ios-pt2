@@ -30,11 +30,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryCellIdentifier" id="ISz-Dg-s1F">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CategoryCellIdentifier" id="ISz-Dg-s1F">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ISz-Dg-s1F" id="4JO-jd-j6o">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -53,7 +53,7 @@
         <!--Game View Controller-->
         <scene sceneID="q3T-Qz-gKE">
             <objects>
-                <viewController id="QtF-lJ-yFD" customClass="HUGameViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameViewControllerID" id="QtF-lJ-yFD" customClass="HUGameViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7Jd-9c-5fv"/>
                         <viewControllerLayoutGuide type="bottom" id="krA-5b-FMi"/>
@@ -61,8 +61,23 @@
                     <view key="view" contentMode="scaleToFill" id="7P4-zh-yyR">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="miv-Ly-3qQ">
+                                <rect key="frame" x="264" y="285" width="74" height="30"/>
+                                <fontDescription key="fontDescription" name="Farah" family="Farah" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="miv-Ly-3qQ" firstAttribute="centerY" secondItem="7P4-zh-yyR" secondAttribute="centerY" id="ALb-Mo-VbE"/>
+                            <constraint firstItem="miv-Ly-3qQ" firstAttribute="centerX" secondItem="7P4-zh-yyR" secondAttribute="centerX" id="WrB-cf-bwO"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="clueLabel" destination="miv-Ly-3qQ" id="6HQ-aL-mIn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VTe-8R-Ez6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

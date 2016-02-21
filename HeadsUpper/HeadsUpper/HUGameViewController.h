@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HUGameCategory.h"
 
 @interface HUGameViewController : UIViewController
+
+@property (nonatomic) HUGameCategory *category;
 
 @end
