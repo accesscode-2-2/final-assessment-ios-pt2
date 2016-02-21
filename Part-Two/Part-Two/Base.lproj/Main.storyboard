@@ -113,6 +113,7 @@
                             <constraint firstItem="zQj-kD-10W" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="uKq-sA-gMM"/>
                         </constraints>
                     </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="answer" destination="lVb-F2-rDE" id="VFp-Di-Vbx"/>
                         <outlet property="scoreLabel" destination="zQj-kD-10W" id="8Td-Ny-rrI"/>

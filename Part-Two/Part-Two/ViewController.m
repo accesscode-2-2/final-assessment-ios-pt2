@@ -9,7 +9,15 @@
 #import "ViewController.h"
 #import "GameManager.h"
 
-@interface ViewController ()
+typedef struct Direction {
+    int x;
+    int y;
+    int z;
+} Direction;
+
+@interface ViewController () <UIAccelerometerDelegate>
+
+@property (nonatomic, assign) struct Direction position;
 
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 
@@ -29,9 +37,17 @@
 
 @property (nonatomic) NSString *color;
 
+@property (nonatomic) NSString *x;
+
+@property (nonatomic) NSString *y;
+
+@property (nonatomic) NSString *z;
+
 @end
 
 @implementation ViewController
+
+
 
 - (void)createTimer {
     
@@ -104,6 +120,38 @@
     [self.view addGestureRecognizer:leftSwipe];
     [self.view addGestureRecognizer:rightSwipe];
     
+}
+
+
+- (Direction) directionOfThePhone {
+
+    Direction direction = {0, 0, 0};
+    
+    // GO UP -- right circle
+    if (direction.x < 1 && direction.x > 0) {
+        
+        self.color = @"Red";
+
+        [self changeBackGroundColor];
+
+        return direction;
+    }
+    
+    // GO DOWN -- right circle
+    
+    if (direction.x > - 1 && direction.x < 0) {
+        
+        self.color = @"Green";
+        
+        [self changeBackGroundColor];
+
+
+        
+        return direction;
+    }
+
+    return direction;
+
 }
 
 - (void)handleSwipe: (UISwipeGestureRecognizer *)gesture {
@@ -179,8 +227,50 @@
     
 }
 
+- (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:
+(UIAcceleration *)acceleration {
+    
+    self.x = [NSString stringWithFormat:@"%f", acceleration.x];
+    self.y = [NSString stringWithFormat:@"%f", acceleration.y];
+    self.z = [NSString stringWithFormat:@"%f", acceleration.z];
+    
+    // GO UP -- right circle
+    if ((acceleration.x < 0.65 && acceleration.x > 0.35) &&
+        (acceleration.z < -0.6 && acceleration.z > -0.9)){
+        
+        self.color = @"Red";
+        
+        [self changeBackGroundColor];
+        
+        [self answerLabelChange];
+    }
+    
+    // GO DOWN -- right circle
+    
+    else if ((acceleration.x > -0.1 && acceleration.x < 0.5) &&
+             (acceleration.z > 0.8 && acceleration.z < 0.9 )) {
+        
+        self.color = @"Green";
+        
+        [self changeBackGroundColor];
+        
+        [self answerLabelChange];
+        
+        self.score++;
+        
+        self.scoreLabel.text = [NSString stringWithFormat:@"Score: %u", self.score];
+        
+    }
+    
+    NSLog(@"%@ :  %@  :  %@", self.x, self.y, self.z);
+    
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [[UIAccelerometer sharedAccelerometer]setDelegate:self];
 
     self.totalGameTime = 10;
     

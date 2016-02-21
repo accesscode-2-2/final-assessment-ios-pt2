@@ -55,6 +55,8 @@
     NSString *topic = keys[indexPath.row];
     
     cell.textLabel.text = topic;
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+
     
     return cell;
 }
