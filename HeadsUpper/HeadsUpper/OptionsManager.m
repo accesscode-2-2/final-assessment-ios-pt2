@@ -10,8 +10,6 @@
 
 @interface OptionsManager ()
 
-
-
 @end
 
 @implementation OptionsManager

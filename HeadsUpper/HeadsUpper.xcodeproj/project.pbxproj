@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		51623AC61C7A10E3008C25C8 /* OptionsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51623AC51C7A10E3008C25C8 /* OptionsManager.m */; };
 		51623AC91C7A1559008C25C8 /* OptionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51623AC81C7A1559008C25C8 /* OptionsTableViewController.m */; };
+		51623ACC1C7A1FF6008C25C8 /* GamePlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51623ACB1C7A1FF6008C25C8 /* GamePlayViewController.m */; };
+		51623ACF1C7A2C1E008C25C8 /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51623ACE1C7A2C1E008C25C8 /* GameManager.m */; };
 		8D89695C1C755D0200D32E8A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D89695B1C755D0200D32E8A /* main.m */; };
 		8D89695F1C755D0200D32E8A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D89695E1C755D0200D32E8A /* AppDelegate.m */; };
 		8D8969651C755D0200D32E8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D8969631C755D0200D32E8A /* Main.storyboard */; };
@@ -21,6 +23,10 @@
 		51623AC51C7A10E3008C25C8 /* OptionsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionsManager.m; sourceTree = "<group>"; };
 		51623AC71C7A1559008C25C8 /* OptionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionsTableViewController.h; sourceTree = "<group>"; };
 		51623AC81C7A1559008C25C8 /* OptionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionsTableViewController.m; sourceTree = "<group>"; };
+		51623ACA1C7A1FF6008C25C8 /* GamePlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePlayViewController.h; sourceTree = "<group>"; };
+		51623ACB1C7A1FF6008C25C8 /* GamePlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamePlayViewController.m; sourceTree = "<group>"; };
+		51623ACD1C7A2C1E008C25C8 /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
+		51623ACE1C7A2C1E008C25C8 /* GameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameManager.m; sourceTree = "<group>"; };
 		8D8969571C755D0200D32E8A /* HeadsUpper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeadsUpper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D89695B1C755D0200D32E8A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8D89695D1C755D0200D32E8A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -65,8 +71,12 @@
 				8D89695E1C755D0200D32E8A /* AppDelegate.m */,
 				51623AC41C7A10E3008C25C8 /* OptionsManager.h */,
 				51623AC51C7A10E3008C25C8 /* OptionsManager.m */,
-				51623AC71C7A1559008C25C8 /* OptionsTableViewController.h */,
+				51623ACD1C7A2C1E008C25C8 /* GameManager.h */,
+				51623ACE1C7A2C1E008C25C8 /* GameManager.m */,
 				51623AC81C7A1559008C25C8 /* OptionsTableViewController.m */,
+				51623AC71C7A1559008C25C8 /* OptionsTableViewController.h */,
+				51623ACA1C7A1FF6008C25C8 /* GamePlayViewController.h */,
+				51623ACB1C7A1FF6008C25C8 /* GamePlayViewController.m */,
 				8D8969631C755D0200D32E8A /* Main.storyboard */,
 				8D8969661C755D0200D32E8A /* Assets.xcassets */,
 				8D8969681C755D0200D32E8A /* LaunchScreen.storyboard */,
@@ -155,7 +165,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D89695F1C755D0200D32E8A /* AppDelegate.m in Sources */,
+				51623ACF1C7A2C1E008C25C8 /* GameManager.m in Sources */,
 				51623AC61C7A10E3008C25C8 /* OptionsManager.m in Sources */,
+				51623ACC1C7A1FF6008C25C8 /* GamePlayViewController.m in Sources */,
 				8D89695C1C755D0200D32E8A /* main.m in Sources */,
 				51623AC91C7A1559008C25C8 /* OptionsTableViewController.m in Sources */,
 			);
