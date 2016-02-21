@@ -10,4 +10,6 @@
 
 @interface GamePlayViewController : UIViewController
 
+@property (nonatomic) NSArray *gameSubjects;
+
 @end

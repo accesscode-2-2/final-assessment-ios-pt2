@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		6935F6301C7A1188001222CF /* GameTopicTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6935F62F1C7A1188001222CF /* GameTopicTableViewController.m */; };
 		6935F6331C7A146A001222CF /* GamePlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6935F6321C7A146A001222CF /* GamePlayViewController.m */; };
-		6935F6361C7A15DA001222CF /* GameTopicDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6935F6351C7A15DA001222CF /* GameTopicDataModel.m */; };
+		6935F6361C7A15DA001222CF /* GameDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6935F6351C7A15DA001222CF /* GameDataManager.m */; };
 		8D89695C1C755D0200D32E8A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D89695B1C755D0200D32E8A /* main.m */; };
 		8D89695F1C755D0200D32E8A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D89695E1C755D0200D32E8A /* AppDelegate.m */; };
 		8D8969651C755D0200D32E8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D8969631C755D0200D32E8A /* Main.storyboard */; };
@@ -24,8 +24,8 @@
 		6935F62F1C7A1188001222CF /* GameTopicTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameTopicTableViewController.m; sourceTree = "<group>"; };
 		6935F6311C7A146A001222CF /* GamePlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePlayViewController.h; sourceTree = "<group>"; };
 		6935F6321C7A146A001222CF /* GamePlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamePlayViewController.m; sourceTree = "<group>"; };
-		6935F6341C7A15DA001222CF /* GameTopicDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameTopicDataModel.h; sourceTree = "<group>"; };
-		6935F6351C7A15DA001222CF /* GameTopicDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameTopicDataModel.m; sourceTree = "<group>"; };
+		6935F6341C7A15DA001222CF /* GameDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameDataManager.h; sourceTree = "<group>"; };
+		6935F6351C7A15DA001222CF /* GameDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameDataManager.m; sourceTree = "<group>"; };
 		8D8969571C755D0200D32E8A /* HeadsUpper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeadsUpper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D89695B1C755D0200D32E8A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8D89695D1C755D0200D32E8A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -81,8 +81,8 @@
 			children = (
 				8D89695D1C755D0200D32E8A /* AppDelegate.h */,
 				8D89695E1C755D0200D32E8A /* AppDelegate.m */,
-				6935F6341C7A15DA001222CF /* GameTopicDataModel.h */,
-				6935F6351C7A15DA001222CF /* GameTopicDataModel.m */,
+				6935F6341C7A15DA001222CF /* GameDataManager.h */,
+				6935F6351C7A15DA001222CF /* GameDataManager.m */,
 				6935F62E1C7A1188001222CF /* GameTopicTableViewController.h */,
 				6935F62F1C7A1188001222CF /* GameTopicTableViewController.m */,
 				6935F6311C7A146A001222CF /* GamePlayViewController.h */,
@@ -234,7 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6935F6361C7A15DA001222CF /* GameTopicDataModel.m in Sources */,
+				6935F6361C7A15DA001222CF /* GameDataManager.m in Sources */,
 				8D89695F1C755D0200D32E8A /* AppDelegate.m in Sources */,
 				8D89695C1C755D0200D32E8A /* main.m in Sources */,
 				6935F6331C7A146A001222CF /* GamePlayViewController.m in Sources */,

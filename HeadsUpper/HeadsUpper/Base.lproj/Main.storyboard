@@ -51,13 +51,39 @@
                     <view key="view" contentMode="scaleToFill" id="7uG-GN-0Wi">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Starfish" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rOd-3J-qxi">
+                                <rect key="frame" x="247" y="281" width="105" height="37"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iZf-oR-JOz">
+                                <rect key="frame" x="284.5" y="92" width="32" height="32"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rOd-3J-qxi" firstAttribute="centerX" secondItem="7uG-GN-0Wi" secondAttribute="centerX" id="A5J-Cu-pds"/>
+                            <constraint firstItem="iZf-oR-JOz" firstAttribute="top" secondItem="8Mn-2D-h1p" secondAttribute="bottom" constant="28" id="F55-0y-UFe"/>
+                            <constraint firstItem="iZf-oR-JOz" firstAttribute="centerX" secondItem="7uG-GN-0Wi" secondAttribute="centerX" id="VjR-S5-VTz"/>
+                            <constraint firstItem="rOd-3J-qxi" firstAttribute="centerY" secondItem="7uG-GN-0Wi" secondAttribute="centerY" id="fAm-cZ-0oI"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="subjectLabel" destination="rOd-3J-qxi" id="NdL-Z0-zYM"/>
+                        <outlet property="timeRemainingLabel" destination="iZf-oR-JOz" id="np4-oj-VOI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dm4-ND-8y1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="675" y="383"/>
+            <point key="canvasLocation" x="667" y="377"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5dG-Ez-c9J">

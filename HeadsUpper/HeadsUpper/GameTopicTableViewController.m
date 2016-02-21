@@ -7,7 +7,8 @@
 //
 
 #import "GameTopicTableViewController.h"
-#import "GameTopicDataModel.h"
+#import "GameDataManager.h"
+#import "GamePlayViewController.h"
 
 @interface GameTopicTableViewController ()
 
@@ -21,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [GameTopicDataModel getGameDataWithCompletionHander:^(NSDictionary *gameData) {
+    [GameDataManager getGameDataWithCompletionHander:^(NSDictionary *gameData) {
         self.gameDataDictionary = [[NSDictionary alloc] initWithDictionary:gameData];
         self.gameTopicsList = [[NSArray alloc] initWithArray: [gameData allKeys]];
         [self.tableView reloadData];
@@ -47,12 +48,16 @@
     return cell;
 }
 
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+
+    GamePlayViewController *gamePlayVC = [segue destinationViewController];
+    
+    NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
+    NSString *selectedTopic = self.gameTopicsList[selectedIndexPath.row];
+    gamePlayVC.gameSubjects = [[NSArray alloc] initWithArray: self.gameDataDictionary[selectedTopic]];
 }
 
 @end

@@ -8,13 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface GameTopicDataModel : NSObject
+@interface GameDataManager : NSObject
 
 @property (nonatomic) NSDictionary *data;
 
-//- (id)initWithGameData;
 + (void)getGameDataWithCompletionHander:(void(^)(NSDictionary *gameData))completion;
-
-//+ (id)sharedInstance;
 
 @end

@@ -6,31 +6,10 @@
 //  Copyright © 2016 Michael Kavouras. All rights reserved.
 //
 
-#import "GameTopicDataModel.h"
+#import "GameDataManager.h"
 #import <AFNetworking/AFNetworking.h>
 
-@implementation GameTopicDataModel
-
-//+ (id)sharedInstance {
-//    static GameTopicDataModel *sharedGameTopicDataModel = nil;
-//    static dispatch_once_t onceToken;
-//    dispatch_once(&onceToken, ^{
-//        sharedGameTopicDataModel = [[self alloc] initWithGameData];
-//    });
-//    return sharedGameTopicDataModel;
-//}
-//
-//-(id)initWithGameData{
-//    
-//    if( self = [super init]) {
-//        
-//        [self getGameDataWithCompletionHander:^(NSDictionary *gameData) {
-//            NSLog(@"the game data from init is:%@",gameData);
-//            self.data = [NSDictionary dictionaryWithDictionary:gameData];
-//        }];
-//    }
-//    return self;
-//}
+@implementation GameDataManager
 
 +(void)getGameDataWithCompletionHander:(void(^)(NSDictionary *gameData))completion{
     
