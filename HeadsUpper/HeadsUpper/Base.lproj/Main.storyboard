@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -70,6 +71,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KIp-35-WUs">
+                                <rect key="frame" x="531" y="89" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="KIp-35-WUs" secondAttribute="height" multiplier="1:1" id="Ybe-s1-HOd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -80,6 +90,8 @@
                             <constraint firstItem="RuX-s3-sEA" firstAttribute="centerY" secondItem="ZoU-by-xUA" secondAttribute="centerY" id="ZZq-hS-sSk"/>
                             <constraint firstItem="RuX-s3-sEA" firstAttribute="leading" secondItem="ZoU-by-xUA" secondAttribute="leading" constant="80" id="ZfT-D0-yNf"/>
                             <constraint firstItem="RuX-s3-sEA" firstAttribute="centerX" secondItem="ZoU-by-xUA" secondAttribute="centerX" id="hCs-9Z-oHs"/>
+                            <constraint firstAttribute="trailing" secondItem="KIp-35-WUs" secondAttribute="trailing" constant="25" id="hWK-wG-Mmr"/>
+                            <constraint firstItem="KIp-35-WUs" firstAttribute="top" secondItem="Ay6-5U-Kuu" secondAttribute="bottom" constant="25" id="hbM-Jy-7cE"/>
                             <constraint firstItem="ktj-p6-dhY" firstAttribute="top" secondItem="RuX-s3-sEA" secondAttribute="bottom" constant="220" id="jmt-lr-IXb"/>
                             <constraint firstItem="RuX-s3-sEA" firstAttribute="centerY" secondItem="ZoU-by-xUA" secondAttribute="centerY" id="nit-fP-qXj"/>
                             <constraint firstItem="RuX-s3-sEA" firstAttribute="centerX" secondItem="ZoU-by-xUA" secondAttribute="centerX" id="vZ9-Dj-43y"/>
@@ -96,6 +108,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="countdownTimerLabel" destination="KIp-35-WUs" id="ceJ-yf-Il8"/>
                         <outlet property="topicAnswerTextLabel" destination="RuX-s3-sEA" id="Vm2-0O-NBS"/>
                     </connections>
                 </viewController>

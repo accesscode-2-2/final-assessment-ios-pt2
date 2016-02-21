@@ -15,5 +15,6 @@
 @property (nonatomic) NSString *topicTitle;
 
 @property (weak, nonatomic) IBOutlet UILabel *topicAnswerTextLabel;
+@property (weak, nonatomic) IBOutlet UILabel *countdownTimerLabel;
 
 @end
