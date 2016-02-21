@@ -19,6 +19,7 @@
 @property (nonatomic, assign) NSInteger timerCount;
 @property (nonatomic) UISwipeGestureRecognizer *leftGesture;
 @property (nonatomic) UISwipeGestureRecognizer *rightGesture;
+@property (nonatomic) NSTimer *timer;
 
 @end
 
@@ -27,13 +28,16 @@
 #pragma mark - Life Cycle
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
+    
     [self setup];
     [self setupSwipeGestures];
     [self setupTimer];
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
+    
     [super viewWillDisappear:animated];
     
     self.gameScore = 0;
@@ -44,6 +48,7 @@
 #pragma mark - setup
 
 - (void)setup {
+    
     self.navigationItem.title = @"Let's Play!";
     self.gameScore = 0;
     self.currentIndex = 0;
@@ -52,23 +57,26 @@
 }
 
 - (void)setupTimer {
+    
     NSTimer *timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
     
     [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    self.timer = timer;
     [timer fire];
 }
 
-#pragma mark - Handle Timer 
+#pragma mark - Handle Timer
 
 - (void)timerFired:(NSTimer *)timer {
+    
     self.timerCount++;
     
     if (self.timerCount > 20) {
         self.timerLabel.text = [NSString stringWithFormat:@"0:0%d",30-self.timerCount];
-    }else{
+    }
+    else {
         self.timerLabel.text = [NSString stringWithFormat:@"0:%d",30-self.timerCount];
     }
-    
     if (self.timerCount >= 30) {
         [timer invalidate];
         [self showAlert];
@@ -94,13 +102,11 @@
     [self.view addGestureRecognizer:swipeRight];
     
     self.rightGesture = swipeRight;
-    
 }
 
 - (void)handleSwipeLeft:(UISwipeGestureRecognizer *)gesture {
     
     if (self.currentIndex < self.category.clues.count-1) {
-        
         [UIView animateWithDuration:0.5 delay:0.09 options:UIViewAnimationOptionCurveEaseInOut animations:^{
             self.view.backgroundColor = [UIColor orangeColor];
         } completion:^(BOOL finished) {
@@ -110,14 +116,13 @@
     }
     else {
         [self showAlert];
-        self.timerCount = 29;
+        [self.timer invalidate];
     }
 }
 
 - (void)handleSwipeRight:(UISwipeGestureRecognizer *)gesture {
     
     if (self.currentIndex < self.category.clues.count-1) {
-        
         [UIView animateWithDuration:0.5 delay:0.09 options:UIViewAnimationOptionCurveEaseInOut animations:^{
             self.view.backgroundColor = [UIColor greenColor];
         } completion:^(BOOL finished) {
@@ -129,7 +134,7 @@
     else {
         self.gameScore+=1;
         [self showAlert];
-        self.timerCount = 29;
+        [self.timer invalidate];
     }
 }
 
