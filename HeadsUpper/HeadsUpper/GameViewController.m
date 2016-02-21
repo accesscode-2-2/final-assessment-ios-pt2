@@ -183,6 +183,11 @@
         
         label.text = message;
         
+        self.gameView.introCountdownLabel.alpha = 0.0;
+        self.gameView.answerLabel.alpha = 0.0;
+        self.gameView.correctPassLabel.alpha = 0.0;
+        self.gameView.countdownLabel.hidden = YES;
+        
         self.gameView.answerLabel.alpha = 0.0;
         label.alpha = 1.0;
         
