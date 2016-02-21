@@ -16,7 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *guessItLabel;
 @property (nonatomic) NSInteger pointsTotal;
-@property (nonatomic) NSInteger index;
+@property (nonatomic) NSMutableArray *generatedNumbers;
 @end
 
 @implementation GameViewController
@@ -79,8 +79,7 @@
 -(void)startGame{
     self.timeLabel.hidden = NO;
     self.pointsTotal = 0;
-    self.index = 0;
-    self.guessItLabel.text = self.selectedCategory[@"subjects"][self.index];
+    self.guessItLabel.text = self.subjectsArray[[self generateRandomNumber]];
     [self setupTimer];
 }
 
@@ -142,30 +141,30 @@
 }
 
 -(void)correctAnswer{
-    self.index ++;
     [self animateViewWithColor:[UIColor greenColor]];
-    self.guessItLabel.text = self.selectedCategory[@"subjects"][self.index];
+    self.guessItLabel.text = self.subjectsArray[[self generateRandomNumber ]];
     self.pointsTotal ++;
 }
 
 -(void)skipIt{
-    self.index ++;
     [self animateViewWithColor:[UIColor redColor]];
-    self.guessItLabel.text = self.selectedCategory[@"subjects"][self.index];
+    self.guessItLabel.text = self.subjectsArray[[self generateRandomNumber]];
 }
 
 - (void)deviceOrientationDidChangeNotification:(NSNotification*)note
 {
-    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
-    //Face Up
-    if (orientation == UIDeviceOrientationFaceDown)
-    {
-        [self correctAnswer];
-    }
-    // Face down
-    else if (orientation == UIDeviceOrientationFaceUp)
-    {
-        [self skipIt];
+    if (self.timerCount != 0) {
+        UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+        //Face Up
+        if (orientation == UIDeviceOrientationFaceDown)
+        {
+            [self correctAnswer];
+        }
+        // Face down
+        else if (orientation == UIDeviceOrientationFaceUp)
+        {
+            [self skipIt];
+        }
     }
 }
 
@@ -184,7 +183,7 @@
 
 -(void)gamesOverAlertView{
     
-    NSString *message = [NSString stringWithFormat:@"%ld/%ld",(long)self.pointsTotal, (long)self.index];
+    NSString *message = [NSString stringWithFormat:@"%ld/%ld",(long)self.pointsTotal, (long)self.generatedNumbers.count-1];
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Game's over"
                                                 message:message
@@ -195,6 +194,24 @@
 
 }
 
+-(NSInteger) generateRandomNumber {
+    NSInteger randomNumber = (NSInteger) arc4random_uniform(self.subjectsArray.count-2); //because the last one shouldn't be counted
+    if ([self.mutableArrayContainingNumbers containsObject: [NSNumber numberWithInteger:randomNumber]]) {
+        [self generateRandomNumber];
+    } else {
+        [self.mutableArrayContainingNumbers addObject: [NSNumber numberWithInteger:randomNumber]];
+    }
+    return randomNumber;
+}
+
+
+-(NSMutableArray *) mutableArrayContainingNumbers
+{
+    if (!_generatedNumbers)
+        _generatedNumbers = [[NSMutableArray alloc] init];
+    
+    return _generatedNumbers;
+}
 
 
 

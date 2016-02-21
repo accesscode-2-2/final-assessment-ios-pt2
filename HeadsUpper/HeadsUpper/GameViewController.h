@@ -11,4 +11,6 @@
 
 @interface GameViewController : UIViewController
 @property (nonatomic) NSDictionary *selectedCategory;
+@property (nonatomic) NSMutableArray *subjectsArray;
+
 @end

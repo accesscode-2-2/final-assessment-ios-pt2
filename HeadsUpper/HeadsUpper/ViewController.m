@@ -77,6 +77,7 @@
     self.gVC = [self.storyboard instantiateViewControllerWithIdentifier:@"Game"];
     self.gVC.selectedCategory = nil;
     self.gVC.selectedCategory = selectedCategory;
+    self.gVC.subjectsArray = selectedCategory[@"subjects"];
     [self.navigationController pushViewController:self.gVC animated:YES];
 }
 
