@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import "GameViewController.h"
 #import "APIManager.h"
+#import "CategoriesTableViewCell.h"
+
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) NSArray *categories;
@@ -21,6 +23,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
      self.navigationItem.title = @"Heads Upper";
+    
+    UINib *nib = [UINib nibWithNibName:@"CategoriesTableViewCell" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"CategoriesTableViewCell"];
+
     [self fetchData];
 }
 
@@ -54,19 +60,22 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EllenCell" forIndexPath:indexPath];
-
+    CategoriesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CategoriesTableViewCell" forIndexPath:indexPath];
     NSDictionary *categ = self.categories[indexPath.row];
     NSString *name = categ[@"title"];
-    cell.textLabel.text = name;
+    cell.titleLabel.text = name;
     return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 70;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
      NSDictionary *selectedCategory = self.categories[indexPath.row];
     
     self.gVC = [self.storyboard instantiateViewControllerWithIdentifier:@"Game"];
-
+    self.gVC.selectedCategory = nil;
     self.gVC.selectedCategory = selectedCategory;
     [self.navigationController pushViewController:self.gVC animated:YES];
 }

@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		3D7C660134A42AF35610698A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B834E4800B5EFF73D10418B7 /* libPods.a */; };
 		845652141C7A1B18006B2610 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 845652131C7A1B18006B2610 /* APIManager.m */; };
+		845652171C7A47E9006B2610 /* ZoomInOutAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 845652161C7A47E9006B2610 /* ZoomInOutAnimation.m */; };
+		8456521B1C7A4AC0006B2610 /* CategoriesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 845652191C7A4AC0006B2610 /* CategoriesTableViewCell.m */; };
+		8456521C1C7A4AC0006B2610 /* CategoriesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8456521A1C7A4AC0006B2610 /* CategoriesTableViewCell.xib */; };
 		84DEAD041C7A17FA00371643 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DEAD031C7A17FA00371643 /* GameViewController.m */; };
 		8D89695C1C755D0200D32E8A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D89695B1C755D0200D32E8A /* main.m */; };
 		8D89695F1C755D0200D32E8A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D89695E1C755D0200D32E8A /* AppDelegate.m */; };
@@ -22,6 +25,11 @@
 		19E83DABFE5E97970FAF704C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		845652121C7A1B18006B2610 /* APIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
 		845652131C7A1B18006B2610 /* APIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
+		845652151C7A47E9006B2610 /* ZoomInOutAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomInOutAnimation.h; sourceTree = "<group>"; };
+		845652161C7A47E9006B2610 /* ZoomInOutAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoomInOutAnimation.m; sourceTree = "<group>"; };
+		845652181C7A4AC0006B2610 /* CategoriesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoriesTableViewCell.h; sourceTree = "<group>"; };
+		845652191C7A4AC0006B2610 /* CategoriesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoriesTableViewCell.m; sourceTree = "<group>"; };
+		8456521A1C7A4AC0006B2610 /* CategoriesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoriesTableViewCell.xib; sourceTree = "<group>"; };
 		84DEAD021C7A17FA00371643 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
 		84DEAD031C7A17FA00371643 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		8D8969571C755D0200D32E8A /* HeadsUpper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeadsUpper.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +75,43 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		8456521D1C7A4AC8006B2610 /* API Manager */ = {
+			isa = PBXGroup;
+			children = (
+				845652121C7A1B18006B2610 /* APIManager.h */,
+				845652131C7A1B18006B2610 /* APIManager.m */,
+			);
+			name = "API Manager";
+			sourceTree = "<group>";
+		};
+		8456521E1C7A4AD8006B2610 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				845652181C7A4AC0006B2610 /* CategoriesTableViewCell.h */,
+				845652191C7A4AC0006B2610 /* CategoriesTableViewCell.m */,
+				8456521A1C7A4AC0006B2610 /* CategoriesTableViewCell.xib */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		8456521F1C7A4AEB006B2610 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				8D8969601C755D0200D32E8A /* ViewController.h */,
+				8D8969611C755D0200D32E8A /* ViewController.m */,
+			);
+			name = TableView;
+			sourceTree = "<group>";
+		};
+		845652201C7A4AFF006B2610 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				84DEAD021C7A17FA00371643 /* GameViewController.h */,
+				84DEAD031C7A17FA00371643 /* GameViewController.m */,
+			);
+			name = Game;
+			sourceTree = "<group>";
+		};
 		8D89694E1C755D0200D32E8A = {
 			isa = PBXGroup;
 			children = (
@@ -90,13 +135,13 @@
 			children = (
 				8D89695D1C755D0200D32E8A /* AppDelegate.h */,
 				8D89695E1C755D0200D32E8A /* AppDelegate.m */,
-				845652121C7A1B18006B2610 /* APIManager.h */,
-				845652131C7A1B18006B2610 /* APIManager.m */,
-				8D8969601C755D0200D32E8A /* ViewController.h */,
-				8D8969611C755D0200D32E8A /* ViewController.m */,
-				84DEAD021C7A17FA00371643 /* GameViewController.h */,
-				84DEAD031C7A17FA00371643 /* GameViewController.m */,
+				8456521D1C7A4AC8006B2610 /* API Manager */,
+				8456521F1C7A4AEB006B2610 /* TableView */,
+				8456521E1C7A4AD8006B2610 /* Cells */,
+				845652201C7A4AFF006B2610 /* Game */,
 				8D8969631C755D0200D32E8A /* Main.storyboard */,
+				845652151C7A47E9006B2610 /* ZoomInOutAnimation.h */,
+				845652161C7A47E9006B2610 /* ZoomInOutAnimation.m */,
 				8D8969661C755D0200D32E8A /* Assets.xcassets */,
 				8D8969681C755D0200D32E8A /* LaunchScreen.storyboard */,
 				8D89696B1C755D0200D32E8A /* Info.plist */,
@@ -174,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D89696A1C755D0200D32E8A /* LaunchScreen.storyboard in Resources */,
+				8456521C1C7A4AC0006B2610 /* CategoriesTableViewCell.xib in Resources */,
 				8D8969671C755D0200D32E8A /* Assets.xcassets in Resources */,
 				8D8969651C755D0200D32E8A /* Main.storyboard in Resources */,
 			);
@@ -236,9 +282,11 @@
 			files = (
 				84DEAD041C7A17FA00371643 /* GameViewController.m in Sources */,
 				8D8969621C755D0200D32E8A /* ViewController.m in Sources */,
+				8456521B1C7A4AC0006B2610 /* CategoriesTableViewCell.m in Sources */,
 				8D89695F1C755D0200D32E8A /* AppDelegate.m in Sources */,
 				8D89695C1C755D0200D32E8A /* main.m in Sources */,
 				845652141C7A1B18006B2610 /* APIManager.m in Sources */,
+				845652171C7A47E9006B2610 /* ZoomInOutAnimation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

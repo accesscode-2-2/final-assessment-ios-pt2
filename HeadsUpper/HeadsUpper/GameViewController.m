@@ -7,10 +7,12 @@
 //
 
 #import "GameViewController.h"
+#import "ZoomInOutAnimation.h"
 
 @interface GameViewController ()
 @property (nonatomic) NSInteger timerCount;
 @property (nonatomic) NSInteger getReadyTimerCount;
+@property (weak, nonatomic) IBOutlet UIView *getReadyView;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *guessItLabel;
 @property (nonatomic) NSInteger pointsTotal;
@@ -32,6 +34,8 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.timeLabel.hidden = YES;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,6 +45,9 @@
 #pragma mark - Get Ready
 
 -(void)getReadyTimer{
+    
+    [ZoomInOutAnimation pulseView:self.getReadyView from:1.0 to:2.5 withDuration:0.5 repeats:CGFLOAT_MAX];
+
     NSTimer *timer =  [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(getReadyTimerFired:) userInfo:nil repeats:YES];
     self.getReadyTimerCount = 5;
     [timer fire];
@@ -48,6 +55,7 @@
 }
 
 -(void)getReadyTimerFired:(NSTimer *)timer{
+    
     self.getReadyTimerCount --;
     NSString *convertedString = [[NSNumber numberWithInteger:self.getReadyTimerCount] stringValue];
     if (self.getReadyTimerCount < 4) {
@@ -58,6 +66,7 @@
     }
     if (self.getReadyTimerCount == 0) {
         [timer invalidate];
+        [ZoomInOutAnimation stopZoomingView:self.getReadyView];
         [self startGame];
     }
 }
@@ -65,6 +74,7 @@
 #pragma mark - Start Game
 
 -(void)startGame{
+    self.timeLabel.hidden = NO;
     self.pointsTotal = 0;
     self.index = 0;
     self.guessItLabel.text = self.selectedCategory[@"subjects"][self.index];
