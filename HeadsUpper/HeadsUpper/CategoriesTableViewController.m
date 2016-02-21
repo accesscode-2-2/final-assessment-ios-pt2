@@ -29,7 +29,7 @@
     [self setupCategories];
 }
 
-#pragma mark - Custom methods
+#pragma mark - Setup
 
 - (void)setupCategories {
     

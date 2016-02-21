@@ -16,10 +16,13 @@
 @property (nonatomic) NSInteger colorTimerCount;
 @property (nonatomic) UIColor *flashColor;
 @property (nonatomic) NSInteger numberCorrect;
+@property (nonatomic) NSInteger numberAsked;
 
 @end
 
 @implementation QuestionsViewController
+
+#pragma mark - Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,11 +34,14 @@
     
     self.iterator = 16;
     self.numberCorrect = 0;
+    self.numberAsked = 0;
     self.flashColor = [UIColor whiteColor];
     
     [self countdownTimer];
     [self setupGestureRecognizers];
 }
+
+#pragma mark - Setup
 
 - (void)shuffleQuestions {
     
@@ -46,47 +52,6 @@
         NSInteger exchangeIndex = i + arc4random_uniform((u_int32_t )remainingCount);
         [self.questions exchangeObjectAtIndex:i withObjectAtIndex:exchangeIndex];
     }
-}
-
-- (void)countdownTimer {
-    
-    NSTimer *timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
-    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
-    self.timerCount = 5;
-    [timer fire];
-}
-
-- (void)timerFired:(NSTimer *)timer {
-    
-    if (self.timerCount < 1) {
-        
-        self.questionLabel.font = [UIFont systemFontOfSize:22];
-        self.questionLabel.text = self.questions[self.iterator];
-        [timer invalidate];
-        for (UISwipeGestureRecognizer *recognizer in self.view.gestureRecognizers) {
-            
-            if (recognizer.direction == UISwipeGestureRecognizerDirectionLeft ||
-                recognizer.direction == UISwipeGestureRecognizerDirectionRight) {
-                
-                recognizer.enabled = YES;
-            }
-        }
-        
-    } else {
-        
-        self.questionLabel.font = [UIFont systemFontOfSize:36];
-        NSString *convertedToString = [[NSNumber numberWithInteger:self.timerCount]stringValue];
-        self.questionLabel.text = convertedToString;
-        for (UISwipeGestureRecognizer *recognizer in self.view.gestureRecognizers) {
-            
-            if (recognizer.direction == UISwipeGestureRecognizerDirectionLeft ||
-                recognizer.direction == UISwipeGestureRecognizerDirectionRight) {
-                
-                recognizer.enabled = NO;
-            }
-        }
-    }
-    self.timerCount--;
 }
 
 - (void)setupGestureRecognizers {
@@ -119,7 +84,7 @@
             [self colorSwipeHelper];
             break;
         case UISwipeGestureRecognizerDirectionDown:
-            [self dismissViewControllerAnimated:YES completion:nil];
+            [self resultsPopup];
             break;
         default:
             return;
@@ -136,6 +101,50 @@
         [self colorTimer];
         [self countdownTimer];
     }
+}
+
+#pragma mark - Timers
+
+- (void)countdownTimer {
+    
+    NSTimer *timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    self.timerCount = 5;
+    [timer fire];
+}
+
+- (void)timerFired:(NSTimer *)timer {
+    
+    if (self.timerCount < 1) {
+        
+        self.questionLabel.font = [UIFont systemFontOfSize:22];
+        self.questionLabel.text = self.questions[self.iterator];
+        self.numberAsked++;
+        [timer invalidate];
+        for (UISwipeGestureRecognizer *recognizer in self.view.gestureRecognizers) {
+            
+            if (recognizer.direction == UISwipeGestureRecognizerDirectionLeft ||
+                recognizer.direction == UISwipeGestureRecognizerDirectionRight) {
+                
+                recognizer.enabled = YES;
+            }
+        }
+        
+    } else {
+        
+        self.questionLabel.font = [UIFont systemFontOfSize:36];
+        NSString *convertedToString = [[NSNumber numberWithInteger:self.timerCount]stringValue];
+        self.questionLabel.text = convertedToString;
+        for (UISwipeGestureRecognizer *recognizer in self.view.gestureRecognizers) {
+            
+            if (recognizer.direction == UISwipeGestureRecognizerDirectionLeft ||
+                recognizer.direction == UISwipeGestureRecognizerDirectionRight) {
+                
+                recognizer.enabled = NO;
+            }
+        }
+    }
+    self.timerCount--;
 }
 
 - (void)colorTimer {
@@ -156,10 +165,12 @@
     }
 }
 
+#pragma mark - Game Over
+
 - (void)resultsPopup {
 
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Game Over"
-                                                                   message:[NSString stringWithFormat:@"%ld/%lu", (long)self.numberCorrect, (unsigned long)self.questions.count]
+                                                                   message:[NSString stringWithFormat:@"%ld/%lu", (long)self.numberCorrect, (unsigned long)self.numberAsked]
                                                             preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
