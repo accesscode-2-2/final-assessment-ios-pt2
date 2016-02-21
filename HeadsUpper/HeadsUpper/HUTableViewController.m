@@ -48,6 +48,12 @@
                                 };
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:YES];
+    NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationIsPortrait(YES)];
+    [[UIDevice currentDevice] setValue:value forKey:@"orientation"];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

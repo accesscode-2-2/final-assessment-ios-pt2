@@ -66,11 +66,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="RuX-s3-sEA">
-                                <rect key="frame" x="80" y="284" width="440" height="96"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KIp-35-WUs">
                                 <rect key="frame" x="531" y="89" width="44" height="44"/>
                                 <constraints>
@@ -80,9 +75,15 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="RuX-s3-sEA">
+                                <rect key="frame" x="252" y="276" width="96.5" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="RuX-s3-sEA" firstAttribute="centerY" secondItem="ZoU-by-xUA" secondAttribute="centerY" id="4MV-zF-Hdj"/>
                             <constraint firstItem="RuX-s3-sEA" firstAttribute="leading" secondItem="ZoU-by-xUA" secondAttribute="leading" constant="50" id="Ggo-0m-3uY"/>
                             <constraint firstItem="RuX-s3-sEA" firstAttribute="top" secondItem="Ay6-5U-Kuu" secondAttribute="bottom" constant="220" id="L0G-Jz-l8B"/>
                             <constraint firstAttribute="trailing" secondItem="RuX-s3-sEA" secondAttribute="trailing" constant="80" id="Rxr-My-lws"/>
@@ -93,17 +94,22 @@
                             <constraint firstAttribute="trailing" secondItem="KIp-35-WUs" secondAttribute="trailing" constant="25" id="hWK-wG-Mmr"/>
                             <constraint firstItem="KIp-35-WUs" firstAttribute="top" secondItem="Ay6-5U-Kuu" secondAttribute="bottom" constant="25" id="hbM-Jy-7cE"/>
                             <constraint firstItem="ktj-p6-dhY" firstAttribute="top" secondItem="RuX-s3-sEA" secondAttribute="bottom" constant="220" id="jmt-lr-IXb"/>
+                            <constraint firstItem="RuX-s3-sEA" firstAttribute="centerX" secondItem="ZoU-by-xUA" secondAttribute="centerX" id="kRh-qs-h2m"/>
                             <constraint firstItem="RuX-s3-sEA" firstAttribute="centerY" secondItem="ZoU-by-xUA" secondAttribute="centerY" id="nit-fP-qXj"/>
                             <constraint firstItem="RuX-s3-sEA" firstAttribute="centerX" secondItem="ZoU-by-xUA" secondAttribute="centerX" id="vZ9-Dj-43y"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="Ggo-0m-3uY"/>
+                                <exclude reference="L0G-Jz-l8B"/>
+                                <exclude reference="Rxr-My-lws"/>
                                 <exclude reference="Vky-az-taI"/>
                                 <exclude reference="ZZq-hS-sSk"/>
+                                <exclude reference="ZfT-D0-yNf"/>
                                 <exclude reference="hCs-9Z-oHs"/>
                                 <exclude reference="nit-fP-qXj"/>
                                 <exclude reference="vZ9-Dj-43y"/>
+                                <exclude reference="jmt-lr-IXb"/>
                             </mask>
                         </variation>
                     </view>

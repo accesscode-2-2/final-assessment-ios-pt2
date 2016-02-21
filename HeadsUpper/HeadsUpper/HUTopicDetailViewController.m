@@ -31,6 +31,12 @@
     [self setUpGestureRecognizers];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:YES];
+    NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeLeft];
+    [[UIDevice currentDevice] setValue:value forKey:@"orientation"];
+}
+
 - (void)setup {
     self.navigationItem.title = self.topicTitle;
     
