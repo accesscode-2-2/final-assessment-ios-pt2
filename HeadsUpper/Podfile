@@ -1,0 +1,2 @@
+pod 'AFNetworking', '~> 3.0'
+pod 'KKProgressTimer', :git => 'http://github.com/gin0606/KKProgressTimer.git'
