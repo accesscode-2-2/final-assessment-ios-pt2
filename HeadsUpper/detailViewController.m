@@ -9,6 +9,9 @@
 #import "detailViewController.h"
 
 @interface detailViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *timerLabel;
+@property (nonatomic, assign) NSInteger timerCounter;
+
 
 @end
 
@@ -17,11 +20,40 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self setupTimer];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)setupTimer{
+    
+    NSTimer *timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    self.timerCounter = 8;
+    [timer fire];
+}
+
+- (void)timerFired: (NSTimer *)timer{
+    // check current timer against the time when the timer was created
+    // creata a refenrce counter
+    
+    if (self.timerCounter == 0){
+        [timer invalidate];
+        
+        // very important
+        self.timerCounter = 0;
+        
+    }
+    
+    NSString *time = [[NSNumber numberWithInteger: self.timerCounter] stringValue];
+    self.timerLabel.text = time;
+    
+    self.timerCounter--;
+    
 }
 
 /*
