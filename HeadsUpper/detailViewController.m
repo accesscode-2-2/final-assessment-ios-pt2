@@ -29,11 +29,10 @@
     [self setupGestureRecognizers];
     
     //sample
-//    NSString *this = [self.holdingArray objectAtIndex:0];
-//    self.gameLabel.text = this;
-    self.gameLabel.text = @"this";
+    NSString *random =[self.holdingArray objectAtIndex: arc4random() % [self.holdingArray count]];
+    self.gameLabel.text = random;
     
-    NSLog(@"%@", [self.holdingArray objectAtIndex:7]);
+//    NSLog(@"%@", [self.holdingArray objectAtIndex:0]);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -95,12 +94,20 @@
 {
     switch (gesture.direction) {
         case UISwipeGestureRecognizerDirectionLeft:
+        {
             self.view.backgroundColor = [UIColor redColor];
-            
-            
+            //get value of random index from array
+            NSString *random =[self.holdingArray objectAtIndex: arc4random() % [self.holdingArray count]];
+            self.gameLabel.text = random;
+        }
             break;
         case UISwipeGestureRecognizerDirectionRight:
+        {
             self.view.backgroundColor = [UIColor greenColor];
+            //get value of random index from array
+            NSString *random =[self.holdingArray objectAtIndex: arc4random() % [self.holdingArray count]];
+            self.gameLabel.text = random;
+        }
             break;
             
         default:
