@@ -49,8 +49,8 @@
 {
     GameView *view = (GameView *)self.view;
     
-    view.answerLabel.text = @"Guess This";
-    view.correctPassLabel.hidden = YES;
+    view.answerLabel.alpha = 0;
+    view.correctPassLabel.alpha = 0;
     view.countdownLabel.hidden = YES;
     
 }
@@ -81,6 +81,9 @@
         case UISwipeGestureRecognizerDirectionUp:
             
             view.answerLabel.text = newAnswer;
+            
+            [self fadeInFadeOutCorrectPassLabel:@"CORRECT!"];
+            
             self.totalAnswers ++;
             self.totalCorrect ++;
             
@@ -89,6 +92,9 @@
         case UISwipeGestureRecognizerDirectionDown:
             
             view.answerLabel.text = newAnswer;
+            
+            [self fadeInFadeOutCorrectPassLabel:@"PASS"];
+            
             self.totalAnswers ++;
             
             break;
@@ -108,5 +114,27 @@
 
     return answer;
 }
+
+-(void)fadeInFadeOutCorrectPassLabel:(NSString *) message{
+    
+    GameView *view = (GameView *)self.view;
+    
+    view.correctPassLabel.text = message;
+    
+    [view.answerLabel setAlpha:0.0f];
+    [view.correctPassLabel setAlpha:1.0f];
+    
+    [UIView animateWithDuration:1.50f animations:^{
+        
+        [view.correctPassLabel setAlpha:0.0f];
+        
+    } completion:^(BOOL finished) {
+        
+       [view.answerLabel setAlpha:1.0f];
+         
+            
+        }];
+}
+
 
 @end
