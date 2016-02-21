@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *clueLabel;
 @property (nonatomic) NSArray *subjects;
 
+@property (nonatomic) UIView *gameVC;
+
 @end
 
 @implementation HUGameScreenViewController
@@ -59,7 +61,7 @@
     NSTimer *timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
     
-    self.timerCount = 3;
+    self.timerCount = 6;
     [timer fire];
 }
 
@@ -67,6 +69,8 @@
 {
     // create a reference count
     if (self.timerCount == 0) {
+        self.gameVC.userInteractionEnabled = NO;
+        
         [timer invalidate];
         [self showGameOverAlert];
     }
@@ -143,26 +147,19 @@
     if (motion == UIEventSubtypeMotionShake) {
         self.pointsCount++;
         [self turnViewGreenIfRight:[UIColor greenColor]];
-
+        
     }
 }
 
 #pragma mark - Alerts
 
-- (void)showMotionAlert
-{
-    UIAlertView *alertView = [[UIAlertView alloc]
-                              initWithTitle:@"HeadsUpper"
-                              message:@"You got it!"
-                              delegate:nil
-                              cancelButtonTitle:@"OK"
-                              otherButtonTitles:nil];
-    [alertView show];
-}
-
 - (void)showGameOverAlert
 {
     NSString *pointsMessage = [NSString stringWithFormat:@"Game Over! You got %ld/%ld right", (long)self.pointsCount,(long)self.gameClueCount];
+    
+    for (UIGestureRecognizer *gesture in self.view.gestureRecognizers) {
+        [self.view removeGestureRecognizer:gesture];
+    }
     
     UIAlertView *alertView = [[UIAlertView alloc]
                               initWithTitle:@"HeadsUpper"
@@ -171,6 +168,7 @@
                               cancelButtonTitle:@"OK"
                               otherButtonTitles:nil];
     [alertView show];
+    
 }
 
 @end

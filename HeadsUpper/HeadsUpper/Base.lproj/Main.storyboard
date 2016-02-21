@@ -37,7 +37,7 @@
                             <outlet property="delegate" destination="Trm-3q-mva" id="vf6-eI-AhY"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Choose a Subject" id="pqF-bm-Hyn"/>
+                    <navigationItem key="navigationItem" title="HeadsUpper™" id="pqF-bm-Hyn"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gIa-Rd-Drx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
