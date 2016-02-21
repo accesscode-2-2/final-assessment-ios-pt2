@@ -18,7 +18,7 @@
                         <rect key="frame" x="128" y="5" width="65" height="33"/>
                         <animations/>
                         <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="30"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.34986696270000001" green="0.54537898389999995" blue="0.76012073859999996" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
