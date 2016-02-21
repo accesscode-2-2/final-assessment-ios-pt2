@@ -10,10 +10,11 @@
 
 @interface GameData : NSObject
 
-@property (strong, nonatomic) NSDictionary *superstars;
-@property (strong, nonatomic) NSDictionary *the90s;
-@property (strong, nonatomic) NSDictionary *mrDJ;
-@property (strong, nonatomic) NSDictionary *icons;
-@property (strong, nonatomic) NSDictionary *animalsGoneWild;
-@property (strong, nonatomic) NSArray *allData;
+@property (strong, nonatomic) NSString *title;
+
+
+- (id)initWithTitle:(NSString *)title;
++ (id) topicWithTitle:(NSString *)title;
+
+
 @end

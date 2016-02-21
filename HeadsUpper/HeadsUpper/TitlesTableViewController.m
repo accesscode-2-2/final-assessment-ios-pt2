@@ -12,10 +12,6 @@
 
 @interface TitlesTableViewController ()
 
-@property (nonatomic) NSMutableArray *titleData;
-@property (nonatomic) NSArray *titles;
-@property (nonatomic) NSMutableDictionary *allTitles;
-
 @end
 
 @implementation TitlesTableViewController
@@ -24,6 +20,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self fetchHeadsUpperAPI];
+}
+
+- (void) fetchHeadsUpperAPI
+{
+    NSURL *topicsURL = [NSURL URLWithString:@"https://heads-up-api.herokuapp.com/"];
+    
+    NSData *jsonData = [NSData dataWithContentsOfURL:topicsURL];
+    
+    NSError *error = nil;
+    
+    NSDictionary *topicsDictionary = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
+    
+    self.topics = [NSMutableArray array];
+    
+   // NSArray *topicsArray = [topicsDictionary objectForKey:@"title"];
+    
+    for (NSDictionary *tDict in topicsDictionary) {
+        GameData *topic = [GameData topicWithTitle:[tDict objectForKey:@"title"]];
+        [self.topics addObject:topic];
+    }
     
 }
 
@@ -39,18 +56,20 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.titles.count;
+    return self.topics.count;
+    
+    
 }
 
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Title" forIndexPath:indexPath];
+   
+    GameData *topicTitles = [self.topics objectAtIndex:indexPath.row];
     
-    GameData *titles = [[GameData alloc] init];
-    NSString *title = titles.allData[indexPath.row];
-    cell.textLabel.text = title;
-    
+    cell.textLabel.text = topicTitles.title;
+
     return cell;
 }
 
