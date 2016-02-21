@@ -95,7 +95,7 @@
     double roll = self.motionManager.deviceMotion.attitude.roll;
     self.view.backgroundColor = [UIColor whiteColor];
     NSLog(@"roll = %0.2f",roll);
-    if (roll > 2.8) {
+    if (roll > 2.5) {
         if (self.didResetStat) {
             self.didResetStat = NO;
             self.view.backgroundColor = [UIColor greenColor];
@@ -105,7 +105,7 @@
             NSLog(@"guess term changed");
         }
         
-    } else if (roll < 0.005){
+    } else if (roll < -0.002){
         if (self.didResetStat) {
             self.didResetStat = NO;
             self.view.backgroundColor = [UIColor redColor];
