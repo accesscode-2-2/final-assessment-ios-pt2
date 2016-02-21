@@ -100,7 +100,7 @@
 }
 
 - (void)showAlert {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Game Over" message:[NSString stringWithFormat:@"%ld/%ld", self.correctCount, self.totalCount] delegate:nil cancelButtonTitle:@"Done" otherButtonTitles:nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Game Over" message:[NSString stringWithFormat:@"%ld/%ld", (long)self.correctCount,(long)self.totalCount] delegate:nil cancelButtonTitle:@"Done" otherButtonTitles:nil];
     
     [alert show];
 }
