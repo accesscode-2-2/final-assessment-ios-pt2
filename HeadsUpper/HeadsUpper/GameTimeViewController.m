@@ -15,12 +15,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 
 @property (nonatomic) NSInteger timerCount;
-
-
-
-// track score
-// track category array index
-
+@property (nonatomic) NSInteger questionCount;
+@property (nonatomic) NSInteger score;
 
 @end
 
@@ -32,7 +28,11 @@
 
     self.topicLabel.text = [self.category.items objectAtIndex:0];
     
+    self.score = 0;
+    
     [self setupTimer];
+    [self setupGestureRecognizers];
+    
 }
 
 - (void)setupTimer
@@ -54,6 +54,7 @@
         [timer invalidate];
         
         // here's where we will bump to next question
+        [self advanceQuestion];
         
         // reset timer and label:
         self.timerCount = 0;
@@ -61,9 +62,25 @@
     }
     
     self.timerCount --;
-    
-
     self.timerLabel.text = time;
+}
+
+- (void)setupGestureRecognizers {
+    
+    UISwipeGestureRecognizer *leftSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(advanceQuestion)];
+    leftSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
+    
+    UISwipeGestureRecognizer *rightSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(advanceQuestion)];
+    rightSwipe.direction = UISwipeGestureRecognizerDirectionRight;
+    
+    [self.view addGestureRecognizer:leftSwipe];
+    [self.view addGestureRecognizer:rightSwipe];
+
+}
+
+- (void)advanceQuestion {
+    self.questionCount ++;
+    self.topicLabel.text = [self.category.items objectAtIndex:self.questionCount];
 }
 
 
