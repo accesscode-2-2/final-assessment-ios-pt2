@@ -63,12 +63,28 @@
         self.questionLabel.font = [UIFont systemFontOfSize:22];
         self.questionLabel.text = self.questions[self.iterator];
         [timer invalidate];
+        for (UISwipeGestureRecognizer *recognizer in self.view.gestureRecognizers) {
+            
+            if (recognizer.direction == UISwipeGestureRecognizerDirectionLeft ||
+                recognizer.direction == UISwipeGestureRecognizerDirectionRight) {
+                
+                recognizer.enabled = YES;
+            }
+        }
         
     } else {
         
         self.questionLabel.font = [UIFont systemFontOfSize:36];
         NSString *convertedToString = [[NSNumber numberWithInteger:self.timerCount]stringValue];
         self.questionLabel.text = convertedToString;
+        for (UISwipeGestureRecognizer *recognizer in self.view.gestureRecognizers) {
+            
+            if (recognizer.direction == UISwipeGestureRecognizerDirectionLeft ||
+                recognizer.direction == UISwipeGestureRecognizerDirectionRight) {
+                
+                recognizer.enabled = NO;
+            }
+        }
     }
     self.timerCount--;
 }
