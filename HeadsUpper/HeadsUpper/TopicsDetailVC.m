@@ -102,7 +102,7 @@
 
 -(void) changeBackground {
     [UIView animateWithDuration:.2 animations:^{
-        self.view.backgroundColor = [UIColor blackColor];
+        self.view.backgroundColor = [UIColor colorWithRed:31.0/255.0 green:33.0/255.0 blue:36.0/255.0 alpha:1];
     } completion:NULL];
 }
 
@@ -153,9 +153,9 @@
     alertViewController.swipeDismissalGestureEnabled = YES;
     alertViewController.backgroundTapDismissalGestureEnabled = YES;
     
-    alertViewController.alertViewBackgroundColor = [UIColor whiteColor];
+    alertViewController.alertViewBackgroundColor = [UIColor colorWithRed:31.0/255.0 green:33.0/255.0 blue:36.0/255.0 alpha:1];
     alertViewController.titleColor = [UIColor colorWithRed:197.0/255.0 green:111.0/255.0 blue:251.0/255.0 alpha:1];
-    alertViewController.messageColor = [UIColor blackColor];
+    alertViewController.messageColor = [UIColor whiteColor];
     alertViewController.cancelButtonColor = [UIColor colorWithRed:197.0/255.0 green:111.0/255.0 blue:251.0/255.0 alpha:1];
     
     // Add alert actions

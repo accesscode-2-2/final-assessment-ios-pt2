@@ -37,7 +37,7 @@
 
 -(void) playMusic {
     NSURL *musicFile = [[NSBundle mainBundle] URLForResource:@"jackpot loop"
-                                               withExtension:@"wav"];
+        withExtension:@"wav"];
     self.backgroundMusic = [[AVAudioPlayer alloc] initWithContentsOfURL:musicFile
                                                                   error:nil];
     self.backgroundMusic.numberOfLoops = -1;
