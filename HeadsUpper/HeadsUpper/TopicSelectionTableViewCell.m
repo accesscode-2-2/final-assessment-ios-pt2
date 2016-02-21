@@ -15,7 +15,7 @@
     CGFloat borderWidth = 10.0f;
     
     self.topicsImg.frame = CGRectInset(self.frame, -borderWidth, -borderWidth);
-    self.topicsImg.layer.borderColor = [UIColor colorWithRed:253.0/254.0 green:119.0/254.0 blue:163.0/254.0 alpha:1].CGColor;
+    self.topicsImg.layer.borderColor = [UIColor colorWithRed:197.0/255.0 green:111.0/255.0 blue:251.0/255.0 alpha:1].CGColor;
     self.topicsImg.layer.borderWidth = borderWidth;
    
     self.topicsImg.layer.cornerRadius = 20.0;
