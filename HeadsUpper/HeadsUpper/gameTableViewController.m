@@ -14,12 +14,19 @@ UITableViewDataSource,
 UITableViewDelegate
 >
 
+
+@property (nonatomic) NSArray *items;
+
+
 @end
 
 @implementation gameTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.items= [[NSArray alloc] initWithObjects: @"Superstars", @"That's So 90s", @"Hey Mr. DJ",
+                  @"Icons", @"Animal's Gone Wild", nil];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -46,14 +53,14 @@ UITableViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
-    return 10;
+    return self.items.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentifier" forIndexPath:indexPath];
     
-    cell.textLabel.text = @"Hello";
+    cell.textLabel.text = [self.items objectAtIndex:indexPath.row];
     
     return cell;
 }
