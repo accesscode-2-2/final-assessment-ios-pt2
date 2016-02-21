@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A3055D51C7A430E00100C42 /* TitlesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3055D41C7A430E00100C42 /* TitlesTableViewController.m */; };
+		5A4C555A1C7A62A70098B1B6 /* GameData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4C55591C7A62A70098B1B6 /* GameData.m */; };
 		8D89695C1C755D0200D32E8A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D89695B1C755D0200D32E8A /* main.m */; };
 		8D89695F1C755D0200D32E8A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D89695E1C755D0200D32E8A /* AppDelegate.m */; };
 		8D8969621C755D0200D32E8A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8969611C755D0200D32E8A /* ViewController.m */; };
@@ -16,6 +18,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5A3055D31C7A430D00100C42 /* TitlesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitlesTableViewController.h; sourceTree = "<group>"; };
+		5A3055D41C7A430E00100C42 /* TitlesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitlesTableViewController.m; sourceTree = "<group>"; };
+		5A4C55581C7A62A70098B1B6 /* GameData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameData.h; sourceTree = "<group>"; };
+		5A4C55591C7A62A70098B1B6 /* GameData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameData.m; sourceTree = "<group>"; };
 		8D8969571C755D0200D32E8A /* HeadsUpper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeadsUpper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D89695B1C755D0200D32E8A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8D89695D1C755D0200D32E8A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -62,6 +68,10 @@
 				8D89695E1C755D0200D32E8A /* AppDelegate.m */,
 				8D8969601C755D0200D32E8A /* ViewController.h */,
 				8D8969611C755D0200D32E8A /* ViewController.m */,
+				5A3055D31C7A430D00100C42 /* TitlesTableViewController.h */,
+				5A3055D41C7A430E00100C42 /* TitlesTableViewController.m */,
+				5A4C55581C7A62A70098B1B6 /* GameData.h */,
+				5A4C55591C7A62A70098B1B6 /* GameData.m */,
 				8D8969631C755D0200D32E8A /* Main.storyboard */,
 				8D8969661C755D0200D32E8A /* Assets.xcassets */,
 				8D8969681C755D0200D32E8A /* LaunchScreen.storyboard */,
@@ -150,7 +160,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D8969621C755D0200D32E8A /* ViewController.m in Sources */,
+				5A4C555A1C7A62A70098B1B6 /* GameData.m in Sources */,
 				8D89695F1C755D0200D32E8A /* AppDelegate.m in Sources */,
+				5A3055D51C7A430E00100C42 /* TitlesTableViewController.m in Sources */,
 				8D89695C1C755D0200D32E8A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,6 +312,7 @@
 				8D8969701C755D0200D32E8A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
