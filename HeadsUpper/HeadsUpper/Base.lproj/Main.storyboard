@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--HeadsUpper-->
@@ -78,19 +79,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GsG-LM-x5q">
-                                <rect key="frame" x="20" y="290" width="560" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GsG-LM-x5q">
+                                <rect key="frame" x="20" y="290" width="560" height="74.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20.5" id="Z9w-z4-sXr"/>
+                                    <constraint firstAttribute="height" constant="74.5" id="Z9w-z4-sXr"/>
                                     <constraint firstAttribute="width" constant="560" id="chV-f1-ZQI"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="47"/>
+                                <color key="textColor" red="0.77339847240000004" green="0.43519478859999999" blue="0.98361440690000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nJV-Hw-pXu">
-                                <rect key="frame" x="538" y="84" width="42" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="534" y="84" width="45.5" height="20"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -99,8 +100,10 @@
                         <constraints>
                             <constraint firstItem="GsG-LM-x5q" firstAttribute="centerX" secondItem="PPf-xC-h8f" secondAttribute="centerX" id="Hsj-bc-vON"/>
                             <constraint firstAttribute="trailing" secondItem="nJV-Hw-pXu" secondAttribute="trailing" constant="20" id="IcG-yQ-PAY"/>
+                            <constraint firstItem="GsG-LM-x5q" firstAttribute="trailing" secondItem="PPf-xC-h8f" secondAttribute="trailingMargin" id="a1w-05-tEg"/>
                             <constraint firstItem="nJV-Hw-pXu" firstAttribute="top" secondItem="6q3-WA-Mtu" secondAttribute="bottom" constant="20" id="hfG-Zv-Cna"/>
-                            <constraint firstItem="GsG-LM-x5q" firstAttribute="centerY" secondItem="PPf-xC-h8f" secondAttribute="centerY" id="sX1-St-Y6n"/>
+                            <constraint firstItem="GsG-LM-x5q" firstAttribute="centerY" secondItem="PPf-xC-h8f" secondAttribute="centerY" constant="27.25" id="sX1-St-Y6n"/>
+                            <constraint firstItem="GsG-LM-x5q" firstAttribute="leading" secondItem="PPf-xC-h8f" secondAttribute="leadingMargin" id="ydC-Kr-kE7"/>
                         </constraints>
                     </view>
                     <connections>
