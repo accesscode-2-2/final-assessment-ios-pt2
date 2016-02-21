@@ -22,7 +22,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-     self.navigationItem.title = @"Heads Upper";
+    
+    UIImageView* img = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ok"]];
+    self.navigationItem.titleView = img;
     
     UINib *nib = [UINib nibWithNibName:@"CategoriesTableViewCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"CategoriesTableViewCell"];
@@ -64,6 +66,7 @@
     NSDictionary *categ = self.categories[indexPath.row];
     NSString *name = categ[@"title"];
     cell.titleLabel.text = name;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 

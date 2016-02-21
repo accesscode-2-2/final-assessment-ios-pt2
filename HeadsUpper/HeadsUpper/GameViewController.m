@@ -12,6 +12,7 @@
 
 @interface GameViewController ()
 @property (weak, nonatomic) IBOutlet UIView *cameraView;
+@property (weak, nonatomic) IBOutlet UIView *gameView;
 @property (nonatomic) NSInteger timerCount;
 @property (nonatomic) NSInteger getReadyTimerCount;
 @property (weak, nonatomic) IBOutlet UIView *getReadyView;
@@ -63,16 +64,20 @@
         session.sessionPreset = AVCaptureSessionPresetHigh;
         
         AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-        
+         
         NSError *error = nil;
         AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:device error:&error];
         [session addInput:input];
         
         AVCaptureVideoPreviewLayer *newCaptureVideoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:session];
-        newCaptureVideoPreviewLayer.frame = self.cameraView.bounds;
-        
+        newCaptureVideoPreviewLayer.frame = self.view.bounds;
+    
         [self.cameraView.layer addSublayer:newCaptureVideoPreviewLayer];
+        self.cameraView.alpha = 0.4;
+        [self.view addSubview:self.cameraView];
         
+        self.gameView.frame = self.view.frame;
+        [self.view addSubview:self.gameView];
         [session startRunning];
         
     }
@@ -246,6 +251,10 @@
     return _generatedNumbers;
 }
 
-
+- (BOOL)shouldAutorotate
+{
+    [super shouldAutorotate];
+    return YES;
+}
 
 @end
