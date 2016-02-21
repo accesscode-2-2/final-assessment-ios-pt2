@@ -92,7 +92,7 @@
         [alert show];
     }
     
-    else if(self.timerCount < 1 && [SubjectsObjectModel sharedManager].scoreCount == self.answersArray.count){
+    else if([SubjectsObjectModel sharedManager].scoreCount == self.answersArray.count){
         [timer invalidate];
                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Game Over"
                                                         message: @"YOU WIN"                                                      delegate:self
