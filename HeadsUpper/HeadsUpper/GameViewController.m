@@ -72,17 +72,30 @@
     
 }
 
+-(void)animateViewWithColor:(UIColor *)color {
+    [UIView animateWithDuration:0 animations:^{
+            self.view.backgroundColor = color;
+    }];
+    [UIView animateWithDuration:0.35 animations:^{
+        self.view.backgroundColor = [UIColor whiteColor];
+    }];
+}
+
 -(void)handleSwipe:(UISwipeGestureRecognizer *)gesture {
     
     self.index ++;
     switch (gesture.direction) {
         case UISwipeGestureRecognizerDirectionLeft:
+
+            [self animateViewWithColor:[UIColor redColor]];
             self.guessItLabel.text = self.selectedCategory[@"subjects"][self.index];
             NSLog(@"pointsTotal left %ld", (long)self.pointsTotal);
 
             break;
             
         case UISwipeGestureRecognizerDirectionRight:
+            [self animateViewWithColor:[UIColor greenColor]];
+
             self.guessItLabel.text = self.selectedCategory[@"subjects"][self.index];
             self.pointsTotal ++;
             NSLog(@"pointsTotal %ld", (long)self.pointsTotal);
