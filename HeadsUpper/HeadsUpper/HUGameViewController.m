@@ -131,7 +131,7 @@
         weakSelf.view.backgroundColor = [UIColor colorForFadeType:fade];
     } completion:^(BOOL finished) {
 
-        [UIView animateWithDuration:.35 animations:^{
+        [UIView animateWithDuration:.25 animations:^{
             weakSelf.view.backgroundColor = [UIColor whiteColor];
         }
             completion:^(BOOL finished) {
@@ -184,7 +184,7 @@
 
 - (void)trackAccelerometer {
     self.motionManager = [[CMMotionManager alloc]init];
-    self.motionManager.accelerometerUpdateInterval = 1.0f/20.0f;
+    self.motionManager.accelerometerUpdateInterval = 1.0f/60.0f;
 
     [self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue]
             withHandler:^(CMAccelerometerData  *accelerometerData, NSError *error) {
@@ -198,11 +198,11 @@
 - (void)handleAccelerometer:(CMAcceleration)acceleration {
     if (self.gameTimer) {
         if (!self.inAnswerState) {
-            if (acceleration.z > 0.75f) {
+            if (acceleration.z > 0.85f) {
                 self.inAnswerState = YES;
                 [self correctlyAnswered];
             }
-            else if(acceleration.z < -0.75f){
+            else if(acceleration.z < -0.85f){
                 self.inAnswerState = YES;
                 [self skipQuestion];
             }
