@@ -19,6 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupGestureRecognizers];
     
    self.topicClueList = self.clues.topicClues;
     
@@ -26,25 +27,44 @@
     
     NSString *randomObject = [self.clues.topicClues objectAtIndex:rnd];
     
-    NSLog(@"%@", self.clues.topicClues);
-    
     self.topicsClueLbl.text = randomObject;
     
 }
+
+-(void) setupGestureRecognizers {
+    UISwipeGestureRecognizer *leftSwipe = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handleSwipe:)];
+    leftSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
+    
+    UISwipeGestureRecognizer *rightSwipe = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handleSwipe:)];
+    rightSwipe.direction = UISwipeGestureRecognizerDirectionRight;
+    
+    
+    [self.view addGestureRecognizer:leftSwipe];
+    [self.view addGestureRecognizer:rightSwipe];
+    
+}
+
+-(void)handleSwipe:(UISwipeGestureRecognizer *)gesture {
+    switch (gesture.direction ) {
+        case UISwipeGestureRecognizerDirectionLeft:
+            self.view.backgroundColor = [UIColor darkGrayColor];
+            break;
+        case UISwipeGestureRecognizerDirectionRight:
+            self.view.backgroundColor = [UIColor orangeColor];
+            break;
+        default:
+            return;
+    }
+}
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
