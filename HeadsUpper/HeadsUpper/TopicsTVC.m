@@ -26,23 +26,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self setupTopicsData];
+
     
-    [super viewDidLoad];
+   }
+
+
+- (void)viewDidAppear:(BOOL)animated {
+    [self.tableView reloadData];
+    [self playMusic];
+    
+}
+
+-(void) playMusic {
     NSURL *musicFile = [[NSBundle mainBundle] URLForResource:@"jackpot loop"
                                                withExtension:@"wav"];
     self.backgroundMusic = [[AVAudioPlayer alloc] initWithContentsOfURL:musicFile
                                                                   error:nil];
     self.backgroundMusic.numberOfLoops = -1;
     [self.backgroundMusic play];
+    
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    
-    [self.tableView reloadData];
-    
-}
 
 
 - (void)didReceiveMemoryWarning {
