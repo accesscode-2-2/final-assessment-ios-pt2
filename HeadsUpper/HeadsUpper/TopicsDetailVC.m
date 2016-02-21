@@ -110,6 +110,8 @@
                                   alertControllerWithTitle:@"Game Over"
                                   message:playerResult
                                   preferredStyle:UIAlertControllerStyleAlert];
+
+    
     
     
     UIAlertAction* ok = [UIAlertAction
