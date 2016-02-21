@@ -9,6 +9,7 @@
 #import "TopicsDetailVC.h"
 #import "TopicsTVC.h"
 #import <AVFoundation/AVFoundation.h>
+#import "NYAlertViewController.h"
 
 
 @interface TopicsDetailVC ()
@@ -141,23 +142,53 @@
     NSString *cluesCorrect = [NSString stringWithFormat:@"%li", (long)self.cluesCorrect];
     NSString *playerResult = [NSString stringWithFormat:@"%@/%@", cluesCorrect, totalClues];
     
-    UIAlertController * alert = [UIAlertController
-                                  alertControllerWithTitle:@"Game Over"
-                                  message:playerResult
-                                  preferredStyle:UIAlertControllerStyleAlert];
+//    UIAlertController * alert = [UIAlertController
+//                                  alertControllerWithTitle:@"Game Over"
+//                                  message:playerResult
+//                                  preferredStyle:UIAlertControllerStyleAlert];
+//
+//    UIAlertAction* ok = [UIAlertAction
+//                         actionWithTitle:@"Done"
+//                         style:UIAlertActionStyleDefault
+//                         handler:^(UIAlertAction * action)
+//                         {
+//                             [alert dismissViewControllerAnimated:YES completion:nil];
+//                             
+//                         }];
+//    
+//    [alert addAction:ok];
+//    
+//    [self presentViewController:alert animated:YES completion:nil];
+    
+    
+    NYAlertViewController *alertViewController = [[NYAlertViewController alloc] initWithNibName:nil bundle:nil];
+    
+    // Set a title and message
+    alertViewController.title = NSLocalizedString(@"Game Over", nil);
+    alertViewController.message = NSLocalizedString(playerResult, nil);
+    
+    // Customize appearance as desired
+    alertViewController.buttonCornerRadius = 20.0f;
+    alertViewController.view.tintColor = self.view.tintColor;
+    
+    alertViewController.titleFont = [UIFont fontWithName:@"AvenirNext-Bold" size:19.0f];
+    alertViewController.messageFont = [UIFont fontWithName:@"AvenirNext-Medium" size:16.0f];
+    alertViewController.buttonTitleFont = [UIFont fontWithName:@"AvenirNext-Regular" size:alertViewController.buttonTitleFont.pointSize];
+    alertViewController.cancelButtonTitleFont = [UIFont fontWithName:@"AvenirNext-Medium" size:alertViewController.cancelButtonTitleFont.pointSize];
+    
+    alertViewController.swipeDismissalGestureEnabled = YES;
+    alertViewController.backgroundTapDismissalGestureEnabled = YES;
+    
+    // Add alert actions
+    [alertViewController addAction:[NYAlertAction actionWithTitle:NSLocalizedString(@"Done", nil)
+                                                            style:UIAlertActionStyleCancel
+                                                          handler:^(NYAlertAction *action) {
+                                                              [self dismissViewControllerAnimated:YES completion:nil];
+                                                          }]];
+    
+    // Present the alert view controller
+    [self presentViewController:alertViewController animated:YES completion:nil];
 
-    UIAlertAction* ok = [UIAlertAction
-                         actionWithTitle:@"Done"
-                         style:UIAlertActionStyleDefault
-                         handler:^(UIAlertAction * action)
-                         {
-                             [alert dismissViewControllerAnimated:YES completion:nil];
-                             
-                         }];
-    
-    [alert addAction:ok];
-    
-    [self presentViewController:alert animated:YES completion:nil];
 
     
 }
