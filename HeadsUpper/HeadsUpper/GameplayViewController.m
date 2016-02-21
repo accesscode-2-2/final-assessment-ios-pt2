@@ -10,16 +10,21 @@
 #import "GameSummaryViewController.h"
 
 @interface GameplayViewController ()
+@property (nonatomic,strong) AVAudioPlayer *audioPlayerOne;
+@property (nonatomic,strong) AVAudioPlayer *audioPlayerTwo;
+           
 @property (strong, nonatomic) IBOutlet UILabel *timerLabel;
 @property (strong, nonatomic) IBOutlet UILabel *clueLabel;
 @property (nonatomic) NSTimer *gameTimer;
 @property (nonatomic) NSInteger timeLeft;
-//@property (nonatomic) NSMutableArray * categoryItemsUsed;
+
 @property (nonatomic) NSMutableSet * correctGuesses;
 @property (nonatomic) NSMutableSet * wrongGuesses;
 @property (nonatomic) NSString * itemDisplayed;
-//@property (nonatomic) NSArray * categoryArray;
+//
 @property (strong, nonatomic) IBOutlet UIButton *testButton;
+
+
 
 @end
 
@@ -32,6 +37,7 @@
     [self becomeFirstResponder];
     [self addSwipeGesture];
     [self startGameTimer];
+    [self setupAudioPlayer];
     
     [self randomDisplayFromCategoryArray];
     
@@ -41,6 +47,8 @@
     
     NSLog(@"Dictionary Passed: %@",self.categoryPlayed);
     NSLog(@"Dictionary Data:%@",self.categoryArray);
+    
+    self.testButton.hidden = YES;
     
 }
 
@@ -106,7 +114,7 @@
 {
     if(event.type == UIEventSubtypeMotionShake){
         NSLog(@"called");
-        [self.view setBackgroundColor:[UIColor greenColor]];
+        [self.audioPlayerTwo play];
         [self.correctGuesses addObject:self.itemDisplayed];
         [self createFlash:[UIColor greenColor]];
         [self randomDisplayFromCategoryArray];
@@ -136,7 +144,9 @@
     if (swipe.direction == UISwipeGestureRecognizerDirectionDown) {
         NSLog(@"Swipe Down Works!");
         [self.wrongGuesses addObject:self.itemDisplayed];
+        [self.audioPlayerOne play];
         [self createFlash:[UIColor redColor]];
+        
         
         [self randomDisplayFromCategoryArray];
         NSLog(@"Wrong Guesses:%@",self.wrongGuesses);
@@ -163,6 +173,23 @@
     }];
 }
 
+- (void)setupAudioPlayer{
+    
+    //self.audioPlayer = [[AVAudioPlayer alloc]init];
+    
+    NSString *pathOne  = [[NSBundle mainBundle] pathForResource:@"DamnDaniel" ofType:@"m4a"];
+    NSURL *soundUrlOne = [NSURL fileURLWithPath:pathOne];
+    NSError *error;
+    self.audioPlayerOne = [[AVAudioPlayer alloc]initWithContentsOfURL:soundUrlOne error:&error];
+    [self.audioPlayerOne prepareToPlay];
+    
+    NSString *pathTwo  = [[NSBundle mainBundle] pathForResource:@"RightAnswer" ofType:@"m4a"];
+    NSURL *soundUrlTwo = [NSURL fileURLWithPath:pathTwo];
+    self.audioPlayerTwo = [[AVAudioPlayer alloc]initWithContentsOfURL:soundUrlTwo error:&error];
+    [self.audioPlayerTwo prepareToPlay];
+    
+
+}
 
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
