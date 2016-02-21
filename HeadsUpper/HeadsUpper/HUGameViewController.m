@@ -12,6 +12,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *clueLabel;
 
+@property (nonatomic) NSInteger *gameScore;
+
 @end
 
 @implementation HUGameViewController
@@ -20,8 +22,32 @@
     [super viewDidLoad];
     
     self.clueLabel.text =self.category.clues[0];
+    [self setupSwipeGestures];
 }
 
+- (void)setupSwipeGestures {
+    
+    UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeLeft:)];
+    
+    swipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
+    
+    [self.view addGestureRecognizer:swipeLeft];
+    
+    UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeRight:)];
+    
+    swipeRight.direction = UISwipeGestureRecognizerDirectionRight;
+    
+    [self.view addGestureRecognizer:swipeRight];
+    
+}
 
+- (void)handleSwipeLeft:(UISwipeGestureRecognizer *)gesture {
+    
+    self.view.backgroundColor = [UIColor orangeColor];
+}
+
+- (void)handleSwipeRight:(UISwipeGestureRecognizer *)gesture {
+    self.view.backgroundColor = [UIColor greenColor];
+}
 
 @end

@@ -11,6 +11,7 @@
 		1887DC591C7A11900037888D /* HUGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1887DC581C7A11900037888D /* HUGameViewController.m */; };
 		1887DC5F1C7A11F00037888D /* HUGameCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1887DC5E1C7A11F00037888D /* HUGameCategory.m */; };
 		1887DC621C7A17320037888D /* CategoryAndClueSetup.m in Sources */ = {isa = PBXBuildFile; fileRef = 1887DC611C7A17320037888D /* CategoryAndClueSetup.m */; };
+		18B3CAEA1C7A2C690057381E /* HUGameCategory+GameScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B3CAE91C7A2C690057381E /* HUGameCategory+GameScore.m */; };
 		8D89695C1C755D0200D32E8A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D89695B1C755D0200D32E8A /* main.m */; };
 		8D89695F1C755D0200D32E8A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D89695E1C755D0200D32E8A /* AppDelegate.m */; };
 		8D8969651C755D0200D32E8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D8969631C755D0200D32E8A /* Main.storyboard */; };
@@ -27,6 +28,8 @@
 		1887DC5E1C7A11F00037888D /* HUGameCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUGameCategory.m; sourceTree = "<group>"; };
 		1887DC601C7A17320037888D /* CategoryAndClueSetup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryAndClueSetup.h; sourceTree = "<group>"; };
 		1887DC611C7A17320037888D /* CategoryAndClueSetup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryAndClueSetup.m; sourceTree = "<group>"; };
+		18B3CAE81C7A2C690057381E /* HUGameCategory+GameScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HUGameCategory+GameScore.h"; sourceTree = "<group>"; };
+		18B3CAE91C7A2C690057381E /* HUGameCategory+GameScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HUGameCategory+GameScore.m"; sourceTree = "<group>"; };
 		8D8969571C755D0200D32E8A /* HeadsUpper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeadsUpper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D89695B1C755D0200D32E8A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8D89695D1C755D0200D32E8A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -69,6 +72,8 @@
 			children = (
 				8D89695D1C755D0200D32E8A /* AppDelegate.h */,
 				8D89695E1C755D0200D32E8A /* AppDelegate.m */,
+				18B3CAE81C7A2C690057381E /* HUGameCategory+GameScore.h */,
+				18B3CAE91C7A2C690057381E /* HUGameCategory+GameScore.m */,
 				1887DC5D1C7A11F00037888D /* HUGameCategory.h */,
 				1887DC5E1C7A11F00037888D /* HUGameCategory.m */,
 				1887DC601C7A17320037888D /* CategoryAndClueSetup.h */,
@@ -125,6 +130,7 @@
 				TargetAttributes = {
 					8D8969561C755D0200D32E8A = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = BULEKXRKSR;
 					};
 				};
 			};
@@ -167,6 +173,7 @@
 				1887DC561C7A11670037888D /* HUCategoriesTableViewController.m in Sources */,
 				8D89695F1C755D0200D32E8A /* AppDelegate.m in Sources */,
 				8D89695C1C755D0200D32E8A /* main.m in Sources */,
+				18B3CAEA1C7A2C690057381E /* HUGameCategory+GameScore.m in Sources */,
 				1887DC5F1C7A11F00037888D /* HUGameCategory.m in Sources */,
 				1887DC591C7A11900037888D /* HUGameViewController.m in Sources */,
 				1887DC621C7A17320037888D /* CategoryAndClueSetup.m in Sources */,
@@ -279,11 +286,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = HeadsUpper/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mikekavouras.HeadsUpper;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mesfin.HeadsUpper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -291,11 +301,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = HeadsUpper/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mikekavouras.HeadsUpper;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mesfin.HeadsUpper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

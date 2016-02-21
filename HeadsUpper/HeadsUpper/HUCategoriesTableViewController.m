@@ -21,6 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"Heads UP!";
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [self setup];
