@@ -7,21 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1887DC561C7A11670037888D /* HUCategoriesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1887DC551C7A11670037888D /* HUCategoriesTableViewController.m */; };
+		1887DC591C7A11900037888D /* HUGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1887DC581C7A11900037888D /* HUGameViewController.m */; };
+		1887DC5C1C7A11C20037888D /* HUClue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1887DC5B1C7A11C20037888D /* HUClue.m */; };
+		1887DC5F1C7A11F00037888D /* HUGameCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1887DC5E1C7A11F00037888D /* HUGameCategory.m */; };
+		1887DC621C7A17320037888D /* CategoryAndClueSetup.m in Sources */ = {isa = PBXBuildFile; fileRef = 1887DC611C7A17320037888D /* CategoryAndClueSetup.m */; };
 		8D89695C1C755D0200D32E8A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D89695B1C755D0200D32E8A /* main.m */; };
 		8D89695F1C755D0200D32E8A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D89695E1C755D0200D32E8A /* AppDelegate.m */; };
-		8D8969621C755D0200D32E8A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8969611C755D0200D32E8A /* ViewController.m */; };
 		8D8969651C755D0200D32E8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D8969631C755D0200D32E8A /* Main.storyboard */; };
 		8D8969671C755D0200D32E8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D8969661C755D0200D32E8A /* Assets.xcassets */; };
 		8D89696A1C755D0200D32E8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D8969681C755D0200D32E8A /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1887DC541C7A11670037888D /* HUCategoriesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUCategoriesTableViewController.h; sourceTree = "<group>"; };
+		1887DC551C7A11670037888D /* HUCategoriesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUCategoriesTableViewController.m; sourceTree = "<group>"; };
+		1887DC571C7A11900037888D /* HUGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUGameViewController.h; sourceTree = "<group>"; };
+		1887DC581C7A11900037888D /* HUGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUGameViewController.m; sourceTree = "<group>"; };
+		1887DC5A1C7A11C20037888D /* HUClue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUClue.h; sourceTree = "<group>"; };
+		1887DC5B1C7A11C20037888D /* HUClue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUClue.m; sourceTree = "<group>"; };
+		1887DC5D1C7A11F00037888D /* HUGameCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUGameCategory.h; sourceTree = "<group>"; };
+		1887DC5E1C7A11F00037888D /* HUGameCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUGameCategory.m; sourceTree = "<group>"; };
+		1887DC601C7A17320037888D /* CategoryAndClueSetup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryAndClueSetup.h; sourceTree = "<group>"; };
+		1887DC611C7A17320037888D /* CategoryAndClueSetup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryAndClueSetup.m; sourceTree = "<group>"; };
 		8D8969571C755D0200D32E8A /* HeadsUpper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeadsUpper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D89695B1C755D0200D32E8A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8D89695D1C755D0200D32E8A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8D89695E1C755D0200D32E8A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		8D8969601C755D0200D32E8A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		8D8969611C755D0200D32E8A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		8D8969641C755D0200D32E8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8D8969661C755D0200D32E8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D8969691C755D0200D32E8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -60,8 +72,16 @@
 			children = (
 				8D89695D1C755D0200D32E8A /* AppDelegate.h */,
 				8D89695E1C755D0200D32E8A /* AppDelegate.m */,
-				8D8969601C755D0200D32E8A /* ViewController.h */,
-				8D8969611C755D0200D32E8A /* ViewController.m */,
+				1887DC5D1C7A11F00037888D /* HUGameCategory.h */,
+				1887DC5E1C7A11F00037888D /* HUGameCategory.m */,
+				1887DC5A1C7A11C20037888D /* HUClue.h */,
+				1887DC5B1C7A11C20037888D /* HUClue.m */,
+				1887DC601C7A17320037888D /* CategoryAndClueSetup.h */,
+				1887DC611C7A17320037888D /* CategoryAndClueSetup.m */,
+				1887DC541C7A11670037888D /* HUCategoriesTableViewController.h */,
+				1887DC551C7A11670037888D /* HUCategoriesTableViewController.m */,
+				1887DC571C7A11900037888D /* HUGameViewController.h */,
+				1887DC581C7A11900037888D /* HUGameViewController.m */,
 				8D8969631C755D0200D32E8A /* Main.storyboard */,
 				8D8969661C755D0200D32E8A /* Assets.xcassets */,
 				8D8969681C755D0200D32E8A /* LaunchScreen.storyboard */,
@@ -149,9 +169,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D8969621C755D0200D32E8A /* ViewController.m in Sources */,
+				1887DC561C7A11670037888D /* HUCategoriesTableViewController.m in Sources */,
+				1887DC5C1C7A11C20037888D /* HUClue.m in Sources */,
 				8D89695F1C755D0200D32E8A /* AppDelegate.m in Sources */,
 				8D89695C1C755D0200D32E8A /* main.m in Sources */,
+				1887DC5F1C7A11F00037888D /* HUGameCategory.m in Sources */,
+				1887DC591C7A11900037888D /* HUGameViewController.m in Sources */,
+				1887DC621C7A17320037888D /* CategoryAndClueSetup.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +324,7 @@
 				8D8969701C755D0200D32E8A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
