@@ -17,7 +17,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *guessItLabel;
 @property (nonatomic) NSInteger pointsTotal;
 @property (nonatomic) NSInteger index;
-
 @end
 
 @implementation GameViewController
@@ -29,13 +28,17 @@
     self.navigationItem.title = self.selectedCategory [@"title"];
     [self setupGestureRecognizer];
     [self getReadyTimer];
-    NSLog(@"yooooo %@", self.selectedCategory);
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.timeLabel.hidden = YES;
     
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(deviceOrientationDidChangeNotification:)
+     name:UIDeviceOrientationDidChangeNotification
+     object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -92,7 +95,7 @@
 }
 
 -(void)timerFired:(NSTimer *)timer{
-    
+ 
     self.timerCount --;
     if (self.timerCount == 0) {
          [timer invalidate];
@@ -123,27 +126,46 @@
 
 -(void)handleSwipe:(UISwipeGestureRecognizer *)gesture {
     if (self.timerCount != 0) {
-        self.index ++;
         switch (gesture.direction) {
             case UISwipeGestureRecognizerDirectionLeft:
-                
-                [self animateViewWithColor:[UIColor redColor]];
-                self.guessItLabel.text = self.selectedCategory[@"subjects"][self.index];
-                NSLog(@"pointsTotal left %ld", (long)self.pointsTotal);
-                
+                [self skipIt];
                 break;
                 
             case UISwipeGestureRecognizerDirectionRight:
-                [self animateViewWithColor:[UIColor greenColor]];
-                
-                self.guessItLabel.text = self.selectedCategory[@"subjects"][self.index];
-                self.pointsTotal ++;
-                NSLog(@"pointsTotal %ld", (long)self.pointsTotal);
+                [self correctAnswer];
                 break;
                 
             default:
                 break;
         }
+    }
+}
+
+-(void)correctAnswer{
+    self.index ++;
+    [self animateViewWithColor:[UIColor greenColor]];
+    self.guessItLabel.text = self.selectedCategory[@"subjects"][self.index];
+    self.pointsTotal ++;
+}
+
+-(void)skipIt{
+    self.index ++;
+    [self animateViewWithColor:[UIColor redColor]];
+    self.guessItLabel.text = self.selectedCategory[@"subjects"][self.index];
+}
+
+- (void)deviceOrientationDidChangeNotification:(NSNotification*)note
+{
+    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+    //Face Up
+    if (orientation == UIDeviceOrientationFaceDown)
+    {
+        [self correctAnswer];
+    }
+    // Face down
+    else if (orientation == UIDeviceOrientationFaceUp)
+    {
+        [self skipIt];
     }
 }
 
