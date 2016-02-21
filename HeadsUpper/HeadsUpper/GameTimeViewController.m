@@ -26,7 +26,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.layer.backgroundColor = [UIColor blueColor].CGColor;
+    self.view.layer.backgroundColor = [UIColor lightGrayColor].CGColor;
+
+    self.navigationController.navigationBar.topItem.title = @"Menu";
 
     
     self.questionCount = 1;
@@ -93,7 +95,7 @@
         self.topicLabel.text = [self.category.items objectAtIndex:self.questionCount];
    
     } else {
-        self.view.layer.backgroundColor = [UIColor blueColor].CGColor;
+        self.view.layer.backgroundColor = [UIColor lightGrayColor].CGColor;
         [self.timer invalidate];
         NSString *score = [[NSNumber numberWithInteger:self.score]stringValue];
         NSString *numberOfQuestions = [[NSNumber numberWithInteger:self.questionCount]stringValue];
@@ -119,7 +121,7 @@
     NSLog(@"score: %ld", (long)self.score);
         
     } else {
-    self.view.layer.backgroundColor = [UIColor blueColor].CGColor;
+    self.view.layer.backgroundColor = [UIColor lightGrayColor].CGColor;
     [self.timer invalidate];
     NSString *score = [[NSNumber numberWithInteger:self.score]stringValue];
     NSString *numberOfQuestions = [[NSNumber numberWithInteger:self.questionCount]stringValue];

@@ -9,7 +9,7 @@
 #import "SetupTableViewController.h"
 #import "GameModel.h"
 #import "GameTimeViewController.h"
-
+#import "SetupTableViewCell.h"
 
 @interface SetupTableViewController ()
 
@@ -33,6 +33,11 @@
     
     self.categories = @[superstarCategory, thatsSo90sCategory, heyMrDJCategory, iconsCategory, animalsGoneWildCategory];
     
+    UINib *nib = [UINib nibWithNibName:@"SetupTableViewCell" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"cellIdentifier"];
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 100;
+    
 }
 
 #pragma mark - Table view data source
@@ -45,31 +50,24 @@
     return self.categories.count;
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"reuseCell" forIndexPath:indexPath];
+    SetupTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentifier" forIndexPath:indexPath];
     
     GameModel *thisCategory = [self.categories objectAtIndex:indexPath.row];
-    cell.textLabel.text = thisCategory.category;
-    
-    // set up category selection/score for detailLabel here
+    cell.categoryLabel.text = thisCategory.category;
     
     return cell;
 }
 
 #pragma mark - Navigation
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    // Get the new view controller using [segue destinationViewController].
-    GameTimeViewController *gameTimeViewController = segue.destinationViewController;
+    GameModel *thisCategory = [self.categories objectAtIndex:indexPath.row];
+    GameTimeViewController *dvc = [self.storyboard instantiateViewControllerWithIdentifier:@"rootToGameView"];
+    dvc.category = thisCategory;
     
-    // Pass the selected object to the new view controller.
-    if ([segue.identifier isEqualToString:@"rootToGameView"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        GameModel *selectedCategory = [self.categories objectAtIndex: indexPath.row];
-        gameTimeViewController.category = selectedCategory;
-    }
+    [self.navigationController pushViewController:dvc animated:YES];
 }
 
 @end

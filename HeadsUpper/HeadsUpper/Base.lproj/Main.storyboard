@@ -10,16 +10,16 @@
         <scene sceneID="hCm-ne-cJ3">
             <objects>
                 <tableViewController id="ne3-tw-tTR" customClass="SetupTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="RBf-fk-W0f">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="36" sectionHeaderHeight="28" sectionFooterHeight="28" id="RBf-fk-W0f">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseCell" id="N2Z-sz-SmA">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="reuseCell" rowHeight="36" id="N2Z-sz-SmA">
+                                <rect key="frame" x="0.0" y="92" width="600" height="36"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N2Z-sz-SmA" id="AYI-3k-mvc">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="36"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -41,7 +41,7 @@
         <!--Game Time View Controller-->
         <scene sceneID="P58-X5-jsT">
             <objects>
-                <viewController id="nqX-P7-5ho" customClass="GameTimeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="rootToGameView" id="nqX-P7-5ho" customClass="GameTimeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xAR-Em-sML"/>
                         <viewControllerLayoutGuide type="bottom" id="mPs-6G-12e"/>
@@ -80,7 +80,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AU6-tk-JNx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="380" y="1173"/>
+            <point key="canvasLocation" x="388" y="1177"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Rek-C4-oQp">

@@ -12,7 +12,6 @@
 
 @property (nonatomic) NSString *category; 
 @property (nonatomic) NSArray *items;
-@property (nonatomic) NSString *selection;
 
 - (instancetype)initWithCategoryType:(NSString *)picked;
 
