@@ -69,6 +69,7 @@
     
     self.gameView.answerLabel.alpha = 0;
     self.gameView.correctPassLabel.alpha = 0;
+    self.gameView.scoreLabel.alpha = 0;
     self.gameView.countdownLabel.hidden = YES;
     
 }
@@ -136,20 +137,41 @@
 
     self.gameView.correctPassLabel.text = message;
     
-    [self.gameView.answerLabel setAlpha:0.0f];
-    [self.gameView.correctPassLabel setAlpha:1.0f];
+    self.gameView.answerLabel.alpha = 0.0;
+    self.gameView.correctPassLabel.alpha = 1.0;
     
     [UIView animateWithDuration:1.50f animations:^{
         
-        [self.gameView.correctPassLabel setAlpha:0.0f];
+        self.gameView.correctPassLabel.alpha = 0.0;
         
     } completion:^(BOOL finished) {
         
-       [self.gameView.answerLabel setAlpha:1.0f];
+       self.gameView.answerLabel.alpha = 1.0;
          
             
         }];
 }
+
+-(void)fadeInFadeOutTimesUpLabel:(NSString *) message
+{
+    
+    self.gameView.introCountdownLabel.text = message;
+    
+    self.gameView.answerLabel.alpha = 0.0;
+    self.gameView.introCountdownLabel.alpha = 1.0;
+    
+    [UIView animateWithDuration:1.50f animations:^{
+
+        self.gameView.introCountdownLabel.alpha = 0.0;
+        
+    } completion:^(BOOL finished) {
+        
+        self.gameView.scoreLabel.text = [NSString stringWithFormat: @"%ld out of %ld correct!", (long)self.totalCorrect, (long)self.totalAnswers];
+        self.gameView.scoreLabel.alpha = 1.0;
+        
+    }];
+}
+
 
 
 #pragma mark - Timers
@@ -183,10 +205,7 @@
         
         }else {
             
-            self.gameView.answerLabel.alpha = 0.0;
-            self.gameView.introCountdownLabel.text = @"Time's up!";
-            self.gameView.introCountdownLabel.alpha = 1.0;
-            
+            [self fadeInFadeOutTimesUpLabel:@"Time!"];
         }
         
     }
