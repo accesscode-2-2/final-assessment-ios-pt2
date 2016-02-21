@@ -63,10 +63,10 @@
         AVCaptureSession *session = [[AVCaptureSession alloc] init];
         session.sessionPreset = AVCaptureSessionPresetHigh;
         
-        AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-         
+        AVCaptureDevice *newCamera = [self cameraWithPosition:AVCaptureDevicePositionFront];;
+
         NSError *error = nil;
-        AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:device error:&error];
+        AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:newCamera error:&error];
         [session addInput:input];
         
         AVCaptureVideoPreviewLayer *newCaptureVideoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:session];
@@ -81,6 +81,16 @@
         [session startRunning];
         
     }
+}
+
+- (AVCaptureDevice *) cameraWithPosition:(AVCaptureDevicePosition) position
+{
+    NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
+    for (AVCaptureDevice *device in devices)
+    {
+        if ([device position] == position) return device;
+    }
+    return nil;
 }
 
 #pragma mark - Get Ready
@@ -125,7 +135,7 @@
     
     _startGameTimer =  [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
     
-    self.timerCount = 9;
+    self.timerCount = 61;
     [_startGameTimer fire];
     
     [[NSRunLoop currentRunLoop] addTimer:_startGameTimer forMode:NSRunLoopCommonModes];
