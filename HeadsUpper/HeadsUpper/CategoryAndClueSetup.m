@@ -70,48 +70,7 @@
     
     [gameCategoriesArray addObject:accessCode];
     
-    
     return  gameCategoriesArray;
 }
-
-/*
- 
- title: "Access Code 2.2 Students",
- subjects: [
- "Artur Lan",
- "Ayuna Vogel",
- "Bereket Ghebremedhin",
- "Brian Blanco",
- "Charles H Kang",
- "Chris David",
- "Christella Dolmo",
- "Christian Maldonado",
- "Daaaaaammmmmmnnnnn Daniel",
- "Derek Netto",
- "Diana Elezaj",
- "Elber Carneiro",
- "Eric Sanchez",
- "Eric Sze",
- "Felicia Weathers",
- "Henna Ahmed",
- "Jackie Meggesto",
- "Jamaal Sedayao",
- "Jason Wang",
- "Jovanny Espinal",
- "Justine Gartner",
- "Kaira Villanueva",
- "Kaisha Jones",
- "Krishna Picart",
- "Lauren Caponong",
- "Mesfin Bekele Mekonnen",
- "Natalia Estrella",
- "Shena Yoshida",
- "Umar Mahmud",
- "Varindra Hart",
- "Xiulan Shi",
- "Zoufishan Mehdi"
- ]
- 
- */
 
 @end

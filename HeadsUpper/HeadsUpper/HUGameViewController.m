@@ -8,8 +8,9 @@
 
 #import "HUGameViewController.h"
 #import "HUGameCategory+GameScore.h"
+#import <CoreMotion/CoreMotion.h>
 
-@interface HUGameViewController ()
+@interface HUGameViewController () <UIAccelerometerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *clueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
@@ -20,6 +21,8 @@
 @property (nonatomic) UISwipeGestureRecognizer *leftGesture;
 @property (nonatomic) UISwipeGestureRecognizer *rightGesture;
 @property (nonatomic) NSTimer *timer;
+@property (nonatomic,strong) CMMotionManager *motionManager;
+@property (nonatomic) BOOL isTilted;
 
 @end
 
@@ -34,7 +37,9 @@
     [self setup];
     [self setupSwipeGestures];
     [self setupTimer];
+    [self setupAccelerometer];
 }
+
 
 -(void)viewWillDisappear:(BOOL)animated {
     
@@ -65,6 +70,19 @@
     [timer fire];
 }
 
+- (void)setupAccelerometer {
+    self.motionManager = [[CMMotionManager alloc]init];
+    self.motionManager.accelerometerUpdateInterval = 1.0f/60.0f;
+    
+    [self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue]
+                                             withHandler:^(CMAccelerometerData  *accelerometerData, NSError *error) {
+                                                 [self outputAccelerationData:accelerometerData.acceleration];
+                                                 if(error){
+                                                     NSLog(@"Error, no data for acceleroeter :%@",[error localizedDescription]);
+                                                 }
+                                             }];
+}
+
 #pragma mark - Handle Timer
 
 - (void)timerFired:(NSTimer *)timer {
@@ -82,6 +100,60 @@
         [self showAlert];
     }
 }
+
+#pragma mark - Accelerometer
+
+- (void) outputAccelerationData:(CMAcceleration)acceleration{
+    
+    if(self.timer){
+        
+        if (!self.isTilted) {
+            if (acceleration.x > 0.4f) {
+                self.isTilted = YES;
+                [self correctAnswer];
+            }
+            else if (acceleration.x < -0.4f) {
+                self.isTilted = YES;
+                [self skip];
+            }
+        }
+        else {
+            if (acceleration.x < 0.2f && acceleration.x > -0.2f) {
+                self.isTilted = NO;
+            }
+        }
+    }
+}
+
+- (void)correctAnswer {
+    
+    if (self.currentIndex < self.category.clues.count-1) {
+        
+        [self animateWithColor:[UIColor greenColor]];
+        [self setupNextClue];
+        self.gameScore+=1;
+    }
+    
+    else {
+        self.gameScore+=1;
+        [self showAlert];
+        [self.timer invalidate];
+    }
+    
+}
+
+- (void)skip {
+    
+    if (self.currentIndex < self.category.clues.count-1) {
+        [self animateWithColor:[UIColor orangeColor]];
+        [self setupNextClue];
+    }
+    else {
+        [self showAlert];
+        [self.timer invalidate];
+    }
+}
+
 
 #pragma mark - Swipes
 
@@ -104,14 +176,11 @@
     self.rightGesture = swipeRight;
 }
 
+
 - (void)handleSwipeLeft:(UISwipeGestureRecognizer *)gesture {
     
     if (self.currentIndex < self.category.clues.count-1) {
-        [UIView animateWithDuration:0.5 delay:0.09 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-            self.view.backgroundColor = [UIColor orangeColor];
-        } completion:^(BOOL finished) {
-            self.view.backgroundColor = [UIColor whiteColor];
-        }];
+        [self animateWithColor:[UIColor orangeColor]];
         [self setupNextClue];
     }
     else {
@@ -123,11 +192,8 @@
 - (void)handleSwipeRight:(UISwipeGestureRecognizer *)gesture {
     
     if (self.currentIndex < self.category.clues.count-1) {
-        [UIView animateWithDuration:0.5 delay:0.09 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-            self.view.backgroundColor = [UIColor greenColor];
-        } completion:^(BOOL finished) {
-            self.view.backgroundColor = [UIColor whiteColor];
-        }];
+        
+        [self animateWithColor:[UIColor greenColor]];
         [self setupNextClue];
         self.gameScore+=1;
     }
@@ -165,6 +231,15 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
+#pragma mark - Animation Helper
 
+-(void)animateWithColor:(UIColor *)color {
+    
+    [UIView animateWithDuration:0.5 delay:0.09 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        self.view.backgroundColor = color;
+    } completion:^(BOOL finished) {
+        self.view.backgroundColor = [UIColor whiteColor];
+    }];
+}
 
 @end
