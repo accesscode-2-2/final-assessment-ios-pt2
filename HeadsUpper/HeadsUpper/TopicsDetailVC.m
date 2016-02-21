@@ -17,6 +17,11 @@
 @property (nonatomic, assign) NSInteger timerCount;
 @property (weak, nonatomic) IBOutlet UILabel *timerLbl;
 
+@property (nonatomic, assign) NSInteger totalClues;
+@property (nonatomic, assign) NSInteger cluesCorrect;
+@property (nonatomic, assign) NSInteger cluesWrong;
+
+
 @end
 
 @implementation TopicsDetailVC
@@ -78,11 +83,15 @@
             self.view.backgroundColor = [UIColor greenColor];
             [self bGColourTimer];
             [self generateClue];
+            self.totalClues++;
+            
             break;
         case UISwipeGestureRecognizerDirectionRight:
             self.view.backgroundColor = [UIColor redColor];
             [self bGColourTimer];
             [self generateClue];
+            self.totalClues++;
+            self.cluesWrong++;
             break;
         default:
             return;
@@ -90,14 +99,21 @@
 }
 
 -(void)gameOverAlert {
+    
+  self.cluesCorrect =  self.totalClues - self.cluesWrong;
+    
+    NSString *totalClues = [NSString stringWithFormat:@"%li", (long)self.totalClues];
+    NSString *cluesCorrect = [NSString stringWithFormat:@"%li", (long)self.cluesCorrect];
+    NSString *playerResult = [NSString stringWithFormat:@"%@/%@", cluesCorrect, totalClues];
+    
     UIAlertController * alert = [UIAlertController
-                                  alertControllerWithTitle:@"My Title"
-                                  message:@"Enter User Credentials"
+                                  alertControllerWithTitle:@"Game Over"
+                                  message:playerResult
                                   preferredStyle:UIAlertControllerStyleAlert];
     
     
     UIAlertAction* ok = [UIAlertAction
-                         actionWithTitle:@"OK"
+                         actionWithTitle:@"Done"
                          style:UIAlertActionStyleDefault
                          handler:^(UIAlertAction * action)
                          {
