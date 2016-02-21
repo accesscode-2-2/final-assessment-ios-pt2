@@ -33,7 +33,7 @@
 }
 
 -(void) playMusic {
-    NSURL *musicFile = [[NSBundle mainBundle] URLForResource:@"jackpot loop"
+    NSURL *musicFile = [[NSBundle mainBundle] URLForResource:@"background-menu"
         withExtension:@"wav"];
     self.backgroundMusic = [[AVAudioPlayer alloc] initWithContentsOfURL:musicFile
                                                                   error:nil];
@@ -43,7 +43,7 @@
 }
 
 -(void) playNewGameSound {
-    NSURL *musicFile = [[NSBundle mainBundle] URLForResource:@"10 New Game Sound"
+    NSURL *musicFile = [[NSBundle mainBundle] URLForResource:@"start-new-game"
                                                withExtension:@"wav"];
     self.backgroundMusic = [[AVAudioPlayer alloc] initWithContentsOfURL:musicFile
                                                                   error:nil];

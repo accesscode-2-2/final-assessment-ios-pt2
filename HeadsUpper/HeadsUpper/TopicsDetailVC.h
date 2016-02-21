@@ -16,8 +16,4 @@
 @property (weak, nonatomic) NSString *topicName;
 @property (nonatomic) Topics *clues;
 
-
-
-
-
 @end

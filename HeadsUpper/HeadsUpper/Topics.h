@@ -10,11 +10,7 @@
 
 @interface Topics : NSObject
 
-
 @property (nonatomic) NSString * topicName;
 @property (nonatomic) NSArray * topicClues;
-
-
-
 
 @end

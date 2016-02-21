@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface TopicSelectionTableViewCell : UITableViewCell
+
 @property (weak, nonatomic) IBOutlet UIImageView *topicsImg;
 @property (weak, nonatomic) IBOutlet UILabel *topicLbl;
 

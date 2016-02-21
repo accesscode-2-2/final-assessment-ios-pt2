@@ -38,7 +38,7 @@
 }
 
 -(void) playWinSound {
-    NSURL *musicFile = [[NSBundle mainBundle] URLForResource:@"10_purchase"
+    NSURL *musicFile = [[NSBundle mainBundle] URLForResource:@"correct-answer"
                                                withExtension:@"wav"];
     self.backgroundMusic = [[AVAudioPlayer alloc] initWithContentsOfURL:musicFile
                                                                   error:nil];
@@ -47,7 +47,7 @@
 }
 
 -(void) playlossSound {
-    NSURL *musicFile = [[NSBundle mainBundle] URLForResource:@"cranker swipe"
+    NSURL *musicFile = [[NSBundle mainBundle] URLForResource:@"skip"
                                                withExtension:@"wav"];
     self.backgroundMusic = [[AVAudioPlayer alloc] initWithContentsOfURL:musicFile
                                                                   error:nil];
@@ -56,7 +56,7 @@
 }
 
 -(void) playGameOver{
-    NSURL *musicFile = [[NSBundle mainBundle] URLForResource:@"you lose"
+    NSURL *musicFile = [[NSBundle mainBundle] URLForResource:@"game-over"
                                                withExtension:@"wav"];
     self.backgroundMusic = [[AVAudioPlayer alloc] initWithContentsOfURL:musicFile
                                                                   error:nil];
