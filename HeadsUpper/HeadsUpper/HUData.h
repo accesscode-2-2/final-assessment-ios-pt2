@@ -14,6 +14,4 @@
 @property (nonatomic) NSString *topic;
 @property (nonatomic) NSMutableArray *clues;
 
-//+ (NSArray *)allTopics;
-
 @end

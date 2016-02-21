@@ -59,7 +59,7 @@
                          @"Tom Hanks",
                          @"Clay Aiken",
                          @"Channing Tatum"];
-
+    
     HUData *thatsSo90s = [[HUData alloc]init];
     
     thatsSo90s.topic = @"That's so 90s";
@@ -165,34 +165,19 @@
                            @"Patrick Stewert"];
     
     self.categoryTopics = @[superstars, thatsSo90s, heyDJ, famousPeople];
-
     
-//    self.topics = [[NSMutableArray alloc] init];
-//    
-//    // initialize the data in self.topics
-//    for (NSString *topic in [HUData allTopics]) {
-//        HUData *data = [[HUData alloc] init];
-//        data.topic = topic;
-//        [self.topics addObject:data];
-//    }
 }
-
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-//{
-//    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-//    
-//    HUData *data = [self.topics objectAtIndex:indexPath.row];
-//    
-//    HUGameViewController *vc = segue.destinationViewController;
-//    
-//    vc.data = data;
-//
-//}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellIdentifier" forIndexPath:indexPath];
     
-    //prints topic names in cell
+    if (indexPath.row % 2)
+    {
+        [cell setBackgroundColor:[UIColor colorWithRed:.8 green:.8 blue:1 alpha:1]];
+    }
+    else [cell setBackgroundColor:[UIColor colorWithRed:.8 green:1 blue:.8 alpha:1]];
+
+    
     HUData *categoryTopics = self.categoryTopics[indexPath.row];
     cell.textLabel.text = categoryTopics.topic;
     
@@ -203,17 +188,6 @@
     return cell;
 }
 
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellIdentifier" forIndexPath:indexPath];
-//    
-//    HUData *data = [self.topics objectAtIndex:indexPath.row];
-//    
-//    cell.textLabel.text = data.topic;
-//    
-//    return cell;
-//}
-
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -222,8 +196,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    
-//    return self.topics.count;
     return self.categoryTopics.count;
 }
 
@@ -237,29 +209,5 @@
     vc.data = categoryTopic;
     
 }
-
-
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    
-//    // get the data that we're going to pass
-//    HUData *data = self.topics[indexPath.row];
-//    
-//    // declare where your sending the data
-//    // if initializing from storyboard, make sure the storyboard id
-//    // is set in the attributes inspector
-//    HUGameViewController *detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"GameDetailController"];
-//    
-//    // pass the data over
-//    // make sure that the destination view controller has
-//    // a property to hold the data that you're passing
-//    detailViewController.data = data;
-//    
-//    // presents the detail view controller
-//    [self.navigationController pushViewController:detailViewController animated:YES];
-//    
-//    
-//}
-
-
 
 @end

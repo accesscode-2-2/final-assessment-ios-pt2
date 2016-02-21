@@ -32,7 +32,12 @@
 {
     [super viewDidLoad];
     
+    self.view.backgroundColor = [UIColor colorWithRed:.8 green:.8 blue:1 alpha:1];
+    
+    [self shuffled];
+    
     [self setupTimer];
+    
     
 }
 
@@ -41,19 +46,17 @@
     [super viewDidAppear:YES];
     
     [self setUpGestureRecognizers];
-
-    [self shuffled];
-
+    
 }
 
 - (NSString *)playerScore
 {
-
+    
     self.cluesCount = self.correctGuess + self.skippedClues;
-
+    
     return [NSString stringWithFormat: @"%ld/%ld", (long)self.correctGuess, (long)self.cluesCount ];
-;
-
+    ;
+    
 }
 
 - (void)shuffled
@@ -84,26 +87,26 @@
 
 - (void)timerFired:(NSTimer *)timer
 {
-    if (self.timerCount == 0) {
-        [timer invalidate];
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Game Over"
-                                                        message:self.playerScore
-                                                       delegate:self
-                                              cancelButtonTitle:@"Done"
-                                              otherButtonTitles:nil];
-        [alert show];
-        
-        [timer invalidate];
-
-        
-    }
-    
-    // Determine time left on timer
     NSString *convertedToString = [[NSNumber numberWithInteger:self.timerCount]stringValue];
     self.timerLabel.text = convertedToString;
     
     self.timerCount--;
+    
+    if (self.timerCount == 0) {
+        [timer invalidate];
+        
+//        if (visibleViewCntroller.isViewLoaded && visibleViewController.view.window)
+//        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Game Over"
+                                                            message:self.playerScore
+                                                           delegate:self
+                                                  cancelButtonTitle:@"Done"
+                                                  otherButtonTitles:nil];
+            [alert show];
+//        }
+        
+        
+    }
 }
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
@@ -144,7 +147,7 @@
             self.skippedClues++;
             [self shuffled];
             break;
-
+            
         default:
             return;
             

@@ -10,17 +10,4 @@
 
 @implementation HUData
 
-//+ (NSArray *)allTopics
-//{
-//    return @ [
-//       @"Superstars",
-//       @"That's so 90s",
-//       @"Hey Mr. DJ",
-//       @"Icons",
-//       @"Animals Gone Wild"
-//       
-//       ];
-//}
-
-
 @end
