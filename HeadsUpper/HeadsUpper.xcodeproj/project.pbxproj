@@ -9,10 +9,14 @@
 /* Begin PBXBuildFile section */
 		8D89695C1C755D0200D32E8A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D89695B1C755D0200D32E8A /* main.m */; };
 		8D89695F1C755D0200D32E8A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D89695E1C755D0200D32E8A /* AppDelegate.m */; };
-		8D8969621C755D0200D32E8A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8969611C755D0200D32E8A /* ViewController.m */; };
 		8D8969651C755D0200D32E8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D8969631C755D0200D32E8A /* Main.storyboard */; };
 		8D8969671C755D0200D32E8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D8969661C755D0200D32E8A /* Assets.xcassets */; };
 		8D89696A1C755D0200D32E8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D8969681C755D0200D32E8A /* LaunchScreen.storyboard */; };
+		D4C845551C7A0DD800D297ED /* HUCategoryCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C845541C7A0DD800D297ED /* HUCategoryCollectionViewController.m */; };
+		D4C845581C7A0E7100D297ED /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C845571C7A0E7100D297ED /* DataManager.m */; };
+		D4C8455C1C7A136600D297ED /* HUCategoryCellCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C8455B1C7A136600D297ED /* HUCategoryCellCollectionViewCell.m */; };
+		D4C845601C7A1B7600D297ED /* GuessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C8455F1C7A1B7600D297ED /* GuessViewController.m */; };
+		D4C845631C7A2C6000D297ED /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C845621C7A2C6000D297ED /* CoreMotion.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +24,19 @@
 		8D89695B1C755D0200D32E8A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8D89695D1C755D0200D32E8A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8D89695E1C755D0200D32E8A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		8D8969601C755D0200D32E8A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		8D8969611C755D0200D32E8A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		8D8969641C755D0200D32E8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8D8969661C755D0200D32E8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D8969691C755D0200D32E8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8D89696B1C755D0200D32E8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4C845531C7A0DD800D297ED /* HUCategoryCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUCategoryCollectionViewController.h; sourceTree = "<group>"; };
+		D4C845541C7A0DD800D297ED /* HUCategoryCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUCategoryCollectionViewController.m; sourceTree = "<group>"; };
+		D4C845561C7A0E7100D297ED /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		D4C845571C7A0E7100D297ED /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		D4C8455A1C7A136600D297ED /* HUCategoryCellCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUCategoryCellCollectionViewCell.h; sourceTree = "<group>"; };
+		D4C8455B1C7A136600D297ED /* HUCategoryCellCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUCategoryCellCollectionViewCell.m; sourceTree = "<group>"; };
+		D4C8455E1C7A1B7600D297ED /* GuessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuessViewController.h; sourceTree = "<group>"; };
+		D4C8455F1C7A1B7600D297ED /* GuessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuessViewController.m; sourceTree = "<group>"; };
+		D4C845621C7A2C6000D297ED /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4C845631C7A2C6000D297ED /* CoreMotion.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,8 +72,9 @@
 			children = (
 				8D89695D1C755D0200D32E8A /* AppDelegate.h */,
 				8D89695E1C755D0200D32E8A /* AppDelegate.m */,
-				8D8969601C755D0200D32E8A /* ViewController.h */,
-				8D8969611C755D0200D32E8A /* ViewController.m */,
+				D4C845611C7A1B7B00D297ED /* ViewControllers */,
+				D4C8455D1C7A16D300D297ED /* Cell */,
+				D4C845591C7A0E8300D297ED /* HelperFiles */,
 				8D8969631C755D0200D32E8A /* Main.storyboard */,
 				8D8969661C755D0200D32E8A /* Assets.xcassets */,
 				8D8969681C755D0200D32E8A /* LaunchScreen.storyboard */,
@@ -74,9 +87,39 @@
 		8D89695A1C755D0200D32E8A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D4C845621C7A2C6000D297ED /* CoreMotion.framework */,
 				8D89695B1C755D0200D32E8A /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D4C845591C7A0E8300D297ED /* HelperFiles */ = {
+			isa = PBXGroup;
+			children = (
+				D4C845561C7A0E7100D297ED /* DataManager.h */,
+				D4C845571C7A0E7100D297ED /* DataManager.m */,
+			);
+			name = HelperFiles;
+			sourceTree = "<group>";
+		};
+		D4C8455D1C7A16D300D297ED /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D4C8455A1C7A136600D297ED /* HUCategoryCellCollectionViewCell.h */,
+				D4C8455B1C7A136600D297ED /* HUCategoryCellCollectionViewCell.m */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		D4C845611C7A1B7B00D297ED /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D4C845531C7A0DD800D297ED /* HUCategoryCollectionViewController.h */,
+				D4C845541C7A0DD800D297ED /* HUCategoryCollectionViewController.m */,
+				D4C8455E1C7A1B7600D297ED /* GuessViewController.h */,
+				D4C8455F1C7A1B7600D297ED /* GuessViewController.m */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,7 +192,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D8969621C755D0200D32E8A /* ViewController.m in Sources */,
+				D4C845551C7A0DD800D297ED /* HUCategoryCollectionViewController.m in Sources */,
+				D4C8455C1C7A136600D297ED /* HUCategoryCellCollectionViewCell.m in Sources */,
+				D4C845601C7A1B7600D297ED /* GuessViewController.m in Sources */,
+				D4C845581C7A0E7100D297ED /* DataManager.m in Sources */,
 				8D89695F1C755D0200D32E8A /* AppDelegate.m in Sources */,
 				8D89695C1C755D0200D32E8A /* main.m in Sources */,
 			);
@@ -300,6 +346,7 @@
 				8D8969701C755D0200D32E8A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

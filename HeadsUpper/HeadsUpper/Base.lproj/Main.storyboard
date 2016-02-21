@@ -1,25 +1,129 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TT7-rx-FCV">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Category Collection View Controller-->
+        <scene sceneID="jAs-py-VMf">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <collectionViewController id="TT7-rx-FCV" customClass="HUCategoryCollectionViewController" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="fj7-K7-CuT">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="U5d-Ek-Y0b">
+                            <size key="itemSize" width="109" height="200"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="30" minY="30" maxX="30" maxY="30"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="categoryCellID" id="Psw-FQ-hbd" customClass="HUCategoryCellCollectionViewCell">
+                                <rect key="frame" x="30" y="30" width="109" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="109" height="200"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfI-LL-U5h">
+                                            <rect key="frame" x="33" y="89" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="vfI-LL-U5h" firstAttribute="centerY" secondItem="Psw-FQ-hbd" secondAttribute="centerY" id="Dx8-gf-LUe"/>
+                                    <constraint firstItem="vfI-LL-U5h" firstAttribute="centerX" secondItem="Psw-FQ-hbd" secondAttribute="centerX" id="U6h-IX-XxF"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="label" destination="vfI-LL-U5h" id="QwR-Le-gJm"/>
+                                    <segue destination="g1Y-Ja-W9s" kind="show" identifier="guessTermSegue" id="PPj-aQ-MgG"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="TT7-rx-FCV" id="eLn-v9-F2B"/>
+                            <outlet property="delegate" destination="TT7-rx-FCV" id="cSD-sq-geF"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xWJ-1V-OkR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="422" y="388"/>
+        </scene>
+        <!--Guess View Controller-->
+        <scene sceneID="zXJ-2W-lmg">
+            <objects>
+                <viewController id="OSn-so-2kC" customClass="GuessViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EKs-Ic-Nj2"/>
+                        <viewControllerLayoutGuide type="bottom" id="uOI-w5-Tha"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UPf-cw-LuH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Time Left: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2td-Gk-OGr">
+                                <rect key="frame" x="488" y="30" width="92" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guess Term" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cip-l4-G6K">
+                                <rect key="frame" x="254" y="289" width="92" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2td-Gk-OGr" firstAttribute="trailing" secondItem="UPf-cw-LuH" secondAttribute="trailingMargin" id="5qe-DY-H9d"/>
+                            <constraint firstItem="cip-l4-G6K" firstAttribute="centerY" secondItem="UPf-cw-LuH" secondAttribute="centerY" id="B6O-uj-EhO"/>
+                            <constraint firstItem="cip-l4-G6K" firstAttribute="centerX" secondItem="UPf-cw-LuH" secondAttribute="centerX" id="iPf-6S-96W"/>
+                            <constraint firstItem="2td-Gk-OGr" firstAttribute="top" secondItem="EKs-Ic-Nj2" secondAttribute="bottom" constant="10" id="l6a-4b-w6x"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="4d6-BS-XVY">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="xN8-97-LZc">
+                            <connections>
+                                <action selector="backButtonTapped:" destination="OSn-so-2kC" id="Afr-9P-d6f"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="backBarButton" destination="xN8-97-LZc" id="YUi-uk-go4"/>
+                        <outlet property="guessTerm" destination="cip-l4-G6K" id="Yct-EP-vZo"/>
+                        <outlet property="timeLeftLabel" destination="2td-Gk-OGr" id="pnU-Cs-s8d"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oBt-5k-o4J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1966" y="388"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="sDf-A3-4mB">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="g1Y-Ja-W9s" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vwo-C6-A9C">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="OSn-so-2kC" kind="relationship" relationship="rootViewController" id="fn9-Sp-VSa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LJm-OH-p8o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1154" y="388"/>
         </scene>
     </scenes>
 </document>
