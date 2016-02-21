@@ -10,6 +10,7 @@
 
 @interface GameViewController ()
 @property (nonatomic) NSInteger timerCount;
+@property (nonatomic) NSInteger getReadyTimerCount;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *guessItLabel;
 @property (nonatomic) NSInteger pointsTotal;
@@ -19,21 +20,57 @@
 
 @implementation GameViewController
 
+#pragma mark - Lifecycle methods
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = self.selectedCategory [@"title"];
-    [self setupTimer];
     [self setupGestureRecognizer];
-    self.pointsTotal = 0;
-    self.index = 0;
-    
+    [self getReadyTimer];
     NSLog(@"yooooo %@", self.selectedCategory);
-    self.guessItLabel.text = self.selectedCategory[@"subjects"][self.index];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 }
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
+
+#pragma mark - Get Ready
+
+-(void)getReadyTimer{
+    NSTimer *timer =  [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(getReadyTimerFired:) userInfo:nil repeats:YES];
+    self.getReadyTimerCount = 5;
+    [timer fire];
+    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+}
+
+-(void)getReadyTimerFired:(NSTimer *)timer{
+    self.getReadyTimerCount --;
+    NSString *convertedString = [[NSNumber numberWithInteger:self.getReadyTimerCount] stringValue];
+    if (self.getReadyTimerCount < 4) {
+    self.guessItLabel.text = convertedString;
+    }
+    else {
+        self.guessItLabel.text = @"Get Ready!";
+    }
+    if (self.getReadyTimerCount == 0) {
+        [timer invalidate];
+        [self startGame];
+    }
+}
+
+#pragma mark - Start Game
+
+-(void)startGame{
+    self.pointsTotal = 0;
+    self.index = 0;
+    self.guessItLabel.text = self.selectedCategory[@"subjects"][self.index];
+    [self setupTimer];
+}
+
 -(void)setupTimer{
     
     NSTimer *timer =  [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
@@ -57,6 +94,8 @@
     
 }
 
+#pragma mark - Gesture Recognizers
+
 -(void)setupGestureRecognizer{
     
     UISwipeGestureRecognizer *leftSwipeSkip = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
@@ -72,40 +111,44 @@
     
 }
 
+-(void)handleSwipe:(UISwipeGestureRecognizer *)gesture {
+    if (self.timerCount != 0) {
+        self.index ++;
+        switch (gesture.direction) {
+            case UISwipeGestureRecognizerDirectionLeft:
+                
+                [self animateViewWithColor:[UIColor redColor]];
+                self.guessItLabel.text = self.selectedCategory[@"subjects"][self.index];
+                NSLog(@"pointsTotal left %ld", (long)self.pointsTotal);
+                
+                break;
+                
+            case UISwipeGestureRecognizerDirectionRight:
+                [self animateViewWithColor:[UIColor greenColor]];
+                
+                self.guessItLabel.text = self.selectedCategory[@"subjects"][self.index];
+                self.pointsTotal ++;
+                NSLog(@"pointsTotal %ld", (long)self.pointsTotal);
+                break;
+                
+            default:
+                break;
+        }
+    }
+}
+
+#pragma mark - Animations
+
 -(void)animateViewWithColor:(UIColor *)color {
     [UIView animateWithDuration:0 animations:^{
-            self.view.backgroundColor = color;
+        self.view.backgroundColor = color;
     }];
     [UIView animateWithDuration:0.35 animations:^{
         self.view.backgroundColor = [UIColor whiteColor];
     }];
 }
 
--(void)handleSwipe:(UISwipeGestureRecognizer *)gesture {
-    
-    self.index ++;
-    switch (gesture.direction) {
-        case UISwipeGestureRecognizerDirectionLeft:
-
-            [self animateViewWithColor:[UIColor redColor]];
-            self.guessItLabel.text = self.selectedCategory[@"subjects"][self.index];
-            NSLog(@"pointsTotal left %ld", (long)self.pointsTotal);
-
-            break;
-            
-        case UISwipeGestureRecognizerDirectionRight:
-            [self animateViewWithColor:[UIColor greenColor]];
-
-            self.guessItLabel.text = self.selectedCategory[@"subjects"][self.index];
-            self.pointsTotal ++;
-            NSLog(@"pointsTotal %ld", (long)self.pointsTotal);
-            break;
-            
-        default:
-            break;
-    }
-    
-}
+#pragma mark - Alert View
 
 -(void)gamesOverAlertView{
     
@@ -119,9 +162,7 @@
         [alert show];
 
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
+
 
 
 
