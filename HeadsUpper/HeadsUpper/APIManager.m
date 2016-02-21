@@ -8,7 +8,6 @@
 
 #import <AFNetworking/AFNetworking.h>
 #import "APIManager.h"
-#import "Topic.h"
 
 @implementation APIManager
 
@@ -17,8 +16,6 @@
     AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] init];
     
     [manager GET:@"https://heads-up-api.herokuapp.com/" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-       
-        //NSLog(@"%@", responseObject);
         
         NSDictionary *data = responseObject;
         completion(data);

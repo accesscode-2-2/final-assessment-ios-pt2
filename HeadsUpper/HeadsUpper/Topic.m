@@ -15,7 +15,7 @@
     if (self = [super init]){
         
         self.title = json[@"title"];
-        self.answers = json[@"subjects"];
+        self.answers = [json[@"subjects"] mutableCopy];
         
         return self;
         

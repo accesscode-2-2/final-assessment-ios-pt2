@@ -96,6 +96,7 @@ UICollectionViewDelegateFlowLayout
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     GameViewController *gameVC = [storyboard instantiateViewControllerWithIdentifier:@"GameViewController"];
+    gameVC.topic = self.topics[indexPath.row];
     
     [self presentViewController:gameVC animated:YES completion:nil];
     
