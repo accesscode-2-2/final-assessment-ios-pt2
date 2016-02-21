@@ -23,9 +23,11 @@
 
 @implementation GameTimeViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.view.layer.backgroundColor = [UIColor blueColor].CGColor;
+
     
     self.questionCount = 1;
     
@@ -38,8 +40,8 @@
     
 }
 
-- (void)setupTimer
-{
+- (void)setupTimer {
+    
     self.questionCount ++;
     
     self.timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
@@ -55,7 +57,7 @@
     
      NSString *time = [[NSNumber numberWithInteger:self.timerCount]stringValue];
     
-    if (self.timerCount < 1) {
+    if (self.timerCount == 0) {
         
         [self swipeLeft];
     }
@@ -76,12 +78,12 @@
 
 }
 
-- (void)advanceQuestion {
-
-}
-
 // left = wrong
 - (void)swipeLeft {
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        self.view.layer.backgroundColor = [UIColor redColor].CGColor;
+    } completion:nil];
     
     if (self.questionCount != self.category.items.count - 1) {
         
@@ -91,7 +93,7 @@
         self.topicLabel.text = [self.category.items objectAtIndex:self.questionCount];
    
     } else {
-        
+        self.view.layer.backgroundColor = [UIColor blueColor].CGColor;
         [self.timer invalidate];
         NSString *score = [[NSNumber numberWithInteger:self.score]stringValue];
         NSString *numberOfQuestions = [[NSNumber numberWithInteger:self.questionCount]stringValue];
@@ -102,6 +104,10 @@
 
 // right = correct
 - (void)swipeRight {
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        self.view.layer.backgroundColor = [UIColor greenColor].CGColor;
+    } completion:nil];
 
     if (self.questionCount != self.category.items.count - 1) {
     
@@ -113,7 +119,7 @@
     NSLog(@"score: %ld", (long)self.score);
         
     } else {
-        
+    self.view.layer.backgroundColor = [UIColor blueColor].CGColor;
     [self.timer invalidate];
     NSString *score = [[NSNumber numberWithInteger:self.score]stringValue];
     NSString *numberOfQuestions = [[NSNumber numberWithInteger:self.questionCount]stringValue];
