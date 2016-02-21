@@ -9,10 +9,18 @@
 /* Begin PBXBuildFile section */
 		8D89695C1C755D0200D32E8A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D89695B1C755D0200D32E8A /* main.m */; };
 		8D89695F1C755D0200D32E8A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D89695E1C755D0200D32E8A /* AppDelegate.m */; };
-		8D8969621C755D0200D32E8A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8969611C755D0200D32E8A /* ViewController.m */; };
 		8D8969651C755D0200D32E8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D8969631C755D0200D32E8A /* Main.storyboard */; };
 		8D8969671C755D0200D32E8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D8969661C755D0200D32E8A /* Assets.xcassets */; };
 		8D89696A1C755D0200D32E8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D8969681C755D0200D32E8A /* LaunchScreen.storyboard */; };
+		9A8586781C7A0F4500DA7BC0 /* CategoriesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8586771C7A0F4500DA7BC0 /* CategoriesTableViewController.m */; };
+		9A85867B1C7A15B000DA7BC0 /* GameplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A85867A1C7A15B000DA7BC0 /* GameplayViewController.m */; };
+		9A85867E1C7A2E0200DA7BC0 /* GameSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A85867D1C7A2E0200DA7BC0 /* GameSummaryViewController.m */; };
+		9A8586821C7A54A600DA7BC0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8586811C7A54A600DA7BC0 /* AVFoundation.framework */; };
+		9A8586861C7A59EA00DA7BC0 /* RightAnswer.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 9A8586851C7A59EA00DA7BC0 /* RightAnswer.m4a */; };
+		9A8586881C7A5A0600DA7BC0 /* DamnDaniel.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 9A8586871C7A5A0600DA7BC0 /* DamnDaniel.m4a */; };
+		9A85868A1C7A62BA00DA7BC0 /* Boop.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 9A8586891C7A62BA00DA7BC0 /* Boop.m4a */; };
+		9A85868E1C7A64CA00DA7BC0 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A85868C1C7A64CA00DA7BC0 /* CustomTableViewCell.m */; };
+		9A85868F1C7A64CA00DA7BC0 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A85868D1C7A64CA00DA7BC0 /* CustomTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +28,24 @@
 		8D89695B1C755D0200D32E8A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8D89695D1C755D0200D32E8A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8D89695E1C755D0200D32E8A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		8D8969601C755D0200D32E8A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		8D8969611C755D0200D32E8A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		8D8969641C755D0200D32E8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8D8969661C755D0200D32E8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D8969691C755D0200D32E8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8D89696B1C755D0200D32E8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A8586761C7A0F4500DA7BC0 /* CategoriesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoriesTableViewController.h; path = ../CategoriesTableViewController.h; sourceTree = "<group>"; };
+		9A8586771C7A0F4500DA7BC0 /* CategoriesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoriesTableViewController.m; path = ../CategoriesTableViewController.m; sourceTree = "<group>"; };
+		9A8586791C7A15B000DA7BC0 /* GameplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameplayViewController.h; sourceTree = "<group>"; };
+		9A85867A1C7A15B000DA7BC0 /* GameplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameplayViewController.m; sourceTree = "<group>"; };
+		9A85867C1C7A2E0200DA7BC0 /* GameSummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSummaryViewController.h; sourceTree = "<group>"; };
+		9A85867D1C7A2E0200DA7BC0 /* GameSummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSummaryViewController.m; sourceTree = "<group>"; };
+		9A85867F1C7A542800DA7BC0 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		9A8586811C7A54A600DA7BC0 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		9A8586851C7A59EA00DA7BC0 /* RightAnswer.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = RightAnswer.m4a; sourceTree = "<group>"; };
+		9A8586871C7A5A0600DA7BC0 /* DamnDaniel.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = DamnDaniel.m4a; sourceTree = "<group>"; };
+		9A8586891C7A62BA00DA7BC0 /* Boop.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Boop.m4a; sourceTree = "<group>"; };
+		9A85868B1C7A64CA00DA7BC0 /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
+		9A85868C1C7A64CA00DA7BC0 /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
+		9A85868D1C7A64CA00DA7BC0 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A8586821C7A54A600DA7BC0 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +63,8 @@
 		8D89694E1C755D0200D32E8A = {
 			isa = PBXGroup;
 			children = (
+				9A8586811C7A54A600DA7BC0 /* AVFoundation.framework */,
+				9A85867F1C7A542800DA7BC0 /* AVKit.framework */,
 				8D8969591C755D0200D32E8A /* HeadsUpper */,
 				8D8969581C755D0200D32E8A /* Products */,
 			);
@@ -60,9 +83,19 @@
 			children = (
 				8D89695D1C755D0200D32E8A /* AppDelegate.h */,
 				8D89695E1C755D0200D32E8A /* AppDelegate.m */,
-				8D8969601C755D0200D32E8A /* ViewController.h */,
-				8D8969611C755D0200D32E8A /* ViewController.m */,
+				9A8586761C7A0F4500DA7BC0 /* CategoriesTableViewController.h */,
+				9A8586771C7A0F4500DA7BC0 /* CategoriesTableViewController.m */,
+				9A8586791C7A15B000DA7BC0 /* GameplayViewController.h */,
+				9A85867A1C7A15B000DA7BC0 /* GameplayViewController.m */,
+				9A85868B1C7A64CA00DA7BC0 /* CustomTableViewCell.h */,
+				9A85868C1C7A64CA00DA7BC0 /* CustomTableViewCell.m */,
+				9A85868D1C7A64CA00DA7BC0 /* CustomTableViewCell.xib */,
+				9A85867C1C7A2E0200DA7BC0 /* GameSummaryViewController.h */,
+				9A85867D1C7A2E0200DA7BC0 /* GameSummaryViewController.m */,
 				8D8969631C755D0200D32E8A /* Main.storyboard */,
+				9A8586851C7A59EA00DA7BC0 /* RightAnswer.m4a */,
+				9A8586871C7A5A0600DA7BC0 /* DamnDaniel.m4a */,
+				9A8586891C7A62BA00DA7BC0 /* Boop.m4a */,
 				8D8969661C755D0200D32E8A /* Assets.xcassets */,
 				8D8969681C755D0200D32E8A /* LaunchScreen.storyboard */,
 				8D89696B1C755D0200D32E8A /* Info.plist */,
@@ -137,7 +170,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D89696A1C755D0200D32E8A /* LaunchScreen.storyboard in Resources */,
+				9A85868F1C7A64CA00DA7BC0 /* CustomTableViewCell.xib in Resources */,
 				8D8969671C755D0200D32E8A /* Assets.xcassets in Resources */,
+				9A85868A1C7A62BA00DA7BC0 /* Boop.m4a in Resources */,
+				9A8586861C7A59EA00DA7BC0 /* RightAnswer.m4a in Resources */,
+				9A8586881C7A5A0600DA7BC0 /* DamnDaniel.m4a in Resources */,
 				8D8969651C755D0200D32E8A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,9 +186,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D8969621C755D0200D32E8A /* ViewController.m in Sources */,
 				8D89695F1C755D0200D32E8A /* AppDelegate.m in Sources */,
+				9A85867E1C7A2E0200DA7BC0 /* GameSummaryViewController.m in Sources */,
+				9A85868E1C7A64CA00DA7BC0 /* CustomTableViewCell.m in Sources */,
 				8D89695C1C755D0200D32E8A /* main.m in Sources */,
+				9A85867B1C7A15B000DA7BC0 /* GameplayViewController.m in Sources */,
+				9A8586781C7A0F4500DA7BC0 /* CategoriesTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +340,7 @@
 				8D8969701C755D0200D32E8A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
