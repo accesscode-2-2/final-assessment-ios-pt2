@@ -39,7 +39,7 @@
 }
 
 -(void) playWinSound {
-    NSURL *musicFile = [[NSBundle mainBundle] URLForResource:@"stacker button stop"
+    NSURL *musicFile = [[NSBundle mainBundle] URLForResource:@"10_purchase"
                                                withExtension:@"wav"];
     self.backgroundMusic = [[AVAudioPlayer alloc] initWithContentsOfURL:musicFile
                                                                   error:nil];
@@ -119,7 +119,6 @@
             [self generateClue];
             [self playWinSound];
             self.totalClues++;
-            
             break;
         case UISwipeGestureRecognizerDirectionRight:
             self.view.backgroundColor = [UIColor redColor];
