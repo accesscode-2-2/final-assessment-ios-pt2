@@ -7,6 +7,7 @@
 //
 
 #import "GameViewController.h"
+#import "GameView.h"
 
 @interface GameViewController ()
 
@@ -14,24 +15,39 @@
 
 @implementation GameViewController
 
-- (void)viewDidLoad {
+- (void)loadView
+{
+    self.view = [[[NSBundle mainBundle] loadNibNamed:@"GameView" owner:self options:nil] firstObject];
+}
+
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    
+    [((GameView *)self.view).mainMenuButton addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self setViewProperties];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)dismiss
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
-*/
+
+- (void)setViewProperties
+{
+    GameView *view = (GameView *)self.view;
+    
+    view.answerLabel.text = @"Guess This";
+    view.correctPassLabel.hidden = YES;
+    view.countdownLabel.hidden = YES;
+    
+}
 
 @end
