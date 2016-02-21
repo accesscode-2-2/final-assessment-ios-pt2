@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *countdownLabel;
 @property (weak, nonatomic) IBOutlet UIButton *mainMenuButton;
 @property (weak, nonatomic) IBOutlet UILabel *correctPassLabel;
+@property (weak, nonatomic) IBOutlet UILabel *introCountdownLabel;
 
 @end

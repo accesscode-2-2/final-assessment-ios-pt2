@@ -16,11 +16,10 @@
 @property (nonatomic) NSInteger totalCorrect;
 @property (nonatomic) NSInteger totalAnswers;
 
-@property (nonatomic) NSTimer *introTimer;
-@property (nonatomic) NSTimer *gameTimer;
+@property (nonatomic) NSTimer *timer;
+@property (nonatomic) NSInteger timeInSeconds;
 
-@property (nonatomic) NSInteger introTimeInSeconds;
-@property (nonatomic) NSInteger gameTimeInSeconds;
+@property (nonatomic) BOOL introTimerFinished;
 
 @end
 
@@ -40,9 +39,7 @@
     
     [self.gameView.mainMenuButton addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
     
-    self.gameTimeInSeconds = 30;
-    self.introTimeInSeconds = 5;
-    self.gameView.answerLabel.text = [[NSNumber numberWithInteger:self.introTimeInSeconds] stringValue];
+    self.introTimerFinished = NO;
     
     [self setUpGestureRecognizers];
 }
@@ -56,8 +53,10 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    
-    [self startIntroTimer];
+    self.timeInSeconds = 5;
+    self.gameView.introCountdownLabel.text = [[NSNumber numberWithInteger:self.timeInSeconds] stringValue];
+    self.gameView.introCountdownLabel.alpha = 1.0;
+    [self startTimer];
 }
 
 - (void)dismiss
@@ -67,7 +66,8 @@
 
 - (void)setViewProperties
 {
-    //self.gameView.answerLabel.alpha = 0;
+    
+    self.gameView.answerLabel.alpha = 0;
     self.gameView.correctPassLabel.alpha = 0;
     self.gameView.countdownLabel.hidden = YES;
     
@@ -154,73 +154,56 @@
 
 #pragma mark - Timers
 
--(void)startIntroTimer
+-(void)startTimer
 {
-    NSTimer *timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(fireIntroTimer:) userInfo:nil repeats:YES];
+    NSTimer *timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(fireTimer:) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
-    self.introTimer = timer;
+    self.timer = timer;
     
 }
 
--(void)startGameTimer
-{
-    NSTimer *timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(fireIntroTimer:) userInfo:nil repeats:YES];
-    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
-    self.gameTimer = timer;
-    
-}
 
-- (void)fireIntroTimer: (NSTimer *) timer
+- (void)fireTimer: (NSTimer *) timer
 {
-    self.introTimeInSeconds -= 1;
+    self.timeInSeconds -= 1;
+    self.gameView.introCountdownLabel.text = [[NSNumber numberWithInteger:self.timeInSeconds] stringValue];
     
-    if (self.introTimeInSeconds < 0) {
+    if (self.timeInSeconds < 0) {
         
+        self.gameView.introCountdownLabel.alpha = 0.0;
+        self.gameView.answerLabel.alpha = 1.0;
         self.gameView.answerLabel.text = self.topic.answers.firstObject;
         
-        [self resetIntroTimer:timer];
+        [self resetTimer:timer];
         
-        [self startGameTimer];
+        if (!self.introTimerFinished) {
+            
+            [self startTimer];
+            self.introTimerFinished = YES;
+        
+        }else {
+            
+            self.gameView.answerLabel.alpha = 0.0;
+            self.gameView.introCountdownLabel.text = @"Time's up!";
+            self.gameView.introCountdownLabel.alpha = 1.0;
+            
+        }
+        
     }
     
-    NSLog(@"Intro Timer Fired, time in seconds: %ld", (long)self.introTimeInSeconds);
+    NSLog(@"Timer Fired, time in seconds: %ld", (long)self.timeInSeconds);
 }
 
-- (void) fireGameTimer: (NSTimer *) timer
-{
-    self.gameTimeInSeconds -= 1;
-    
-    if (self.gameTimeInSeconds == 0) {
-        
-        self.gameView.answerLabel.text = @"Time's up!";
-        
-        [self resetGameTimer:timer];
-    }
-    NSLog(@"Game Timer Fired, time in seconds: %ld", (long)self.gameTimeInSeconds);
-}
 
-- (void)resetIntroTimer: (NSTimer *)timer
+- (void)resetTimer: (NSTimer *)timer
 {
-    if (self.introTimer){
+    if (self.timer){
         
-        [self.introTimer invalidate];
+        [self.timer invalidate];
         
-        self.introTimeInSeconds = 5;
+        self.timeInSeconds = 30;
         
     }
 }
-
-- (void)resetGameTimer: (NSTimer *)timer
-{
-    
-    if (self.gameTimer) {
-        
-        [self.gameTimer invalidate];
-        
-        self.gameTimeInSeconds = 30;
-    }
-
-}
-
 
 @end

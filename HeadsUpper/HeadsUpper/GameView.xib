@@ -34,15 +34,23 @@
                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                     <state key="normal" title="Main Menu"/>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IntroCountdownLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C41-ky-rud">
+                    <rect key="frame" x="106" y="273" width="389" height="55"/>
+                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="40"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="b0z-01-9Ko" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="2Yg-Jt-AVz"/>
+                <constraint firstItem="C41-ky-rud" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="2m3-Ps-ENh"/>
                 <constraint firstAttribute="bottom" secondItem="lwQ-8P-yTA" secondAttribute="bottom" constant="8" id="6cE-Ke-cy3"/>
                 <constraint firstItem="Fhv-BK-arJ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="MEV-4a-H09"/>
                 <constraint firstItem="BuV-ho-5G7" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Q81-8F-662"/>
                 <constraint firstItem="lwQ-8P-yTA" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="R8h-B7-uuB"/>
                 <constraint firstItem="b0z-01-9Ko" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="SfJ-fk-F1Y"/>
+                <constraint firstItem="C41-ky-rud" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="aue-qr-3Zb"/>
                 <constraint firstItem="BuV-ho-5G7" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="eOH-o8-Kj7"/>
                 <constraint firstItem="Fhv-BK-arJ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="hOb-BS-AU3"/>
             </constraints>
@@ -50,6 +58,7 @@
                 <outlet property="answerLabel" destination="BuV-ho-5G7" id="HRP-e7-Jug"/>
                 <outlet property="correctPassLabel" destination="Fhv-BK-arJ" id="AJj-CC-wLE"/>
                 <outlet property="countdownLabel" destination="lwQ-8P-yTA" id="zGi-cG-dkB"/>
+                <outlet property="introCountdownLabel" destination="C41-ky-rud" id="sbP-xx-h6y"/>
                 <outlet property="mainMenuButton" destination="b0z-01-9Ko" id="EnL-No-6JQ"/>
             </connections>
         </view>
