@@ -36,6 +36,8 @@
     
 //    NSLog(@"%@", [self.holdingArray objectAtIndex:0]);
     NSLog(@"%ld", (long)self.leftSwipeCounter);
+    self.leftSwipeCounter = 0;
+    self.rightSwipeCounter = 0;
 }
 
 //- (void)viewDidDisappear:(BOOL)animated
@@ -72,9 +74,9 @@
 //                                                                preferredStyle:UIAlertControllerStyleAlert];
 //        
 //        [alert ];
-        
+        NSString *score = [NSString stringWithFormat:@"%ld right!", (long)self.rightSwipeCounter];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Game Over"
-                                                        message:@"Your score is: "
+                                                        message:score
                                                        delegate:self
                                               cancelButtonTitle:@"Done"
                                               otherButtonTitles:nil];
@@ -114,10 +116,11 @@
 
 - (void)handleSwipe: (UISwipeGestureRecognizer *)gesture
 {
+    
+//    self.leftSwipeCounter = 0;
     switch (gesture.direction) {
         case UISwipeGestureRecognizerDirectionLeft:
         {
-            self.leftSwipeCounter = 0;
             self.leftSwipeCounter++;
             
             //animate
@@ -142,7 +145,7 @@
             break;
         case UISwipeGestureRecognizerDirectionRight:
         {
-            self.rightSwipeCounter = 0;
+//            self.rightSwipeCounter = 0;
             self.rightSwipeCounter++;
             
             //animate
