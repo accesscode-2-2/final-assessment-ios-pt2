@@ -74,7 +74,8 @@
 //                                                                preferredStyle:UIAlertControllerStyleAlert];
 //        
 //        [alert ];
-        NSString *score = [NSString stringWithFormat:@"%ld right!", (long)self.rightSwipeCounter];
+        NSInteger total = self.rightSwipeCounter + self.leftSwipeCounter;
+        NSString *score = [NSString stringWithFormat:@"%ld/%ld", (long)self.rightSwipeCounter, (long)total];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Game Over"
                                                         message:score
                                                        delegate:self
