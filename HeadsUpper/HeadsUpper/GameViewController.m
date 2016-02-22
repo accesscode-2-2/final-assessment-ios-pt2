@@ -27,7 +27,7 @@
    // self.gameLabel.text = self.category;
     [self randomClue];
     [self timerCountDown];
-    
+
 }
 
 -(void) randomClue
@@ -63,9 +63,28 @@
                               otherButtonTitles:nil];
         
         [alert show];
+        
     }
     
 }
+
+/* found resource here http://stackoverflow.com/questions/25806040/how-to-unwind-segues-from-uialertview-button */
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    //Using buttonIndex you could find whether OK or CANCEL is pressed and perform your popToRootViewController call.
+    //Below on OK press then moving to root VC
+    if (buttonIndex==0)
+    {
+        //OK is pressed...
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
+}
+
+-(void)gestures
+{
+    
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
