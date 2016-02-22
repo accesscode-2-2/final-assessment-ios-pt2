@@ -23,6 +23,7 @@
 		F7735DFC1C7A51DB00B6D2DA /* start-new-game.wav in Resources */ = {isa = PBXBuildFile; fileRef = F7735DFB1C7A51DB00B6D2DA /* start-new-game.wav */; };
 		F7735DFE1C7A51E500B6D2DA /* game-over.wav in Resources */ = {isa = PBXBuildFile; fileRef = F7735DFD1C7A51E500B6D2DA /* game-over.wav */; };
 		F7735E001C7A51FA00B6D2DA /* background-menu.wav in Resources */ = {isa = PBXBuildFile; fileRef = F7735DFF1C7A51FA00B6D2DA /* background-menu.wav */; };
+		F7735E021C7A6E0D00B6D2DA /* 24 Tick Tock Effect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F7735E011C7A6E0D00B6D2DA /* 24 Tick Tock Effect.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		F7735DFB1C7A51DB00B6D2DA /* start-new-game.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "start-new-game.wav"; path = "../../../../../../Documents/Assets/FREE-GAME-ASSET-PACK/Audio/SFX/start-new-game.wav"; sourceTree = "<group>"; };
 		F7735DFD1C7A51E500B6D2DA /* game-over.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "game-over.wav"; path = "../../../../../../Documents/Assets/FREE-GAME-ASSET-PACK/Audio/SFX/game-over.wav"; sourceTree = "<group>"; };
 		F7735DFF1C7A51FA00B6D2DA /* background-menu.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "background-menu.wav"; path = "../../../../../../Documents/Assets/FREE-GAME-ASSET-PACK/Audio/SFX/background-menu.wav"; sourceTree = "<group>"; };
+		F7735E011C7A6E0D00B6D2DA /* 24 Tick Tock Effect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "24 Tick Tock Effect.mp3"; path = "../../../../../../Downloads/24 Tick Tock Effect.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				F7735DFB1C7A51DB00B6D2DA /* start-new-game.wav */,
 				F7735DFD1C7A51E500B6D2DA /* game-over.wav */,
 				F7735DF51C7A518800B6D2DA /* correct-answer.wav */,
+				F7735E011C7A6E0D00B6D2DA /* 24 Tick Tock Effect.mp3 */,
 				8D89695D1C755D0200D32E8A /* AppDelegate.h */,
 				8D89695E1C755D0200D32E8A /* AppDelegate.m */,
 				F7735DE01C7A0E4C00B6D2DA /* Topics.h */,
@@ -199,6 +202,7 @@
 				F7735DFE1C7A51E500B6D2DA /* game-over.wav in Resources */,
 				F7735DF61C7A518800B6D2DA /* correct-answer.wav in Resources */,
 				8D89696A1C755D0200D32E8A /* LaunchScreen.storyboard in Resources */,
+				F7735E021C7A6E0D00B6D2DA /* 24 Tick Tock Effect.mp3 in Resources */,
 				F7735E001C7A51FA00B6D2DA /* background-menu.wav in Resources */,
 				F7735DFC1C7A51DB00B6D2DA /* start-new-game.wav in Resources */,
 				F7735DFA1C7A51BF00B6D2DA /* skip.wav in Resources */,
@@ -364,7 +368,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HeadsUpper/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mikekavouras.HeadsUpper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -377,7 +381,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HeadsUpper/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mikekavouras.HeadsUpper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
