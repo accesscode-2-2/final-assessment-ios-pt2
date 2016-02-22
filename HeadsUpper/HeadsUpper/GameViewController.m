@@ -6,18 +6,22 @@
 //  Copyright © 2016 Michael Kavouras. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "GameViewController.h"
 
 
-@interface ViewController ()
+@interface GameViewController ()
+
+@property (weak, nonatomic) IBOutlet UILabel *gameLabel;
 
 @end
 
-@implementation ViewController
+@implementation GameViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    self.gameLabel.text = @"Aye";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -25,9 +29,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void) gameAPI
-{
-    
-}
+
 
 @end

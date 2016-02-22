@@ -33,12 +33,14 @@
     
     NSDictionary *topicsDictionary = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
     
+    
     self.topics = [NSMutableArray array];
     
    // NSArray *topicsArray = [topicsDictionary objectForKey:@"title"];
     
     for (NSDictionary *tDict in topicsDictionary) {
         GameData *topic = [GameData topicWithTitle:[tDict objectForKey:@"title"]];
+        topic.subject = [tDict objectForKey:@"subjects"];
         [self.topics addObject:topic];
     }
     
@@ -57,8 +59,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.topics.count;
-    
-    
 }
 
 
@@ -75,9 +75,11 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-//    if ([segue.identifier isEqualToString:]) {
-//        <#statements#>
-//    }
+    if ([segue.identifier isEqualToString:@"showGame"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        
+        
+    }
 }
 
 @end

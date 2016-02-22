@@ -11,7 +11,7 @@
 @interface GameData : NSObject
 
 @property (strong, nonatomic) NSString *title;
-
+@property (strong, nonatomic) NSString *subject;
 
 - (id)initWithTitle:(NSString *)title;
 + (id) topicWithTitle:(NSString *)title;
