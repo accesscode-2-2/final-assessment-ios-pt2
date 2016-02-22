@@ -121,7 +121,19 @@
             self.leftSwipeCounter++;
             
             //animate
-            self.view.backgroundColor = [UIColor redColor];
+            [UIView animateWithDuration:.5 animations:^{
+                self.view.backgroundColor = [UIColor redColor];
+            }];
+            
+            [UIView commitAnimations];
+            
+            [UIView animateWithDuration:.5 animations:^{
+                self.view.backgroundColor = [UIColor whiteColor];
+            }];
+            
+            [UIView commitAnimations];
+
+//            self.view.backgroundColor = [UIColor redColor];
             
             NSString *random =[self.holdingArray objectAtIndex: arc4random() % [self.holdingArray count]];
             self.gameLabel.text = random;
@@ -134,7 +146,17 @@
             self.rightSwipeCounter++;
             
             //animate
-            self.view.backgroundColor = [UIColor greenColor];
+            [UIView animateWithDuration:.5 animations:^{
+                self.view.backgroundColor = [UIColor greenColor];
+            }];
+            
+            [UIView commitAnimations];
+            
+            [UIView animateWithDuration:.5 animations:^{
+                self.view.backgroundColor = [UIColor whiteColor];
+            }];
+            
+            [UIView commitAnimations];
             //get value of random index from array
             NSString *random =[self.holdingArray objectAtIndex: arc4random() % [self.holdingArray count]];
             self.gameLabel.text = random;
