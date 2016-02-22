@@ -1,9 +1,9 @@
 //
 //  AppDelegate.m
-//  HeadsUpper
+//  Part-Two
 //
-//  Created by Michael Kavouras on 2/17/16.
-//  Copyright © 2016 Michael Kavouras. All rights reserved.
+//  Created by Fatima Zenine Villanueva on 2/20/16.
+//  Copyright © 2016 Kaira. All rights reserved.
 //
 
 #import "AppDelegate.h"
