@@ -25,7 +25,7 @@
 @property (nonatomic) NSTimer *startGameTimer;
 @property (nonatomic) BOOL inAnswerState;
 @property (nonatomic) CMMotionManager *motionManager;
-
+@property (nonatomic) AVCaptureVideoPreviewLayer *aVCaptureVideoPreviewLayer;
 @end
 
 @implementation GameViewController
@@ -65,12 +65,34 @@
     [super viewDidDisappear:animated];
     [_readyTimer invalidate];
     [_startGameTimer invalidate];
+    
 }
 
--(void)viewDidLayoutSubviews
-{
-    [super viewDidLayoutSubviews];
+- (void) willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    
+    float rotation;
+    
+    if (toInterfaceOrientation==UIInterfaceOrientationPortrait) {
+        rotation = 0;
+    } else
+        if (toInterfaceOrientation==UIInterfaceOrientationLandscapeLeft) {
+            rotation = M_PI/2;
+        } else
+            if (toInterfaceOrientation==UIInterfaceOrientationLandscapeRight) {
+                rotation = -M_PI/2;
+            }
+    
+    [UIView animateWithDuration:duration animations:^{
+        _cameraView.transform = CGAffineTransformMakeRotation(rotation);
+        _aVCaptureVideoPreviewLayer.bounds = self.view.bounds;
+        _aVCaptureVideoPreviewLayer.frame = self.view.frame;
+        
+ 
+        _cameraView.bounds = self.view.bounds;
+    }];
 }
+
+
 
 -(void)startLiveVideo{
     if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera]) {
@@ -83,10 +105,10 @@
         AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:newCamera error:&error];
         [session addInput:input];
         
-        AVCaptureVideoPreviewLayer *newCaptureVideoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:session];
-        newCaptureVideoPreviewLayer.frame = self.view.bounds;
+        _aVCaptureVideoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:session];
+        _aVCaptureVideoPreviewLayer.frame = self.view.bounds;
     
-        [self.cameraView.layer addSublayer:newCaptureVideoPreviewLayer];
+        [self.cameraView.layer addSublayer:_aVCaptureVideoPreviewLayer];
         self.cameraView.alpha = 0.4;
         [self.view addSubview:self.cameraView];
         
@@ -96,6 +118,7 @@
         
     }
 }
+
 
 - (AVCaptureDevice *) cameraWithPosition:(AVCaptureDevicePosition) position
 {
