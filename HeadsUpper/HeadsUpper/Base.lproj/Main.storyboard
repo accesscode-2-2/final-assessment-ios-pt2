@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Titles Table View Controller-->
@@ -50,26 +51,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MGo-xd-99y">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MGo-xd-99y">
                                 <rect key="frame" x="20" y="245" width="560" height="110"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="560" id="Qaf-Ei-Zuc"/>
-                                    <constraint firstAttribute="width" secondItem="MGo-xd-99y" secondAttribute="height" multiplier="56:11" id="eIf-aF-oof"/>
-                                    <constraint firstAttribute="height" constant="110" id="y3g-ck-Fgb"/>
+                                    <constraint firstAttribute="width" secondItem="MGo-xd-99y" secondAttribute="height" multiplier="56:11" id="AFa-a6-Etx"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="50"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efR-oQ-plp">
+                                <rect key="frame" x="559" y="73" width="21" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="MGo-xd-99y" firstAttribute="centerX" secondItem="piw-BC-0qb" secondAttribute="centerX" id="CSP-lO-wys"/>
-                            <constraint firstItem="MGo-xd-99y" firstAttribute="centerY" secondItem="piw-BC-0qb" secondAttribute="centerY" id="Dc5-De-ep8"/>
+                            <constraint firstItem="efR-oQ-plp" firstAttribute="top" secondItem="Dai-p5-hBF" secondAttribute="bottom" constant="9" id="04f-LS-iw4"/>
+                            <constraint firstItem="efR-oQ-plp" firstAttribute="trailing" secondItem="piw-BC-0qb" secondAttribute="trailingMargin" id="DsR-11-d0j"/>
+                            <constraint firstItem="MGo-xd-99y" firstAttribute="centerY" secondItem="piw-BC-0qb" secondAttribute="centerY" id="PM6-kK-EtH"/>
+                            <constraint firstItem="MGo-xd-99y" firstAttribute="leading" secondItem="piw-BC-0qb" secondAttribute="leadingMargin" id="lbC-iT-dbR"/>
+                            <constraint firstItem="MGo-xd-99y" firstAttribute="trailing" secondItem="piw-BC-0qb" secondAttribute="trailingMargin" id="pNn-Xq-gNw"/>
+                            <constraint firstItem="MGo-xd-99y" firstAttribute="centerX" secondItem="piw-BC-0qb" secondAttribute="centerX" id="sfH-Vp-2kK"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="gameLabel" destination="MGo-xd-99y" id="1IJ-kQ-hlN"/>
+                        <outlet property="timerLabel" destination="efR-oQ-plp" id="Ryx-au-Gav"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z9C-LM-lQK" userLabel="First Responder" sceneMemberID="firstResponder"/>
