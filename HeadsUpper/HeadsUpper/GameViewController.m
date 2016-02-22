@@ -13,7 +13,10 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *gameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
+@property (nonatomic) NSString *message;
 @property (nonatomic) NSUInteger count;
+@property (nonatomic) NSUInteger totalScore;
+
 @property (nonatomic) NSTimer *countDown;
 
 @end
@@ -22,12 +25,56 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
     
-   // self.gameLabel.text = self.category;
     [self randomClue];
     [self timerCountDown];
 
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self gestures];
+}
+
+- (void)gestures
+{
+    UISwipeGestureRecognizer *left = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipManager:)];
+    left.direction = UISwipeGestureRecognizerDirectionLeft;
+    
+    UISwipeGestureRecognizer *right = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipManager:)];
+    right.direction = UISwipeGestureRecognizerDirectionRight;
+    
+    
+    [self.view addGestureRecognizer:left];
+    [self.view addGestureRecognizer:right];
+    
+}
+
+- (void)swipManager:(UISwipeGestureRecognizer *)gesture
+{
+    switch (gesture.direction) {
+        case UISwipeGestureRecognizerDirectionRight:
+            self.view.backgroundColor = [UIColor redColor];
+            self.correct++;
+            [self randomClue];
+            break;
+        case UISwipeGestureRecognizerDirectionLeft:
+            self.view.backgroundColor = [UIColor greenColor];
+            self.incorrect++;
+            [self randomClue];
+            break;
+            
+            
+        default:
+            return;
+            
+    }
+}
+
+-(NSString *)scoreKeeper
+{
+    self.totalScore = self.correct + self.incorrect;
+    return self.message = [NSString stringWithFormat:@"%i/%i", self.correct, self.incorrect];
 }
 
 -(void) randomClue
@@ -44,7 +91,11 @@
 -(void) timerCountDown
 {
     self.count = 20;
-    self.countDown = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(startCounting) userInfo:nil repeats:YES];
+    self.countDown = [NSTimer scheduledTimerWithTimeInterval:1.0
+                                                      target:self
+                                                    selector:@selector(startCounting)
+                                                    userInfo:nil
+                                                     repeats:YES];
 }
 
 -(void)startCounting
@@ -57,7 +108,7 @@
         
         UIAlertView *alert = [[UIAlertView alloc]
                               initWithTitle:@"Game Over"
-                              message:nil
+                              message:self.scoreKeeper
                               delegate:self
                               cancelButtonTitle:@"Done"
                               otherButtonTitles:nil];
@@ -80,15 +131,6 @@
     }
 }
 
--(void)gestures
-{
-    
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 
 

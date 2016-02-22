@@ -13,6 +13,5 @@
 
 @property (strong, nonatomic) NSMutableArray *topics;
 @property (strong, nonatomic) NSMutableArray *subjects;
-@property (strong, nonatomic) NSMutableDictionary *allStuff;
 
 @end

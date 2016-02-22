@@ -13,7 +13,10 @@
 
 @property (strong, nonatomic)NSString *category;
 @property (strong, nonatomic)GameData *data;
+@property (nonatomic) NSUInteger correct;
+@property (nonatomic) NSUInteger incorrect;
 
+-(void) randomClue;
 
 @end
 
