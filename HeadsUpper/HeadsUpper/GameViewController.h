@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GameData.h"
 
 @interface GameViewController : UIViewController
 
-//@property (strong, nonatomic) NSArray *
+@property (strong, nonatomic)NSString *category;
+@property (strong, nonatomic)GameData *data;
+
+
 @end
 

@@ -21,7 +21,19 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    self.gameLabel.text = @"Aye";
+   // self.gameLabel.text = self.category;
+    [self randomClue];
+}
+
+-(void) randomClue
+{
+    NSUInteger suffleSubjects = arc4random_uniform(self.data.subject.count);
+    
+    NSString *shuffledSubject = [self.data.subject objectAtIndex: suffleSubjects];
+    
+    self.gameLabel.text = shuffledSubject;
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {

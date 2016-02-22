@@ -8,6 +8,7 @@
 
 #import "TitlesTableViewController.h"
 #import "GameData.h"
+#import "GameViewController.h"
 
 
 @interface TitlesTableViewController ()
@@ -78,7 +79,12 @@
     if ([segue.identifier isEqualToString:@"showGame"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         
+        GameData *topicData = self.topics[indexPath.row];
         
+        GameViewController *viewController = segue.destinationViewController;
+        
+        viewController.data = topicData;
+        viewController.category = topicData.title;
     }
 }
 
