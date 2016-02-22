@@ -167,7 +167,6 @@ UIAlertViewDelegate
                               cancelButtonTitle:@"Play Again"
                               otherButtonTitles:@"Close", nil];
     [alertView show];
-    
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -181,7 +180,6 @@ UIAlertViewDelegate
     }
     if (buttonIndex == 1)
     {
-        
     }
 }
 

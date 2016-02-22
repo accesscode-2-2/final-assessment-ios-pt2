@@ -15,7 +15,6 @@
 		A333B62DFE9DACB9FAEC6CEA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E05921BCE5C8252E579E154B /* libPods.a */; };
 		BF2E42A61C7A0EDE0026DBB1 /* HUTopicsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2E42A51C7A0EDE0026DBB1 /* HUTopicsTableViewController.m */; };
 		BF2E42AC1C7A0F880026DBB1 /* HUGameScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2E42AB1C7A0F880026DBB1 /* HUGameScreenViewController.m */; };
-		BF2E42B21C7A105B0026DBB1 /* HUTopicsList.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2E42B11C7A105B0026DBB1 /* HUTopicsList.m */; };
 		BF2E42BA1C7A19670026DBB1 /* HUAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2E42B91C7A19670026DBB1 /* HUAPIManager.m */; };
 		BF2E42BD1C7A66E80026DBB1 /* IntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2E42BC1C7A66E80026DBB1 /* IntroViewController.m */; };
 /* End PBXBuildFile section */
@@ -33,8 +32,6 @@
 		BF2E42A51C7A0EDE0026DBB1 /* HUTopicsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUTopicsTableViewController.m; sourceTree = "<group>"; };
 		BF2E42AA1C7A0F880026DBB1 /* HUGameScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUGameScreenViewController.h; sourceTree = "<group>"; };
 		BF2E42AB1C7A0F880026DBB1 /* HUGameScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUGameScreenViewController.m; sourceTree = "<group>"; };
-		BF2E42B01C7A105B0026DBB1 /* HUTopicsList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUTopicsList.h; sourceTree = "<group>"; };
-		BF2E42B11C7A105B0026DBB1 /* HUTopicsList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUTopicsList.m; sourceTree = "<group>"; };
 		BF2E42B81C7A19670026DBB1 /* HUAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUAPIManager.h; sourceTree = "<group>"; };
 		BF2E42B91C7A19670026DBB1 /* HUAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUAPIManager.m; sourceTree = "<group>"; };
 		BF2E42BB1C7A66E80026DBB1 /* IntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroViewController.h; sourceTree = "<group>"; };
@@ -131,8 +128,6 @@
 		BF2E42AF1C7A100C0026DBB1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BF2E42B01C7A105B0026DBB1 /* HUTopicsList.h */,
-				BF2E42B11C7A105B0026DBB1 /* HUTopicsList.m */,
 				BF2E42B81C7A19670026DBB1 /* HUAPIManager.h */,
 				BF2E42B91C7A19670026DBB1 /* HUAPIManager.m */,
 			);
@@ -254,7 +249,6 @@
 			files = (
 				8D89695F1C755D0200D32E8A /* AppDelegate.m in Sources */,
 				BF2E42BA1C7A19670026DBB1 /* HUAPIManager.m in Sources */,
-				BF2E42B21C7A105B0026DBB1 /* HUTopicsList.m in Sources */,
 				BF2E42AC1C7A0F880026DBB1 /* HUGameScreenViewController.m in Sources */,
 				BF2E42A61C7A0EDE0026DBB1 /* HUTopicsTableViewController.m in Sources */,
 				8D89695C1C755D0200D32E8A /* main.m in Sources */,

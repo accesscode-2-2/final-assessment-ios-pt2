@@ -32,8 +32,8 @@
 //                 NSLog(@"%@", dict);
 //             }
              
-             // HOLY SHIT IS THIS INEFFICIENT
-             // FUUUUUUUCK
+             // not sure what I was doing here
+
 //             NSDictionary *superStarsDict = [responseObject objectAtIndex:0];
 //             NSString *superStarTitle = [superStarsDict objectForKey:@"title"];
 //             
