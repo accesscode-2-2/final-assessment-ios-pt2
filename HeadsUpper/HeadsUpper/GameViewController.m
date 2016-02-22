@@ -44,7 +44,17 @@
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.timeLabel.hidden = YES;
-
+    self.view.layer.cornerRadius = 30;
+    self.view.layer.masksToBounds = YES;
+    self.view.layer.borderColor = [UIColor blueColor].CGColor;
+    self.view.layer.borderWidth = 10;
+    
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
+                                                  forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
+    self.navigationController.navigationBar.translucent = YES;
+    self.navigationController.view.backgroundColor = [UIColor clearColor];
+    self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,6 +65,11 @@
     [super viewDidDisappear:animated];
     [_readyTimer invalidate];
     [_startGameTimer invalidate];
+}
+
+-(void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
 }
 
 -(void)startLiveVideo{
@@ -190,7 +205,13 @@
 -(void)correctAnswer{
     [self animateViewWithColor:[UIColor greenColor]];
     self.guessItLabel.text = self.subjectsArray[[self generateRandomNumber ]];
+    if (self.pointsTotal == self.subjectsArray.count) {
+        [self startGameTimer];
+        [self gamesOverAlertView];
+    }
+    else {
     self.pointsTotal ++;
+    }
 }
 
 -(void)skipIt{
@@ -246,7 +267,9 @@
     if ([self.mutableArrayContainingNumbers containsObject: [NSNumber numberWithInteger:randomNumber]]) {
         return [self generateRandomNumber];
     } else {
+        if (self.generatedNumbers.count < self.subjectsArray.count) {
         [self.mutableArrayContainingNumbers addObject: [NSNumber numberWithInteger:randomNumber]];
+        }
     }
     return randomNumber;
 }
@@ -298,4 +321,7 @@
         }
     }
 }
+
+
+
 @end
