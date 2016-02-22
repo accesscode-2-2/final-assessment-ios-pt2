@@ -37,7 +37,6 @@
     self.navigationItem.title = self.selectedCategory [@"title"];
     [self setupGestureRecognizer];
     [self trackAccelerometer];
-    [self getReadyTimer];
     [self startLiveVideo];
 }
 
@@ -59,6 +58,11 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self getReadyTimer];
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
@@ -84,11 +88,10 @@
     
     [UIView animateWithDuration:duration animations:^{
         _cameraView.transform = CGAffineTransformMakeRotation(rotation);
+        _cameraView.bounds = self.view.bounds;
+
         _aVCaptureVideoPreviewLayer.bounds = self.view.bounds;
         _aVCaptureVideoPreviewLayer.frame = self.view.frame;
-        
- 
-        _cameraView.bounds = self.view.bounds;
     }];
 }
 
