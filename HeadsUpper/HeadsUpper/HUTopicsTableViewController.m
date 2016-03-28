@@ -51,15 +51,16 @@ UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.subjects.count;
+//    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HUCellIdentifier" forIndexPath:indexPath];
     
-    NSDictionary *titlesAndSubjectsDict = self.subjects[indexPath.row];
-    NSString *title = titlesAndSubjectsDict[@"title"];
-    cell.textLabel.text = title;
+//    NSDictionary *titlesAndSubjectsDict = self.subjects[indexPath.row];
+//    NSString *title = titlesAndSubjectsDict[@"title"];
+//    cell.textLabel.text = title;
     
     return cell;
 }
